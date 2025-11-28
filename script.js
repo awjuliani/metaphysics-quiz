@@ -97,10 +97,21 @@ function renderQuestion() {
         backBtn.classList.remove('hidden');
     }
 
+    // Initialize user answers for this dimension if not exists
+    if (!userAnswers[dimension.id]) {
+        userAnswers[dimension.id] = {};
+        dimension.options.forEach(opt => {
+            userAnswers[dimension.id][opt.value] = 'neutral';
+        });
+    }
+
+    const currentAnswers = userAnswers[dimension.id];
+
     // Reset Next Button
     nextBtn.classList.add('hidden');
-    // Check if we already have answers to show next button
-    if (currentAnswer.most && currentAnswer.least) {
+    // Check if we have at least one non-neutral answer
+    const hasNonNeutral = Object.values(currentAnswers).some(val => val !== 'neutral');
+    if (hasNonNeutral) {
         nextBtn.classList.remove('hidden');
     }
 
@@ -117,28 +128,27 @@ function renderQuestion() {
     dimension.options.forEach(option => {
         const card = document.createElement('div');
         card.className = 'option-card';
-        if (currentAnswer.most && currentAnswer.least && option.value !== currentAnswer.most && option.value !== currentAnswer.least) {
-            card.classList.add('disabled');
-        }
 
-        const isMost = currentAnswer.most === option.value;
-        const isLeast = currentAnswer.least === option.value;
+        const userState = currentAnswers[option.value]; // 'agree', 'neutral', 'disagree'
 
         card.innerHTML = `
             <div class="option-text">${option.label}</div>
             <div class="option-controls">
-                <div class="select-group">
-                    <span class="select-label">Most</span>
-                    <button class="select-btn most ${isMost ? 'selected' : ''}" onclick="handleSelection('${dimension.id}', '${option.value}', 'most')">
-                        ${isMost ? '✓' : '+'}
-                    </button>
-                </div>
-                <div class="select-group">
-                    <span class="select-label">Least</span>
-                    <button class="select-btn least ${isLeast ? 'selected' : ''}" onclick="handleSelection('${dimension.id}', '${option.value}', 'least')">
-                        ${isLeast ? '✕' : '-'}
-                    </button>
-                </div>
+                <button class="select-btn agree ${userState === 'agree' ? 'selected' : ''}" 
+                        onclick="handleSelection('${dimension.id}', '${option.value}', 'agree')"
+                        data-tooltip="Agree">
+                    ✓
+                </button>
+                <button class="select-btn neutral ${userState === 'neutral' ? 'selected' : ''}" 
+                        onclick="handleSelection('${dimension.id}', '${option.value}', 'neutral')"
+                        data-tooltip="Neutral">
+                    -
+                </button>
+                <button class="select-btn disagree ${userState === 'disagree' ? 'selected' : ''}" 
+                        onclick="handleSelection('${dimension.id}', '${option.value}', 'disagree')"
+                        data-tooltip="Disagree">
+                    ✕
+                </button>
             </div>
         `;
         optionsContainer.appendChild(card);
@@ -146,25 +156,16 @@ function renderQuestion() {
 }
 
 window.handleSelection = function (dimensionId, value, type) {
-    let current = userAnswers[dimensionId] || { most: null, least: null };
+    // type is 'agree', 'neutral', or 'disagree'
+    if (!userAnswers[dimensionId]) userAnswers[dimensionId] = {};
 
-    if (type === 'most') {
-        if (current.most === value) {
-            current.most = null; // Deselect
-        } else {
-            current.most = value;
-            if (current.least === value) current.least = null; // Clear conflict
-        }
-    } else if (type === 'least') {
-        if (current.least === value) {
-            current.least = null; // Deselect
-        } else {
-            current.least = value;
-            if (current.most === value) current.most = null; // Clear conflict
-        }
-    }
+    // If clicking the already selected one, do we toggle to neutral? 
+    // The prompt implies explicit choices. Let's just set it. 
+    // If they click "Agree" and it's already "Agree", maybe nothing happens or toggle off?
+    // Let's stick to simple: clicking sets the state. 
+    // If they want neutral, they click neutral.
 
-    userAnswers[dimensionId] = current;
+    userAnswers[dimensionId][value] = type;
     renderQuestion();
 };
 
@@ -179,27 +180,57 @@ function calculateResult() {
         let breakdown = [];
 
         dimensions.forEach(dim => {
-            const userChoice = userAnswers[dim.id];
-            const sysVal = system.profile[dim.id];
+            const userChoices = userAnswers[dim.id]; // { optionVal: 'agree'|'neutral'|'disagree' }
+            const sysVal = system.profile[dim.id]; // The option value the system holds
 
-            let points = 0;
-            let matchType = 'neutral'; // neutral, most, least
+            // We need to iterate over ALL options in this dimension to calculate score
+            dim.options.forEach(option => {
+                const userChoice = userChoices[option.value];
+                const isSystemView = (option.value === sysVal);
 
-            if (sysVal === userChoice.most) {
-                points = 1;
-                matchType = 'most';
-            } else if (sysVal === userChoice.least) {
-                points = -1;
-                matchType = 'least';
-            }
+                let points = 0;
+                let matchType = 'neutral';
 
-            score += points;
-            breakdown.push({
-                dim: dim.label,
-                matchType: matchType,
-                userMost: userChoice.most,
-                userLeast: userChoice.least,
-                sys: sysVal
+                if (isSystemView) {
+                    // This is the system's view
+                    if (userChoice === 'agree') {
+                        points = 1;
+                        matchType = 'agree-match';
+                    } else if (userChoice === 'disagree') {
+                        points = -1;
+                        matchType = 'disagree-mismatch';
+                    }
+                } else {
+                    // This is NOT the system's view
+                    if (userChoice === 'agree') {
+                        points = -1;
+                        matchType = 'agree-mismatch';
+                    } else if (userChoice === 'disagree') {
+                        points = 0.5;
+                        matchType = 'disagree-match';
+                    }
+                }
+
+                score += points;
+
+                // Only add to breakdown if it's significant (non-neutral user choice OR it's the system's view)
+                // Actually, let's just show the System's View and how the user reacted to it, 
+                // plus any major disagreements where the user agreed with something else.
+
+                // For the breakdown display, we probably want to simplify. 
+                // The old breakdown showed one line per dimension.
+                // Now we have multiple interactions per dimension.
+
+                // Let's collect the "System View" interaction specifically for the summary
+                if (isSystemView) {
+                    breakdown.push({
+                        dim: dim.label,
+                        sysVal: sysVal,
+                        userChoice: userChoice,
+                        points: points,
+                        optionLabel: option.label
+                    });
+                }
             });
         });
 
@@ -245,23 +276,19 @@ function toggleResultView(viewType) {
     data.breakdown.forEach(item => {
         const li = document.createElement('li');
 
-        // Find the full dimension and option objects to get labels and descriptions
-        const dimObj = dimensions.find(d => d.label === item.dim);
-        const sysOption = dimObj.options.find(o => o.value === item.sys);
-
-        // Determine styles and text based on match type
+        // Determine styles and text based on user choice regarding the System's view
         let matchClass = 'match-neutral';
         let badgeHtml = '<span class="match-badge neutral">Neutral</span>';
-        let alignmentText = `You chose <strong>${item.userMost}</strong> (Most) and <strong>${item.userLeast}</strong> (Least).`;
+        let alignmentText = `You were neutral about this.`;
 
-        if (item.matchType === 'most') {
-            matchClass = 'match-most';
-            badgeHtml = '<span class="match-badge success">Match (+1)</span>';
-            alignmentText = `✅ <strong>You agree with this view most.</strong>`;
-        } else if (item.matchType === 'least') {
-            matchClass = 'match-least';
-            badgeHtml = '<span class="match-badge danger">Incompatible (-1)</span>';
-            alignmentText = `❌ <strong>You agree with this view least.</strong>`;
+        if (item.userChoice === 'agree') {
+            matchClass = 'match-most'; // Reusing green style
+            badgeHtml = '<span class="match-badge success">Agreed (+1)</span>';
+            alignmentText = `✅ <strong>You agreed with the system's view.</strong>`;
+        } else if (item.userChoice === 'disagree') {
+            matchClass = 'match-least'; // Reusing red style
+            badgeHtml = '<span class="match-badge danger">Disagreed (-1)</span>';
+            alignmentText = `❌ <strong>You disagreed with the system's view.</strong>`;
         }
 
         li.className = matchClass;
@@ -271,10 +298,10 @@ function toggleResultView(viewType) {
                 <div class="system-stance">
                     <span class="label">System View</span>
                     <div class="value">
-                        ${item.sys}
+                        ${item.sysVal}
                         ${badgeHtml}
                     </div>
-                    <div class="description">"${sysOption ? sysOption.label : ''}"</div>
+                    <div class="description">"${item.optionLabel}"</div>
                 </div>
                 <div class="user-alignment">
                     ${alignmentText}
