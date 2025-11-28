@@ -1,0 +1,240 @@
+[
+    {
+        "name": "Western Theism (Classical)",
+        "description": "This is the dominant worldview of the Abrahamic traditions (Christianity, Judaism, Islam) as synthesized with Greek philosophy. It posits a fundamental dualism between the Creator and the Created. God is the ultimate, personal, and transcendent reality who created the universe ex nihilo (out of nothing) and sustains it through His will. The universe is not God, but a distinct artifact of His love and reason.",
+        "wiki": "https://en.wikipedia.org/wiki/Classical_theism",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Static",
+            "agency": "Teleological",
+            "realism": "Critical Realism",
+            "personality": "Personal",
+            "relation": "Transcendent"
+        }
+    },
+    {
+        "name": "Spinozism",
+        "description": "Based on the philosophy of Baruch Spinoza, this system argues that God and Nature are one and the same (Deus sive Natura). There is only one infinite substance, and everything we see—mind and matter—are simply attributes or modes of this single reality. It is a vision of profound unity where everything follows from the necessity of the divine nature, leaving no room for chance or miracles.",
+        "wiki": "https://en.wikipedia.org/wiki/Spinozism",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Strict Monism",
+            "dynamics": "Static",
+            "agency": "Mechanistic",
+            "realism": "Critical Realism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Stoicism",
+        "description": "An ancient philosophy that views the universe as a living, rational organism. The cosmos is permeated by the Logos (Divine Reason), which orders all things for the best. For the Stoic, wisdom consists in aligning one's own will with this cosmic order, accepting what cannot be changed, and cultivating inner virtue. It is a materialist but deeply spiritual worldview.",
+        "wiki": "https://en.wikipedia.org/wiki/Stoicism",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "agency": "Teleological",
+            "realism": "Direct Realism",
+            "personality": "Trans-personal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Scientific Materialism",
+        "description": "The prevailing worldview of modern science, which posits that physical matter and energy are the fundamental reality. Consciousness and culture are emergent properties of complex neural interactions. The universe is governed by impersonal physical laws without inherent purpose or design, evolving from the Big Bang through natural selection and entropy.",
+        "wiki": "https://en.wikipedia.org/wiki/Materialism",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Mechanistic",
+            "realism": "Critical Realism",
+            "personality": "Impersonal",
+            "relation": "Naturalist"
+        }
+    },
+    {
+        "name": "Advaita Vedanta",
+        "description": "The crown jewel of Hindu philosophy, Advaita means \"Not-Two\". It teaches that the ultimate reality (Brahman) is pure, undifferentiated Consciousness. The world of multiplicity and separate selves is Maya—an illusion or cosmic play. Liberation comes from realizing that your true Self (Atman) is identical to Brahman.",
+        "wiki": "https://en.wikipedia.org/wiki/Advaita_Vedanta",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Radical Non-Dualism",
+            "dynamics": "Static",
+            "agency": "Trans-personal",
+            "realism": "Illusionism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Kashmir Shaivism",
+        "description": "A Tantric non-dual tradition that views reality as the dynamic vibration (Spanda) of a single, supreme Consciousness (Shiva). Unlike Advaita, it regards the world not as an illusion, but as the real and creative expression of the Divine. The universe is the \"dance\" or \"play\" (Lila) of God, meant to be experienced and enjoyed.",
+        "wiki": "https://en.wikipedia.org/wiki/Kashmir_Shaivism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "agency": "Playful",
+            "realism": "Critical Realism",
+            "personality": "Trans-personal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Yogacara",
+        "description": "Also known as the \"Mind-Only\" or \"Consciousness-Only\" school of Buddhism. It asserts that the external world we perceive is actually a projection of our own consciousness, similar to a dream. There is no independent material reality; there is only the stream of momentary perceptions arising from the storehouse consciousness (Alaya-vijnana).",
+        "wiki": "https://en.wikipedia.org/wiki/Yogacara",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "agency": "Mechanistic",
+            "realism": "Illusionism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Process Philosophy",
+        "description": "Developed by A.N. Whitehead, this system views reality not as static \"things\" but as a flow of \"actual occasions\" or events. It is a philosophy of becoming rather than being. God is not an unmoved mover, but the \"poet of the world\" who participates in the unfolding process, luring the universe toward novelty and harmony.",
+        "wiki": "https://en.wikipedia.org/wiki/Process_philosophy",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Teleological",
+            "realism": "Critical Realism",
+            "personality": "Trans-personal",
+            "relation": "Panentheism"
+        }
+    },
+    {
+        "name": "Platonism",
+        "description": "Founded by Plato, this philosophy posits that the changing physical world is merely a shadow of a higher, eternal reality: the World of Forms. These abstract Forms (like Beauty, Justice, and the Good) are the true objects of knowledge. The soul's goal is to transcend the material realm and ascend to the contemplation of these divine perfections.",
+        "wiki": "https://en.wikipedia.org/wiki/Platonism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Pluralism",
+            "dynamics": "Static",
+            "agency": "Teleological",
+            "realism": "Skeptical Realism",
+            "personality": "Impersonal",
+            "relation": "Transcendent"
+        }
+    },
+    {
+        "name": "Taoism",
+        "description": "Rooted in the Tao Te Ching, Taoism emphasizes living in harmony with the Tao (The Way)—the natural, spontaneous flow of the universe. The Tao is the ineffable source of all things, yet it is not a god. The ideal life is one of Wu Wei (effortless action), simplicity, and alignment with the rhythms of nature.",
+        "wiki": "https://en.wikipedia.org/wiki/Taoism",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "agency": "Playful",
+            "realism": "Skeptical Realism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Deism",
+        "description": "Prominent during the Enlightenment, Deism views God as a rational \"Watchmaker\" who designed the universe with perfect laws and then stepped back to let it run. Deists reject revelation and miracles, believing that God's existence is revealed through the order of nature and the use of human reason.",
+        "wiki": "https://en.wikipedia.org/wiki/Deism",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Mechanistic",
+            "realism": "Skeptical Realism",
+            "personality": "Personal",
+            "relation": "Transcendent"
+        }
+    },
+    {
+        "name": "Evolutionary Theism (Teilhardian)",
+        "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a process of \"Cosmogenesis\"—a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
+        "wiki": "https://en.wikipedia.org/wiki/Pierre_Teilhard_de_Chardin#The_Omega_Point",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Teleological",
+            "realism": "Critical Realism",
+            "personality": "Personal",
+            "relation": "Panentheism"
+        }
+    },
+    {
+        "name": "Madhyamaka (Middle Way)",
+        "description": "Founded by Nagarjuna, this \"Middle Way\" school of Mahayana Buddhism teaches the \"Emptiness\" (Sunyata) of all phenomena. Nothing possesses intrinsic, independent existence; all things arise dependently (Pratityasamutpada). It avoids the extremes of Eternalism (things exist permanently) and Nihilism (nothing exists). Samsara and Nirvana are ultimately non-different.",
+        "wiki": "https://en.wikipedia.org/wiki/Madhyamaka",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Radical Non-Dualism",
+            "dynamics": "Process",
+            "agency": "Mechanistic",
+            "realism": "Skeptical Realism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Animism",
+        "description": "One of the oldest worldviews, Animism perceives the natural world as being full of distinct persons—spirits, ancestors, and plant/animal consciousness. It is not that 'everything is one' (Pantheism), but that the Many beings of nature are alive, relational, and capable of communication. The physical world is the immediate home of the sacred.",
+        "wiki": "https://en.wikipedia.org/wiki/Animism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Playful",
+            "realism": "Direct Realism",
+            "personality": "Personal",
+            "relation": "Immanent"
+        }
+    },
+    {
+        "name": "Dialectical Materialism (Marxism)",
+        "description": "The philosophical basis of Marxism. It agrees with Scientific Materialism that matter is primary, but rejects the view that the universe is static or merely mechanistic. Instead, it sees reality as a historical process driven by internal contradictions (dialectics) moving toward a specific goal (the liberation of consciousness/society).",
+        "wiki": "https://en.wikipedia.org/wiki/Dialectical_materialism",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Teleological",
+            "realism": "Critical Realism",
+            "personality": "Impersonal",
+            "relation": "Naturalist"
+        }
+    },
+    {
+        "name": "Subjective Idealism (Berkeley)",
+        "description": "Associated with Bishop Berkeley, this view argues that 'to be is to be perceived' (esse est percipi). There is no mind-independent matter. Reality consists entirely of finite minds (us) and the Infinite Mind (God) who perceives and sustains all things. The physical world is real, but it is a mental reality coordinated by God.",
+        "wiki": "https://en.wikipedia.org/wiki/Subjective_idealism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Teleological",
+            "realism": "Direct Realism",
+            "personality": "Personal",
+            "relation": "Transcendent"
+        }
+    },
+    {
+        "name": "Transcendental Empiricism (Deleuze)",
+        "description": "A philosophy of pure difference and becoming. Reality is not composed of stable identities, but of dynamic intensities and multiplicities. 'Being' is univocal—it is said in one and the same sense of all things, but that sense is Difference itself. The world is a creative chaosmos of virtual potentials actualizing themselves.",
+        "wiki": "https://en.wikipedia.org/wiki/Difference_and_Repetition",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Playful",
+            "realism": "Critical Realism",
+            "personality": "Impersonal",
+            "relation": "Immanent"
+        }
+    }
+]

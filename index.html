@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Your Metaphysics?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>What is Your Metaphysics?</h1>
+            <p class="subtitle">Discover your philosophical worldview in 7 dimensions.</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Views will be injected here by JavaScript -->
+
+            <!-- Intro View Template -->
+            <div id="intro-view" class="view active">
+                <div class="card intro-card">
+                    <div class="intro-content">
+                        <p class="intro-lead">Metaphysical systems are often taught as static, historical categories.
+                            But what if we look at the underlying structure of your beliefs?</p>
+                        <div class="divider"></div>
+                        <p class="intro-text">This quiz maps your worldview across 7 fundamental dimensions—from the
+                            nature of reality to the existence of the divine.</p>
+                    </div>
+                    <button id="start-btn" class="btn primary-btn">Start the Quiz</button>
+                </div>
+            </div>
+
+            <!-- Quiz View Template (Hidden initially) -->
+            <div id="quiz-view" class="view hidden">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="card question-card">
+                    <div class="dimension-label" id="dimension-label">Dimension 1: Ontology</div>
+                    <h2 id="question-text">What is the fundamental "stuff" of the universe?</h2>
+                    <div class="options-container" id="options-container">
+                        <!-- Options injected here -->
+                    </div>
+                    <div class="navigation-controls">
+                        <button id="back-btn" class="btn text-btn hidden">← Back</button>
+                        <button id="next-btn" class="btn primary-btn hidden" style="width: auto; margin-top: 1rem;">Next
+                            →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results View Template (Hidden initially) -->
+            <div id="results-view" class="view hidden">
+                <div class="card result-card">
+                    <div class="result-toggle-container hidden" id="result-toggle-container">
+                        <button id="show-top-btn" class="toggle-btn active">Top Match</button>
+                        <button id="show-runner-up-btn" class="toggle-btn">Runner-Up</button>
+                    </div>
+
+                    <div class="result-header">
+                        <span class="pre-title">Your Metaphysical System is:</span>
+                        <h2 id="result-name">Stoicism</h2>
+                    </div>
+
+                    <div class="result-body">
+                        <p id="result-description" class="result-description">Description goes here.</p>
+                        <a id="result-wiki" href="#" target="_blank" class="wiki-link">Read more on Wikipedia &rarr;</a>
+
+                        <div class="breakdown-section">
+                            <h3>Your Dimensional Profile</h3>
+                            <ul id="result-breakdown" class="breakdown-list">
+                                <!-- Breakdown items injected here -->
+                            </ul>
+                        </div>
+
+                        <button id="restart-btn" class="btn secondary-btn">Retake Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
