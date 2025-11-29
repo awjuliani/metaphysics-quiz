@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Metaphysical Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Metaphysical Systems</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">A catalog of philosophical worldviews.</p>
+        </header>
+
+        <main id="explore-content">
+            <div class="navigation-top">
+                <a href="index.html" class="btn primary-btn"
+                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 2rem; text-decoration: none;">&larr;
+                    Back to
+                    Quiz</a>
+            </div>
+
+            <div id="systems-grid" class="systems-grid">
+                <!-- Systems will be injected here -->
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Logic (copied from script.js for consistency)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        } else if (savedTheme === 'light') {
+            body.classList.remove('dark-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Default to dark mode if system preference is dark
+            body.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load Systems
+        async function loadSystems() {
+            try {
+                const response = await fetch('systems.json');
+                const systems = await response.json();
+                const grid = document.getElementById('systems-grid');
+
+                systems.forEach(system => {
+                    const card = document.createElement('div');
+                    card.className = 'card system-card';
+
+                    // Generate meta items for all profile keys
+                    const profileKeys = Object.keys(system.profile);
+                    const metaHtml = profileKeys.map(key => `
+                        <div class="meta-item">
+                            <span class="label">${key}</span>
+                            <span class="value">${system.profile[key]}</span>
+                        </div>
+                    `).join('');
+
+                    card.innerHTML = `
+                        <h2>${system.name}</h2>
+                        <p class="system-description">${system.description}</p>
+                        <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>
+                        <div class="system-meta">
+                            ${metaHtml}
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading systems:', error);
+                document.getElementById('systems-grid').innerHTML = '<p>Error loading systems. Please try again later.</p>';
+            }
+        }
+
+        loadSystems();
+    </script>
+</body>
+
+</html>
