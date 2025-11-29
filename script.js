@@ -149,7 +149,7 @@ function renderQuestion() {
         const option = dimension.options.find(o => o.value === val);
         // Find original index for consistent coloring
         const originalIndex = dimension.options.findIndex(o => o.value === val);
-        
+
         const card = document.createElement('div');
         card.className = `rank-card variant-${originalIndex}`;
         card.draggable = true;
@@ -265,16 +265,16 @@ function calculateResult() {
             let matchType = 'neutral';
 
             if (rankIndex === 0) {
-                points = 2;
+                points = 8;
                 matchType = 'rank-1';
             } else if (rankIndex === 1) {
-                points = 1;
+                points = 4;
                 matchType = 'rank-2';
             } else if (rankIndex === 2) {
-                points = -1;
+                points = 2;
                 matchType = 'rank-3';
             } else if (rankIndex === 3) {
-                points = -2;
+                points = 1;
                 matchType = 'rank-4';
             }
 
@@ -291,18 +291,10 @@ function calculateResult() {
         });
 
         // Calculate Percentage
-        // Max score per dimension is 2. Min is -2.
-        // Total max = dimensions.length * 2
-        // Total min = dimensions.length * -2
-        // Range is 4 * dimensions.length
-        // Normalize to 0-100
-
-        const maxPossible = dimensions.length * 2;
-        // score is between -14 and 14 (for 7 dims)
-        // Shift to 0-28: score + 14
-        // Divide by 28: (score + 14) / 28
-
-        const matchPercentage = Math.round(((score + maxPossible) / (2 * maxPossible)) * 100);
+        // Max score per dimension is 8. Min is 1.
+        // Total max = dimensions.length * 8
+        const maxPossible = dimensions.length * 8;
+        const matchPercentage = Math.round((score / maxPossible) * 100);
 
         scores.push({ system, score, matchPercentage, breakdown });
     });
@@ -354,19 +346,19 @@ function toggleResultView(viewType) {
 
         if (item.userRank === 1) {
             matchClass = 'match-most';
-            badgeHtml = '<span class="match-badge success">Ranked #1 (+2)</span>';
+            badgeHtml = '<span class="match-badge success">Ranked #1 (+8)</span>';
             alignmentText = `✅ <strong>You ranked this as your top choice.</strong>`;
         } else if (item.userRank === 2) {
             matchClass = 'match-most'; // Still positive-ish
-            badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+1)</span>';
+            badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+4)</span>';
             alignmentText = `☑️ <strong>You ranked this second.</strong>`;
         } else if (item.userRank === 3) {
             matchClass = 'match-least';
-            badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (-1)</span>';
+            badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (+2)</span>';
             alignmentText = `⚠️ <strong>You ranked this third.</strong>`;
         } else if (item.userRank === 4) {
             matchClass = 'match-least';
-            badgeHtml = '<span class="match-badge danger">Ranked #4 (-2)</span>';
+            badgeHtml = '<span class="match-badge danger">Ranked #4 (+1)</span>';
             alignmentText = `❌ <strong>You ranked this last.</strong>`;
         }
 
