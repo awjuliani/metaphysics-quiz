@@ -42,6 +42,7 @@ const progressBar = document.getElementById('progress-bar');
 const dimensionLabel = document.getElementById('dimension-label');
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
 // Event Listeners
 startBtn.addEventListener('click', startQuiz);
@@ -50,6 +51,24 @@ backBtn.addEventListener('click', prevQuestion);
 nextBtn.addEventListener('click', nextQuestion);
 showTopBtn.addEventListener('click', () => toggleResultView('top'));
 showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
+themeToggleBtn.addEventListener('click', toggleTheme);
+
+// Theme Logic
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+// Initialize Theme
+initTheme();
 
 function switchView(viewName) {
     Object.values(views).forEach(view => {

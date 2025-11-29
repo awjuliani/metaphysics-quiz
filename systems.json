@@ -4,7 +4,7 @@
         "description": "This is the dominant worldview of the Abrahamic traditions (Christianity, Judaism, Islam) as synthesized with Greek philosophy. It posits a fundamental dualism between the Creator and the Created. God is the ultimate, personal, and transcendent reality who created the universe ex nihilo (out of nothing) and sustains it through His will. The universe is not God, but a distinct artifact of His love and reason.",
         "wiki": "https://en.wikipedia.org/wiki/Classical_theism",
         "profile": {
-            "ontology": "Dualism",
+            "ontology": "Idealism",
             "topology": "Pluralism",
             "dynamics": "Static",
             "agency": "Teleological",
@@ -34,10 +34,10 @@
         "profile": {
             "ontology": "Materialism",
             "topology": "Qualified Non-Dualism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Teleological",
             "realism": "Direct Realism",
-            "personality": "Trans-personal",
+            "personality": "Supra-personal",
             "relation": "Immanent"
         }
     },
@@ -62,7 +62,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Static",
+            "dynamics": "Trans-Dual",
             "agency": "Trans-personal",
             "realism": "Illusionism",
             "personality": "Impersonal",
@@ -76,10 +76,10 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Qualified Non-Dualism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Playful",
             "realism": "Critical Realism",
-            "personality": "Trans-personal",
+            "personality": "Supra-personal",
             "relation": "Immanent"
         }
     },
@@ -93,7 +93,7 @@
             "dynamics": "Process",
             "agency": "Mechanistic",
             "realism": "Illusionism",
-            "personality": "Impersonal",
+            "personality": "Trans-personal",
             "relation": "Immanent"
         }
     },
@@ -107,7 +107,7 @@
             "dynamics": "Process",
             "agency": "Teleological",
             "realism": "Critical Realism",
-            "personality": "Trans-personal",
+            "personality": "Supra-personal",
             "relation": "Panentheism"
         }
     },
@@ -132,10 +132,10 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Qualified Non-Dualism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Playful",
             "realism": "Skeptical Realism",
-            "personality": "Impersonal",
+            "personality": "Trans-personal",
             "relation": "Immanent"
         }
     },
@@ -146,7 +146,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Static",
             "agency": "Mechanistic",
             "realism": "Skeptical Realism",
             "personality": "Personal",
@@ -160,10 +160,10 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Teleological",
             "realism": "Critical Realism",
-            "personality": "Personal",
+            "personality": "Supra-personal",
             "relation": "Panentheism"
         }
     },
@@ -174,10 +174,10 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Process",
+            "dynamics": "Trans-Dual",
             "agency": "Mechanistic",
             "realism": "Skeptical Realism",
-            "personality": "Impersonal",
+            "personality": "Trans-personal",
             "relation": "Immanent"
         }
     },
@@ -188,7 +188,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Playful",
             "realism": "Direct Realism",
             "personality": "Personal",
@@ -216,7 +216,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "agency": "Teleological",
             "realism": "Direct Realism",
             "personality": "Personal",
