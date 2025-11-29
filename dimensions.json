@@ -9,7 +9,7 @@
                 "value": "Materialism"
             },
             {
-                "label": "Mind and matter are two irreducible kinds of reality (whether substances or properties) that interact with each other.",
+                "label": "Mind and Matter are two distinct, irreducible realities that interact with each other.",
                 "value": "Dualism"
             },
             {
@@ -28,15 +28,15 @@
         "question": "Is reality singular or plural?",
         "options": [
             {
-                "label": "Reality is strictly One. Individuality and separation are illusions.",
+                "label": "Reality is strictly One. Individuality and separation are ultimate illusions.",
                 "value": "Strict Monism"
             },
             {
-                "label": "Reality is a unified Whole, but it expresses itself as Many distinct forms without losing its unity.",
+                "label": "Reality is a unified Whole that expresses itself as Many distinct forms without losing its unity.",
                 "value": "Qualified Non-Dualism"
             },
             {
-                "label": "Reality transcends the concepts of \"One\" and \"Many\". It is \"Not-Two.\"",
+                "label": "Reality is \"Not-Two.\" It transcends the concepts of both One and Many.",
                 "value": "Radical Non-Dualism"
             },
             {
@@ -63,91 +63,68 @@
                 "value": "Integrative"
             },
             {
-                "label": "Reality is PRIOR to the distinction between being and becoming.",
-                "value": "Trans-Dual"
+                "label": "Reality is PRIOR to time. It cannot be defined as either static or changing.",
+                "value": "Trans-Temporal"
             }
         ]
     },
     {
-        "id": "agency",
-        "label": "Agency",
-        "question": "Is there intent in reality?",
+        "id": "teleology",
+        "label": "Teleology",
+        "question": "Is there a purpose or direction to reality?",
         "options": [
             {
-                "label": "No, it operates blindly according to algorithms, physical laws, or cause-and-effect.",
+                "label": "No. It operates blindly according to algorithms, physical laws, or cause-and-effect.",
                 "value": "Mechanistic"
             },
             {
-                "label": "Yes, it is guided by a specific purpose, goal, or divine destiny.",
+                "label": "Yes. It is guided by a specific purpose, goal, or divine destiny.",
                 "value": "Teleological"
             },
             {
-                "label": "Reality is creative play or self-expression. It is purposive in expressing its nature, but not directed toward external goals.",
+                "label": "It is creative play or self-expression. It has intent, but no external goal to achieve.",
                 "value": "Playful"
             },
             {
-                "label": "It operates beyond human concepts of intent or lack thereof.",
+                "label": "It operates beyond human concepts of purpose, accident, or intent.",
                 "value": "Trans-intentional"
             }
         ]
     },
     {
-        "id": "realism",
-        "label": "Realism",
-        "question": "Is the world we perceive 'Real'?",
+        "id": "manifestation",
+        "label": "Manifestation",
+        "question": "What is the status of the world we perceive?",
         "options": [
             {
-                "label": "Reality is exactly as it appears. Senses provide direct access to truth.",
-                "value": "Direct Realism"
+                "label": "Our senses reveal the world exactly as it exists in itself.",
+                "value": "Realism"
             },
             {
-                "label": "Reality is mostly as it appears, but we must correct for knowable sensory/cognitive distortions.",
-                "value": "Critical Realism"
+                "label": "Reality is a co-creation between the external world and our cognitive structures.",
+                "value": "Constructivism"
             },
             {
-                "label": "There is some reality, but we cannot say in any straightforward sense whether it is like or unlike our appearances.",
-                "value": "Radical Skepticism"
+                "label": "Phenomena lack inherent existence; they are neither strictly real nor strictly unreal.",
+                "value": "Emptiness"
             },
             {
-                "label": "Reality is not as it appears. The perceived world is a fabrication, dream, or illusion.",
+                "label": "The perceived world is a fabrication, dream, or illusion masking the truth.",
                 "value": "Illusionism"
             }
         ]
     },
     {
-        "id": "personality",
-        "label": "Personality",
-        "question": "Is the Ultimate Reality personal?",
+        "id": "divinity",
+        "label": "Divinity",
+        "question": "Where is the Absolute located relative to the World?",
         "options": [
             {
-                "label": "No, it is a force, law, field, or ground of being without human-like traits.",
-                "value": "Impersonal"
-            },
-            {
-                "label": "Yes, it is a \"Who\" with volition, intellect, and the capacity for relationship.",
-                "value": "Personal"
-            },
-            {
-                "label": "It integrates both personal agency and impersonal principles in a higher unity.",
-                "value": "Supra-personal"
-            },
-            {
-                "label": "It transcends the dualistic categories of personal and impersonal entirely.",
-                "value": "Trans-personal"
-            }
-        ]
-    },
-    {
-        "id": "relation",
-        "label": "Relation",
-        "question": "Where is the Divine located relative to the World?",
-        "options": [
-            {
-                "label": "The Divine is IN the world. The world is made of \"God-stuff\".",
+                "label": "The Divine is IN the world (or is the world).",
                 "value": "Immanent"
             },
             {
-                "label": "The Divine is WHOLLY OTHER. God is distinct from and above the creation.",
+                "label": "The Divine is WHOLLY OTHER, distinct from and above the creation.",
                 "value": "Transcendent"
             },
             {
@@ -155,8 +132,54 @@
                 "value": "Panentheism"
             },
             {
-                "label": "There is no Divine. There is only the natural world.",
+                "label": "There is no Divine or Absolute. There is only the natural cosmos.",
                 "value": "Naturalist"
+            }
+        ]
+    },
+    {
+        "id": "character",
+        "label": "Character",
+        "question": "Is the Ultimate Reality personal?",
+        "options": [
+            {
+                "label": "No. It is a force, law, field, or principle without human-like traits.",
+                "value": "Impersonal"
+            },
+            {
+                "label": "Yes. It is a \"Who\" with volition, intellect, and the capacity for relationship.",
+                "value": "Personal"
+            },
+            {
+                "label": "Both. It integrates personal agency and impersonal principles into a higher unity.",
+                "value": "Supra-personal"
+            },
+            {
+                "label": "Neither. It transcends the dualistic categories of personal and impersonal entirely.",
+                "value": "Trans-personal"
+            }
+        ]
+    },
+    {
+        "id": "axiology",
+        "label": "Axiology",
+        "question": "Is the fundamental nature of reality Good?",
+        "options": [
+            {
+                "label": "The universe is fundamentally good, moral, or favors the flourishing of life.",
+                "value": "Benevolent"
+            },
+            {
+                "label": "The universe is neutral and unconcerned with human values or suffering.",
+                "value": "Indifferent"
+            },
+            {
+                "label": "The universe is an eternal struggle between opposing forces (e.g., Light vs Dark).",
+                "value": "Conflictual"
+            },
+            {
+                "label": "Human concepts of Good and Evil do not apply to the Ultimate Reality.",
+                "value": "Trans-Moral"
             }
         ]
     }

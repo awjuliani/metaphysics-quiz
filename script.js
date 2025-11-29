@@ -10,6 +10,12 @@ Promise.all([
     .then(([dimensionsData, systemsData]) => {
         dimensions = dimensionsData;
         systems = systemsData;
+        
+        // Update dimension counts in UI
+        document.querySelectorAll('.dimension-count').forEach(el => {
+            el.textContent = dimensions.length;
+        });
+
         startBtn.disabled = false;
         startBtn.textContent = "Start the Quiz";
     })

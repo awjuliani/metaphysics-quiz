@@ -7,10 +7,11 @@
             "ontology": "Idealism",
             "topology": "Pluralism",
             "dynamics": "Static",
-            "agency": "Teleological",
-            "realism": "Critical Realism",
-            "personality": "Personal",
-            "relation": "Transcendent"
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -21,10 +22,11 @@
             "ontology": "Neutral Monism",
             "topology": "Strict Monism",
             "dynamics": "Static",
-            "agency": "Mechanistic",
-            "realism": "Critical Realism",
-            "personality": "Impersonal",
-            "relation": "Immanent"
+            "teleology": "Mechanistic",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -35,10 +37,11 @@
             "ontology": "Materialism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
-            "agency": "Teleological",
-            "realism": "Direct Realism",
-            "personality": "Supra-personal",
-            "relation": "Immanent"
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Supra-personal",
+            "divinity": "Immanent",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -49,10 +52,11 @@
             "ontology": "Materialism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "agency": "Mechanistic",
-            "realism": "Critical Realism",
-            "personality": "Impersonal",
-            "relation": "Naturalist"
+            "teleology": "Mechanistic",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Naturalist",
+            "axiology": "Indifferent"
         }
     },
     {
@@ -62,11 +66,12 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Trans-Dual",
-            "agency": "Trans-intentional",
-            "realism": "Illusionism",
-            "personality": "Impersonal",
-            "relation": "Immanent"
+            "dynamics": "Trans-Temporal",
+            "teleology": "Trans-intentional",
+            "manifestation": "Illusionism",
+            "character": "Trans-personal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -77,10 +82,11 @@
             "ontology": "Idealism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
-            "agency": "Playful",
-            "realism": "Critical Realism",
-            "personality": "Supra-personal",
-            "relation": "Immanent"
+            "teleology": "Playful",
+            "manifestation": "Realism",
+            "character": "Supra-personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -91,10 +97,11 @@
             "ontology": "Idealism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Process",
-            "agency": "Mechanistic",
-            "realism": "Illusionism",
-            "personality": "Trans-personal",
-            "relation": "Immanent"
+            "teleology": "Mechanistic",
+            "manifestation": "Illusionism",
+            "character": "Trans-personal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -105,10 +112,11 @@
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "agency": "Teleological",
-            "realism": "Critical Realism",
-            "personality": "Supra-personal",
-            "relation": "Panentheism"
+            "teleology": "Teleological",
+            "manifestation": "Constructivism",
+            "character": "Supra-personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -119,10 +127,11 @@
             "ontology": "Idealism",
             "topology": "Pluralism",
             "dynamics": "Static",
-            "agency": "Teleological",
-            "realism": "Radical Skepticism",
-            "personality": "Impersonal",
-            "relation": "Transcendent"
+            "teleology": "Teleological",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -133,10 +142,11 @@
             "ontology": "Neutral Monism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
-            "agency": "Playful",
-            "realism": "Radical Skepticism",
-            "personality": "Trans-personal",
-            "relation": "Immanent"
+            "teleology": "Playful",
+            "manifestation": "Constructivism",
+            "character": "Trans-personal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -147,10 +157,11 @@
             "ontology": "Dualism",
             "topology": "Pluralism",
             "dynamics": "Static",
-            "agency": "Mechanistic",
-            "realism": "Critical Realism",
-            "personality": "Personal",
-            "relation": "Transcendent"
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -161,10 +172,11 @@
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
             "dynamics": "Integrative",
-            "agency": "Teleological",
-            "realism": "Critical Realism",
-            "personality": "Supra-personal",
-            "relation": "Panentheism"
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Supra-personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -174,11 +186,12 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Trans-Dual",
-            "agency": "Trans-intentional",
-            "realism": "Radical Skepticism",
-            "personality": "Trans-personal",
-            "relation": "Immanent"
+            "dynamics": "Trans-Temporal",
+            "teleology": "Trans-intentional",
+            "manifestation": "Emptiness",
+            "character": "Trans-personal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -189,10 +202,11 @@
             "ontology": "Idealism",
             "topology": "Pluralism",
             "dynamics": "Integrative",
-            "agency": "Playful",
-            "realism": "Direct Realism",
-            "personality": "Personal",
-            "relation": "Immanent"
+            "teleology": "Playful",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Immanent",
+            "axiology": "Conflictual"
         }
     },
     {
@@ -203,10 +217,11 @@
             "ontology": "Materialism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "agency": "Teleological",
-            "realism": "Critical Realism",
-            "personality": "Impersonal",
-            "relation": "Naturalist"
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Naturalist",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -217,10 +232,11 @@
             "ontology": "Idealism",
             "topology": "Pluralism",
             "dynamics": "Integrative",
-            "agency": "Teleological",
-            "realism": "Direct Realism",
-            "personality": "Personal",
-            "relation": "Transcendent"
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
         }
     },
     {
@@ -231,10 +247,11 @@
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "agency": "Playful",
-            "realism": "Critical Realism",
-            "personality": "Impersonal",
-            "relation": "Immanent"
+            "teleology": "Playful",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -245,10 +262,11 @@
             "ontology": "Materialism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "agency": "Mechanistic",
-            "realism": "Direct Realism",
-            "personality": "Impersonal",
-            "relation": "Naturalist"
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Naturalist",
+            "axiology": "Indifferent"
         }
     },
     {
@@ -259,10 +277,56 @@
             "ontology": "Idealism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
-            "agency": "Teleological",
-            "realism": "Radical Skepticism",
-            "personality": "Trans-personal",
-            "relation": "Panentheism"
+            "teleology": "Teleological",
+            "manifestation": "Constructivism",
+            "character": "Trans-personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
+        }
+    },
+    {
+        "name": "Gnosticism",
+        "description": "An ancient esoteric tradition positing that the material world is a flawed creation (or trap) fashioned by a lesser, often malevolent deity (the Demiurge). The true God is transcendent and alien to this universe. Salvation comes through Gnosis (secret knowledge) of the divine spark within.",
+        "wiki": "https://en.wikipedia.org/wiki/Gnosticism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Pluralism",
+            "dynamics": "Static",
+            "teleology": "Teleological",
+            "manifestation": "Illusionism",
+            "character": "Supra-personal",
+            "divinity": "Transcendent",
+            "axiology": "Conflictual"
+        }
+    },
+    {
+        "name": "Metaphysical Pessimism (Schopenhauer)",
+        "description": "Posits that the ultimate reality is a blind, insatiable, and irrational 'Will' that strives without purpose. The world of representation is objectified Will. Because the Will can never be satisfied, existence is fundamentally characterized by suffering.",
+        "wiki": "https://en.wikipedia.org/wiki/Arthur_Schopenhauer#Philosophy_of_the_%22Will%22",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Strict Monism",
+            "dynamics": "Process",
+            "teleology": "Mechanistic",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Indifferent"
+        }
+    },
+    {
+        "name": "Zoroastrianism",
+        "description": "One of the world's oldest monotheistic faiths, featuring a sharp cosmological dualism. The history of the universe is defined by the battle between Ahura Mazda (Truth/Order) and Angra Mainyu (Lie/Chaos). Humans have free will to choose sides in this cosmic conflict.",
+        "wiki": "https://en.wikipedia.org/wiki/Zoroastrianism",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Transcendent",
+            "axiology": "Conflictual"
         }
     }
 ]

@@ -1,12 +1,12 @@
 # What is Your Metaphysics?
 
-Discover your philosophical worldview in 7 dimensions.
+Discover your philosophical worldview in 8 dimensions.
 
 This interactive quiz maps your beliefs across fundamental metaphysical questions—from the nature of reality to the existence of the divine—and matches you with the historical system that best fits your views.
 
 ## Features
 
--   **7 Fundamental Dimensions**: Explore your stance on Ontology, Topology, Dynamics, Agency, Realism, Personality, and Relation.
+-   **8 Fundamental Dimensions**: Explore your stance on Ontology, Topology, Dynamics, Agency, Realism, Personality, and Relation.
 -   **System Matching**: Compare your profile against 17 major philosophical systems, including Stoicism, Spinozism, Advaita Vedanta, Scientific Materialism, and more.
 -   **Detailed Breakdown**: See exactly where you align and diverge with your top match and runner-up.
 -   **Runner-Up Feature**: View your second-best match to see alternative perspectives that are close to your own.
