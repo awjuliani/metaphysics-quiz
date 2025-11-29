@@ -63,7 +63,7 @@
             "ontology": "Idealism",
             "topology": "Radical Non-Dualism",
             "dynamics": "Trans-Dual",
-            "agency": "Trans-personal",
+            "agency": "Trans-intentional",
             "realism": "Illusionism",
             "personality": "Impersonal",
             "relation": "Immanent"
@@ -120,7 +120,7 @@
             "topology": "Pluralism",
             "dynamics": "Static",
             "agency": "Teleological",
-            "realism": "Skeptical Realism",
+            "realism": "Radical Skepticism",
             "personality": "Impersonal",
             "relation": "Transcendent"
         }
@@ -134,7 +134,7 @@
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
             "agency": "Playful",
-            "realism": "Skeptical Realism",
+            "realism": "Radical Skepticism",
             "personality": "Trans-personal",
             "relation": "Immanent"
         }
@@ -148,7 +148,7 @@
             "topology": "Pluralism",
             "dynamics": "Static",
             "agency": "Mechanistic",
-            "realism": "Skeptical Realism",
+            "realism": "Critical Realism",
             "personality": "Personal",
             "relation": "Transcendent"
         }
@@ -175,8 +175,8 @@
             "ontology": "Neutral Monism",
             "topology": "Radical Non-Dualism",
             "dynamics": "Trans-Dual",
-            "agency": "Mechanistic",
-            "realism": "Skeptical Realism",
+            "agency": "Trans-intentional",
+            "realism": "Radical Skepticism",
             "personality": "Trans-personal",
             "relation": "Immanent"
         }
@@ -260,7 +260,7 @@
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
             "agency": "Teleological",
-            "realism": "Skeptical Realism",
+            "realism": "Radical Skepticism",
             "personality": "Trans-personal",
             "relation": "Panentheism"
         }

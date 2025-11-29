@@ -9,7 +9,7 @@
                 "value": "Materialism"
             },
             {
-                "label": "Mind and Matter are two distinct, separate substances that interact with each other.",
+                "label": "Mind and matter are two irreducible kinds of reality (whether substances or properties) that interact with each other.",
                 "value": "Dualism"
             },
             {
@@ -82,12 +82,12 @@
                 "value": "Teleological"
             },
             {
-                "label": "No, it is a spontaneous expression of creative joy and freedom, without a \"work\" goal.",
+                "label": "Reality is creative play or self-expression. It is purposive in expressing its nature, but not directed toward external goals.",
                 "value": "Playful"
             },
             {
                 "label": "It operates beyond human concepts of intent or lack thereof.",
-                "value": "A-intentional"
+                "value": "Trans-intentional"
             }
         ]
     },
@@ -105,8 +105,8 @@
                 "value": "Critical Realism"
             },
             {
-                "label": "Reality is mostly not as it appears; the distortions are too deep to be fixed just by refining the senses.",
-                "value": "Skeptical Realism"
+                "label": "There is some reality, but we cannot say in any straightforward sense whether it is like or unlike our appearances.",
+                "value": "Radical Skepticism"
             },
             {
                 "label": "Reality is not as it appears. The perceived world is a fabrication, dream, or illusion.",
