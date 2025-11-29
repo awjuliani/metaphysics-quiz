@@ -118,21 +118,17 @@ function renderQuestion() {
 
     // Initialize user answers for this dimension if not exists
     if (!userAnswers[dimension.id]) {
-        userAnswers[dimension.id] = {};
-        dimension.options.forEach(opt => {
-            userAnswers[dimension.id][opt.value] = 'neutral';
-        });
+        // Randomize initial order to avoid bias
+        const shuffledOptions = [...dimension.options].sort(() => Math.random() - 0.5);
+        userAnswers[dimension.id] = shuffledOptions.map(opt => opt.value);
     }
 
-    const currentAnswers = userAnswers[dimension.id];
+    const currentOrder = userAnswers[dimension.id];
 
-    // Reset Next Button
-    nextBtn.classList.add('hidden');
-    // Check if we have at least one non-neutral answer
-    const hasNonNeutral = Object.values(currentAnswers).some(val => val !== 'neutral');
-    if (hasNonNeutral) {
-        nextBtn.classList.remove('hidden');
-    }
+    // Reset Next Button - Always enabled in ranking mode since there's always an order
+    // But maybe we want them to interact at least once? 
+    // Actually, "default random" is a valid answer. Let's just enable it.
+    nextBtn.classList.remove('hidden');
 
     // Update Progress
     const progress = (currentQuestionIndex / dimensions.length) * 100;
@@ -140,53 +136,109 @@ function renderQuestion() {
 
     // Update Content
     dimensionLabel.textContent = `Dimension ${currentQuestionIndex + 1}: ${dimension.label}`;
-    questionText.textContent = dimension.question;
+    questionText.innerHTML = `
+        ${dimension.question}
+        <div class="instruction-text">Rank the following from most agreed (top) to least agreed (bottom):</div>
+    `;
 
-    // Render Options
-    optionsContainer.innerHTML = '';
-    dimension.options.forEach(option => {
+    // Render Options in the current order
+    optionsContainer.innerHTML = '<div class="ranking-container" id="ranking-list"></div>';
+    const list = document.getElementById('ranking-list');
+
+    currentOrder.forEach((val, index) => {
+        const option = dimension.options.find(o => o.value === val);
+        // Find original index for consistent coloring
+        const originalIndex = dimension.options.findIndex(o => o.value === val);
+        
         const card = document.createElement('div');
-        card.className = 'option-card';
-
-        const userState = currentAnswers[option.value]; // 'agree', 'neutral', 'disagree'
+        card.className = `rank-card variant-${originalIndex}`;
+        card.draggable = true;
+        card.dataset.value = val;
+        card.dataset.index = index;
 
         card.innerHTML = `
-            <div class="option-text">${option.label}</div>
-            <div class="option-controls">
-                <button class="select-btn agree ${userState === 'agree' ? 'selected' : ''}" 
-                        onclick="handleSelection('${dimension.id}', '${option.value}', 'agree')"
-                        data-tooltip="Agree">
-                    ✓
-                </button>
-                <button class="select-btn neutral ${userState === 'neutral' ? 'selected' : ''}" 
-                        onclick="handleSelection('${dimension.id}', '${option.value}', 'neutral')"
-                        data-tooltip="Neutral">
-                    -
-                </button>
-                <button class="select-btn disagree ${userState === 'disagree' ? 'selected' : ''}" 
-                        onclick="handleSelection('${dimension.id}', '${option.value}', 'disagree')"
-                        data-tooltip="Disagree">
-                    ✕
-                </button>
+            <div class="drag-handle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            </div>
+            <div class="rank-indicator">#${index + 1}</div>
+            <div class="rank-content">
+                <div class="rank-text">${option.label}</div>
+            </div>
+            <div class="rank-controls">
+                <button class="rank-btn up-btn" onclick="moveOption('${dimension.id}', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+                <button class="rank-btn down-btn" onclick="moveOption('${dimension.id}', ${index}, 1)" ${index === 3 ? 'disabled' : ''}>▼</button>
             </div>
         `;
-        optionsContainer.appendChild(card);
+        list.appendChild(card);
+    });
+
+    setupDragAndDrop(list, dimension.id);
+}
+
+window.moveOption = function (dimensionId, index, direction) {
+    const newIndex = index + direction;
+    const currentOrder = userAnswers[dimensionId];
+
+    if (newIndex >= 0 && newIndex < currentOrder.length) {
+        // Swap
+        const temp = currentOrder[index];
+        currentOrder[index] = currentOrder[newIndex];
+        currentOrder[newIndex] = temp;
+
+        userAnswers[dimensionId] = currentOrder;
+        renderQuestion();
+    }
+};
+
+function setupDragAndDrop(list, dimensionId) {
+    let draggedItem = null;
+
+    const items = list.querySelectorAll('.rank-card');
+
+    items.forEach(item => {
+        item.addEventListener('dragstart', function (e) {
+            draggedItem = item;
+            setTimeout(() => item.classList.add('dragging'), 0);
+        });
+
+        item.addEventListener('dragend', function () {
+            item.classList.remove('dragging');
+            draggedItem = null;
+
+            // Update state based on new DOM order
+            const newOrder = [];
+            list.querySelectorAll('.rank-card').forEach(card => {
+                newOrder.push(card.dataset.value);
+            });
+            userAnswers[dimensionId] = newOrder;
+            renderQuestion(); // Re-render to update numbers and buttons
+        });
+
+        item.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(list, e.clientY);
+            if (afterElement == null) {
+                list.appendChild(draggedItem);
+            } else {
+                list.insertBefore(draggedItem, afterElement);
+            }
+        });
     });
 }
 
-window.handleSelection = function (dimensionId, value, type) {
-    // type is 'agree', 'neutral', or 'disagree'
-    if (!userAnswers[dimensionId]) userAnswers[dimensionId] = {};
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.rank-card:not(.dragging)')];
 
-    // If clicking the already selected one, do we toggle to neutral? 
-    // The prompt implies explicit choices. Let's just set it. 
-    // If they click "Agree" and it's already "Agree", maybe nothing happens or toggle off?
-    // Let's stick to simple: clicking sets the state. 
-    // If they want neutral, they click neutral.
-
-    userAnswers[dimensionId][value] = type;
-    renderQuestion();
-};
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
 
 let topMatchData = null;
 let runnerUpData = null;
@@ -199,61 +251,60 @@ function calculateResult() {
         let breakdown = [];
 
         dimensions.forEach(dim => {
-            const userChoices = userAnswers[dim.id]; // { optionVal: 'agree'|'neutral'|'disagree' }
+            const userRankings = userAnswers[dim.id]; // Array of values [1st, 2nd, 3rd, 4th]
             const sysVal = system.profile[dim.id]; // The option value the system holds
 
-            // We need to iterate over ALL options in this dimension to calculate score
-            dim.options.forEach(option => {
-                const userChoice = userChoices[option.value];
-                const isSystemView = (option.value === sysVal);
+            // Find the rank of the system's preferred value in the user's list
+            // index 0 = Rank 1 (+2)
+            // index 1 = Rank 2 (+1)
+            // index 2 = Rank 3 (-1)
+            // index 3 = Rank 4 (-2)
 
-                let points = 0;
-                let matchType = 'neutral';
+            const rankIndex = userRankings.indexOf(sysVal);
+            let points = 0;
+            let matchType = 'neutral';
 
-                if (isSystemView) {
-                    // This is the system's view
-                    if (userChoice === 'agree') {
-                        points = 1;
-                        matchType = 'agree-match';
-                    } else if (userChoice === 'disagree') {
-                        points = -1;
-                        matchType = 'disagree-mismatch';
-                    }
-                } else {
-                    // This is NOT the system's view
-                    if (userChoice === 'agree') {
-                        points = -1;
-                        matchType = 'agree-mismatch';
-                    } else if (userChoice === 'disagree') {
-                        points = 0.5;
-                        matchType = 'disagree-match';
-                    }
-                }
+            if (rankIndex === 0) {
+                points = 2;
+                matchType = 'rank-1';
+            } else if (rankIndex === 1) {
+                points = 1;
+                matchType = 'rank-2';
+            } else if (rankIndex === 2) {
+                points = -1;
+                matchType = 'rank-3';
+            } else if (rankIndex === 3) {
+                points = -2;
+                matchType = 'rank-4';
+            }
 
-                score += points;
+            score += points;
 
-                // Only add to breakdown if it's significant (non-neutral user choice OR it's the system's view)
-                // Actually, let's just show the System's View and how the user reacted to it, 
-                // plus any major disagreements where the user agreed with something else.
-
-                // For the breakdown display, we probably want to simplify. 
-                // The old breakdown showed one line per dimension.
-                // Now we have multiple interactions per dimension.
-
-                // Let's collect the "System View" interaction specifically for the summary
-                if (isSystemView) {
-                    breakdown.push({
-                        dim: dim.label,
-                        sysVal: sysVal,
-                        userChoice: userChoice,
-                        points: points,
-                        optionLabel: option.label
-                    });
-                }
+            // Add to breakdown
+            breakdown.push({
+                dim: dim.label,
+                sysVal: sysVal,
+                userRank: rankIndex + 1,
+                points: points,
+                optionLabel: getOptionLabel(dim.id, sysVal)
             });
         });
 
-        scores.push({ system, score, breakdown });
+        // Calculate Percentage
+        // Max score per dimension is 2. Min is -2.
+        // Total max = dimensions.length * 2
+        // Total min = dimensions.length * -2
+        // Range is 4 * dimensions.length
+        // Normalize to 0-100
+
+        const maxPossible = dimensions.length * 2;
+        // score is between -14 and 14 (for 7 dims)
+        // Shift to 0-28: score + 14
+        // Divide by 28: (score + 14) / 28
+
+        const matchPercentage = Math.round(((score + maxPossible) / (2 * maxPossible)) * 100);
+
+        scores.push({ system, score, matchPercentage, breakdown });
     });
 
     // Sort by score descending
@@ -286,6 +337,7 @@ function toggleResultView(viewType) {
 
     // Update Content
     document.getElementById('result-name').textContent = system.name;
+    document.getElementById('result-score').textContent = `Match: ${data.matchPercentage}%`;
     document.getElementById('result-description').textContent = system.description;
     document.getElementById('result-wiki').href = system.wiki;
 
@@ -295,19 +347,27 @@ function toggleResultView(viewType) {
     data.breakdown.forEach(item => {
         const li = document.createElement('li');
 
-        // Determine styles and text based on user choice regarding the System's view
+        // Determine styles and text based on rank
         let matchClass = 'match-neutral';
-        let badgeHtml = '<span class="match-badge neutral">Neutral</span>';
-        let alignmentText = `You were neutral about this.`;
+        let badgeHtml = '';
+        let alignmentText = '';
 
-        if (item.userChoice === 'agree') {
-            matchClass = 'match-most'; // Reusing green style
-            badgeHtml = '<span class="match-badge success">Agreed (+1)</span>';
-            alignmentText = `✅ <strong>You agreed with the system's view.</strong>`;
-        } else if (item.userChoice === 'disagree') {
-            matchClass = 'match-least'; // Reusing red style
-            badgeHtml = '<span class="match-badge danger">Disagreed (-1)</span>';
-            alignmentText = `❌ <strong>You disagreed with the system's view.</strong>`;
+        if (item.userRank === 1) {
+            matchClass = 'match-most';
+            badgeHtml = '<span class="match-badge success">Ranked #1 (+2)</span>';
+            alignmentText = `✅ <strong>You ranked this as your top choice.</strong>`;
+        } else if (item.userRank === 2) {
+            matchClass = 'match-most'; // Still positive-ish
+            badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+1)</span>';
+            alignmentText = `☑️ <strong>You ranked this second.</strong>`;
+        } else if (item.userRank === 3) {
+            matchClass = 'match-least';
+            badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (-1)</span>';
+            alignmentText = `⚠️ <strong>You ranked this third.</strong>`;
+        } else if (item.userRank === 4) {
+            matchClass = 'match-least';
+            badgeHtml = '<span class="match-badge danger">Ranked #4 (-2)</span>';
+            alignmentText = `❌ <strong>You ranked this last.</strong>`;
         }
 
         li.className = matchClass;

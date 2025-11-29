@@ -236,5 +236,19 @@
             "personality": "Impersonal",
             "relation": "Immanent"
         }
+    },
+    {
+        "name": "Epicureanism",
+        "description": "Founded by Epicurus, this philosophy posits a materialist universe composed of atoms moving in a void. It teaches that the senses are the ultimate source of truth and that the goal of life is the absence of pain (aponia) and tranquility (ataraxia). It rejects divine intervention, viewing the gods as blissful beings unconcerned with human affairs.",
+        "wiki": "https://en.wikipedia.org/wiki/Epicureanism",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "agency": "Mechanistic",
+            "realism": "Direct Realism",
+            "personality": "Impersonal",
+            "relation": "Naturalist"
+        }
     }
 ]
