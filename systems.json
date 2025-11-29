@@ -250,5 +250,19 @@
             "personality": "Impersonal",
             "relation": "Naturalist"
         }
+    },
+    {
+        "name": "Neoplatonism",
+        "description": "Founded by Plotinus, this philosophy posits a single, ineffable source of all reality called 'The One'. All things emanate from The One in a hierarchy of being (Intellect, Soul, Nature) and strive to return to it. Evil is merely the absence of good (privation). It bridges Greek rationalism with mysticism.",
+        "wiki": "https://en.wikipedia.org/wiki/Neoplatonism",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Integrative",
+            "agency": "Teleological",
+            "realism": "Skeptical Realism",
+            "personality": "Trans-personal",
+            "relation": "Panentheism"
+        }
     }
 ]
