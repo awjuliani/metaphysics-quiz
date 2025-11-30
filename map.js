@@ -98,6 +98,10 @@ d3.json("systems_map.json").then(data => {
         .on("mouseout", function () {
             d3.select(this).attr("r", 12);
             tooltip.style("opacity", 0);
+        })
+        .on("click", function (event, d) {
+            const systemId = d.name.toLowerCase().replace(/\s+/g, '-');
+            window.location.href = `explore.html#${systemId}`;
         });
 
     // Labels

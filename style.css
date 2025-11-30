@@ -938,6 +938,7 @@ body.dark-mode .drag-handle {
     flex-direction: column;
     height: 100%;
     transition: transform 0.2s, box-shadow 0.2s;
+    scroll-margin-top: 100px;
 }
 
 .system-card:hover {

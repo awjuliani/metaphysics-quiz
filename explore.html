@@ -93,6 +93,9 @@
                 systems.forEach(system => {
                     const card = document.createElement('div');
                     card.className = 'card system-card';
+                    // Create an ID for anchoring
+                    const systemId = system.name.toLowerCase().replace(/\s+/g, '-');
+                    card.id = systemId;
 
                     // Generate meta items for all profile keys
                     const profileKeys = Object.keys(system.profile);
@@ -117,6 +120,25 @@
 
                     grid.appendChild(card);
                 });
+
+                // Check for hash and scroll to it
+                if (window.location.hash) {
+                    const id = window.location.hash.substring(1);
+                    const element = document.getElementById(id);
+                    if (element) {
+                        // Small timeout to ensure layout is complete
+                        setTimeout(() => {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Optional: Highlight the card temporarily
+                            element.style.borderColor = 'var(--primary-color)';
+                            element.style.boxShadow = '0 0 0 2px var(--primary-color)';
+                            setTimeout(() => {
+                                element.style.borderColor = '';
+                                element.style.boxShadow = '';
+                            }, 2000);
+                        }, 100);
+                    }
+                }
             } catch (error) {
                 console.error('Error loading systems:', error);
                 document.getElementById('systems-grid').innerHTML = '<p>Error loading systems. Please try again later.</p>';
