@@ -105,7 +105,7 @@ d3.json("systems_map.json").then(data => {
         .attr("class", "system-label")
         .attr("dy", 25) // Position below the circle
         .text(d => d.name)
-        .style("font-size", "10px")
+
         .each(function (d) {
             // Simple wrap logic if needed, or just let it be
         });
