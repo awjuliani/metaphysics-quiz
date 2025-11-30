@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Metaphysical Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .comparison-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .comparison-controls {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        .select-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        select {
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+        }
+
+        .comparison-results {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .comparison-results {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .comparison-column h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .comparison-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .comparison-value {
+            font-size: 1.1rem;
+        }
+
+        .match {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--success-color, #4caf50);
+            border-left: 4px solid var(--success-color, #4caf50);
+        }
+
+        .mismatch {
+            background-color: rgba(244, 67, 54, 0.1);
+            border: 1px solid var(--error-color, #f44336);
+            border-left: 4px solid var(--error-color, #f44336);
+        }
+
+        .system-details-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .system-details-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .system-detail-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .system-detail-card h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .system-description {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .detail-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .detail-meta a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .detail-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .primary-source-text {
+            font-style: italic;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Compare Systems</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Analyze similarities and differences.</p>
+        </header>
+
+        <main id="compare-content">
+            <div class="navigation-top">
+                <a href="index.html" class="btn primary-btn"
+                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 2rem; text-decoration: none;">&larr;
+                    Back to Home</a>
+            </div>
+
+            <div class="comparison-controls">
+                <div class="select-group">
+                    <label for="system1">System A</label>
+                    <select id="system1">
+                        <option value="">Select a system...</option>
+                    </select>
+                </div>
+
+                <div class="vs-badge">VS</div>
+
+                <div class="select-group">
+                    <label for="system2">System B</label>
+                    <select id="system2">
+                        <option value="">Select a system...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="comparison-view" style="display: none;">
+                <div class="system-details-container">
+                    <div id="detail-card-1" class="system-detail-card">
+                        <!-- Details injected here -->
+                    </div>
+                    <div id="detail-card-2" class="system-detail-card">
+                        <!-- Details injected here -->
+                    </div>
+                </div>
+
+                <div id="comparison-results" class="comparison-results">
+                    <!-- Comparison items injected here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        } else if (savedTheme === 'light') {
+            body.classList.remove('dark-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+        }
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        let systemsData = [];
+
+        async function init() {
+            try {
+                const response = await fetch('systems.json');
+                systemsData = await response.json();
+                populateDropdowns();
+            } catch (error) {
+                console.error('Error loading systems:', error);
+            }
+        }
+
+        function populateDropdowns() {
+            const select1 = document.getElementById('system1');
+            const select2 = document.getElementById('system2');
+
+            // Sort systems alphabetically
+            systemsData.sort((a, b) => a.name.localeCompare(b.name));
+
+            systemsData.forEach((system, index) => {
+                const option1 = document.createElement('option');
+                option1.value = index;
+                option1.textContent = system.name;
+                select1.appendChild(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = index;
+                option2.textContent = system.name;
+                select2.appendChild(option2);
+            });
+
+            select1.addEventListener('change', compareSystems);
+            select2.addEventListener('change', compareSystems);
+        }
+
+        function renderSystemDetails(system, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = `
+                <h2>${system.name}</h2>
+                <p class="system-description">${system.description}</p>
+                <div class="detail-meta">
+                    ${system.primary_source ? `<p>📖 <strong>Primary Source:</strong> <span class="primary-source-text">${system.primary_source}</span></p>` : ''}
+                    <p>🔗 <a href="${system.wiki}" target="_blank">Read on Wikipedia &rarr;</a></p>
+                </div>
+            `;
+        }
+
+        function compareSystems() {
+            const index1 = document.getElementById('system1').value;
+            const index2 = document.getElementById('system2').value;
+            const comparisonView = document.getElementById('comparison-view');
+            const resultsContainer = document.getElementById('comparison-results');
+
+            if (index1 === "" || index2 === "") {
+                comparisonView.style.display = 'none';
+                return;
+            }
+
+            const sys1 = systemsData[index1];
+            const sys2 = systemsData[index2];
+
+            comparisonView.style.display = 'block';
+
+            renderSystemDetails(sys1, 'detail-card-1');
+            renderSystemDetails(sys2, 'detail-card-2');
+
+            resultsContainer.innerHTML = '';
+
+            const profileKeys = Object.keys(sys1.profile);
+
+            profileKeys.forEach(key => {
+                const val1 = sys1.profile[key];
+                const val2 = sys2.profile[key];
+                const isMatch = val1 === val2;
+                const matchClass = isMatch ? 'match' : 'mismatch';
+
+                // System 1 Item
+                const item1 = document.createElement('div');
+                item1.className = `comparison-item ${matchClass}`;
+                item1.innerHTML = `
+                    <span class="comparison-label">${key}</span>
+                    <div class="comparison-value">${val1}</div>
+                `;
+                resultsContainer.appendChild(item1);
+
+                // System 2 Item
+                const item2 = document.createElement('div');
+                item2.className = `comparison-item ${matchClass}`;
+                item2.innerHTML = `
+                    <span class="comparison-label">${key}</span>
+                    <div class="comparison-value">${val2}</div>
+                `;
+                resultsContainer.appendChild(item2);
+            });
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

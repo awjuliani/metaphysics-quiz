@@ -5,9 +5,9 @@
         "wiki": "https://en.wikipedia.org/wiki/Classical_theism",
         "primary_source": "Summa Theologica by Thomas Aquinas",
         "profile": {
-            "ontology": "Idealism",
+            "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -119,7 +119,7 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Supra-personal",
@@ -168,7 +168,7 @@
             "ontology": "Dualism",
             "topology": "Pluralism",
             "dynamics": "Static",
-            "teleology": "Mechanistic",
+            "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
             "divinity": "Transcendent",
@@ -215,7 +215,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Process",
             "teleology": "Playful",
             "manifestation": "Realism",
             "character": "Personal",
@@ -236,7 +236,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Benevolent"
+            "axiology": "Conflictual"
         }
     },
     {
@@ -325,7 +325,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Arthur_Schopenhauer#Philosophy_of_the_%22Will%22",
         "primary_source": "The World as Will and Representation by Arthur Schopenhauer",
         "profile": {
-            "ontology": "Idealism",
+            "ontology": "Neutral Monism",
             "topology": "Strict Monism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -349,6 +349,38 @@
             "character": "Personal",
             "divinity": "Transcendent",
             "axiology": "Conflictual"
+        }
+    },
+    {
+        "name": "Abhidharma",
+        "description": "Represents the realistic pluralism of early Buddhism. Reality is analyzed into ultimate distinct constituents called 'dharmas' (momentary events of consciousness and matter) which arise and perish causally. It rejects the Mahayana notion of emptiness as an ontological ground, focusing instead on the phenomenological reality of these transient events.",
+        "wiki": "https://en.wikipedia.org/wiki/Abhidharma",
+        "primary_source": "Abhidhammattha Sangaha",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Naturalist",
+            "axiology": "Indifferent"
+        }
+    },
+    {
+        "name": "Huayan",
+        "description": "A major school of East Asian Buddhism famous for its metaphysics of total interpenetration (Indra's Net). It teaches that every phenomenon contains every other phenomenon; the part contains the whole. The universe is a harmonious, infinite interplay of events without obstruction.",
+        "wiki": "https://en.wikipedia.org/wiki/Huayan",
+        "primary_source": "Avatamsaka Sutra",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Integrative",
+            "teleology": "Trans-intentional",
+            "manifestation": "Constructivism",
+            "character": "Trans-personal",
+            "divinity": "Panentheism",
+            "axiology": "Trans-Moral"
         }
     }
 ]
