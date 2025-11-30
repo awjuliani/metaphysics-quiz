@@ -1,6 +1,6 @@
 [
     {
-        "name": "Classical Western Theism",
+        "name": "Classical Theism",
         "description": "This is the dominant worldview of the Abrahamic traditions (Christianity, Judaism, Islam) as synthesized with Greek philosophy. It posits a fundamental dualism between the Creator and the Created. God is the ultimate, personal, and transcendent reality who created the universe ex nihilo (out of nothing) and sustains it through His will. The universe is not God, but a distinct artifact of His love and reason.",
         "wiki": "https://en.wikipedia.org/wiki/Classical_theism",
         "primary_source": "Summa Theologica by Thomas Aquinas",
@@ -381,6 +381,22 @@
             "character": "Trans-personal",
             "divinity": "Panentheism",
             "axiology": "Trans-Moral"
+        }
+    },
+    {
+        "name": "Theistic Vedanta",
+        "description": "Represents the Vishishtadvaita (Qualified Non-Dualism) school of Hindu philosophy, primarily associated with Ramanuja. It teaches that the Supreme Reality (Brahman/Vishnu) is a Personal God who possesses the souls and the material world as His 'body'. While God is the only independent reality, the world and souls are real, distinct attributes that exist in an organic, inseparable unity with Him. It emphasizes Bhakti (loving devotion) as the means to liberation.",
+        "wiki": "https://en.wikipedia.org/wiki/Vishishtadvaita",
+        "primary_source": "Sri Bhashya by Ramanuja",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Integrative",
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
         }
     }
 ]
