@@ -67,27 +67,28 @@ d3.json("systems_map.json").then(data => {
                     <p style="margin-top:0.5rem; font-size: 0.85rem;">${d.description}</p>
                 `);
 
-            // Get tooltip dimensions
+            // Get tooltip dimensions and container offset
             const tooltipNode = tooltip.node();
             const tooltipRect = tooltipNode.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
 
-            // Calculate position
-            let left = event.pageX + 15;
-            let top = event.pageY - 28;
+            // Calculate position relative to the map container
+            let left = event.clientX - containerRect.left + 15;
+            let top = event.clientY - containerRect.top - 28;
 
             // Check right edge
-            if (left + tooltipRect.width > window.innerWidth) {
-                left = event.pageX - tooltipRect.width - 15;
+            if (left + tooltipRect.width > containerRect.width) {
+                left = event.clientX - containerRect.left - tooltipRect.width - 15;
             }
 
             // Check bottom edge
-            if (top + tooltipRect.height > window.innerHeight) {
-                top = event.pageY - tooltipRect.height - 15;
+            if (top + tooltipRect.height > containerRect.height) {
+                top = event.clientY - containerRect.top - tooltipRect.height - 15;
             }
 
             // Check top edge (if it flipped up and went off screen)
             if (top < 0) {
-                top = event.pageY + 15;
+                top = event.clientY - containerRect.top + 15;
             }
 
             tooltip.style("left", left + "px")
