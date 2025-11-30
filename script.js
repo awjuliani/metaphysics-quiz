@@ -10,7 +10,7 @@ Promise.all([
     .then(([dimensionsData, systemsData]) => {
         dimensions = dimensionsData;
         systems = systemsData;
-        
+
         // Update dimension counts in UI
         document.querySelectorAll('.dimension-count').forEach(el => {
             el.textContent = dimensions.length;
@@ -43,6 +43,7 @@ const backBtn = document.getElementById('back-btn');
 const nextBtn = document.getElementById('next-btn');
 const showTopBtn = document.getElementById('show-top-btn');
 const showRunnerUpBtn = document.getElementById('show-runner-up-btn');
+const showWorstBtn = document.getElementById('show-worst-btn');
 const resultToggleContainer = document.getElementById('result-toggle-container');
 const progressBar = document.getElementById('progress-bar');
 const dimensionLabel = document.getElementById('dimension-label');
@@ -57,6 +58,7 @@ backBtn.addEventListener('click', prevQuestion);
 nextBtn.addEventListener('click', nextQuestion);
 showTopBtn.addEventListener('click', () => toggleResultView('top'));
 showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
+showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
 themeToggleBtn.addEventListener('click', toggleTheme);
 
 // Theme Logic
@@ -248,6 +250,7 @@ function getDragAfterElement(container, y) {
 
 let topMatchData = null;
 let runnerUpData = null;
+let worstMatchData = null;
 
 function calculateResult() {
     let scores = [];
@@ -310,6 +313,7 @@ function calculateResult() {
 
     topMatchData = scores[0];
     runnerUpData = scores[1]; // Assumes at least 2 systems
+    worstMatchData = scores[scores.length - 1];
 
     showResult();
 }
@@ -321,16 +325,27 @@ function showResult() {
 }
 
 function toggleResultView(viewType) {
-    const data = viewType === 'top' ? topMatchData : runnerUpData;
+    let data;
+    if (viewType === 'top') data = topMatchData;
+    else if (viewType === 'runner-up') data = runnerUpData;
+    else data = worstMatchData;
+
     const system = data.system;
 
+    // Update Buttons
     // Update Buttons
     if (viewType === 'top') {
         showTopBtn.classList.add('active');
         showRunnerUpBtn.classList.remove('active');
-    } else {
+        showWorstBtn.classList.remove('active');
+    } else if (viewType === 'runner-up') {
         showTopBtn.classList.remove('active');
         showRunnerUpBtn.classList.add('active');
+        showWorstBtn.classList.remove('active');
+    } else {
+        showTopBtn.classList.remove('active');
+        showRunnerUpBtn.classList.remove('active');
+        showWorstBtn.classList.add('active');
     }
 
     // Update Content
@@ -338,6 +353,24 @@ function toggleResultView(viewType) {
     document.getElementById('result-score').textContent = `Match: ${data.matchPercentage}%`;
     document.getElementById('result-description').textContent = system.description;
     document.getElementById('result-wiki').href = system.wiki;
+
+    // Add Primary Source display if it doesn't exist, or update it
+    let sourceEl = document.getElementById('result-source');
+    if (!sourceEl) {
+        sourceEl = document.createElement('div');
+        sourceEl.id = 'result-source';
+        sourceEl.className = 'result-source';
+        // Insert after description
+        const descEl = document.getElementById('result-description');
+        descEl.parentNode.insertBefore(sourceEl, descEl.nextSibling);
+    }
+
+    if (system.primary_source) {
+        sourceEl.innerHTML = `📖 Recommended Reading: <em>${system.primary_source}</em>`;
+        sourceEl.style.display = 'block';
+    } else {
+        sourceEl.style.display = 'none';
+    }
 
     const breakdownList = document.getElementById('result-breakdown');
     breakdownList.innerHTML = '';

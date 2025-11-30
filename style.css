@@ -175,6 +175,65 @@ header h1 {
     margin-top: 1.5rem;
 }
 
+/* System Links in Explore Page */
+.system-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.system-links .wiki-link {
+    margin-bottom: 0;
+    /* Override existing margin */
+    align-self: flex-start;
+}
+
+.primary-source {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: baseline;
+    /* Align text baselines */
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+
+.source-label {
+    flex-shrink: 0;
+    /* Prevent label from wrapping or shrinking */
+}
+
+.source-text {
+    color: var(--text-main);
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Result Source in Results Page */
+.result-source {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    display: inline-block;
+}
+
+body.dark-mode .result-source {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.result-source em {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-style: normal;
+}
+
 .primary-btn {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     color: white;

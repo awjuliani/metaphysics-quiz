@@ -106,7 +106,10 @@
                     card.innerHTML = `
                         <h2>${system.name}</h2>
                         <p class="system-description">${system.description}</p>
-                        <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>
+                        <div class="system-links">
+                            <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>
+                            ${system.primary_source ? `<div class="primary-source"><span class="source-label">📖 Recommended:</span> <em class="source-text">${system.primary_source}</em></div>` : ''}
+                        </div>
                         <div class="system-meta">
                             ${metaHtml}
                         </div>
