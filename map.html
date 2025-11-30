@@ -15,7 +15,6 @@
     <style>
         body {
             overflow: hidden;
-            /* Prevent scrolling on the map page */
             display: flex;
             flex-direction: column;
         }
@@ -28,7 +27,7 @@
             flex-direction: column;
         }
 
-        header {
+        .map-header {
             padding: 1rem 2rem;
             margin-bottom: 0;
             background: var(--bg-color);
@@ -36,44 +35,31 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        .header-content {
+        .map-header .header-content {
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
             position: relative;
         }
 
-        header h1 {
-            font-size: 1.5rem;
+        .map-header .subtitle {
             margin-bottom: 0;
         }
 
-        .theme-toggle {
-            position: absolute;
-            right: 0;
-            margin-left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .back-btn-header {
+        .back-link {
             position: absolute;
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            margin: 0;
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            width: auto;
+            font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .theme-toggle:hover,
-        .back-btn-header:hover {
-            transform: translateY(calc(-50% - 2px));
+        .back-link:hover {
+            color: var(--primary-color);
         }
 
         #map-wrapper {
@@ -140,8 +126,6 @@
             font-weight: 600;
         }
 
-
-
         /* Zoom controls */
         .zoom-controls {
             position: absolute;
@@ -175,15 +159,31 @@
             border-color: var(--primary-color);
             transform: translateY(-2px);
         }
+
+        .map-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0.5rem;
+            background: linear-gradient(transparent, var(--bg-color));
+            z-index: 10;
+        }
+
+        .map-footer p {
+            margin: 0;
+            font-size: 0.75rem;
+        }
     </style>
 </head>
 
 <body>
     <div class="app-container">
-        <header>
+        <header class="map-header">
             <div class="header-content">
-                <a href="index.html" class="btn primary-btn back-btn-header">← Back to Home</a>
-                <h1>Metaphysical Map</h1>
+                <a href="index.html" class="back-link">&larr; Home</a>
+                <h1>Metaphysical Systems Map</h1>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -205,6 +205,7 @@
                     </svg>
                 </button>
             </div>
+            <p class="subtitle">A 2D visualization of philosophical worldviews.</p>
         </header>
 
         <div id="map-wrapper">
@@ -217,6 +218,11 @@
             </div>
 
             <div id="tooltip" class="tooltip"></div>
+
+            <footer class="map-footer">
+                <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                        target="_blank">View Source</a></p>
+            </footer>
         </div>
     </div>
 
