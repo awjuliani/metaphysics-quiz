@@ -43,8 +43,6 @@ d3.json("systems_map.json").then(data => {
     // Tooltip
     const tooltip = d3.select("#tooltip");
 
-    // Draw links? Maybe too messy. Let's just draw nodes.
-
     // Draw nodes
     const nodes = g.selectAll(".node")
         .data(data)
@@ -107,12 +105,8 @@ d3.json("systems_map.json").then(data => {
     // Labels
     nodes.append("text")
         .attr("class", "system-label")
-        .attr("dy", 25) // Position below the circle
-        .text(d => d.name)
-
-        .each(function (d) {
-            // Simple wrap logic if needed, or just let it be
-        });
+        .attr("dy", 25)
+        .text(d => d.name);
 
     // Zoom controls
     document.getElementById('zoom-in').addEventListener('click', () => {
@@ -126,11 +120,6 @@ d3.json("systems_map.json").then(data => {
     document.getElementById('zoom-reset').addEventListener('click', () => {
         svg.transition().call(zoom.transform, d3.zoomIdentity);
     });
-
-    // Initial centering if needed, but our scales are centered on 0,0 mapping to center of screen
-    // if the data is centered.
-
-    // Legend removed as requested
 
 }).catch(err => {
     console.error("Error loading data:", err);

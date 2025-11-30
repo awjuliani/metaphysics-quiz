@@ -59,7 +59,6 @@ Promise.all([
         }
     });
 
-
 // Event Listeners
 if (startBtn && startBtn.tagName === 'BUTTON') startBtn.addEventListener('click', startQuiz);
 
