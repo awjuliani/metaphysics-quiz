@@ -2,6 +2,31 @@
 let dimensions = [];
 let systems = [];
 
+// DOM Elements
+const views = {
+    intro: document.getElementById('intro-view'),
+    quiz: document.getElementById('quiz-view'),
+    results: document.getElementById('results-view')
+};
+
+const startBtn = document.getElementById('start-btn');
+
+const backBtn = document.getElementById('back-btn');
+const nextBtn = document.getElementById('next-btn');
+const showTopBtn = document.getElementById('show-top-btn');
+const showRunnerUpBtn = document.getElementById('show-runner-up-btn');
+const showWorstBtn = document.getElementById('show-worst-btn');
+const resultToggleContainer = document.getElementById('result-toggle-container');
+const progressBar = document.getElementById('progress-bar');
+const dimensionLabel = document.getElementById('dimension-label');
+const questionText = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options-container');
+const themeToggleBtn = document.getElementById('theme-toggle');
+
+// State
+let currentQuestionIndex = 0;
+let userAnswers = {};
+
 // Load data
 Promise.all([
     fetch('dimensions.json').then(response => response.json()),
@@ -16,50 +41,34 @@ Promise.all([
             el.textContent = dimensions.length;
         });
 
-        startBtn.disabled = false;
-        startBtn.textContent = "Start the Quiz";
+        if (startBtn && startBtn.tagName === 'BUTTON') {
+            startBtn.disabled = false;
+            startBtn.textContent = "Start the Quiz";
+        }
+
+        // If we are on the quiz page (no intro view, but quiz view exists), start immediately
+        if (!views.intro && views.quiz) {
+            startQuiz();
+        }
     })
     .catch(error => {
         console.error('Error loading data:', error);
-        startBtn.textContent = "Error loading data. Please run a local server.";
-        startBtn.disabled = true;
+        if (startBtn && startBtn.tagName === 'BUTTON') {
+            startBtn.textContent = "Error loading data. Please run a local server.";
+            startBtn.disabled = true;
+        }
     });
 
-// State
-let currentQuestionIndex = 0;
-let userAnswers = {};
-
-// DOM Elements
-// DOM Elements
-const views = {
-    intro: document.getElementById('intro-view'),
-    quiz: document.getElementById('quiz-view'),
-    results: document.getElementById('results-view')
-};
-
-const startBtn = document.getElementById('start-btn');
-const restartBtn = document.getElementById('restart-btn');
-const backBtn = document.getElementById('back-btn');
-const nextBtn = document.getElementById('next-btn');
-const showTopBtn = document.getElementById('show-top-btn');
-const showRunnerUpBtn = document.getElementById('show-runner-up-btn');
-const showWorstBtn = document.getElementById('show-worst-btn');
-const resultToggleContainer = document.getElementById('result-toggle-container');
-const progressBar = document.getElementById('progress-bar');
-const dimensionLabel = document.getElementById('dimension-label');
-const questionText = document.getElementById('question-text');
-const optionsContainer = document.getElementById('options-container');
-const themeToggleBtn = document.getElementById('theme-toggle');
 
 // Event Listeners
-startBtn.addEventListener('click', startQuiz);
-restartBtn.addEventListener('click', startQuiz);
-backBtn.addEventListener('click', prevQuestion);
-nextBtn.addEventListener('click', nextQuestion);
-showTopBtn.addEventListener('click', () => toggleResultView('top'));
-showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
-showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
-themeToggleBtn.addEventListener('click', toggleTheme);
+if (startBtn && startBtn.tagName === 'BUTTON') startBtn.addEventListener('click', startQuiz);
+
+if (backBtn) backBtn.addEventListener('click', prevQuestion);
+if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
+if (showTopBtn) showTopBtn.addEventListener('click', () => toggleResultView('top'));
+if (showRunnerUpBtn) showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
+if (showWorstBtn) showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
+if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
 
 // Theme Logic
 function initTheme() {
@@ -79,15 +88,23 @@ function toggleTheme() {
 initTheme();
 
 function switchView(viewName) {
+    // If views don't exist (e.g. we are on a page that doesn't have them), do nothing or handle gracefully
+    if (!views[viewName]) return;
+
     Object.values(views).forEach(view => {
-        view.classList.add('hidden');
-        view.classList.remove('active');
+        if (view) {
+            view.classList.add('hidden');
+            view.classList.remove('active');
+        }
     });
-    views[viewName].classList.remove('hidden');
-    // Small delay to allow display:block to apply before opacity transition
-    setTimeout(() => {
-        views[viewName].classList.add('active');
-    }, 10);
+
+    if (views[viewName]) {
+        views[viewName].classList.remove('hidden');
+        // Small delay to allow display:block to apply before opacity transition
+        setTimeout(() => {
+            views[viewName].classList.add('active');
+        }, 10);
+    }
 }
 
 function startQuiz() {
@@ -114,14 +131,18 @@ function nextQuestion() {
 }
 
 function renderQuestion() {
+    if (!views.quiz) return;
+
     const dimension = dimensions[currentQuestionIndex];
     const currentAnswer = userAnswers[dimension.id] || { most: null, least: null };
 
     // Update Back Button Visibility
-    if (currentQuestionIndex === 0) {
-        backBtn.classList.add('hidden');
-    } else {
-        backBtn.classList.remove('hidden');
+    if (backBtn) {
+        if (currentQuestionIndex === 0) {
+            backBtn.classList.add('hidden');
+        } else {
+            backBtn.classList.remove('hidden');
+        }
     }
 
     // Initialize user answers for this dimension if not exists
@@ -133,54 +154,58 @@ function renderQuestion() {
 
     const currentOrder = userAnswers[dimension.id];
 
-    // Reset Next Button - Always enabled in ranking mode since there's always an order
-    // But maybe we want them to interact at least once? 
-    // Actually, "default random" is a valid answer. Let's just enable it.
-    nextBtn.classList.remove('hidden');
+    // Reset Next Button
+    if (nextBtn) nextBtn.classList.remove('hidden');
 
     // Update Progress
-    const progress = (currentQuestionIndex / dimensions.length) * 100;
-    progressBar.style.width = `${progress}%`;
+    if (progressBar) {
+        const progress = (currentQuestionIndex / dimensions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+    }
 
     // Update Content
-    dimensionLabel.textContent = `Dimension ${currentQuestionIndex + 1}: ${dimension.label}`;
-    questionText.innerHTML = `
-        ${dimension.question}
-        <div class="instruction-text">Rank the following from most agreed (top) to least agreed (bottom):</div>
-    `;
+    if (dimensionLabel) dimensionLabel.textContent = `Dimension ${currentQuestionIndex + 1}: ${dimension.label}`;
+    if (questionText) {
+        questionText.innerHTML = `
+            ${dimension.question}
+            <div class="instruction-text">Rank the following from most agreed (top) to least agreed (bottom):</div>
+        `;
+    }
 
     // Render Options in the current order
-    optionsContainer.innerHTML = '<div class="ranking-container" id="ranking-list"></div>';
-    const list = document.getElementById('ranking-list');
+    if (optionsContainer) {
+        optionsContainer.innerHTML = '<div class="ranking-container" id="ranking-list"></div>';
+        const list = document.getElementById('ranking-list');
 
-    currentOrder.forEach((val, index) => {
-        const option = dimension.options.find(o => o.value === val);
-        // Find original index for consistent coloring
-        const originalIndex = dimension.options.findIndex(o => o.value === val);
+        currentOrder.forEach((val, index) => {
+            const option = dimension.options.find(o => o.value === val);
+            // Find original index for consistent coloring
+            const originalIndex = dimension.options.findIndex(o => o.value === val);
 
-        const card = document.createElement('div');
-        card.className = `rank-card variant-${originalIndex}`;
-        card.draggable = true;
-        card.dataset.value = val;
-        card.dataset.index = index;
+            const card = document.createElement('div');
+            card.className = `rank-card variant-${originalIndex}`;
+            card.draggable = true;
+            card.dataset.value = val;
+            card.dataset.index = index;
 
-        card.innerHTML = `
-            <div class="drag-handle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-            </div>
-            <div class="rank-indicator">#${index + 1}</div>
-            <div class="rank-content">
-                <div class="rank-text">${option.label}</div>
-            </div>
-            <div class="rank-controls">
-                <button class="rank-btn up-btn" onclick="moveOption('${dimension.id}', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
-                <button class="rank-btn down-btn" onclick="moveOption('${dimension.id}', ${index}, 1)" ${index === 3 ? 'disabled' : ''}>▼</button>
-            </div>
-        `;
-        list.appendChild(card);
-    });
+            card.innerHTML = `
+                <div class="drag-handle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </div>
+                <div class="rank-indicator">#${index + 1}</div>
+                <div class="rank-content">
+                    <div class="rank-text">${option.label}</div>
+                </div>
+                <div class="rank-controls">
+                    <button class="rank-btn up-btn" onclick="moveOption('${dimension.id}', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
+                    <button class="rank-btn down-btn" onclick="moveOption('${dimension.id}', ${index}, 1)" ${index === 3 ? 'disabled' : ''}>▼</button>
+                </div>
+            `;
+            list.appendChild(card);
+        });
 
-    setupDragAndDrop(list, dimension.id);
+        setupDragAndDrop(list, dimension.id);
+    }
 }
 
 window.moveOption = function (dimensionId, index, direction) {
@@ -320,11 +345,13 @@ function calculateResult() {
 
 function showResult() {
     switchView('results');
-    resultToggleContainer.classList.remove('hidden');
+    if (resultToggleContainer) resultToggleContainer.classList.remove('hidden');
     toggleResultView('top');
 }
 
 function toggleResultView(viewType) {
+    if (!views.results) return;
+
     let data;
     if (viewType === 'top') data = topMatchData;
     else if (viewType === 'runner-up') data = runnerUpData;
@@ -333,93 +360,103 @@ function toggleResultView(viewType) {
     const system = data.system;
 
     // Update Buttons
-    // Update Buttons
-    if (viewType === 'top') {
-        showTopBtn.classList.add('active');
-        showRunnerUpBtn.classList.remove('active');
-        showWorstBtn.classList.remove('active');
-    } else if (viewType === 'runner-up') {
-        showTopBtn.classList.remove('active');
-        showRunnerUpBtn.classList.add('active');
-        showWorstBtn.classList.remove('active');
-    } else {
-        showTopBtn.classList.remove('active');
-        showRunnerUpBtn.classList.remove('active');
-        showWorstBtn.classList.add('active');
+    if (showTopBtn && showRunnerUpBtn && showWorstBtn) {
+        if (viewType === 'top') {
+            showTopBtn.classList.add('active');
+            showRunnerUpBtn.classList.remove('active');
+            showWorstBtn.classList.remove('active');
+        } else if (viewType === 'runner-up') {
+            showTopBtn.classList.remove('active');
+            showRunnerUpBtn.classList.add('active');
+            showWorstBtn.classList.remove('active');
+        } else {
+            showTopBtn.classList.remove('active');
+            showRunnerUpBtn.classList.remove('active');
+            showWorstBtn.classList.remove('active');
+            showWorstBtn.classList.add('active');
+        }
     }
 
     // Update Content
-    document.getElementById('result-name').textContent = system.name;
-    document.getElementById('result-score').textContent = `Match: ${data.matchPercentage}%`;
-    document.getElementById('result-description').textContent = system.description;
-    document.getElementById('result-wiki').href = system.wiki;
+    const resultName = document.getElementById('result-name');
+    const resultScore = document.getElementById('result-score');
+    const resultDescription = document.getElementById('result-description');
+    const resultWiki = document.getElementById('result-wiki');
+
+    if (resultName) resultName.textContent = system.name;
+    if (resultScore) resultScore.textContent = `Match: ${data.matchPercentage}%`;
+    if (resultDescription) resultDescription.textContent = system.description;
+    if (resultWiki) resultWiki.href = system.wiki;
 
     // Add Primary Source display if it doesn't exist, or update it
     let sourceEl = document.getElementById('result-source');
-    if (!sourceEl) {
+    if (!sourceEl && resultDescription) {
         sourceEl = document.createElement('div');
         sourceEl.id = 'result-source';
         sourceEl.className = 'result-source';
         // Insert after description
-        const descEl = document.getElementById('result-description');
-        descEl.parentNode.insertBefore(sourceEl, descEl.nextSibling);
+        resultDescription.parentNode.insertBefore(sourceEl, resultDescription.nextSibling);
     }
 
-    if (system.primary_source) {
-        sourceEl.innerHTML = `📖 Recommended Reading: <em>${system.primary_source}</em>`;
-        sourceEl.style.display = 'block';
-    } else {
-        sourceEl.style.display = 'none';
+    if (sourceEl) {
+        if (system.primary_source) {
+            sourceEl.innerHTML = `📖 Recommended Reading: <em>${system.primary_source}</em>`;
+            sourceEl.style.display = 'block';
+        } else {
+            sourceEl.style.display = 'none';
+        }
     }
 
     const breakdownList = document.getElementById('result-breakdown');
-    breakdownList.innerHTML = '';
+    if (breakdownList) {
+        breakdownList.innerHTML = '';
 
-    data.breakdown.forEach(item => {
-        const li = document.createElement('li');
+        data.breakdown.forEach(item => {
+            const li = document.createElement('li');
 
-        // Determine styles and text based on rank
-        let matchClass = 'match-neutral';
-        let badgeHtml = '';
-        let alignmentText = '';
+            // Determine styles and text based on rank
+            let matchClass = 'match-neutral';
+            let badgeHtml = '';
+            let alignmentText = '';
 
-        if (item.userRank === 1) {
-            matchClass = 'match-most';
-            badgeHtml = '<span class="match-badge success">Ranked #1 (+8)</span>';
-            alignmentText = `✅ <strong>You ranked this as your top choice.</strong>`;
-        } else if (item.userRank === 2) {
-            matchClass = 'match-most'; // Still positive-ish
-            badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+4)</span>';
-            alignmentText = `☑️ <strong>You ranked this second.</strong>`;
-        } else if (item.userRank === 3) {
-            matchClass = 'match-least';
-            badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (+2)</span>';
-            alignmentText = `⚠️ <strong>You ranked this third.</strong>`;
-        } else if (item.userRank === 4) {
-            matchClass = 'match-least';
-            badgeHtml = '<span class="match-badge danger">Ranked #4 (+1)</span>';
-            alignmentText = `❌ <strong>You ranked this last.</strong>`;
-        }
+            if (item.userRank === 1) {
+                matchClass = 'match-most';
+                badgeHtml = '<span class="match-badge success">Ranked #1 (+8)</span>';
+                alignmentText = `✅ <strong>You ranked this as your top choice.</strong>`;
+            } else if (item.userRank === 2) {
+                matchClass = 'match-most'; // Still positive-ish
+                badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+4)</span>';
+                alignmentText = `☑️ <strong>You ranked this second.</strong>`;
+            } else if (item.userRank === 3) {
+                matchClass = 'match-least';
+                badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (+2)</span>';
+                alignmentText = `⚠️ <strong>You ranked this third.</strong>`;
+            } else if (item.userRank === 4) {
+                matchClass = 'match-least';
+                badgeHtml = '<span class="match-badge danger">Ranked #4 (+1)</span>';
+                alignmentText = `❌ <strong>You ranked this last.</strong>`;
+            }
 
-        li.className = matchClass;
-        li.innerHTML = `
-            <div class="dim-name">${item.dim}</div>
-            <div class="comparison-container">
-                <div class="system-stance">
-                    <span class="label">System View</span>
-                    <div class="value">
-                        ${item.sysVal}
-                        ${badgeHtml}
+            li.className = matchClass;
+            li.innerHTML = `
+                <div class="dim-name">${item.dim}</div>
+                <div class="comparison-container">
+                    <div class="system-stance">
+                        <span class="label">System View</span>
+                        <div class="value">
+                            ${item.sysVal}
+                            ${badgeHtml}
+                        </div>
+                        <div class="description">"${item.optionLabel}"</div>
                     </div>
-                    <div class="description">"${item.optionLabel}"</div>
+                    <div class="user-alignment">
+                        ${alignmentText}
+                    </div>
                 </div>
-                <div class="user-alignment">
-                    ${alignmentText}
-                </div>
-            </div>
-        `;
-        breakdownList.appendChild(li);
-    });
+            `;
+            breakdownList.appendChild(li);
+        });
+    }
 }
 
 function getOptionLabel(dimensionId, value) {

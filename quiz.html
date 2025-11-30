@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Your Metaphysics? - Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">What is Your Metaphysics?</a>
+                </h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Discover your philosophical worldview in <span class="dimension-count">...</span>
+                dimensions.</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Quiz View Template (Hidden initially, shown by JS) -->
+            <div id="quiz-view" class="view hidden">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="card question-card">
+                    <div class="dimension-label" id="dimension-label">Dimension 1: Ontology</div>
+                    <h2 id="question-text">What is the fundamental "stuff" of the universe?</h2>
+                    <div class="options-container" id="options-container">
+                        <!-- Options injected here -->
+                    </div>
+                    <div class="navigation-controls">
+                        <button id="back-btn" class="btn text-btn hidden">← Back</button>
+                        <button id="next-btn" class="btn primary-btn hidden" style="width: auto; margin-top: 1rem;">Next
+                            →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results View Template (Hidden initially) -->
+            <div id="results-view" class="view hidden">
+                <div class="card result-card">
+                    <div class="result-toggle-container hidden" id="result-toggle-container">
+                        <button id="show-top-btn" class="toggle-btn active">Top Match</button>
+                        <button id="show-runner-up-btn" class="toggle-btn">Runner-Up</button>
+                        <button id="show-worst-btn" class="toggle-btn">Worst Match</button>
+                    </div>
+
+
+                    <div class="result-header">
+                        <span class="pre-title">Your Metaphysical System is:</span>
+                        <h2 id="result-name">Stoicism</h2>
+                        <div id="result-score" class="result-score"></div>
+                    </div>
+
+                    <div class="result-body">
+                        <p id="result-description" class="result-description">Description goes here.</p>
+                        <a id="result-wiki" href="#" target="_blank" class="wiki-link">Read more on Wikipedia &rarr;</a>
+
+                        <div class="breakdown-section">
+                            <h3>Your Dimensional Profile</h3>
+                            <ul id="result-breakdown" class="breakdown-list">
+                                <!-- Breakdown items injected here -->
+                            </ul>
+                        </div>
+
+                        <a href="index.html" class="btn secondary-btn"
+                            style="text-decoration: none; text-align: center;">Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

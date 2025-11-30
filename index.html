@@ -44,8 +44,6 @@
         </header>
 
         <main id="main-content">
-            <!-- Views will be injected here by JavaScript -->
-
             <!-- Intro View Template -->
             <div id="intro-view" class="view active">
                 <div class="card intro-card">
@@ -59,64 +57,14 @@
                     </div>
                     <div class="button-group"
                         style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-                        <button id="start-btn" class="btn primary-btn" style="margin-top: 0;">Start the Quiz</button>
+                        <a href="quiz.html" id="start-btn" class="btn primary-btn"
+                            style="text-decoration: none; text-align: center; margin-top: 0;">Start the Quiz</a>
                         <a href="explore.html" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">Explore Systems</a>
+                            style="text-decoration: none; text-align: center; margin-top: 0;">Explore the Systems</a>
                         <a href="map.html" class="btn primary-btn"
                             style="text-decoration: none; text-align: center; margin-top: 0;">View Systems Map</a>
                         <a href="compare.html" class="btn primary-btn"
                             style="text-decoration: none; text-align: center; margin-top: 0;">Compare Systems</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quiz View Template (Hidden initially) -->
-            <div id="quiz-view" class="view hidden">
-                <div class="progress-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-                <div class="card question-card">
-                    <div class="dimension-label" id="dimension-label">Dimension 1: Ontology</div>
-                    <h2 id="question-text">What is the fundamental "stuff" of the universe?</h2>
-                    <div class="options-container" id="options-container">
-                        <!-- Options injected here -->
-                    </div>
-                    <div class="navigation-controls">
-                        <button id="back-btn" class="btn text-btn hidden">← Back</button>
-                        <button id="next-btn" class="btn primary-btn hidden" style="width: auto; margin-top: 1rem;">Next
-                            →</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results View Template (Hidden initially) -->
-            <div id="results-view" class="view hidden">
-                <div class="card result-card">
-                    <div class="result-toggle-container hidden" id="result-toggle-container">
-                        <button id="show-top-btn" class="toggle-btn active">Top Match</button>
-                        <button id="show-runner-up-btn" class="toggle-btn">Runner-Up</button>
-                        <button id="show-worst-btn" class="toggle-btn">Worst Match</button>
-                    </div>
-
-
-                    <div class="result-header">
-                        <span class="pre-title">Your Metaphysical System is:</span>
-                        <h2 id="result-name">Stoicism</h2>
-                        <div id="result-score" class="result-score"></div>
-                    </div>
-
-                    <div class="result-body">
-                        <p id="result-description" class="result-description">Description goes here.</p>
-                        <a id="result-wiki" href="#" target="_blank" class="wiki-link">Read more on Wikipedia &rarr;</a>
-
-                        <div class="breakdown-section">
-                            <h3>Your Dimensional Profile</h3>
-                            <ul id="result-breakdown" class="breakdown-list">
-                                <!-- Breakdown items injected here -->
-                            </ul>
-                        </div>
-
-                        <button id="restart-btn" class="btn secondary-btn">Retake Quiz</button>
                     </div>
                 </div>
             </div>
