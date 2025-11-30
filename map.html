@@ -38,10 +38,12 @@
 
         .header-content {
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
         }
 
         header h1 {
@@ -50,9 +52,28 @@
         }
 
         .theme-toggle {
-            position: static;
-            /* Override fixed position */
-            margin-left: 1rem;
+            position: absolute;
+            right: 0;
+            margin-left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .back-btn-header {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            width: auto;
+        }
+
+        .theme-toggle:hover,
+        .back-btn-header:hover {
+            transform: translateY(calc(-50% - 2px));
         }
 
         #map-wrapper {
@@ -119,14 +140,7 @@
             font-weight: 600;
         }
 
-        .controls-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 50;
-            display: flex;
-            gap: 1rem;
-        }
+
 
         /* Zoom controls */
         .zoom-controls {
@@ -168,6 +182,7 @@
     <div class="app-container">
         <header>
             <div class="header-content">
+                <a href="index.html" class="btn primary-btn back-btn-header">← Back to Quiz</a>
                 <h1>Metaphysical Map</h1>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -193,11 +208,7 @@
         </header>
 
         <div id="map-wrapper">
-            <div class="controls-overlay">
-                <a href="index.html" id="back-button" class="btn primary-btn"
-                    style="width: auto; padding: 0.5rem 1.5rem; font-size: 0.9rem; margin-top: 0; text-decoration: none;">←
-                    Back to Quiz</a>
-            </div>
+
 
             <div id="map-container"></div>
 
