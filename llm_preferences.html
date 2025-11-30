@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is Your Metaphysics?</title>
+    <title>LLM Preferences - What is Your Metaphysics?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,7 +17,7 @@
     <div class="app-container">
         <header>
             <div class="header-content">
-                <h1>What is Your Metaphysics?</h1>
+                <h1>LLM Preferences</h1>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -39,36 +39,16 @@
                     </svg>
                 </button>
             </div>
-            <p class="subtitle">Discover your philosophical worldview in <span class="dimension-count">...</span>
-                dimensions.</p>
+            <p class="subtitle">See which metaphysical systems different AI models prefer.</p>
         </header>
 
         <main id="main-content">
-            <!-- Intro View Template -->
-            <div id="intro-view" class="view active">
-                <div class="card intro-card">
-                    <div class="intro-content">
-                        <p class="intro-lead">Metaphysical systems are often taught as static, historical categories.
-                            But what if we look at the underlying structure of your beliefs?</p>
-                        <div class="divider"></div>
-                        <p class="intro-text">This quiz maps your worldview across <span
-                                class="dimension-count">...</span> fundamental dimensions—from the
-                            nature of reality to the existence of the divine.</p>
-                    </div>
-                    <div class="button-group"
-                        style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-                        <a href="quiz.html" id="start-btn" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">Start the Quiz</a>
-                        <a href="explore.html" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">Explore the Systems</a>
-                        <a href="map.html" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">View Systems Map</a>
-                        <a href="compare.html" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">Compare Systems</a>
-                        <a href="llm_preferences.html" class="btn primary-btn"
-                            style="text-decoration: none; text-align: center; margin-top: 0;">View LLM Preferences</a>
-                    </div>
-                </div>
+            <div id="llm-container" class="llm-grid">
+                <!-- LLM cards will be inserted here by JS -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" class="btn primary-btn" style="text-decoration: none; display: inline-block; width: auto;">Back to Home</a>
             </div>
         </main>
 
@@ -77,7 +57,7 @@
                     target="_blank">View Source</a></p>
         </footer>
     </div>
-    <script src="script.js"></script>
+    <script src="llm_preferences.js"></script>
 </body>
 
 </html>
