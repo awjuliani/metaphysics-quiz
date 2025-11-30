@@ -1,6 +1,6 @@
 [
     {
-        "name": "Western Theism (Classical)",
+        "name": "Classical Western Theism",
         "x": 66.02710535414282,
         "y": -3.4191989284956326,
         "description": "This is the dominant worldview of the Abrahamic traditions (Christianity, Judaism, Islam) as synthesized with Greek philosophy. It posits a fundamental dualism between the Creator and the Created. God is the ultimate, personal, and transcendent reality who created the universe ex nihilo (out of nothing) and sustains it through His will. The universe is not God, but a distinct artifact of His love and reason.",
@@ -176,7 +176,7 @@
         }
     },
     {
-        "name": "Evolutionary Theism (Teilhardian)",
+        "name": "Evolutionary Theism",
         "x": 17.543999127583653,
         "y": -40.741255800779065,
         "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a process of \"Cosmogenesis\"\u2014a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
@@ -192,7 +192,7 @@
         }
     },
     {
-        "name": "Madhyamaka (Middle Way)",
+        "name": "Madhyamaka",
         "x": -89.9388765764435,
         "y": -1.7208354709388698,
         "description": "Founded by Nagarjuna, this \"Middle Way\" school of Mahayana Buddhism teaches the \"Emptiness\" (Sunyata) of all phenomena. Nothing possesses intrinsic, independent existence; all things arise dependently (Pratityasamutpada). It avoids the extremes of Eternalism (things exist permanently) and Nihilism (nothing exists). Samsara and Nirvana are ultimately non-different.",
@@ -224,7 +224,7 @@
         }
     },
     {
-        "name": "Dialectical Materialism (Marxism)",
+        "name": "Dialectical Materialism",
         "x": 16.44654574774338,
         "y": 59.10427156252141,
         "description": "The philosophical basis of Marxism. It agrees with Scientific Materialism that matter is primary, but rejects the view that the universe is static or merely mechanistic. Instead, it sees reality as a historical process driven by internal contradictions (dialectics) moving toward a specific goal (the liberation of consciousness/society).",
@@ -240,7 +240,7 @@
         }
     },
     {
-        "name": "Subjective Idealism (Berkeley)",
+        "name": "Subjective Idealism",
         "x": 57.554895902176206,
         "y": -33.977800557434605,
         "description": "Associated with Bishop Berkeley, this view argues that 'to be is to be perceived' (esse est percipi). There is no mind-independent matter. Reality consists entirely of finite minds (us) and the Infinite Mind (God) who perceives and sustains all things. The physical world is real, but it is a mental reality coordinated by God.",
@@ -256,7 +256,7 @@
         }
     },
     {
-        "name": "Transcendental Empiricism (Deleuze)",
+        "name": "Transcendental Empiricism",
         "x": -40.66074024461212,
         "y": 20.960679616517744,
         "description": "A philosophy of pure difference and becoming. Reality is not composed of stable identities, but of dynamic intensities and multiplicities. 'Being' is univocal\u2014it is said in one and the same sense of all things, but that sense is Difference itself. The world is a creative chaosmos of virtual potentials actualizing themselves.",
@@ -320,7 +320,7 @@
         }
     },
     {
-        "name": "Metaphysical Pessimism (Schopenhauer)",
+        "name": "Metaphysical Pessimism",
         "x": -41.49340440741317,
         "y": 78.39098044654928,
         "description": "Posits that the ultimate reality is a blind, insatiable, and irrational 'Will' that strives without purpose. The world of representation is objectified Will. Because the Will can never be satisfied, existence is fundamentally characterized by suffering.",
