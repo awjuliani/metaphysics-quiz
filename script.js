@@ -22,10 +22,12 @@ const dimensionLabel = document.getElementById('dimension-label');
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const themeToggleBtn = document.getElementById('theme-toggle');
+const expandedModeToggle = document.getElementById('expanded-mode-toggle');
 
 // State
 let currentQuestionIndex = 0;
 let userAnswers = {};
+let isExpandedMode = false;
 
 // Load data
 Promise.all([
@@ -68,6 +70,10 @@ if (showTopBtn) showTopBtn.addEventListener('click', () => toggleResultView('top
 if (showRunnerUpBtn) showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
 if (showWorstBtn) showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
 if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+if (expandedModeToggle) expandedModeToggle.addEventListener('change', (e) => {
+    isExpandedMode = e.target.checked;
+    renderQuestion();
+});
 
 // Theme Logic
 function initTheme() {
@@ -165,8 +171,9 @@ function renderQuestion() {
     // Update Content
     if (dimensionLabel) dimensionLabel.textContent = `Dimension ${currentQuestionIndex + 1}: ${dimension.label}`;
     if (questionText) {
+        const qText = isExpandedMode && dimension.expanded_question ? dimension.expanded_question : dimension.question;
         questionText.innerHTML = `
-            ${dimension.question}
+            ${qText}
             <div class="instruction-text">Rank the following from most agreed (top) to least agreed (bottom):</div>
         `;
     }
@@ -193,7 +200,7 @@ function renderQuestion() {
                 </div>
                 <div class="rank-indicator">#${index + 1}</div>
                 <div class="rank-content">
-                    <div class="rank-text">${option.label}</div>
+                    <div class="rank-text">${isExpandedMode && option.expanded_label ? option.expanded_label : option.label}</div>
                 </div>
                 <div class="rank-controls">
                     <button class="rank-btn up-btn" onclick="moveOption('${dimension.id}', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>

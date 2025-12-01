@@ -3,22 +3,27 @@
         "id": "ontology",
         "label": "Ontology",
         "question": "What is the fundamental \"stuff\" of reality?",
+        "expanded_question": "When you strip away all the appearances, what is the universe actually made of at its most basic level? Is it physical matter, mental energy, or something else entirely?",
         "options": [
             {
                 "label": "Matter and energy are primary. Consciousness is just a byproduct of physical processes.",
-                "value": "Materialism"
+                "value": "Materialism",
+                "expanded_label": "Everything is ultimately just physical stuff (atoms, energy, fields). Your thoughts and feelings are arising from physical processes, not a separate soul or spirit."
             },
             {
                 "label": "Mind and Matter are two distinct, irreducible realities that interact with each other.",
-                "value": "Dualism"
+                "value": "Dualism",
+                "expanded_label": "The universe has two separate ingredients: physical stuff (like rocks and bodies) and mental stuff (like souls and minds). They are different things that interact."
             },
             {
                 "label": "The fundamental reality is neither Mind nor Matter, but a neutral \"stuff\" that appears as both.",
-                "value": "Neutral Monism"
+                "value": "Neutral Monism",
+                "expanded_label": "The basic building block of reality isn't specifically mind OR matter. It's a neutral underlying substance that can present itself as either depending on the perspective."
             },
             {
                 "label": "Mind or Consciousness is primary. The physical world is a projection or appearance within consciousness.",
-                "value": "Idealism"
+                "value": "Idealism",
+                "expanded_label": "Consciousness is the fundamental reality. The physical world isn't an independent object; it exists as an appearance or experience within a universal mind."
             }
         ]
     },
@@ -26,22 +31,27 @@
         "id": "topology",
         "label": "Topology",
         "question": "Is reality singular or plural?",
+        "expanded_question": "Is the universe ultimately just one single, seamless thing, or is it made up of many separate, independent things?",
         "options": [
             {
                 "label": "Reality is strictly One. Individuality and separation are ultimate illusions.",
-                "value": "Strict Monism"
+                "value": "Strict Monism",
+                "expanded_label": "There is only ONE thing in existence. The idea that separate objects exist is an illusion. We are all just the same One Reality."
             },
             {
                 "label": "Reality is a unified Whole that expresses itself as Many distinct forms without losing its unity.",
-                "value": "Qualified Non-Dualism"
+                "value": "Qualified Non-Dualism",
+                "expanded_label": "Reality is one interconnected whole. However, the distinct forms within it (like us) are real expressions of that whole, not just illusions."
             },
             {
                 "label": "Reality is \"Not-Two.\" It transcends the concepts of both One and Many.",
-                "value": "Radical Non-Dualism"
+                "value": "Radical Non-Dualism",
+                "expanded_label": "Reality cannot be categorized by numbers. It isn't just 'one' thing, but it also isn't 'many' separate things. It exists beyond these concepts."
             },
             {
                 "label": "Reality consists of many distinct, irreducible entities or substances.",
-                "value": "Pluralism"
+                "value": "Pluralism",
+                "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not just temporary parts of a larger whole."
             }
         ]
     },
@@ -49,22 +59,27 @@
         "id": "dynamics",
         "label": "Dynamics",
         "question": "Is reality a Noun or a Verb?",
+        "expanded_question": "Is the universe a fixed 'thing' that simply exists, or is it a constant process of 'happening' and change?",
         "options": [
             {
                 "label": "Reality IS. It is eternal, unchanging, and perfect. Change is secondary or illusory.",
-                "value": "Static"
+                "value": "Static",
+                "expanded_label": "The true reality never changes. The movement we see is just surface-level; deep down, everything is perfect, still, and timeless."
             },
             {
                 "label": "Reality HAPPENS. It is a continuous flow of events, relations, and becoming.",
-                "value": "Process"
+                "value": "Process",
+                "expanded_label": "Everything is in constant motion. There are no fixed 'things,' only temporary events and ever-changing processes."
             },
             {
                 "label": "Reality is BOTH noun and verb. An abiding ground of being expresses itself as ceaseless becoming.",
-                "value": "Integrative"
+                "value": "Integrative",
+                "expanded_label": "It is both. There is a stable foundation that remains constant, yet it simultaneously expresses itself through continuous change and activity."
             },
             {
                 "label": "Reality is PRIOR to time. It cannot be defined as either static or changing.",
-                "value": "Trans-Temporal"
+                "value": "Trans-Temporal",
+                "expanded_label": "Reality exists outside of time. Concepts like 'stillness' or 'motion' don't apply because it operates in an eternal 'now' beyond time."
             }
         ]
     },
@@ -72,22 +87,27 @@
         "id": "teleology",
         "label": "Teleology",
         "question": "Is there a purpose or direction to reality?",
+        "expanded_question": "Does the universe have a specific plan or a goal it is moving toward, or does it operate without an intended destination?",
         "options": [
             {
                 "label": "No. It operates blindly according to algorithms, physical laws, or cause-and-effect.",
-                "value": "Mechanistic"
+                "value": "Mechanistic",
+                "expanded_label": "There is no higher plan. The universe runs according to mechanical laws or cause-and-effect, without any inherent goal."
             },
             {
                 "label": "Yes. It is guided by a specific purpose, goal, or divine destiny.",
-                "value": "Teleological"
+                "value": "Teleological",
+                "expanded_label": "Yes, there is a specific direction or destiny the universe is moving toward, driven by a purpose or design."
             },
             {
                 "label": "It is creative play or self-expression. It has intent, but no external goal to achieve.",
-                "value": "Playful"
+                "value": "Playful",
+                "expanded_label": "The universe has intent, but it's not 'working' toward a goal. It is an act of creative expression, existing for its own sake."
             },
             {
                 "label": "It operates beyond human concepts of purpose, accident, or intent.",
-                "value": "Trans-intentional"
+                "value": "Trans-intentional",
+                "expanded_label": "The universe operates in a way that is too complex or alien for human concepts like 'purpose' or 'accident' to describe."
             }
         ]
     },
@@ -95,22 +115,27 @@
         "id": "manifestation",
         "label": "Manifestation",
         "question": "What is the status of the world we perceive?",
+        "expanded_question": "Is the world we perceive with our senses the 'real' world, or is it an interpretation or illusion?",
         "options": [
             {
                 "label": "Our senses reveal the world exactly as it exists in itself.",
-                "value": "Realism"
+                "value": "Realism",
+                "expanded_label": "What you perceive is what exists. The world exists exactly as it appears to us, independently of our observation."
             },
             {
                 "label": "Reality is a co-creation between the external world and our cognitive structures.",
-                "value": "Constructivism"
+                "value": "Constructivism",
+                "expanded_label": "We participate in shaping our reality. The world interacts with our minds to construct our experience, rather than our minds simply mirroring the world."
             },
             {
                 "label": "Phenomena lack inherent existence; they are neither strictly real nor strictly unreal.",
-                "value": "Emptiness"
+                "value": "Emptiness",
+                "expanded_label": "Phenomena don't have a fixed, independent existence. They appear based on conditions but cannot be pinned down as absolutely 'real' or 'unreal'."
             },
             {
                 "label": "The perceived world is a fabrication, dream, or illusion masking the truth.",
-                "value": "Illusionism"
+                "value": "Illusionism",
+                "expanded_label": "The world we see is a deception or a dream-like appearance. It veils the true reality rather than revealing it."
             }
         ]
     },
@@ -118,22 +143,27 @@
         "id": "divinity",
         "label": "Divinity",
         "question": "Where is the Absolute located relative to the World?",
+        "expanded_question": "If there is a God, Source, or ultimate principle, where is it located in relation to the universe?",
         "options": [
             {
                 "label": "The Divine is IN the world (or is the world).",
-                "value": "Immanent"
+                "value": "Immanent",
+                "expanded_label": "The Divine is inherently present within the world. There is no separation between the sacred and the physical universe."
             },
             {
                 "label": "The Divine is WHOLLY OTHER, distinct from and above the creation.",
-                "value": "Transcendent"
+                "value": "Transcendent",
+                "expanded_label": "The Divine is completely separate from and superior to the universe, existing apart from the creation."
             },
             {
                 "label": "The Divine is both IN the world and BEYOND it.",
-                "value": "Panentheism"
+                "value": "Panentheism",
+                "expanded_label": "The universe is contained within the Divine, but the Divine also extends beyond it. The Divine is present in the world but is also greater than it."
             },
             {
                 "label": "There is no Divine or Absolute. There is only the natural cosmos.",
-                "value": "Naturalist"
+                "value": "Naturalist",
+                "expanded_label": "There is no supernatural or divine layer. Nature and the physical cosmos are all that exist."
             }
         ]
     },
@@ -141,22 +171,27 @@
         "id": "character",
         "label": "Character",
         "question": "Is the Ultimate Reality personal?",
+        "expanded_question": "Does the fundamental reality possess personality (intelligence, will), or is it an impersonal force?",
         "options": [
             {
                 "label": "No. It is a force, law, field, or principle without human-like traits.",
-                "value": "Impersonal"
+                "value": "Impersonal",
+                "expanded_label": "It is a neutral power or principle. It functions without personality, preference, or human-like emotions."
             },
             {
                 "label": "Yes. It is a \"Who\" with volition, intellect, and the capacity for relationship.",
-                "value": "Personal"
+                "value": "Personal",
+                "expanded_label": "Yes, it is a Being with intelligence and will that can be related to, possessing qualities of personality."
             },
             {
                 "label": "Both. It integrates personal agency and impersonal principles into a higher unity.",
-                "value": "Supra-personal"
+                "value": "Supra-personal",
+                "expanded_label": "It encompasses both. It can relate personally, but also possesses a vast, impersonal nature that exceeds personality."
             },
             {
                 "label": "Neither. It transcends the dualistic categories of personal and impersonal entirely.",
-                "value": "Trans-personal"
+                "value": "Trans-personal",
+                "expanded_label": "It is something distinct from either 'person' or 'force.' Human categories of personality do not apply."
             }
         ]
     },
@@ -164,22 +199,27 @@
         "id": "axiology",
         "label": "Axiology",
         "question": "Is the fundamental nature of reality Good?",
+        "expanded_question": "At its core, does the universe have a moral orientation, or is it indifferent?",
         "options": [
             {
                 "label": "The universe is fundamentally good, moral, or favors the flourishing of life.",
-                "value": "Benevolent"
+                "value": "Benevolent",
+                "expanded_label": "The fundamental nature of reality is positive. It inherently favors life, harmony, or the good."
             },
             {
                 "label": "The universe is neutral and unconcerned with human values or suffering.",
-                "value": "Indifferent"
+                "value": "Indifferent",
+                "expanded_label": "The universe is neutral. It does not possess moral qualities or concern for human values; it simply exists."
             },
             {
                 "label": "The universe is an eternal struggle between opposing forces (e.g., Light vs Dark).",
-                "value": "Conflictual"
+                "value": "Conflictual",
+                "expanded_label": "The universe is defined by conflict. Fundamental forces of Good and Evil (or Order and Chaos) are in tension."
             },
             {
                 "label": "Human concepts of Good and Evil do not apply to the Ultimate Reality.",
-                "value": "Trans-Moral"
+                "value": "Trans-Moral",
+                "expanded_label": "Concepts of 'Good' and 'Bad' are human constructs. The ultimate reality operates beyond these moral judgments."
             }
         ]
     }

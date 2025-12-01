@@ -430,5 +430,21 @@
             "divinity": "Transcendent",
             "axiology": "Benevolent"
         }
+    },
+    {
+        "name": "Weilian Mysticism",
+        "description": "The mystical philosophy of Simone Weil, centered on the distinction between 'gravity' (the mechanical necessity governing the material world) and 'grace' (the supernatural light descending from God). God is radically transcendent, having withdrawn from creation (kenosis). The ego is an illusion to be 'decreated' so the soul can receive grace. Beauty and affliction (malheur) are the two privileged contact points with the divine. Salvation comes through attention, renunciation, and loving consent to necessity.",
+        "wiki": "https://en.wikipedia.org/wiki/Simone_Weil",
+        "primary_source": "Gravity and Grace by Simone Weil",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Integrative",
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Supra-personal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
+        }
     }
 ]

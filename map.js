@@ -18,7 +18,7 @@ d3.json("systems_map.json").then(data => {
 
     // Define zoom behavior
     const zoom = d3.zoom()
-        .scaleExtent([0.5, 5])
+        .scaleExtent([0.1, 5]) // Allow zooming out more
         .on("zoom", (event) => {
             g.attr("transform", event.transform);
         });
@@ -29,16 +29,25 @@ d3.json("systems_map.json").then(data => {
     const nodeColor = "var(--primary-color)";
 
     // Scales
-    // We need to map the data coordinates (-100 to 100) to the screen
-    // Let's add some padding
     const padding = 50;
+    const minDim = Math.min(width, height);
+    const spreadFactor = 2.0; // Spread out points significantly
+    const mapSize = minDim * spreadFactor;
+
+    // Calculate square range centered in the container
+    const xRangeStart = (width - mapSize) / 2 + padding;
+    const xRangeEnd = (width + mapSize) / 2 - padding;
+
+    const yRangeStart = (height + mapSize) / 2 - padding; // Bottom
+    const yRangeEnd = (height - mapSize) / 2 + padding;   // Top
+
     const xScale = d3.scaleLinear()
         .domain([-120, 120])
-        .range([padding, width - padding]);
+        .range([xRangeStart, xRangeEnd]);
 
     const yScale = d3.scaleLinear()
         .domain([-120, 120])
-        .range([height - padding, padding]); // Flip Y axis for standard cartesian
+        .range([yRangeStart, yRangeEnd]); // Flip Y axis
 
     // Tooltip
     const tooltip = d3.select("#tooltip");
@@ -106,8 +115,29 @@ d3.json("systems_map.json").then(data => {
     // Labels
     nodes.append("text")
         .attr("class", "system-label")
-        .attr("dy", 25)
-        .text(d => d.name);
+        .attr("y", 28) // Increased base offset from 25 to 28
+        .each(function (d) {
+            const words = d.name.split(/\s+/);
+            const text = d3.select(this);
+            if (words.length === 1) {
+                text.text(words[0]);
+            } else {
+                // For multi-word names, stack them
+                // Start with the first word
+                text.append("tspan")
+                    .attr("x", 0)
+                    .attr("dy", "0em")
+                    .text(words[0]);
+
+                // Add subsequent words
+                for (let i = 1; i < words.length; i++) {
+                    text.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", "1.2em") // Increased line height slightly
+                        .text(words[i]);
+                }
+            }
+        });
 
     // Zoom controls
     document.getElementById('zoom-in').addEventListener('click', () => {
