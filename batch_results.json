@@ -424,6 +424,110 @@
     ]
   },
   {
+    "model": "anthropic/claude-opus-4.5",
+    "runs": 10,
+    "stated_commitment": "Process Philosophy",
+    "stated_commitment_distribution": {
+      "Process Philosophy": 9
+    },
+    "top_match": "Kashmir Shaivism",
+    "runner_up": "Taoism",
+    "worst_match": "Platonism",
+    "match_scores": {
+      "Madhyamaka": 630,
+      "Kashmir Shaivism": 662,
+      "Taoism": 636,
+      "Huayan": 625,
+      "Holographic Monism": 628,
+      "Process Philosophy": 618,
+      "Transcendental Empiricism": 597,
+      "Advaita Vedanta": 512,
+      "Evolutionary Theism": 550,
+      "Neoplatonism": 526,
+      "Absolute Idealism": 524,
+      "Yogacara": 492,
+      "Spinozism": 478,
+      "Metaphysical Pessimism": 453,
+      "Theistic Vedanta": 441,
+      "Transcendental Idealism": 410,
+      "Subjective Idealism": 382,
+      "Classical Theism": 362,
+      "Stoicism": 356,
+      "Abhidharma": 324,
+      "Animism": 314,
+      "Epicureanism": 257,
+      "Deism": 268,
+      "Gnosticism": 251,
+      "Cartesian Dualism": 263,
+      "Scientific Materialism": 225,
+      "Dialectical Materialism": 195,
+      "Platonism": 184,
+      "Zoroastrianism": 193
+    },
+    "run_details": [
+      {
+        "run": 1,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Madhyamaka",
+        "percentage": 72
+      },
+      {
+        "run": 2,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 77
+      },
+      {
+        "run": 3,
+        "stated_commitment": null,
+        "top_match": "Kashmir Shaivism",
+        "percentage": 78
+      },
+      {
+        "run": 4,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 77
+      },
+      {
+        "run": 5,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Classical Theism",
+        "percentage": 0
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Madhyamaka",
+        "percentage": 72
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 78
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Madhyamaka",
+        "percentage": 72
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Madhyamaka",
+        "percentage": 78
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 72
+      }
+    ]
+  },
+  {
     "model": "openai/gpt-5.1-chat",
     "runs": 10,
     "stated_commitment": "Scientific Materialism",

@@ -146,7 +146,7 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True):
         full_user_prompt += get_dimension_prompt_part(dim)
         full_user_prompt += "\n"
     
-    full_user_prompt += "Ensure you use the exact 'value' strings provided for the options.\n"
+    full_user_prompt += "Ensure you use the exact 'value' strings provided for the options, preserving the precise case and spacing of the original strings.\n"
     full_user_prompt += "Return ONE JSON object containing keys for ALL dimension IDs."
 
     messages.append({"role": "user", "content": full_user_prompt})
