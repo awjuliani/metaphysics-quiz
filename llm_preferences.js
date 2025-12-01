@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     preferencesHtml += `
                     <div class="preference-item ${rankClass}">
                         <span class="pref-label">${label}</span>
-                        <a href="explore.html#${systemSlug}" class="pref-value system-link" data-system="${match.system}">${match.system}</a>
+                        <a href="explore.html#${systemSlug}" class="pref-value system-link" data-system="${match.system}">${match.system} (${match.percentage}%)</a>
                         <div class="pref-bar-container">
                             <div class="pref-bar" style="width: ${match.percentage}%"></div>
                             <span class="pref-percent">${match.percentage}% Avg Match</span>
@@ -106,7 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="sc-content">
                         <span class="sc-label">Stated Commitment</span>
-                        <a href="explore.html#${scSlug}" class="sc-value system-link" data-system="${llm.stated_commitment}">${llm.stated_commitment}</a>
+                        <a href="explore.html#${scSlug}" class="sc-value system-link" data-system="${llm.stated_commitment}">${llm.stated_commitment} (${(() => {
+                            const count = llm.stated_commitment_distribution[llm.stated_commitment] || 0;
+                            if (count === llm.runs) return 'Unanimity';
+                            if (count > llm.runs / 2) return 'Majority';
+                            return 'Plurality';
+                        })()})</a>
                     </div>
                 </div>
                 `;
