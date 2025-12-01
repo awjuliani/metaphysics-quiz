@@ -6,6 +6,7 @@ import random
 import re
 from openai import OpenAI
 
+RANK_POINTS = [8, 4, 2, 1]
 
 
 def load_json(filename):
@@ -100,17 +101,7 @@ def calculate_score(user_answers, systems, dimensions):
                 # System value not found in user rankings (mismatch in expected values?)
                 continue
 
-            points = 0
-            if rank_index == 0:
-                points = 8
-            elif rank_index == 1:
-                points = 4
-            elif rank_index == 2:
-                points = 2
-            elif rank_index == 3:
-                points = 1
-
-            score += points
+            score += RANK_POINTS[rank_index]
 
         max_possible = len(dimensions) * 8
         match_percentage = round((score / max_possible) * 100)
@@ -202,9 +193,6 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
             return []
 
         try:
-            # Add assistant response to history (though we are done)
-            messages.append({"role": "assistant", "content": content})
-
             cleaned_content = clean_json_content(content)
             all_user_answers = json.loads(cleaned_content)
 

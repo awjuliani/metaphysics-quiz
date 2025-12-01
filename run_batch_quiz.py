@@ -61,17 +61,11 @@ def main():
             print(f"  Run {run+1}/{args.n}...", end="", flush=True)
 
             # Ask for self-identification for this run
-            run_commitment = None
-            try:
-                run_commitment = quiz_llm.ask_self_id(
-                    model, api_key, systems, verbose=False
-                )  # verbose=False to keep output clean
-                if run_commitment:
-                    stated_commitments.append(run_commitment)
-            except Exception as e:
-                # Don't fail the whole run if self-id fails, just log it? Or maybe we should?
-                # For now let's just proceed.
-                pass
+            run_commitment = quiz_llm.ask_self_id(
+                model, api_key, systems, verbose=False
+            )
+            if run_commitment:
+                stated_commitments.append(run_commitment)
 
             try:
                 # Run quiz silently (verbose=False)
@@ -121,7 +115,7 @@ def main():
 
             top_match_name = sorted_systems[0][0]
             runner_up_name = sorted_systems[1][0] if len(sorted_systems) > 1 else None
-            worst_match_name = sorted_systems[-1][0] if sorted_systems else None
+            worst_match_name = sorted_systems[-1][0]
 
             # Calculate most frequent stated commitment
             most_common_commitment = None

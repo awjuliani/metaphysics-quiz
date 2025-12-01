@@ -1,9 +1,15 @@
 import json
-import numpy as np
 import argparse
+import numpy as np
 from sklearn.manifold import MDS, TSNE
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics.pairwise import pairwise_distances
+
+from quiz_llm import load_json
+
+# Tetralemma encoding vectors: maps option index to 2D representation
+# Index 0: [1, 0], Index 1: [0, 1], Index 2: [1, 1], Index 3: [0, 0]
+TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]]
 
 
 def main():
@@ -35,11 +41,8 @@ def main():
 
     # Load data
     try:
-        with open("systems.json", "r") as f:
-            systems = json.load(f)
-
-        with open("dimensions.json", "r") as f:
-            dimensions = json.load(f)
+        systems = load_json("systems.json")
+        dimensions = load_json("dimensions.json")
     except FileNotFoundError:
         print("Error: systems.json or dimensions.json not found.")
         return
@@ -65,28 +68,17 @@ def main():
         print("Using Tetralemma Encoding...")
         encoded_data = []
 
-        # Create a mapping from (dimension_id, value) to vector
-        # 1: 1, 0 (Index 0)
-        # 2: 0, 1 (Index 1)
-        # 3: 1, 1 (Index 2)
-        # 4: 0, 0 (Index 3)
-        tetralemma_vectors = [[1, 0], [0, 1], [1, 1], [0, 0]]
-
         for system in systems:
             system_vector = []
             for dim in dimensions:
                 dim_id = dim["id"]
-                # Find which option this system has for this dimension
                 system_val = system["profile"].get(dim_id, "")
 
-                vector = [
-                    0,
-                    0,
-                ]  # Default if not found (should not happen for valid data)
-
+                # Find matching option and get its tetralemma vector
+                vector = [0, 0]  # Default if not found
                 for i, option in enumerate(dim["options"]):
                     if option["value"] == system_val:
-                        vector = tetralemma_vectors[i]
+                        vector = TETRALEMMA_VECTORS[i]
                         break
 
                 system_vector.extend(vector)
@@ -101,8 +93,6 @@ def main():
 
     # Compute distance matrix (using Euclidean distance on one-hot vectors)
     distance_matrix = pairwise_distances(encoded_data, metric="euclidean")
-
-    coords = None
 
     if args.algo == "mds":
         print("Running MDS...")
