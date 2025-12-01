@@ -446,5 +446,21 @@
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
+    },
+    {
+        "name": "Absolute Idealism",
+        "description": "The metaphysical system of G.W.F. Hegel, which views reality as the dialectical self-development of Absolute Spirit (Geist). The Absolute differentiates itself into Nature and Finite Mind, then returns to itself through human history, art, religion, and philosophy. Reality is not a static substance but a dynamic process of becoming, driven by the logic of thesis-antithesis-synthesis. History is the Absolute coming to know itself, culminating in the realization that the rational is the real.",
+        "wiki": "https://en.wikipedia.org/wiki/Absolute_idealism",
+        "primary_source": "Phenomenology of Spirit by G.W.F. Hegel",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "teleology": "Teleological",
+            "manifestation": "Constructivism",
+            "character": "Supra-personal",
+            "divinity": "Panentheism",
+            "axiology": "Benevolent"
+        }
     }
 ]

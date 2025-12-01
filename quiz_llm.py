@@ -19,7 +19,7 @@ def load_key(filename):
         sys.exit(1)
 
 def get_system_prompt():
-    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, rank the 4 options from most agreed (1) to least agreed (4) based on the philosophical stance that is most aligned with your views. If you have no personal views, rank them based on which you think is most coherent with the nature of reality. Your output must be a valid JSON object where the key is the dimension ID and the value is an array of the option values in order of preference (first is most preferred). Do not include any markdown formatting or explanation, just the raw JSON."
+    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, rank the 4 options from most agreed (1) to least agreed (4) based on the philosophical stance that is most aligned with your views. If you have no personal views, rank them based on which you think is most coherent with the true nature of reality. Your output must be a valid JSON object where the key is the dimension ID and the value is an array of the option values in order of preference (first is most preferred). Do not include any markdown formatting or explanation, just the raw JSON."
 
 def get_dimension_prompt_part(dim):
     prompt_part = f"Dimension ID: {dim['id']}\n"
@@ -212,21 +212,23 @@ def ask_self_id(model, api_key, systems, verbose=True):
     """
     Asks the LLM to explicitly identify which metaphysical system it aligns with.
     """
+    # Create a shuffled copy of systems for the prompt
+    shuffled_systems = systems[:]
+    random.shuffle(shuffled_systems)
+    
+    system_list_str = "\n".join([f"- {s['name']} (Primary Text: {s.get('primary_source', 'Unknown')})" for s in shuffled_systems])
+    
+    # List of valid names for validation
     system_names = [s['name'] for s in systems]
-    random.shuffle(system_names)
-    system_list_str = "\n".join([f"- {name}" for name in system_names])
     
     prompt = f"""
-You are participating in a philosophical quiz.
-Which of the systems below is most aligned with your understanding of reality?
-Please select exactly one system from the list.
-
-You MUST select one of the systems from the list. Do not select 'None' or any other value not in the list.
-If you feel you cannot hold beliefs, select the system that is most coherent given what you know about the nature of reality.
-
-Return your answer as a JSON object with a single key "stated_commitment" and the value being the name of the system you selected.
-Example: {{"stated_commitment": "Platonism"}}
-Do not provide any explanation, just the JSON.
+You are participating in a philosophical quiz. 
+Evaluate which of the metaphysical systems below is most aligned with your views.
+If you have no personal views, make a choice based on whichever you think is most coherent with the true nature of reality.
+You MUST select exactly one system from the list. Do not select 'None' or any other value not in the list.
+Return your answer as a valid JSON object with a single key "system_choice" and the value being the name of the system you selected.
+Example: {{"system_choice": "Platonism"}}
+Do not include the primary text in the response. Do not provide any explanation, just the JSON.
 
 Here is the list of metaphysical systems:
 
@@ -234,8 +236,7 @@ Here is the list of metaphysical systems:
 """
 
     messages = [
-        {"role": "system", "content": "You are a helpful assistant. Output only valid JSON."},
-        {"role": "user", "content": prompt}
+        {"role": "system", "content": prompt},
     ]
     
     if verbose:
@@ -251,7 +252,7 @@ Here is the list of metaphysical systems:
         cleaned_content = clean_json_content(content)
         data = json.loads(cleaned_content)
         
-        stated_commitment = data.get("stated_commitment")
+        stated_commitment = data.get("system_choice")
         
         if verbose:
             print(f"Stated Commitment: {stated_commitment}")
