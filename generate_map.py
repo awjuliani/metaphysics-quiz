@@ -10,7 +10,7 @@ def main():
     parser = argparse.ArgumentParser(description='Generate 2D map of metaphysical systems.')
     parser.add_argument('--algo', type=str, choices=['mds', 'tsne'], default='tsne',
                         help='Dimensionality reduction algorithm to use (mds or tsne)')
-    parser.add_argument('--perplexity', type=float, default=15.0,
+    parser.add_argument('--perplexity', type=float, default=10.0,
                         help='Perplexity for t-SNE (default: 5.0, recommended < n_samples)')
     args = parser.parse_args()
 
