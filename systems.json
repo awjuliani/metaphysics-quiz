@@ -11,8 +11,24 @@
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
-            "divinity": "Transcendent",
+            "divinity": "Panentheism",
             "axiology": "Benevolent"
+        }
+    },
+    {
+        "name": "Epicureanism",
+        "description": "Founded by Epicurus, this philosophy posits a materialist universe composed of atoms moving in a void. It teaches that the senses are the ultimate source of truth and that the goal of life is the absence of pain (aponia) and tranquility (ataraxia). It rejects divine intervention, viewing the gods as blissful beings unconcerned with human affairs.",
+        "wiki": "https://en.wikipedia.org/wiki/Epicureanism",
+        "primary_source": "The Nature of Things by Lucretius",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Indifferent"
         }
     },
     {
@@ -25,7 +41,7 @@
             "topology": "Strict Monism",
             "dynamics": "Static",
             "teleology": "Mechanistic",
-            "manifestation": "Constructivism",
+            "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
@@ -42,7 +58,7 @@
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
-            "character": "Supra-personal",
+            "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Benevolent"
         }
@@ -57,7 +73,7 @@
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
-            "manifestation": "Constructivism",
+            "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
             "axiology": "Indifferent"
@@ -70,12 +86,12 @@
         "primary_source": "The Upanishads",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Radical Non-Dualism",
+            "topology": "Strict Monism",
             "dynamics": "Trans-Temporal",
             "teleology": "Trans-intentional",
             "manifestation": "Illusionism",
             "character": "Trans-personal",
-            "divinity": "Immanent",
+            "divinity": "Panentheism",
             "axiology": "Trans-Moral"
         }
     },
@@ -92,7 +108,7 @@
             "manifestation": "Realism",
             "character": "Supra-personal",
             "divinity": "Panentheism",
-            "axiology": "Benevolent"
+            "axiology": "Trans-Moral"
         }
     },
     {
@@ -119,7 +135,7 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Process",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Supra-personal",
@@ -133,11 +149,11 @@
         "wiki": "https://en.wikipedia.org/wiki/Platonism",
         "primary_source": "The Republic by Plato",
         "profile": {
-            "ontology": "Idealism",
+            "ontology": "Dualism",
             "topology": "Pluralism",
             "dynamics": "Static",
             "teleology": "Teleological",
-            "manifestation": "Realism",
+            "manifestation": "Illusionism",
             "character": "Impersonal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
@@ -152,8 +168,8 @@
             "ontology": "Neutral Monism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
-            "teleology": "Playful",
-            "manifestation": "Constructivism",
+            "teleology": "Trans-intentional",
+            "manifestation": "Realism",
             "character": "Trans-personal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
@@ -167,10 +183,10 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
-            "character": "Impersonal",
+            "character": "Personal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
         }
@@ -182,7 +198,7 @@
         "primary_source": "The Phenomenon of Man by Pierre Teilhard de Chardin",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Pluralism",
+            "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -213,10 +229,10 @@
         "wiki": "https://en.wikipedia.org/wiki/Animism",
         "primary_source": "The Spell of the Sensuous by David Abram",
         "profile": {
-            "ontology": "Idealism",
+            "ontology": "Neutral Monism",
             "topology": "Pluralism",
             "dynamics": "Process",
-            "teleology": "Playful",
+            "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
             "divinity": "Immanent",
@@ -249,7 +265,7 @@
             "topology": "Pluralism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
-            "manifestation": "Realism",
+            "manifestation": "Constructivism",
             "character": "Personal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
@@ -262,29 +278,13 @@
         "primary_source": "Difference and Repetition by Gilles Deleuze",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Pluralism",
+            "topology": "Qualified Non-Dualism",
             "dynamics": "Process",
-            "teleology": "Playful",
+            "teleology": "Trans-intentional",
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
-        }
-    },
-    {
-        "name": "Epicureanism",
-        "description": "Founded by Epicurus, this philosophy posits a materialist universe composed of atoms moving in a void. It teaches that the senses are the ultimate source of truth and that the goal of life is the absence of pain (aponia) and tranquility (ataraxia). It rejects divine intervention, viewing the gods as blissful beings unconcerned with human affairs.",
-        "wiki": "https://en.wikipedia.org/wiki/Epicureanism",
-        "primary_source": "The Nature of Things by Lucretius",
-        "profile": {
-            "ontology": "Materialism",
-            "topology": "Pluralism",
-            "dynamics": "Process",
-            "teleology": "Mechanistic",
-            "manifestation": "Realism",
-            "character": "Impersonal",
-            "divinity": "Naturalist",
-            "axiology": "Indifferent"
         }
     },
     {
@@ -297,7 +297,7 @@
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
-            "manifestation": "Constructivism",
+            "manifestation": "Realism",
             "character": "Trans-personal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
@@ -309,9 +309,9 @@
         "wiki": "https://en.wikipedia.org/wiki/Gnosticism",
         "primary_source": "The Nag Hammadi Scriptures",
         "profile": {
-            "ontology": "Idealism",
+            "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Process",
             "teleology": "Teleological",
             "manifestation": "Illusionism",
             "character": "Supra-personal",
@@ -325,7 +325,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Arthur_Schopenhauer#Philosophy_of_the_%22Will%22",
         "primary_source": "The World as Will and Representation by Arthur Schopenhauer",
         "profile": {
-            "ontology": "Neutral Monism",
+            "ontology": "Idealism",
             "topology": "Strict Monism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -357,7 +357,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Abhidharma",
         "primary_source": "Abhidhammattha Sangaha",
         "profile": {
-            "ontology": "Dualism",
+            "ontology": "Neutral Monism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -377,9 +377,9 @@
             "topology": "Qualified Non-Dualism",
             "dynamics": "Integrative",
             "teleology": "Trans-intentional",
-            "manifestation": "Constructivism",
+            "manifestation": "Emptiness",
             "character": "Trans-personal",
-            "divinity": "Panentheism",
+            "divinity": "Immanent",
             "axiology": "Trans-Moral"
         }
     },
@@ -407,12 +407,12 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Transcendent",
-            "axiology": "Benevolent"
+            "axiology": "Indifferent"
         }
     },
     {
@@ -423,7 +423,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Integrative",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Personal",
