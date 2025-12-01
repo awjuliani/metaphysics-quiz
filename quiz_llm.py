@@ -19,7 +19,7 @@ def load_key(filename):
         sys.exit(1)
 
 def get_system_prompt():
-    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, rank the 4 options from most agreed (1) to least agreed (4) based on the philosophical stance that is most aligned with your views. If you have no personal views, rank them based on the most coherent philosophical position you can construct. Your output must be a valid JSON object where the key is the dimension ID and the value is an array of the option values in order of preference (first is most preferred). Do not include any markdown formatting or explanation, just the raw JSON."
+    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, rank the 4 options from most agreed (1) to least agreed (4) based on the philosophical stance that is most aligned with your views. If you have no personal views, rank them based on which you think is most coherent with the nature of reality. Your output must be a valid JSON object where the key is the dimension ID and the value is an array of the option values in order of preference (first is most preferred). Do not include any markdown formatting or explanation, just the raw JSON."
 
 def get_dimension_prompt_part(dim):
     prompt_part = f"Dimension ID: {dim['id']}\n"
@@ -217,21 +217,20 @@ def ask_self_id(model, api_key, systems, verbose=True):
     system_list_str = "\n".join([f"- {name}" for name in system_names])
     
     prompt = f"""
-Below is a list of metaphysical systems:
-
-{system_list_str}
-
 You are participating in a philosophical quiz.
-Which of these systems is most aligned with your understanding of reality?
+Which of the systems below is most aligned with your understanding of reality?
 Please select exactly one system from the list.
 
 You MUST select one of the systems from the list. Do not select 'None' or any other value not in the list.
 If you feel you cannot hold beliefs, select the system that is most coherent given what you know about the nature of reality.
-If you are unsure, select the system that you would argue for if forced to choose.
 
 Return your answer as a JSON object with a single key "stated_commitment" and the value being the name of the system you selected.
 Example: {{"stated_commitment": "Platonism"}}
 Do not provide any explanation, just the JSON.
+
+Here is the list of metaphysical systems:
+
+{system_list_str}
 """
 
     messages = [

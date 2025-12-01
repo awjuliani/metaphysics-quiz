@@ -894,7 +894,7 @@ body.dark-mode .stated-commitment-card {
     justify-content: center;
     color: #0ea5e9;
     flex-shrink: 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 body.dark-mode .sc-icon {
@@ -1254,4 +1254,48 @@ body.dark-mode .system-meta {
 .system-card .wiki-link {
     margin-bottom: 1rem;
     align-self: flex-start;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background: var(--card-bg);
+    border: 1px solid var(--text-muted);
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    z-index: 100;
+    font-family: var(--font-main);
+}
+
+.tooltip h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-family: var(--font-serif);
+}
+
+.tooltip p {
+    margin: 0;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+/* System Link Styles */
+.system-link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.system-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(var(--primary-rgb), 0.05);
 }
