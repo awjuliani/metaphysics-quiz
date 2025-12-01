@@ -1,10 +1,9 @@
 import json
-import requests
 import sys
 import argparse
 import os
-import time
 import random
+from openai import OpenAI
 
 def load_json(filename):
     with open(filename, 'r') as f:
@@ -32,37 +31,25 @@ def get_dimension_prompt_part(dim):
     return prompt_part
 
 def get_llm_response(api_key, model, messages, verbose=True):
-    url = "https://openrouter.ai/api/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://github.com/awjuliani/metaphysics-quiz", 
-    }
-    data = {
-        "model": model,
-        "messages": messages,
-        "response_format": {"type": "json_object"}
-    }
+    client = OpenAI(
+        base_url="https://openrouter.ai/api/v1",
+        api_key=api_key,
+    )
     
-    session = requests.Session()
-    max_retries = 3
-    
-    for attempt in range(max_retries):
-        try:
-            response = session.post(url, headers=headers, json=data)
-            response.raise_for_status()
-            return response.json()
-        except (requests.exceptions.RequestException, requests.exceptions.ChunkedEncodingError) as e:
-            if verbose:
-                print(f"API Request Error (Attempt {attempt+1}/{max_retries}): {e}")
-            if attempt < max_retries - 1:
-                wait_time = 2 ** attempt
-                if verbose:
-                    print(f"Retrying in {wait_time} seconds...")
-                time.sleep(wait_time)
-            else:
-                # Instead of exiting, raise the exception so the caller can handle it
-                raise e
+    try:
+        completion = client.chat.completions.create(
+            extra_headers={
+                "HTTP-Referer": "https://github.com/awjuliani/metaphysics-quiz",
+            },
+            model=model,
+            messages=messages,
+            response_format={"type": "json_object"}
+        )
+        return completion.choices[0].message.content
+    except Exception as e:
+        if verbose:
+            print(f"API Request Error: {e}")
+        raise e
 
 def calculate_score(user_answers, systems, dimensions):
     # Check if we have any valid answers for the dimensions
@@ -155,7 +142,7 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True):
         print(f"Sending batch request with {len(dimensions)} questions...")
     
     try:
-        response_data = get_llm_response(api_key, model, messages, verbose=verbose)
+        content = get_llm_response(api_key, model, messages, verbose=verbose)
     except Exception as e:
         if verbose:
             print(f"Failed to get LLM response: {e}")
@@ -164,8 +151,6 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True):
     all_user_answers = {}
     
     try:
-        content = response_data['choices'][0]['message']['content']
-        
         # Add assistant response to history (though we are done)
         messages.append({"role": "assistant", "content": content})
         
@@ -178,19 +163,16 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True):
     except (KeyError, json.JSONDecodeError) as e:
         if verbose:
             print(f"Error parsing LLM response: {e}")
-            print(f"Raw response: {response_data}")
+            print(f"Raw response: {content}")
         return []
 
     if verbose:
-        # Display the LLM's full rankings (need to re-sort or just iterate original dimensions list if we want consistent order, 
-        # but since we shuffled, let's just iterate through the keys in the answer or the shuffled dimensions)
+        # Display the LLM's full rankings
         print("\n" + "="*50)
         print("FINAL LLM RANKINGS")
         print("="*50)
         
-        # Sort dimensions by ID for consistent display, or just use the shuffled order. 
-        # Let's use the shuffled order to reflect what was asked, or maybe sort by ID to be cleaner.
-        # Let's sort by ID for the final output to be deterministic for the user reading it.
+        # Sort dimensions by ID for consistent display
         sorted_dimensions = sorted(dimensions, key=lambda x: x['id'])
         
         for dim in sorted_dimensions:
@@ -243,8 +225,7 @@ Here is the list of metaphysical systems:
         print(f"\nAsking {model} for self-identification...")
         
     try:
-        response_data = get_llm_response(api_key, model, messages, verbose=verbose)
-        content = response_data['choices'][0]['message']['content']
+        content = get_llm_response(api_key, model, messages, verbose=verbose)
         
         if verbose:
             print(f"Raw response content: {content}")
@@ -263,7 +244,7 @@ Here is the list of metaphysical systems:
         else:
             if verbose:
                 print(f"Warning: Stated commitment '{stated_commitment}' is not in the known systems list.")
-            return stated_commitment # Return it anyway, or maybe None? Let's return it.
+            return stated_commitment 
             
     except Exception as e:
         if verbose:
