@@ -11,6 +11,11 @@
                 "expanded_label": "Everything is ultimately just physical stuff (atoms, energy, fields). Your thoughts and feelings are arising from physical processes, not a separate soul or spirit."
             },
             {
+                "label": "Mind or Consciousness is primary. The physical world is a projection or appearance within consciousness.",
+                "value": "Idealism",
+                "expanded_label": "Consciousness is the fundamental reality. The physical world isn't an independent object; it exists as an appearance or experience within a universal mind."
+            },
+            {
                 "label": "Mind and Matter are two distinct, irreducible realities that interact with each other.",
                 "value": "Dualism",
                 "expanded_label": "The universe has two separate ingredients: physical stuff (like rocks and bodies) and mental stuff (like souls and minds). They are different things that interact."
@@ -19,11 +24,6 @@
                 "label": "The fundamental reality is neither Mind nor Matter, but a neutral \"stuff\" that appears as both.",
                 "value": "Neutral Monism",
                 "expanded_label": "The basic building block of reality isn't specifically mind OR matter. It's a neutral underlying substance that can present itself as either depending on the perspective."
-            },
-            {
-                "label": "Mind or Consciousness is primary. The physical world is a projection or appearance within consciousness.",
-                "value": "Idealism",
-                "expanded_label": "Consciousness is the fundamental reality. The physical world isn't an independent object; it exists as an appearance or experience within a universal mind."
             }
         ]
     },
@@ -39,6 +39,11 @@
                 "expanded_label": "There is only ONE thing in existence. The idea that separate objects exist is an illusion. We are all just the same One Reality."
             },
             {
+                "label": "Reality consists of many distinct, irreducible entities or substances.",
+                "value": "Pluralism",
+                "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not just temporary parts of a larger whole."
+            },
+            {
                 "label": "Reality is a unified Whole that expresses itself as Many distinct forms without losing its unity.",
                 "value": "Qualified Non-Dualism",
                 "expanded_label": "Reality is one interconnected whole. However, the distinct forms within it (like us) are real expressions of that whole, not just illusions."
@@ -47,11 +52,6 @@
                 "label": "Reality is \"Not-Two.\" It transcends the concepts of both One and Many.",
                 "value": "Radical Non-Dualism",
                 "expanded_label": "Reality cannot be categorized by numbers. It isn't just 'one' thing, but it also isn't 'many' separate things. It exists beyond these concepts."
-            },
-            {
-                "label": "Reality consists of many distinct, irreducible entities or substances.",
-                "value": "Pluralism",
-                "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not just temporary parts of a larger whole."
             }
         ]
     },
@@ -123,6 +123,11 @@
                 "expanded_label": "What you perceive is what exists. The world exists exactly as it appears to us, independently of our observation."
             },
             {
+                "label": "The perceived world is a fabrication, dream, or illusion masking the truth.",
+                "value": "Illusionism",
+                "expanded_label": "The world we see is a deception or a dream-like appearance. It veils the true reality rather than revealing it."
+            },
+            {
                 "label": "Reality is a co-creation between the external world and our cognitive structures.",
                 "value": "Constructivism",
                 "expanded_label": "We participate in shaping our reality. The world interacts with our minds to construct our experience, rather than our minds simply mirroring the world."
@@ -131,11 +136,6 @@
                 "label": "Phenomena lack inherent existence; they are neither strictly real nor strictly unreal.",
                 "value": "Emptiness",
                 "expanded_label": "Phenomena don't have a fixed, independent existence. They appear based on conditions but cannot be pinned down as absolutely 'real' or 'unreal'."
-            },
-            {
-                "label": "The perceived world is a fabrication, dream, or illusion masking the truth.",
-                "value": "Illusionism",
-                "expanded_label": "The world we see is a deception or a dream-like appearance. It veils the true reality rather than revealing it."
             }
         ]
     },

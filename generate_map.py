@@ -11,7 +11,9 @@ def main():
     parser.add_argument('--algo', type=str, choices=['mds', 'tsne'], default='tsne',
                         help='Dimensionality reduction algorithm to use (mds or tsne)')
     parser.add_argument('--perplexity', type=float, default=10.0,
-                        help='Perplexity for t-SNE (default: 5.0, recommended < n_samples)')
+                        help='Perplexity for t-SNE (recommended < n_samples)')
+    parser.add_argument('--encoding', type=str, choices=['tetralemma', 'onehot'], default='onehot',
+                        help='Encoding method to use (tetralemma or onehot)')
     args = parser.parse_args()
 
     # Load data
@@ -41,9 +43,46 @@ def main():
             row.append(val)
         data.append(row)
     
-    # One-Hot Encode the categorical data
-    encoder = OneHotEncoder(sparse_output=False)
-    encoded_data = encoder.fit_transform(data)
+    # Encode the categorical data
+    if args.encoding == 'tetralemma':
+        print("Using Tetralemma Encoding...")
+        encoded_data = []
+        
+        # Create a mapping from (dimension_id, value) to vector
+        # 1: 1, 0 (Index 0)
+        # 2: 0, 1 (Index 1)
+        # 3: 1, 1 (Index 2)
+        # 4: 0, 0 (Index 3)
+        tetralemma_vectors = [
+            [1, 0],
+            [0, 1],
+            [1, 1],
+            [0, 0]
+        ]
+        
+        for system in systems:
+            system_vector = []
+            for dim in dimensions:
+                dim_id = dim['id']
+                # Find which option this system has for this dimension
+                system_val = system['profile'].get(dim_id, '')
+                
+                vector = [0, 0] # Default if not found (should not happen for valid data)
+                
+                for i, option in enumerate(dim['options']):
+                    if option['value'] == system_val:
+                        vector = tetralemma_vectors[i]
+                        break
+                
+                system_vector.extend(vector)
+            encoded_data.append(system_vector)
+        
+        encoded_data = np.array(encoded_data)
+        
+    else:
+        print("Using One-Hot Encoding...")
+        encoder = OneHotEncoder(sparse_output=False)
+        encoded_data = encoder.fit_transform(data)
     
     # Compute distance matrix (using Euclidean distance on one-hot vectors)
     distance_matrix = pairwise_distances(encoded_data, metric='euclidean')
