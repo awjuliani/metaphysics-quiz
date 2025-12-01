@@ -5,102 +5,131 @@ from sklearn.manifold import MDS, TSNE
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics.pairwise import pairwise_distances
 
+
 def main():
     # Parse arguments
-    parser = argparse.ArgumentParser(description='Generate 2D map of metaphysical systems.')
-    parser.add_argument('--algo', type=str, choices=['mds', 'tsne'], default='tsne',
-                        help='Dimensionality reduction algorithm to use (mds or tsne)')
-    parser.add_argument('--perplexity', type=float, default=10.0,
-                        help='Perplexity for t-SNE (recommended < n_samples)')
-    parser.add_argument('--encoding', type=str, choices=['tetralemma', 'onehot'], default='onehot',
-                        help='Encoding method to use (tetralemma or onehot)')
+    parser = argparse.ArgumentParser(
+        description="Generate 2D map of metaphysical systems."
+    )
+    parser.add_argument(
+        "--algo",
+        type=str,
+        choices=["mds", "tsne"],
+        default="tsne",
+        help="Dimensionality reduction algorithm to use (mds or tsne)",
+    )
+    parser.add_argument(
+        "--perplexity",
+        type=float,
+        default=10.0,
+        help="Perplexity for t-SNE (recommended < n_samples)",
+    )
+    parser.add_argument(
+        "--encoding",
+        type=str,
+        choices=["tetralemma", "onehot"],
+        default="onehot",
+        help="Encoding method to use (tetralemma or onehot)",
+    )
     args = parser.parse_args()
 
     # Load data
     try:
-        with open('systems.json', 'r') as f:
+        with open("systems.json", "r") as f:
             systems = json.load(f)
-        
-        with open('dimensions.json', 'r') as f:
+
+        with open("dimensions.json", "r") as f:
             dimensions = json.load(f)
     except FileNotFoundError:
         print("Error: systems.json or dimensions.json not found.")
         return
 
     # Extract dimension keys
-    dim_keys = [d['id'] for d in dimensions]
-    
+    dim_keys = [d["id"] for d in dimensions]
+
     # Prepare data for encoding
     data = []
     system_names = []
-    
+
     for system in systems:
-        system_names.append(system['name'])
+        system_names.append(system["name"])
         row = []
         for key in dim_keys:
             # Get the value for this dimension
-            val = system['profile'].get(key, '')
+            val = system["profile"].get(key, "")
             row.append(val)
         data.append(row)
-    
+
     # Encode the categorical data
-    if args.encoding == 'tetralemma':
+    if args.encoding == "tetralemma":
         print("Using Tetralemma Encoding...")
         encoded_data = []
-        
+
         # Create a mapping from (dimension_id, value) to vector
         # 1: 1, 0 (Index 0)
         # 2: 0, 1 (Index 1)
         # 3: 1, 1 (Index 2)
         # 4: 0, 0 (Index 3)
-        tetralemma_vectors = [
-            [1, 0],
-            [0, 1],
-            [1, 1],
-            [0, 0]
-        ]
-        
+        tetralemma_vectors = [[1, 0], [0, 1], [1, 1], [0, 0]]
+
         for system in systems:
             system_vector = []
             for dim in dimensions:
-                dim_id = dim['id']
+                dim_id = dim["id"]
                 # Find which option this system has for this dimension
-                system_val = system['profile'].get(dim_id, '')
-                
-                vector = [0, 0] # Default if not found (should not happen for valid data)
-                
-                for i, option in enumerate(dim['options']):
-                    if option['value'] == system_val:
+                system_val = system["profile"].get(dim_id, "")
+
+                vector = [
+                    0,
+                    0,
+                ]  # Default if not found (should not happen for valid data)
+
+                for i, option in enumerate(dim["options"]):
+                    if option["value"] == system_val:
                         vector = tetralemma_vectors[i]
                         break
-                
+
                 system_vector.extend(vector)
             encoded_data.append(system_vector)
-        
+
         encoded_data = np.array(encoded_data)
-        
+
     else:
         print("Using One-Hot Encoding...")
         encoder = OneHotEncoder(sparse_output=False)
         encoded_data = encoder.fit_transform(data)
-    
+
     # Compute distance matrix (using Euclidean distance on one-hot vectors)
-    distance_matrix = pairwise_distances(encoded_data, metric='euclidean')
-    
+    distance_matrix = pairwise_distances(encoded_data, metric="euclidean")
+
     coords = None
-    
-    if args.algo == 'mds':
+
+    if args.algo == "mds":
         print("Running MDS...")
         # n_init=100 runs the algorithm 100 times and picks the best result automatically
-        mds = MDS(n_components=2, dissimilarity='precomputed', random_state=42, normalized_stress='auto', n_init=100, max_iter=1000)
+        mds = MDS(
+            n_components=2,
+            dissimilarity="precomputed",
+            random_state=42,
+            normalized_stress="auto",
+            n_init=100,
+            max_iter=1000,
+        )
         coords = mds.fit_transform(distance_matrix)
         print(f"MDS Stress: {mds.stress_:.4f}")
-        
-    elif args.algo == 'tsne':
+
+    elif args.algo == "tsne":
         print(f"Running t-SNE (perplexity={args.perplexity})...")
         # t-SNE for distance matrix requires metric='precomputed'
         # init='random' is usually safer for small datasets with precomputed distances than 'pca'
-        tsne = TSNE(n_components=2, metric='precomputed', init='random', random_state=42, perplexity=args.perplexity, max_iter=2000)
+        tsne = TSNE(
+            n_components=2,
+            metric="precomputed",
+            init="random",
+            random_state=42,
+            perplexity=args.perplexity,
+            max_iter=2000,
+        )
         coords = tsne.fit_transform(distance_matrix)
         print(f"t-SNE KL Divergence: {tsne.kl_divergence_:.4f}")
 
@@ -110,29 +139,32 @@ def main():
     max_x = np.max(coords[:, 0])
     min_y = np.min(coords[:, 1])
     max_y = np.max(coords[:, 1])
-    
+
     scale_x = 180.0 / (max_x - min_x) if max_x != min_x else 1
     scale_y = 180.0 / (max_y - min_y) if max_y != min_y else 1
-    
+
     # Center at 0,0 then scale
     center_x = (min_x + max_x) / 2
     center_y = (min_y + max_y) / 2
-    
+
     final_output = []
     for i in range(len(systems)):
-        final_output.append({
-            "name": systems[i]['name'],
-            "x": float((coords[i, 0] - center_x) * scale_x),
-            "y": float((coords[i, 1] - center_y) * scale_y),
-            "description": systems[i]['description'],
-            "profile": systems[i]['profile']
-        })
-        
+        final_output.append(
+            {
+                "name": systems[i]["name"],
+                "x": float((coords[i, 0] - center_x) * scale_x),
+                "y": float((coords[i, 1] - center_y) * scale_y),
+                "description": systems[i]["description"],
+                "profile": systems[i]["profile"],
+            }
+        )
+
     # Save to file
-    with open('systems_map.json', 'w') as f:
+    with open("systems_map.json", "w") as f:
         json.dump(final_output, f, indent=4)
-    
+
     print(f"Successfully generated systems_map.json using {args.algo.upper()}")
+
 
 if __name__ == "__main__":
     main()
