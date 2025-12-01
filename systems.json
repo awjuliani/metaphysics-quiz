@@ -137,7 +137,7 @@
             "topology": "Pluralism",
             "dynamics": "Static",
             "teleology": "Teleological",
-            "manifestation": "Constructivism",
+            "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
@@ -170,7 +170,7 @@
             "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Realism",
-            "character": "Personal",
+            "character": "Impersonal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
         }
@@ -396,6 +396,38 @@
             "manifestation": "Realism",
             "character": "Personal",
             "divinity": "Panentheism",
+            "axiology": "Benevolent"
+        }
+    },
+    {
+        "name": "Transcendental Idealism",
+        "description": "The revolutionary philosophy of Immanuel Kant. It argues that the 'things-in-themselves' (noumena) are unknowable, and that the world we perceive (phenomena) is constructed by the categories of the human mind (such as Space, Time, and Causality). It bridges Rationalism and Empiricism by limiting knowledge to the realm of possible experience while preserving a space for faith and morality.",
+        "wiki": "https://en.wikipedia.org/wiki/Transcendental_idealism",
+        "primary_source": "Critique of Pure Reason by Immanuel Kant",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Pluralism",
+            "dynamics": "Static",
+            "teleology": "Teleological",
+            "manifestation": "Constructivism",
+            "character": "Impersonal",
+            "divinity": "Transcendent",
+            "axiology": "Benevolent"
+        }
+    },
+    {
+        "name": "Cartesian Dualism",
+        "description": "The metaphysical system of René Descartes, often called 'Substance Dualism'. It posits two distinct fundamental substances: Res Extensa (extended matter, acting mechanistically) and Res Cogitans (thinking mind, possessing free will). Humans are the unique union of these two. God is the perfect, non-deceiving creator who guarantees the reliability of reason and the reality of the external world.",
+        "wiki": "https://en.wikipedia.org/wiki/Mind%E2%80%93body_dualism",
+        "primary_source": "Meditations on First Philosophy by René Descartes",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Static",
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Personal",
+            "divinity": "Transcendent",
             "axiology": "Benevolent"
         }
     }

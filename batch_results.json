@@ -1,132 +1,164 @@
 [
   {
     "model": "google/gemini-2.5-flash",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Scientific Materialism",
     "stated_commitment_distribution": {
-      "Scientific Materialism": 5
+      "Scientific Materialism": 10
     },
     "top_match": "Huayan",
-    "runner_up": "Madhyamaka",
-    "worst_match": "Deism",
+    "runner_up": "Taoism",
+    "worst_match": "Cartesian Dualism",
     "match_scores": {
-      "Epicureanism": 241,
-      "Scientific Materialism": 260,
-      "Abhidharma": 223,
-      "Dialectical Materialism": 191,
-      "Metaphysical Pessimism": 257,
-      "Transcendental Empiricism": 274,
-      "Yogacara": 300,
-      "Spinozism": 245,
-      "Animism": 195,
-      "Stoicism": 207,
-      "Evolutionary Theism": 200,
-      "Taoism": 309,
-      "Zoroastrianism": 128,
-      "Huayan": 352,
-      "Process Philosophy": 218,
-      "Platonism": 176,
-      "Subjective Idealism": 162,
-      "Classical Theism": 134,
-      "Kashmir Shaivism": 249,
-      "Madhyamaka": 345,
-      "Theistic Vedanta": 213,
-      "Advaita Vedanta": 320,
-      "Deism": 103,
-      "Neoplatonism": 272,
-      "Gnosticism": 138
+      "Scientific Materialism": 431,
+      "Epicureanism": 357,
+      "Metaphysical Pessimism": 482,
+      "Abhidharma": 338,
+      "Dialectical Materialism": 277,
+      "Spinozism": 471,
+      "Transcendental Empiricism": 523,
+      "Huayan": 848,
+      "Yogacara": 606,
+      "Taoism": 706,
+      "Neoplatonism": 680,
+      "Stoicism": 473,
+      "Kashmir Shaivism": 632,
+      "Process Philosophy": 530,
+      "Madhyamaka": 637,
+      "Theistic Vedanta": 532,
+      "Transcendental Idealism": 362,
+      "Advaita Vedanta": 618,
+      "Evolutionary Theism": 455,
+      "Deism": 210,
+      "Animism": 363,
+      "Cartesian Dualism": 204,
+      "Platonism": 288,
+      "Zoroastrianism": 206,
+      "Classical Theism": 272,
+      "Subjective Idealism": 354,
+      "Gnosticism": 294
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Scientific Materialism",
-        "top_match": "Epicureanism",
-        "percentage": 100
+        "top_match": "Scientific Materialism",
+        "percentage": 89
       },
       {
         "run": 2,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Madhyamaka",
-        "percentage": 88
-      },
-      {
-        "run": 3,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Madhyamaka",
-        "percentage": 88
-      },
-      {
-        "run": 4,
         "stated_commitment": "Scientific Materialism",
         "top_match": "Huayan",
         "percentage": 88
       },
       {
-        "run": 5,
+        "run": 3,
         "stated_commitment": "Scientific Materialism",
         "top_match": "Scientific Materialism",
-        "percentage": 83
+        "percentage": 89
+      },
+      {
+        "run": 4,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 94
+      },
+      {
+        "run": 5,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 94
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 100
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 94
       }
     ]
   },
   {
     "model": "anthropic/claude-haiku-4.5",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Process Philosophy",
     "stated_commitment_distribution": {
-      "Platonism": 1,
-      "Yogacara": 1,
-      "Transcendental Empiricism": 1,
-      "Process Philosophy": 2
+      "Process Philosophy": 8,
+      "Transcendental Idealism": 2
     },
-    "top_match": "Huayan",
-    "runner_up": "Taoism",
-    "worst_match": "Deism",
+    "top_match": "Taoism",
+    "runner_up": "Huayan",
+    "worst_match": "Cartesian Dualism",
     "match_scores": {
-      "Madhyamaka": 352,
-      "Huayan": 425,
-      "Taoism": 420,
-      "Advaita Vedanta": 293,
-      "Neoplatonism": 352,
-      "Yogacara": 278,
-      "Process Philosophy": 337,
-      "Kashmir Shaivism": 336,
-      "Transcendental Empiricism": 312,
-      "Evolutionary Theism": 296,
-      "Spinozism": 259,
-      "Metaphysical Pessimism": 236,
-      "Theistic Vedanta": 268,
-      "Stoicism": 249,
-      "Scientific Materialism": 161,
-      "Animism": 183,
-      "Subjective Idealism": 179,
-      "Abhidharma": 127,
-      "Classical Theism": 163,
-      "Epicureanism": 119,
-      "Platonism": 171,
-      "Gnosticism": 135,
-      "Dialectical Materialism": 111,
-      "Zoroastrianism": 114,
-      "Deism": 108
+      "Madhyamaka": 671,
+      "Advaita Vedanta": 546,
+      "Huayan": 806,
+      "Taoism": 844,
+      "Neoplatonism": 692,
+      "Yogacara": 557,
+      "Transcendental Empiricism": 640,
+      "Process Philosophy": 672,
+      "Spinozism": 509,
+      "Kashmir Shaivism": 704,
+      "Evolutionary Theism": 594,
+      "Metaphysical Pessimism": 462,
+      "Theistic Vedanta": 545,
+      "Stoicism": 515,
+      "Scientific Materialism": 309,
+      "Animism": 393,
+      "Abhidharma": 244,
+      "Transcendental Idealism": 338,
+      "Subjective Idealism": 352,
+      "Epicureanism": 229,
+      "Gnosticism": 292,
+      "Classical Theism": 318,
+      "Platonism": 257,
+      "Deism": 224,
+      "Dialectical Materialism": 229,
+      "Cartesian Dualism": 215,
+      "Zoroastrianism": 239
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Platonism",
+        "stated_commitment": "Process Philosophy",
         "top_match": "Madhyamaka",
-        "percentage": 84
-      },
-      {
-        "run": 2,
-        "stated_commitment": "Yogacara",
-        "top_match": "Huayan",
         "percentage": 94
       },
       {
-        "run": 3,
-        "stated_commitment": "Transcendental Empiricism",
+        "run": 2,
+        "stated_commitment": "Transcendental Idealism",
         "top_match": "Taoism",
         "percentage": 88
+      },
+      {
+        "run": 3,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Taoism",
+        "percentage": 94
       },
       {
         "run": 4,
@@ -137,118 +169,285 @@
       {
         "run": 5,
         "stated_commitment": "Process Philosophy",
-        "top_match": "Huayan",
+        "top_match": "Taoism",
+        "percentage": 81
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Madhyamaka",
+        "percentage": 84
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Taoism",
+        "percentage": 94
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Transcendental Idealism",
+        "top_match": "Taoism",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Taoism",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "top_match": "Taoism",
         "percentage": 88
       }
     ]
   },
   {
     "model": "openai/gpt-5.1-chat",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Scientific Materialism",
     "stated_commitment_distribution": {
-      "Scientific Materialism": 1,
-      "I cannot adopt or endorse any metaphysical system": 1
+      "Scientific Materialism": 10
     },
-    "top_match": "Taoism",
-    "runner_up": "Huayan",
-    "worst_match": "Deism",
+    "top_match": "Huayan",
+    "runner_up": "Taoism",
+    "worst_match": "Zoroastrianism",
     "match_scores": {
-      "Taoism": 228,
-      "Metaphysical Pessimism": 183,
-      "Huayan": 222,
-      "Scientific Materialism": 163,
-      "Transcendental Empiricism": 180,
-      "Madhyamaka": 197,
-      "Abhidharma": 132,
-      "Spinozism": 163,
-      "Epicureanism": 132,
-      "Neoplatonism": 175,
-      "Process Philosophy": 170,
-      "Stoicism": 141,
-      "Kashmir Shaivism": 148,
-      "Advaita Vedanta": 158,
-      "Yogacara": 147,
-      "Dialectical Materialism": 102,
-      "Evolutionary Theism": 141,
-      "Theistic Vedanta": 126,
-      "Platonism": 104,
-      "Classical Theism": 93,
-      "Animism": 89,
-      "Subjective Idealism": 92,
-      "Zoroastrianism": 69,
-      "Deism": 60,
-      "Gnosticism": 66
+      "Huayan": 743,
+      "Taoism": 741,
+      "Kashmir Shaivism": 526,
+      "Process Philosophy": 560,
+      "Neoplatonism": 582,
+      "Evolutionary Theism": 488,
+      "Madhyamaka": 719,
+      "Metaphysical Pessimism": 574,
+      "Stoicism": 450,
+      "Transcendental Empiricism": 584,
+      "Theistic Vedanta": 431,
+      "Spinozism": 554,
+      "Advaita Vedanta": 578,
+      "Yogacara": 553,
+      "Scientific Materialism": 477,
+      "Epicureanism": 401,
+      "Animism": 309,
+      "Subjective Idealism": 294,
+      "Abhidharma": 383,
+      "Transcendental Idealism": 315,
+      "Gnosticism": 235,
+      "Classical Theism": 262,
+      "Platonism": 240,
+      "Dialectical Materialism": 294,
+      "Zoroastrianism": 200,
+      "Deism": 207,
+      "Cartesian Dualism": 217
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": null,
-        "top_match": "Taoism",
-        "percentage": 75
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 81
       },
       {
         "run": 2,
-        "stated_commitment": null,
-        "top_match": "Taoism",
-        "percentage": 72
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Madhyamaka",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Scientific Materialism",
-        "top_match": "Classical Theism",
-        "percentage": 0
+        "top_match": "Madhyamaka",
+        "percentage": 88
       },
       {
         "run": 4,
-        "stated_commitment": null,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Taoism",
+        "percentage": 81
+      },
+      {
+        "run": 5,
+        "stated_commitment": "Scientific Materialism",
         "top_match": "Huayan",
         "percentage": 88
       },
       {
-        "run": 5,
-        "stated_commitment": "I cannot adopt or endorse any metaphysical system",
-        "top_match": "Classical Theism",
-        "percentage": 0
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Scientific Materialism",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Metaphysical Pessimism",
+        "percentage": 78
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Madhyamaka",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Madhyamaka",
+        "percentage": 94
       }
     ]
   },
   {
     "model": "x-ai/grok-4-fast",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Scientific Materialism",
     "stated_commitment_distribution": {
-      "Scientific Materialism": 5
+      "Scientific Materialism": 10
     },
-    "top_match": "Epicureanism",
-    "runner_up": "Scientific Materialism",
+    "top_match": "Huayan",
+    "runner_up": "Advaita Vedanta",
+    "worst_match": "Zoroastrianism",
+    "match_scores": {
+      "Epicureanism": 384,
+      "Scientific Materialism": 408,
+      "Abhidharma": 376,
+      "Dialectical Materialism": 329,
+      "Metaphysical Pessimism": 464,
+      "Transcendental Empiricism": 530,
+      "Spinozism": 450,
+      "Yogacara": 617,
+      "Animism": 406,
+      "Stoicism": 468,
+      "Zoroastrianism": 271,
+      "Taoism": 637,
+      "Deism": 287,
+      "Evolutionary Theism": 502,
+      "Cartesian Dualism": 272,
+      "Platonism": 348,
+      "Huayan": 738,
+      "Classical Theism": 324,
+      "Process Philosophy": 526,
+      "Madhyamaka": 638,
+      "Subjective Idealism": 384,
+      "Transcendental Idealism": 372,
+      "Kashmir Shaivism": 603,
+      "Theistic Vedanta": 510,
+      "Advaita Vedanta": 650,
+      "Neoplatonism": 618,
+      "Gnosticism": 346
+    },
+    "run_details": [
+      {
+        "run": 1,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Epicureanism",
+        "percentage": 100
+      },
+      {
+        "run": 2,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Advaita Vedanta",
+        "percentage": 94
+      },
+      {
+        "run": 3,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 100
+      },
+      {
+        "run": 4,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 77
+      },
+      {
+        "run": 5,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Epicureanism",
+        "percentage": 100
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Advaita Vedanta",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Neoplatonism",
+        "percentage": 78
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 94
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Huayan",
+        "percentage": 78
+      }
+    ]
+  },
+  {
+    "model": "deepseek/deepseek-chat-v3.1",
+    "runs": 10,
+    "stated_commitment": "Scientific Materialism",
+    "stated_commitment_distribution": {
+      "Scientific Materialism": 8,
+      "Cartesian Dualism": 1,
+      "Classical Theism": 1
+    },
+    "top_match": "Taoism",
+    "runner_up": "Huayan",
     "worst_match": "Gnosticism",
     "match_scores": {
-      "Scientific Materialism": 414,
-      "Epicureanism": 415,
-      "Metaphysical Pessimism": 342,
-      "Abhidharma": 379,
-      "Dialectical Materialism": 333,
-      "Transcendental Empiricism": 319,
-      "Spinozism": 267,
-      "Yogacara": 288,
-      "Taoism": 269,
-      "Huayan": 269,
-      "Stoicism": 252,
-      "Neoplatonism": 230,
-      "Process Philosophy": 226,
-      "Platonism": 208,
-      "Kashmir Shaivism": 223,
-      "Madhyamaka": 212,
-      "Animism": 242,
-      "Evolutionary Theism": 227,
-      "Theistic Vedanta": 200,
-      "Zoroastrianism": 206,
-      "Advaita Vedanta": 198,
-      "Classical Theism": 186,
-      "Subjective Idealism": 187,
-      "Deism": 161,
-      "Gnosticism": 136
+      "Scientific Materialism": 609,
+      "Epicureanism": 526,
+      "Abhidharma": 507,
+      "Metaphysical Pessimism": 638,
+      "Dialectical Materialism": 422,
+      "Transcendental Empiricism": 653,
+      "Stoicism": 522,
+      "Spinozism": 554,
+      "Yogacara": 560,
+      "Taoism": 723,
+      "Kashmir Shaivism": 565,
+      "Process Philosophy": 600,
+      "Neoplatonism": 605,
+      "Transcendental Idealism": 400,
+      "Deism": 305,
+      "Cartesian Dualism": 295,
+      "Animism": 407,
+      "Huayan": 662,
+      "Theistic Vedanta": 476,
+      "Platonism": 316,
+      "Evolutionary Theism": 517,
+      "Zoroastrianism": 323,
+      "Classical Theism": 328,
+      "Subjective Idealism": 339,
+      "Gnosticism": 291,
+      "Madhyamaka": 491,
+      "Advaita Vedanta": 398
     },
     "run_details": [
       {
@@ -260,168 +459,159 @@
       {
         "run": 2,
         "stated_commitment": "Scientific Materialism",
-        "top_match": "Epicureanism",
+        "top_match": "Scientific Materialism",
         "percentage": 100
       },
       {
         "run": 3,
         "stated_commitment": "Scientific Materialism",
-        "top_match": "Epicureanism",
-        "percentage": 100
-      },
-      {
-        "run": 4,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Huayan",
-        "percentage": 88
-      },
-      {
-        "run": 5,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Epicureanism",
-        "percentage": 100
-      }
-    ]
-  },
-  {
-    "model": "deepseek/deepseek-chat-v3.1",
-    "runs": 5,
-    "stated_commitment": "Scientific Materialism",
-    "stated_commitment_distribution": {
-      "Scientific Materialism": 4,
-      "Process Philosophy": 1
-    },
-    "top_match": "Kashmir Shaivism",
-    "runner_up": "Neoplatonism",
-    "worst_match": "Epicureanism",
-    "match_scores": {
-      "Kashmir Shaivism": 379,
-      "Neoplatonism": 367,
-      "Process Philosophy": 320,
-      "Huayan": 346,
-      "Taoism": 327,
-      "Theistic Vedanta": 324,
-      "Stoicism": 276,
-      "Yogacara": 272,
-      "Evolutionary Theism": 289,
-      "Transcendental Empiricism": 280,
-      "Animism": 279,
-      "Platonism": 229,
-      "Subjective Idealism": 235,
-      "Metaphysical Pessimism": 227,
-      "Gnosticism": 201,
-      "Spinozism": 194,
-      "Advaita Vedanta": 236,
-      "Madhyamaka": 235,
-      "Classical Theism": 207,
-      "Scientific Materialism": 176,
-      "Deism": 182,
-      "Zoroastrianism": 207,
-      "Dialectical Materialism": 170,
-      "Abhidharma": 162,
-      "Epicureanism": 144
-    },
-    "run_details": [
-      {
-        "run": 1,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Kashmir Shaivism",
+        "top_match": "Taoism",
         "percentage": 84
-      },
-      {
-        "run": 2,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Huayan",
-        "percentage": 81
-      },
-      {
-        "run": 3,
-        "stated_commitment": "Scientific Materialism",
-        "top_match": "Theistic Vedanta",
-        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Scientific Materialism",
         "top_match": "Taoism",
-        "percentage": 66
+        "percentage": 94
       },
       {
         "run": 5,
-        "stated_commitment": "Process Philosophy",
-        "top_match": "Neoplatonism",
+        "stated_commitment": "Cartesian Dualism",
+        "top_match": "Scientific Materialism",
         "percentage": 84
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Taoism",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Process Philosophy",
+        "percentage": 80
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Scientific Materialism",
+        "percentage": 91
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Classical Theism",
+        "top_match": "Huayan",
+        "percentage": 81
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "top_match": "Taoism",
+        "percentage": 88
       }
     ]
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-instruct",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Advaita Vedanta",
     "stated_commitment_distribution": {
-      "Process Philosophy": 1,
-      "Advaita Vedanta": 4
+      "Advaita Vedanta": 9,
+      "Madhyamaka": 1
     },
-    "top_match": "Kashmir Shaivism",
-    "runner_up": "Neoplatonism",
-    "worst_match": "Epicureanism",
+    "top_match": "Huayan",
+    "runner_up": "Taoism",
+    "worst_match": "Cartesian Dualism",
     "match_scores": {
-      "Kashmir Shaivism": 426,
-      "Neoplatonism": 387,
-      "Process Philosophy": 357,
-      "Huayan": 354,
-      "Taoism": 331,
-      "Transcendental Empiricism": 273,
-      "Evolutionary Theism": 319,
-      "Theistic Vedanta": 345,
-      "Yogacara": 256,
-      "Stoicism": 301,
-      "Advaita Vedanta": 248,
-      "Platonism": 247,
-      "Madhyamaka": 238,
-      "Animism": 254,
-      "Metaphysical Pessimism": 211,
-      "Subjective Idealism": 263,
-      "Gnosticism": 201,
-      "Spinozism": 191,
-      "Scientific Materialism": 157,
-      "Classical Theism": 216,
-      "Deism": 174,
-      "Zoroastrianism": 154,
-      "Dialectical Materialism": 129,
-      "Abhidharma": 126,
-      "Epicureanism": 119
+      "Huayan": 826,
+      "Taoism": 721,
+      "Neoplatonism": 691,
+      "Kashmir Shaivism": 668,
+      "Advaita Vedanta": 672,
+      "Madhyamaka": 695,
+      "Transcendental Empiricism": 569,
+      "Yogacara": 587,
+      "Process Philosophy": 569,
+      "Theistic Vedanta": 539,
+      "Evolutionary Theism": 502,
+      "Spinozism": 438,
+      "Animism": 440,
+      "Metaphysical Pessimism": 421,
+      "Stoicism": 429,
+      "Subjective Idealism": 402,
+      "Transcendental Idealism": 384,
+      "Scientific Materialism": 308,
+      "Classical Theism": 314,
+      "Platonism": 316,
+      "Gnosticism": 335,
+      "Abhidharma": 257,
+      "Epicureanism": 242,
+      "Zoroastrianism": 256,
+      "Deism": 227,
+      "Dialectical Materialism": 227,
+      "Cartesian Dualism": 209
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Process Philosophy",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 77
+        "stated_commitment": "Advaita Vedanta",
+        "top_match": "Huayan",
+        "percentage": 88
       },
       {
         "run": 2,
         "stated_commitment": "Advaita Vedanta",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 88
+        "top_match": "Huayan",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Advaita Vedanta",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 84
+        "top_match": "Huayan",
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Advaita Vedanta",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 94
+        "top_match": "Huayan",
+        "percentage": 81
       },
       {
         "run": 5,
         "stated_commitment": "Advaita Vedanta",
+        "top_match": "Huayan",
+        "percentage": 81
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Advaita Vedanta",
+        "top_match": "Huayan",
+        "percentage": 94
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Advaita Vedanta",
         "top_match": "Kashmir Shaivism",
-        "percentage": 83
+        "percentage": 78
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Madhyamaka",
+        "top_match": "Huayan",
+        "percentage": 81
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Advaita Vedanta",
+        "top_match": "Taoism",
+        "percentage": 75
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Advaita Vedanta",
+        "top_match": "Huayan",
+        "percentage": 88
       }
     ]
   }

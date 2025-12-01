@@ -16,7 +16,7 @@ def load_models(filename):
 def main():
     parser = argparse.ArgumentParser(description='Run Batch Metaphysics Quiz')
     parser.add_argument('--models', default='models.txt', help='File containing list of models')
-    parser.add_argument('--n', type=int, default=5, help='Number of runs per model')
+    parser.add_argument('--n', type=int, default=10, help='Number of runs per model')
     parser.add_argument('--output', default='batch_results.json', help='Output JSON file')
     args = parser.parse_args()
 
