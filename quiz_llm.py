@@ -3,12 +3,21 @@ import sys
 import argparse
 import os
 import random
+import re
 from openai import OpenAI
+
 
 
 def load_json(filename):
     with open(filename, "r") as f:
         return json.load(f)
+
+
+def normalize_string(s):
+    if not isinstance(s, str):
+        return str(s)
+    # Remove non-alphanumeric characters and convert to lowercase
+    return re.sub(r'[^a-z0-9]', '', s.lower())
 
 
 def load_key(filename):
@@ -79,8 +88,14 @@ def calculate_score(user_answers, systems, dimensions):
             if not sys_val:
                 continue
 
+            # Normalize system value
+            norm_sys_val = normalize_string(sys_val)
+
+            # Normalize user rankings
+            norm_user_rankings = [normalize_string(r) for r in user_rankings]
+
             try:
-                rank_index = user_rankings.index(sys_val)
+                rank_index = norm_user_rankings.index(norm_sys_val)
             except ValueError:
                 # System value not found in user rankings (mismatch in expected values?)
                 continue
@@ -222,7 +237,7 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
                         (
                             opt["label"]
                             for opt in dim["options"]
-                            if opt["value"] == value
+                            if normalize_string(opt["value"]) == normalize_string(value)
                         ),
                         value,
                     )
