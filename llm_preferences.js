@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const container = document.getElementById('llm-container');
 
+            // Sort resultsData alphabetically by model name
+            resultsData.sort((a, b) => a.model.localeCompare(b.model));
+
             resultsData.forEach(llm => {
                 const card = document.createElement('div');
                 card.className = 'llm-card';

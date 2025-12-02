@@ -92,6 +92,10 @@
             try {
                 const response = await fetch('systems.json');
                 const systems = await response.json();
+                
+                // Sort systems alphabetically by name
+                systems.sort((a, b) => a.name.localeCompare(b.name));
+
                 const grid = document.getElementById('systems-grid');
 
                 systems.forEach(system => {
