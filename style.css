@@ -26,6 +26,14 @@ body.dark-mode {
     --border-color: #334155;
 }
 
+html {
+    background-color: #f0f9ff;
+}
+
+html.dark-mode {
+    background-color: #0f172a;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

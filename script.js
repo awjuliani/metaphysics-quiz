@@ -80,11 +80,13 @@ function initTheme() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
     }
 }
 
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
+    document.documentElement.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }

@@ -5,12 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
     }
 
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
+        document.documentElement.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
