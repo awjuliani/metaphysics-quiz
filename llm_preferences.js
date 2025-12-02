@@ -97,6 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 let statedCommitmentHtml = '';
                 if (llm.stated_commitment) {
                     const scSlug = llm.stated_commitment.toLowerCase().replace(/\s+/g, '-');
+                    // Find explanation from a run that matches the stated commitment
+                    const matchingRun = llm.run_details?.find(
+                        run => run.stated_commitment === llm.stated_commitment
+                    );
+                    const explanation = matchingRun?.stated_explanation || '';
                     statedCommitmentHtml = `
                 <div class="stated-commitment-card">
                     <div class="sc-icon">
@@ -112,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (count > llm.runs / 2) return 'Majority';
                             return 'Plurality';
                         })()})</a>
+                        ${explanation ? `<p class="sc-explanation">"${explanation}"</p>` : ''}
                     </div>
                 </div>
                 `;

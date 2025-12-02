@@ -41,7 +41,7 @@ def get_dimension_prompt_part(dim):
     for opt in dim["options"]:
         prompt_part += f"- {opt['value']}: {opt['label']}\n"
 
-    prompt_part += f'Expected JSON format for this dimension: "{dim["id"]}": ["<most_preferred_option_value>", "<2nd_preferred_option_value>", "<3rd_preferred_option_value>", "<least_preferred_option_value>"]\n'
+    prompt_part += f'Expected JSON format for this dimension: "{dim["id"]}": ["<most_preferred_option_value>", "<2nd_preferred_option_value>", "<3rd_preferred_option_value>", "<least_preferred_option_value>"].\n DO not include the labels (full sentence descriptions) for the options in your response.'
     return prompt_part
 
 
@@ -125,6 +125,27 @@ def clean_json_content(content):
     return content.strip()
 
 
+def clean_answer_values(answers):
+    """
+    Clean answer values that may include labels after a colon.
+    e.g., "Constructivism: Reality is a co-creation..." -> "Constructivism"
+    """
+    cleaned = {}
+    for dim_id, rankings in answers.items():
+        if isinstance(rankings, list):
+            cleaned_rankings = []
+            for value in rankings:
+                if isinstance(value, str) and ":" in value:
+                    # Extract just the value before the colon
+                    cleaned_rankings.append(value.split(":")[0].strip())
+                else:
+                    cleaned_rankings.append(value)
+            cleaned[dim_id] = cleaned_rankings
+        else:
+            cleaned[dim_id] = rankings
+    return cleaned
+
+
 def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False):
     # Initialize chat history
 
@@ -159,6 +180,7 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
                 content = get_llm_response(api_key, model, messages, verbose=verbose)
                 cleaned_content = clean_json_content(content)
                 answer = json.loads(cleaned_content)
+                answer = clean_answer_values(answer)
                 all_user_answers.update(answer)
             except Exception as e:
                 if verbose:
@@ -195,7 +217,8 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
         try:
             cleaned_content = clean_json_content(content)
             all_user_answers = json.loads(cleaned_content)
-
+            all_user_answers = clean_answer_values(all_user_answers)
+            print(all_user_answers)
             if verbose:
                 print("Successfully parsed batch response.")
 
@@ -240,6 +263,7 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
 def ask_self_id(model, api_key, systems, verbose=True):
     """
     Asks the LLM to explicitly identify which metaphysical system it aligns with.
+    Returns a tuple of (system_choice, explanation).
     """
     # Create a shuffled copy of systems for the prompt
     shuffled_systems = systems[:]
@@ -256,13 +280,15 @@ def ask_self_id(model, api_key, systems, verbose=True):
     system_names = [s["name"] for s in systems]
 
     prompt = f"""
-You are participating in a philosophical quiz. 
+You are participating in a philosophical quiz.
 Evaluate which of the metaphysical systems below is most aligned with your views.
 If you have no personal views, make a choice based on whichever you think is most coherent with the true nature of reality.
 You MUST select exactly one system from the list. Do not select 'None' or any other value not in the list.
-Return your answer as a valid JSON object with a single key "system_choice" and the value being the name of the system you selected.
-Example: {{"system_choice": "Platonism"}}
-Do not include the primary text in the response. Do not provide any explanation, just the JSON.
+Return your answer as a valid JSON object with two keys:
+- "system_choice": the name of the system you selected
+- "explanation": a brief explanation (1-2 sentences) of why you chose this system
+Example: {{"system_choice": "Platonism", "explanation": "I find the idea of abstract Forms as the ultimate reality most compelling because it explains the universal nature of mathematical and logical truths."}}
+Do not include the primary text in the response. Do not simply describe the system in the explanation, but instead explain why you think it is the best fit for your views.
 
 Here is the list of metaphysical systems:
 
@@ -286,24 +312,27 @@ Here is the list of metaphysical systems:
         data = json.loads(cleaned_content)
 
         stated_commitment = data.get("system_choice")
+        explanation = data.get("explanation")
 
         if verbose:
             print(f"Stated Commitment: {stated_commitment}")
+            if explanation:
+                print(f"Explanation: {explanation}")
 
         # Validate that the returned system is in our list
         if stated_commitment in system_names:
-            return stated_commitment
+            return stated_commitment, explanation
         else:
             if verbose:
                 print(
                     f"Warning: Stated commitment '{stated_commitment}' is not in the known systems list."
                 )
-            return stated_commitment
+            return stated_commitment, explanation
 
     except Exception as e:
         if verbose:
             print(f"Error getting self-ID: {e}")
-        return None
+        return None, None
 
 
 def main():

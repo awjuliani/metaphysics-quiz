@@ -20,7 +20,7 @@ def main():
     parser.add_argument(
         "--models", default="models.txt", help="File containing list of models"
     )
-    parser.add_argument("--n", type=int, default=10, help="Number of runs per model")
+    parser.add_argument("--n", type=int, default=20, help="Number of runs per model")
     parser.add_argument(
         "--output", default="batch_results.json", help="Output JSON file"
     )
@@ -54,18 +54,21 @@ def main():
 
         successful_runs = 0
 
-        # List to store stated commitments for each run
+        # List to store stated commitments and explanations for each run
         stated_commitments = []
+        stated_explanations = []
 
         for run in range(args.n):
             print(f"  Run {run+1}/{args.n}...", end="", flush=True)
 
             # Ask for self-identification for this run
-            run_commitment = quiz_llm.ask_self_id(
+            run_commitment, run_explanation = quiz_llm.ask_self_id(
                 model, api_key, systems, verbose=False
             )
             if run_commitment:
                 stated_commitments.append(run_commitment)
+            if run_explanation:
+                stated_explanations.append(run_explanation)
 
             try:
                 # Run quiz silently (verbose=False)
@@ -90,6 +93,7 @@ def main():
                         {
                             "run": run + 1,
                             "stated_commitment": run_commitment,
+                            "stated_explanation": run_explanation,
                             "top_match": top_match["name"],
                             "percentage": top_match["percentage"],
                         }
@@ -130,6 +134,7 @@ def main():
                 "runs": successful_runs,
                 "stated_commitment": most_common_commitment,
                 "stated_commitment_distribution": commitment_distribution,
+                "stated_explanations": stated_explanations,
                 "top_match": top_match_name,
                 "runner_up": runner_up_name,
                 "worst_match": worst_match_name,
