@@ -12,6 +12,7 @@
     --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     --font-main: 'Outfit', sans-serif;
     --font-serif: 'Playfair Display', serif;
+    --border-color: #e2e8f0;
 }
 
 body.dark-mode {
@@ -22,6 +23,7 @@ body.dark-mode {
     --primary-color: #818cf8;
     --secondary-color: #f472b6;
     --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    --border-color: #334155;
 }
 
 * {
@@ -157,6 +159,7 @@ header h1 {
     padding: 2rem;
     box-shadow: var(--shadow);
     margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
 }
 
 /* Buttons */
@@ -218,13 +221,12 @@ header h1 {
     background: #f8fafc;
     padding: 1rem;
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     display: inline-block;
 }
 
 body.dark-mode .result-source {
     background: #1e293b;
-    border-color: #334155;
 }
 
 .result-source em {
@@ -278,12 +280,12 @@ body.dark-mode .result-source {
 .intro-card {
     text-align: center;
     background: linear-gradient(to bottom, #ffffff, #f8fafc);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 body.dark-mode .intro-card {
     background: linear-gradient(to bottom, #1e293b, #0f172a);
-    border-color: #334155;
+    border-color: var(--border-color);
 }
 
 .intro-content {
@@ -487,7 +489,7 @@ body.dark-mode .select-btn {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .pre-title {
@@ -512,7 +514,7 @@ body.dark-mode .select-btn {
 
 .toggle-btn {
     background: transparent;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-color);
     color: var(--text-muted);
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
@@ -565,7 +567,7 @@ body.dark-mode .select-btn {
 .breakdown-list li {
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1.5rem;
     display: flex;
@@ -575,7 +577,6 @@ body.dark-mode .select-btn {
 }
 
 body.dark-mode .breakdown-list li {
-    border-color: #334155;
     background: #1e293b;
 }
 
@@ -605,13 +606,12 @@ body.dark-mode .breakdown-list li.match-least {
 }
 
 .breakdown-list li.match-neutral {
-    border-color: #e2e8f0;
+    border-color: var(--border-color);
     background: #f8fafc;
 }
 
 body.dark-mode .breakdown-list li.match-neutral {
     background: #1e293b;
-    border-color: #334155;
 }
 
 .dim-name {
@@ -737,7 +737,7 @@ footer a {
     display: flex;
     align-items: center;
     background: var(--card-bg);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1rem;
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
@@ -748,7 +748,6 @@ footer a {
 
 body.dark-mode .rank-card {
     background: #1e293b;
-    border-color: #334155;
 }
 
 .rank-card:hover {
@@ -946,12 +945,8 @@ body.dark-mode .sc-icon {
     border-radius: var(--border-radius);
     padding: 2rem;
     box-shadow: var(--shadow);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     transition: transform 0.2s, box-shadow 0.2s;
-}
-
-body.dark-mode .llm-card {
-    border-color: #334155;
 }
 
 .llm-card:hover {
@@ -961,15 +956,11 @@ body.dark-mode .llm-card {
 
 .llm-header {
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-body.dark-mode .llm-header {
-    border-color: #334155;
 }
 
 .llm-name {
@@ -1126,7 +1117,7 @@ body.dark-mode .rank-card.variant-3 {
 
 .rank-btn {
     background: transparent;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     width: 28px;
     height: 28px;
@@ -1234,12 +1225,8 @@ body.dark-mode .system-card:hover {
     gap: 0.8rem;
     margin-bottom: 0;
     padding-top: 1rem;
-    border-top: 1px dashed #e2e8f0;
+    border-top: 1px dashed var(--border-color);
     /* Push meta to bottom if we want, or just let it flow */
-}
-
-body.dark-mode .system-meta {
-    border-color: #334155;
 }
 
 .meta-item {
@@ -1309,6 +1296,7 @@ body.dark-mode .system-meta {
     color: var(--primary-color);
     background-color: rgba(var(--primary-rgb), 0.05);
 }
+
 /* Toggle Switch */
 .mode-toggle-container {
     display: flex;
@@ -1358,15 +1346,15 @@ body.dark-mode .system-meta {
     border-radius: 50%;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: var(--primary-color);
 }
 
-input:focus + .slider {
+input:focus+.slider {
     box-shadow: 0 0 1px var(--primary-color);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(24px);
 }
 
