@@ -49,6 +49,8 @@ def main():
 
         # Dictionary to store total percentage score for each system
         system_scores = {}
+        # Dictionary to store per-run scores for each system (for std dev calculation)
+        per_system_runs = {}
         # List to store details of each run
         run_details = []
 
@@ -99,11 +101,14 @@ def main():
                         }
                     )
 
-                    # Aggregate scores
+                    # Aggregate scores and store per-run scores
                     for score_item in scores:
                         name = score_item["name"]
                         percentage = score_item["percentage"]
                         system_scores[name] = system_scores.get(name, 0) + percentage
+                        if name not in per_system_runs:
+                            per_system_runs[name] = []
+                        per_system_runs[name].append(percentage)
 
                 else:
                     print(" Failed (No scores).")
@@ -139,6 +144,7 @@ def main():
                 "runner_up": runner_up_name,
                 "worst_match": worst_match_name,
                 "match_scores": system_scores,
+                "per_system_runs": per_system_runs,
                 "run_details": run_details,
             }
             results.append(model_result)

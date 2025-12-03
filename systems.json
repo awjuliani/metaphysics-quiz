@@ -462,5 +462,21 @@
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
+    },
+    {
+        "name": "New Materialism",
+        "description": "A contemporary philosophy that rejects the view of matter as passive, inert, or 'dead.' Instead, it posits that matter itself is vibrant, self-organizing, and possesses agency. Drawing on Deleuze and complexity theory, it views reality as a mesh of 'assemblages'—dynamic interactions between human and non-human actors (like microbes, electricity, and waste)—without prioritizing the human subject.",
+        "wiki": "https://en.wikipedia.org/wiki/New_materialism",
+        "primary_source": "Vibrant Matter by Jane Bennett",
+        "profile": {
+            "ontology": "Materialism",
+            "topology": "Qualified Non-Dualism",
+            "dynamics": "Process",
+            "teleology": "Expressive",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
+        }
     }
 ]

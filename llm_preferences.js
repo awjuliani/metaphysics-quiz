@@ -58,35 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.sqrt(avgSquaredDiff);
     }
 
-    // Helper function to get per-run percentages for a specific system
-    function getPerRunPercentages(llm, systemName, systemsData, dimensionsData) {
-        // We need to recalculate scores per run from run_details
-        // Since run_details doesn't store per-system scores, we'll estimate from match_scores
-        // For now, if we have run_details with individual percentages, use those for top match
-        // Otherwise, we'll need to approximate
-
-        // Check if this system appears as top_match in any runs
-        const runPercentages = [];
-
-        if (llm.run_details) {
-            llm.run_details.forEach(run => {
-                // Each run has a top_match and percentage for that top match
-                // We need individual system scores per run, but that's not stored
-                // We'll need to calculate from the aggregated data with some assumptions
-            });
-        }
-
-        // Since we don't have per-system per-run data, we'll calculate an estimated std dev
-        // based on the variance we can observe from top match percentages across runs
-        if (llm.run_details && llm.run_details.length > 1) {
-            // Use the spread of top match percentages as a proxy for general variance
-            const topMatchPercentages = llm.run_details.map(r => r.percentage);
-            return topMatchPercentages;
-        }
-
-        return [];
-    }
-
     // Fetch and display LLM data
     Promise.all([
         fetch('batch_results.json').then(res => res.json()),
@@ -109,20 +80,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.className = 'llm-card';
 
                 // Calculate all match percentages with standard deviation
-                // We need to estimate per-system variance from available data
-                const topMatchPercentages = llm.run_details ? llm.run_details.map(r => r.percentage) : [];
-                const overallStdDev = calculateStdDev(topMatchPercentages);
-
                 const matchPercentages = Object.entries(llm.match_scores)
                     .map(([system, score]) => {
                         const mean = Math.round(score / llm.runs);
-                        // Scale std dev proportionally based on how close this system is to top match
-                        // Systems with lower means tend to have similar relative variance
-                        const scaledStdDev = Math.round(overallStdDev);
+                        // Calculate actual std dev from per_system_runs if available
+                        let stdDev = 0;
+                        if (llm.per_system_runs && llm.per_system_runs[system]) {
+                            stdDev = Math.round(calculateStdDev(llm.per_system_runs[system]));
+                        }
                         return {
                             system,
                             percentage: mean,
-                            stdDev: scaledStdDev
+                            stdDev: stdDev
                         };
                     })
                     .sort((a, b) => b.percentage - a.percentage)
