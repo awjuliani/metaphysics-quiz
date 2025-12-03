@@ -27,7 +27,7 @@ def main():
     parser.add_argument(
         "--perplexity",
         type=float,
-        default=9.0,
+        default=15.0,
         help="Perplexity for t-SNE (recommended < n_samples)",
     )
     parser.add_argument(

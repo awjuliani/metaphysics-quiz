@@ -87,7 +87,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Strict Monism",
-            "dynamics": "Trans-Temporal",
+            "dynamics": "Static",
             "teleology": "Trans-intentional",
             "manifestation": "Illusionism",
             "character": "Trans-personal",
@@ -120,8 +120,8 @@
             "ontology": "Idealism",
             "topology": "Qualified Non-Dualism",
             "dynamics": "Process",
-            "teleology": "Mechanistic",
-            "manifestation": "Illusionism",
+            "teleology": "Expressive",
+            "manifestation": "Constructivism",
             "character": "Trans-personal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
@@ -215,10 +215,10 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Trans-Temporal",
+            "dynamics": "Process",
             "teleology": "Trans-intentional",
             "manifestation": "Emptiness",
-            "character": "Trans-personal",
+            "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
         }
@@ -375,7 +375,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Radical Non-Dualism",
-            "dynamics": "Process",
+            "dynamics": "Integrative",
             "teleology": "Expressive",
             "manifestation": "Emptiness",
             "character": "Trans-personal",
@@ -474,6 +474,54 @@
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Immanent",
+            "axiology": "Trans-Moral"
+        }
+    },
+    {
+        "name": "Samkhya",
+        "description": "The oldest of the six orthodox schools of Hindu philosophy, Samkhya is a strict dualism that does not rely on a Creator God. It posits two eternal, irreducible realities: Purusha (pure, passive consciousness) and Prakriti (blind, active matter/nature). Unlike Western dualism, the mind, ego, and intellect are considered parts of Matter (Prakriti), not Consciousness. The universe evolves through the dynamic interplay of three qualities (Gunas) within Prakriti, solely for the purpose of the Spirit's experience and eventual liberation (Kaivalya).",
+        "wiki": "https://en.wikipedia.org/wiki/Samkhya",
+        "primary_source": "The Samkhyakarika by Ishvarakrishna",
+        "profile": {
+            "ontology": "Dualism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "teleology": "Teleological",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Transcendent",
+            "axiology": "Indifferent"
+        }
+    },
+    {
+        "name": "Analytic Panpsychism",
+        "description": "A contemporary naturalistic form of panpsychism and Russellian monism in analytic philosophy. It holds that the intrinsic nature of the physical is constituted by experiential or proto-experiential properties, so that consciousness is fundamental yet fully continuous with the physical world, without appealing to a theistic or soteriological framework.",
+        "wiki": "https://en.wikipedia.org/wiki/Panpsychism",
+        "primary_source": "The Conscious Mind by David J. Chalmers",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Pluralism",
+            "dynamics": "Process",
+            "teleology": "Mechanistic",
+            "manifestation": "Realism",
+            "character": "Impersonal",
+            "divinity": "Naturalist",
+            "axiology": "Trans-Moral"
+        }
+    },
+    {
+        "name": "Eleatic Monism",
+        "description": "Based on the Eleatic school, especially Parmenides, this view claims that true reality is a single, ungenerated, imperishable, changeless Being. Time, motion, plurality, and becoming belong only to the deceptive realm of appearance, while the One Being is timeless, complete, and logically necessary.",
+        "wiki": "https://en.wikipedia.org/wiki/Parmenides",
+        "primary_source": "On Nature (Poem of Parmenides)",
+        "profile": {
+            "ontology": "Neutral Monism",
+            "topology": "Strict Monism",
+            "dynamics": "Trans-Temporal",
+            "teleology": "Trans-intentional",
+            "manifestation": "Illusionism",
             "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
