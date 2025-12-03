@@ -417,6 +417,7 @@ function getOptionLabel(dimensionId, value) {
 
 // Social Sharing Functionality
 const shareTwitterBtn = document.getElementById('share-twitter');
+const shareBlueSkyBtn = document.getElementById('share-bluesky');
 const shareFacebookBtn = document.getElementById('share-facebook');
 const shareLinkedInBtn = document.getElementById('share-linkedin');
 const shareRedditBtn = document.getElementById('share-reddit');
@@ -441,6 +442,13 @@ function shareOnTwitter() {
     const url = getShareUrl();
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
     window.open(twitterUrl, '_blank', 'width=550,height=420');
+}
+
+function shareOnBlueSky() {
+    const text = getShareText();
+    const url = getShareUrl();
+    const bskyUrl = `https://bsky.app/intent/compose?text=${encodeURIComponent(text + ' ' + url)}`;
+    window.open(bskyUrl, '_blank', 'width=550,height=420');
 }
 
 async function shareOnFacebook() {
@@ -555,6 +563,7 @@ async function copyShareLink() {
 
 // Add event listeners for share buttons
 if (shareTwitterBtn) shareTwitterBtn.addEventListener('click', shareOnTwitter);
+if (shareBlueSkyBtn) shareBlueSkyBtn.addEventListener('click', shareOnBlueSky);
 if (shareFacebookBtn) shareFacebookBtn.addEventListener('click', shareOnFacebook);
 if (shareLinkedInBtn) shareLinkedInBtn.addEventListener('click', shareOnLinkedIn);
 if (shareRedditBtn) shareRedditBtn.addEventListener('click', shareOnReddit);

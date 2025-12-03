@@ -1529,25 +1529,31 @@ body.dark-mode .slider {
 }
 
 .share-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .share-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 12px;
+    /* Slightly less rounded for grid look */
     font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
     color: white;
+    width: 100%;
+    /* Fill grid cell */
+    box-sizing: border-box;
 }
 
 .share-btn:hover {
@@ -1570,6 +1576,14 @@ body.dark-mode .slider {
 
 .share-btn.twitter:hover {
     background-color: #333333;
+}
+
+.share-btn.bluesky {
+    background-color: #0560ff;
+}
+
+.share-btn.bluesky:hover {
+    background-color: #0045c4;
 }
 
 .share-btn.facebook {
