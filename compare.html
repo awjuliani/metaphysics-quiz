@@ -146,17 +146,116 @@
             }
         }
 
-        .match {
+        .match-same {
             background-color: rgba(76, 175, 80, 0.1);
             border: 1px solid var(--success-color, #4caf50);
             border-left: 4px solid var(--success-color, #4caf50);
             grid-column: 1 / -1;
         }
 
-        .mismatch {
+        .match-related {
+            background-color: rgba(251, 191, 36, 0.1);
+            border: 1px solid #f59e0b;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .match-opposite {
             background-color: rgba(244, 67, 54, 0.1);
             border: 1px solid var(--error-color, #f44336);
             border-left: 4px solid var(--error-color, #f44336);
+        }
+
+        .similarity-banner {
+            text-align: center;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .similarity-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .similarity-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .similarity-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .breakdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .breakdown-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .breakdown-dot.same {
+            background-color: #4caf50;
+        }
+
+        .breakdown-dot.related {
+            background-color: #f59e0b;
+        }
+
+        .breakdown-dot.opposite {
+            background-color: #f44336;
+        }
+
+        .dimension-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .badge-same {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #2e7d32;
+        }
+
+        .badge-related {
+            background-color: rgba(251, 191, 36, 0.2);
+            color: #b45309;
+        }
+
+        .badge-opposite {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #c62828;
+        }
+
+        body.dark-mode .badge-same {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #81c784;
+        }
+
+        body.dark-mode .badge-related {
+            background-color: rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+        }
+
+        body.dark-mode .badge-opposite {
+            background-color: rgba(244, 67, 54, 0.3);
+            color: #ef5350;
         }
 
         .system-details-container {
@@ -270,6 +369,10 @@
             </div>
 
             <div id="comparison-view" style="display: none;">
+                <div id="similarity-banner" class="similarity-banner">
+                    <!-- Similarity score injected here -->
+                </div>
+
                 <div class="system-details-container">
                     <div id="detail-card-1" class="system-detail-card">
                         <!-- Details injected here -->
@@ -319,15 +422,69 @@
         });
 
         let systemsData = [];
+        let dimensionsData = [];
+
+        // Tetralemma encoding vectors: maps option index to 2D representation
+        const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
+        const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
 
         async function init() {
             try {
-                const response = await fetch('systems.json');
-                systemsData = await response.json();
+                const [systemsResponse, dimensionsResponse] = await Promise.all([
+                    fetch('systems.json'),
+                    fetch('dimensions.json')
+                ]);
+                systemsData = await systemsResponse.json();
+                dimensionsData = await dimensionsResponse.json();
                 populateDropdowns();
             } catch (error) {
-                console.error('Error loading systems:', error);
+                console.error('Error loading data:', error);
             }
+        }
+
+        function getOptionIndex(dimensionId, value) {
+            const dim = dimensionsData.find(d => d.id === dimensionId);
+            if (!dim) return -1;
+            return dim.options.findIndex(o => o.value === value);
+        }
+
+        function getDimensionDistance(dim1Value, dim2Value, dimensionId) {
+            const idx1 = getOptionIndex(dimensionId, dim1Value);
+            const idx2 = getOptionIndex(dimensionId, dim2Value);
+
+            if (idx1 < 0 || idx2 < 0) return 0;
+
+            const vec1 = TETRALEMMA_VECTORS[idx1];
+            const vec2 = TETRALEMMA_VECTORS[idx2];
+
+            // Manhattan distance
+            return Math.abs(vec1[0] - vec2[0]) + Math.abs(vec1[1] - vec2[1]);
+        }
+
+        function getDistanceCategory(distance) {
+            if (distance === 0) return 'same';
+            if (distance === 2) return 'opposite'; // Manhattan distance = 2
+            return 'related'; // Manhattan distance = 1
+        }
+
+        function calculateTotalDistance(sys1, sys2) {
+            let totalManhattanDistance = 0;
+            const profileKeys = Object.keys(sys1.profile);
+
+            profileKeys.forEach(key => {
+                totalManhattanDistance += getDimensionDistance(sys1.profile[key], sys2.profile[key], key);
+            });
+
+            return totalManhattanDistance;
+        }
+
+        function getSimilarityDescription(percentage) {
+            if (percentage >= 90) return "Nearly identical worldviews";
+            if (percentage >= 75) return "Very similar perspectives";
+            if (percentage >= 60) return "More alike than different";
+            if (percentage >= 40) return "Some common ground";
+            if (percentage >= 25) return "Quite different outlooks";
+            return "Fundamentally different views";
         }
 
         function populateDropdowns() {
@@ -370,6 +527,7 @@
             const index2 = document.getElementById('system2').value;
             const comparisonView = document.getElementById('comparison-view');
             const resultsContainer = document.getElementById('comparison-results');
+            const similarityBanner = document.getElementById('similarity-banner');
 
             if (index1 === "" || index2 === "") {
                 comparisonView.style.display = 'none';
@@ -381,6 +539,42 @@
 
             comparisonView.style.display = 'block';
 
+            // Calculate overall similarity
+            const totalDistance = calculateTotalDistance(sys1, sys2);
+            const similarityPercentage = Math.round((1 - totalDistance / MAX_MANHATTAN_DISTANCE) * 100);
+
+            // Count categories for breakdown
+            let sameCount = 0, relatedCount = 0, oppositeCount = 0;
+            const profileKeys = Object.keys(sys1.profile);
+
+            profileKeys.forEach(key => {
+                const dist = getDimensionDistance(sys1.profile[key], sys2.profile[key], key);
+                const category = getDistanceCategory(dist);
+                if (category === 'same') sameCount++;
+                else if (category === 'related') relatedCount++;
+                else oppositeCount++;
+            });
+
+            // Render similarity banner
+            similarityBanner.innerHTML = `
+                <div class="similarity-score">${similarityPercentage}% Similar</div>
+                <div class="similarity-label">${getSimilarityDescription(similarityPercentage)}</div>
+                <div class="similarity-breakdown">
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot same"></span>
+                        <span>${sameCount} Same</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot related"></span>
+                        <span>${relatedCount} Related</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-dot opposite"></span>
+                        <span>${oppositeCount} Opposite</span>
+                    </div>
+                </div>
+            `;
+
             renderSystemDetails(sys1, 'detail-card-1');
             renderSystemDetails(sys2, 'detail-card-2');
 
@@ -390,37 +584,44 @@
 
             resultsContainer.innerHTML = '';
 
-            const profileKeys = Object.keys(sys1.profile);
+            // Get dimension labels for display
+            const dimLabels = {};
+            dimensionsData.forEach(d => { dimLabels[d.id] = d.label; });
 
             profileKeys.forEach(key => {
                 const val1 = sys1.profile[key];
                 const val2 = sys2.profile[key];
-                const isMatch = val1 === val2;
+                const distance = getDimensionDistance(val1, val2, key);
+                const category = getDistanceCategory(distance);
+                const dimLabel = dimLabels[key] || key;
 
-                if (isMatch) {
-                    // Single spanning item for matches
+                const badgeClass = `badge-${category}`;
+                const badgeText = category.charAt(0).toUpperCase() + category.slice(1);
+
+                if (category === 'same') {
+                    // Single spanning item for same choices
                     const item = document.createElement('div');
-                    item.className = 'comparison-item match';
+                    item.className = 'comparison-item match-same';
                     item.innerHTML = `
-                        <span class="comparison-label">${key}</span>
+                        <span class="comparison-label">${dimLabel}<span class="dimension-badge ${badgeClass}">${badgeText}</span></span>
                         <div class="comparison-value">${val1}</div>
                     `;
                     resultsContainer.appendChild(item);
                 } else {
                     // System 1 Item
                     const item1 = document.createElement('div');
-                    item1.className = 'comparison-item mismatch';
+                    item1.className = `comparison-item match-${category}`;
                     item1.innerHTML = `
-                        <span class="comparison-label">${key}</span>
+                        <span class="comparison-label">${dimLabel}<span class="dimension-badge ${badgeClass}">${badgeText}</span></span>
                         <div class="comparison-value">${val1}</div>
                     `;
                     resultsContainer.appendChild(item1);
 
                     // System 2 Item
                     const item2 = document.createElement('div');
-                    item2.className = 'comparison-item mismatch';
+                    item2.className = `comparison-item match-${category}`;
                     item2.innerHTML = `
-                        <span class="comparison-label">${key}</span>
+                        <span class="comparison-label">${dimLabel}<span class="dimension-badge ${badgeClass}">${badgeText}</span></span>
                         <div class="comparison-value">${val2}</div>
                     `;
                     resultsContainer.appendChild(item2);

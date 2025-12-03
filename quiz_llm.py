@@ -4,9 +4,13 @@ import argparse
 import os
 import random
 import re
+import math
 from openai import OpenAI
 
-RANK_POINTS = [8, 4, 2, 1]
+# Tetralemma encoding vectors: maps option index to 2D representation
+# Index 0: [1, 0], Index 1: [0, 1], Index 2: [1, 1], Index 3: [0, 0]
+TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]]
+MAX_MANHATTAN_DISTANCE = 16  # 8 dimensions * 2 max distance per dimension
 
 
 def load_json(filename):
@@ -31,7 +35,7 @@ def load_key(filename):
 
 
 def get_system_prompt():
-    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, rank the 4 options from most agreed (1) to least agreed (4) based on the philosophical stance that is most aligned with your views. If you have no personal views, rank them based on which you think is most coherent with the true nature of reality. Your output must be a valid JSON object where the key is the dimension ID and the value is an array of the option values in order of preference (first is most preferred). Do not include any markdown formatting or explanation, just the raw JSON."
+    return "You are participating in a philosophical quiz. You will be presented with a series of questions. For each question, select the ONE option that you most agree with based on the philosophical stance that is most aligned with your views. If you have no personal views, select the option you think is most coherent with the true nature of reality. Your output must be a valid JSON object where the key is the dimension ID and the value is the option value you selected. Do not include any markdown formatting or explanation, just the raw JSON."
 
 
 def get_dimension_prompt_part(dim):
@@ -41,7 +45,8 @@ def get_dimension_prompt_part(dim):
     for opt in dim["options"]:
         prompt_part += f"- {opt['value']}: {opt['label']}\n"
 
-    prompt_part += f'Expected JSON format for this dimension: "{dim["id"]}": ["<most_preferred_option_value>", "<2nd_preferred_option_value>", "<3rd_preferred_option_value>", "<least_preferred_option_value>"].\n DO not include the labels (full sentence descriptions) for the options in your response.'
+    prompt_part += f'Expected JSON format for this dimension: "{dim["id"]}": "<selected_option_value>".\n'
+    prompt_part += "Select only ONE option value. Do not include the labels (full sentence descriptions) in your response."
     return prompt_part
 
 
@@ -73,44 +78,55 @@ def calculate_score(user_answers, systems, dimensions):
     if not any(k in valid_dim_ids for k in user_answers):
         return []
 
+    # Build dimension ID to options mapping for index lookup
+    dim_options = {}
+    for dim in dimensions:
+        dim_options[dim["id"]] = [opt["value"] for opt in dim["options"]]
+
     scores = []
 
     for system in systems:
-        score = 0
+        total_manhattan_distance = 0
 
         for dim in dimensions:
             dim_id = dim["id"]
-            if dim_id not in user_answers:
-                continue
 
-            user_rankings = user_answers[dim_id]
-            sys_val = system["profile"].get(dim_id)
+            # Get user's selected option index
+            user_index = -1
+            if dim_id in user_answers:
+                selected_value = normalize_string(user_answers[dim_id])
+                norm_options = [normalize_string(o) for o in dim_options[dim_id]]
+                try:
+                    user_index = norm_options.index(selected_value)
+                except ValueError:
+                    pass
 
-            if not sys_val:
-                continue
+            # Get system's option index
+            sys_index = -1
+            sys_val = system["profile"].get(dim_id, "")
+            if sys_val:
+                try:
+                    sys_index = dim_options[dim_id].index(sys_val)
+                except ValueError:
+                    pass
 
-            # Normalize system value
-            norm_sys_val = normalize_string(sys_val)
+            # Calculate Manhattan distance for this dimension
+            if user_index >= 0 and sys_index >= 0:
+                user_vec = TETRALEMMA_VECTORS[user_index]
+                sys_vec = TETRALEMMA_VECTORS[sys_index]
+                dim_distance = abs(user_vec[0] - sys_vec[0]) + abs(user_vec[1] - sys_vec[1])
+                total_manhattan_distance += dim_distance
 
-            # Normalize user rankings
-            norm_user_rankings = [normalize_string(r) for r in user_rankings]
+        match_percentage = round((1 - total_manhattan_distance / MAX_MANHATTAN_DISTANCE) * 100)
 
-            try:
-                rank_index = norm_user_rankings.index(norm_sys_val)
-            except ValueError:
-                # System value not found in user rankings (mismatch in expected values?)
-                continue
+        scores.append({
+            "name": system["name"],
+            "distance": total_manhattan_distance,
+            "percentage": match_percentage
+        })
 
-            score += RANK_POINTS[rank_index]
-
-        max_possible = len(dimensions) * 8
-        match_percentage = round((score / max_possible) * 100)
-
-        scores.append(
-            {"name": system["name"], "score": score, "percentage": match_percentage}
-        )
-
-    scores.sort(key=lambda x: x["score"], reverse=True)
+    # Sort by distance ascending, then alphabetically by name for ties
+    scores.sort(key=lambda x: (x["distance"], x["name"]))
     return scores
 
 
@@ -129,20 +145,22 @@ def clean_answer_values(answers):
     """
     Clean answer values that may include labels after a colon.
     e.g., "Constructivism: Reality is a co-creation..." -> "Constructivism"
+    Now handles single string values instead of arrays.
     """
     cleaned = {}
-    for dim_id, rankings in answers.items():
-        if isinstance(rankings, list):
-            cleaned_rankings = []
-            for value in rankings:
-                if isinstance(value, str) and ":" in value:
-                    # Extract just the value before the colon
-                    cleaned_rankings.append(value.split(":")[0].strip())
-                else:
-                    cleaned_rankings.append(value)
-            cleaned[dim_id] = cleaned_rankings
+    for dim_id, value in answers.items():
+        if isinstance(value, str) and ":" in value:
+            # Extract just the value before the colon
+            cleaned[dim_id] = value.split(":")[0].strip()
+        elif isinstance(value, list):
+            # Fallback: if LLM still returns a list, take first element
+            first_val = value[0] if value else ""
+            if isinstance(first_val, str) and ":" in first_val:
+                cleaned[dim_id] = first_val.split(":")[0].strip()
+            else:
+                cleaned[dim_id] = first_val
         else:
-            cleaned[dim_id] = rankings
+            cleaned[dim_id] = value
     return cleaned
 
 
@@ -218,7 +236,6 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
             cleaned_content = clean_json_content(content)
             all_user_answers = json.loads(cleaned_content)
             all_user_answers = clean_answer_values(all_user_answers)
-            print(all_user_answers)
             if verbose:
                 print("Successfully parsed batch response.")
 
@@ -229,9 +246,9 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
             return []
 
     if verbose:
-        # Display the LLM's full rankings
+        # Display the LLM's selections
         print("\n" + "=" * 50)
-        print("FINAL LLM RANKINGS")
+        print("FINAL LLM SELECTIONS")
         print("=" * 50)
 
         # Sort dimensions by ID for consistent display
@@ -241,20 +258,19 @@ def run_quiz(model, api_key, dimensions, systems, verbose=True, sequential=False
             dim_id = dim["id"]
             print(f"\n{dim['label']} (ID: {dim['id']}):")
             if dim_id in all_user_answers:
-                rankings = all_user_answers[dim_id]
-                for i, value in enumerate(rankings):
-                    # Find the label for this value
-                    label = next(
-                        (
-                            opt["label"]
-                            for opt in dim["options"]
-                            if normalize_string(opt["value"]) == normalize_string(value)
-                        ),
-                        value,
-                    )
-                    print(f"  {i + 1}. {value}: {label}")
+                value = all_user_answers[dim_id]
+                # Find the label for this value
+                label = next(
+                    (
+                        opt["label"]
+                        for opt in dim["options"]
+                        if normalize_string(opt["value"]) == normalize_string(value)
+                    ),
+                    value,
+                )
+                print(f"  Selected: {value}: {label}")
             else:
-                print("  (no ranking provided)")
+                print("  (no selection provided)")
 
     scores = calculate_score(all_user_answers, systems, dimensions)
     return scores

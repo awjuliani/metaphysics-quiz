@@ -34,7 +34,7 @@ def main():
         "--encoding",
         type=str,
         choices=["tetralemma", "onehot"],
-        default="onehot",
+        default="tetralemma",
         help="Encoding method to use (tetralemma or onehot)",
     )
     args = parser.parse_args()

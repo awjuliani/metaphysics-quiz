@@ -2,6 +2,11 @@
 let dimensions = [];
 let systems = [];
 
+// Tetralemma encoding vectors: maps option index to 2D representation
+// Index 0: [1, 0], Index 1: [0, 1], Index 2: [1, 1], Index 3: [0, 0]
+const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
+const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
+
 // DOM Elements
 const views = {
     intro: document.getElementById('intro-view'),
@@ -141,7 +146,6 @@ function renderQuestion() {
     if (!views.quiz) return;
 
     const dimension = dimensions[currentQuestionIndex];
-    const currentAnswer = userAnswers[dimension.id] || { most: null, least: null };
 
     // Update Back Button Visibility
     if (backBtn) {
@@ -152,17 +156,23 @@ function renderQuestion() {
         }
     }
 
-    // Initialize user answers for this dimension if not exists
-    if (!userAnswers[dimension.id]) {
-        // Randomize initial order to avoid bias
-        const shuffledOptions = [...dimension.options].sort(() => Math.random() - 0.5);
-        userAnswers[dimension.id] = shuffledOptions.map(opt => opt.value);
+    // Initialize shuffled display order for this dimension if not exists
+    if (!dimension._shuffledOrder) {
+        // Create shuffled indices for display to avoid order bias
+        dimension._shuffledOrder = [...Array(dimension.options.length).keys()].sort(() => Math.random() - 0.5);
     }
 
-    const currentOrder = userAnswers[dimension.id];
+    // Get current selection (single value or null)
+    const currentSelection = userAnswers[dimension.id] || null;
 
-    // Reset Next Button
-    if (nextBtn) nextBtn.classList.remove('hidden');
+    // Show/hide Next Button based on selection
+    if (nextBtn) {
+        if (currentSelection) {
+            nextBtn.classList.remove('hidden');
+        } else {
+            nextBtn.classList.add('hidden');
+        }
+    }
 
     // Update Progress
     if (progressBar) {
@@ -176,109 +186,38 @@ function renderQuestion() {
         const qText = isExpandedMode && dimension.expanded_question ? dimension.expanded_question : dimension.question;
         questionText.innerHTML = `
             ${qText}
-            <div class="instruction-text">Rank the following from most agreed (top) to least agreed (bottom):</div>
+            <div class="instruction-text">Select the statement you most agree with:</div>
         `;
     }
 
-    // Render Options in the current order
+    // Render Options as clickable selection cards
     if (optionsContainer) {
-        optionsContainer.innerHTML = '<div class="ranking-container" id="ranking-list"></div>';
-        const list = document.getElementById('ranking-list');
+        optionsContainer.innerHTML = '<div class="selection-container" id="selection-list"></div>';
+        const list = document.getElementById('selection-list');
 
-        currentOrder.forEach((val, index) => {
-            const option = dimension.options.find(o => o.value === val);
-            // Find original index for consistent coloring
-            const originalIndex = dimension.options.findIndex(o => o.value === val);
+        dimension._shuffledOrder.forEach((originalIndex) => {
+            const option = dimension.options[originalIndex];
+            const isSelected = currentSelection === option.value;
 
             const card = document.createElement('div');
-            card.className = `rank-card variant-${originalIndex}`;
-            card.draggable = true;
-            card.dataset.value = val;
-            card.dataset.index = index;
+            card.className = `option-card${isSelected ? ' selected' : ''}`;
+            card.dataset.value = option.value;
+            card.onclick = () => selectOption(dimension.id, option.value);
 
             card.innerHTML = `
-                <div class="drag-handle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                <div class="option-content">
+                    <div class="option-text">${isExpandedMode && option.expanded_label ? option.expanded_label : option.label}</div>
                 </div>
-                <div class="rank-indicator">#${index + 1}</div>
-                <div class="rank-content">
-                    <div class="rank-text">${isExpandedMode && option.expanded_label ? option.expanded_label : option.label}</div>
-                </div>
-                <div class="rank-controls">
-                    <button class="rank-btn up-btn" onclick="moveOption('${dimension.id}', ${index}, -1)" ${index === 0 ? 'disabled' : ''}>▲</button>
-                    <button class="rank-btn down-btn" onclick="moveOption('${dimension.id}', ${index}, 1)" ${index === 3 ? 'disabled' : ''}>▼</button>
-                </div>
+                ${isSelected ? '<div class="checkmark">✓</div>' : ''}
             `;
             list.appendChild(card);
         });
-
-        setupDragAndDrop(list, dimension.id);
     }
 }
 
-window.moveOption = function (dimensionId, index, direction) {
-    const newIndex = index + direction;
-    const currentOrder = userAnswers[dimensionId];
-
-    if (newIndex >= 0 && newIndex < currentOrder.length) {
-        // Swap
-        const temp = currentOrder[index];
-        currentOrder[index] = currentOrder[newIndex];
-        currentOrder[newIndex] = temp;
-
-        userAnswers[dimensionId] = currentOrder;
-        renderQuestion();
-    }
-};
-
-function setupDragAndDrop(list, dimensionId) {
-    let draggedItem = null;
-
-    const items = list.querySelectorAll('.rank-card');
-
-    items.forEach(item => {
-        item.addEventListener('dragstart', function (e) {
-            draggedItem = item;
-            setTimeout(() => item.classList.add('dragging'), 0);
-        });
-
-        item.addEventListener('dragend', function () {
-            item.classList.remove('dragging');
-            draggedItem = null;
-
-            // Update state based on new DOM order
-            const newOrder = [];
-            list.querySelectorAll('.rank-card').forEach(card => {
-                newOrder.push(card.dataset.value);
-            });
-            userAnswers[dimensionId] = newOrder;
-            renderQuestion(); // Re-render to update numbers and buttons
-        });
-
-        item.addEventListener('dragover', function (e) {
-            e.preventDefault();
-            const afterElement = getDragAfterElement(list, e.clientY);
-            if (afterElement == null) {
-                list.appendChild(draggedItem);
-            } else {
-                list.insertBefore(draggedItem, afterElement);
-            }
-        });
-    });
-}
-
-function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.rank-card:not(.dragging)')];
-
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
+function selectOption(dimensionId, value) {
+    userAnswers[dimensionId] = value;
+    renderQuestion();
 }
 
 let topMatchData = null;
@@ -289,60 +228,49 @@ function calculateResult() {
     let scores = [];
 
     systems.forEach(system => {
-        let score = 0;
+        let totalManhattanDistance = 0;
         let breakdown = [];
 
         dimensions.forEach(dim => {
-            const userRankings = userAnswers[dim.id]; // Array of values [1st, 2nd, 3rd, 4th]
-            const sysVal = system.profile[dim.id]; // The option value the system holds
+            const sysVal = system.profile[dim.id];
+            const sysIndex = dim.options.findIndex(o => o.value === sysVal);
 
-            // Find the rank of the system's preferred value in the user's list
-            // index 0 = Rank 1 (+2)
-            // index 1 = Rank 2 (+1)
-            // index 2 = Rank 3 (-1)
-            // index 3 = Rank 4 (-2)
+            const userVal = userAnswers[dim.id];
+            const userIndex = dim.options.findIndex(o => o.value === userVal);
 
-            const rankIndex = userRankings.indexOf(sysVal);
-            let points = 0;
-            let matchType = 'neutral';
-
-            if (rankIndex === 0) {
-                points = 8;
-                matchType = 'rank-1';
-            } else if (rankIndex === 1) {
-                points = 4;
-                matchType = 'rank-2';
-            } else if (rankIndex === 2) {
-                points = 2;
-                matchType = 'rank-3';
-            } else if (rankIndex === 3) {
-                points = 1;
-                matchType = 'rank-4';
+            // Calculate Manhattan distance for this dimension
+            let dimManhattanDistance = 0;
+            if (userIndex >= 0 && sysIndex >= 0) {
+                const userDimVector = TETRALEMMA_VECTORS[userIndex];
+                const sysDimVector = TETRALEMMA_VECTORS[sysIndex];
+                dimManhattanDistance =
+                    Math.abs(userDimVector[0] - sysDimVector[0]) +
+                    Math.abs(userDimVector[1] - sysDimVector[1]);
             }
 
-            score += points;
+            totalManhattanDistance += dimManhattanDistance;
 
-            // Add to breakdown
             breakdown.push({
                 dim: dim.label,
                 sysVal: sysVal,
-                userRank: rankIndex + 1,
-                points: points,
-                optionLabel: getOptionLabel(dim.id, sysVal)
+                userVal: userVal,
+                distance: dimManhattanDistance,
+                isSameChoice: userVal === sysVal,
+                optionLabel: getOptionLabel(dim.id, sysVal),
+                userOptionLabel: getOptionLabel(dim.id, userVal)
             });
         });
 
-        // Calculate Percentage
-        // Max score per dimension is 8. Min is 1.
-        // Total max = dimensions.length * 8
-        const maxPossible = dimensions.length * 8;
-        const matchPercentage = Math.round((score / maxPossible) * 100);
+        const matchPercentage = Math.round((1 - totalManhattanDistance / MAX_MANHATTAN_DISTANCE) * 100);
 
-        scores.push({ system, score, matchPercentage, breakdown });
+        scores.push({ system, distance: totalManhattanDistance, matchPercentage, breakdown });
     });
 
-    // Sort by score descending
-    scores.sort((a, b) => b.score - a.score);
+    // Sort by distance (ascending), then alphabetically by name for ties
+    scores.sort((a, b) => {
+        if (a.distance !== b.distance) return a.distance - b.distance;
+        return a.system.name.localeCompare(b.system.name);
+    });
 
     topMatchData = scores[0];
     runnerUpData = scores[1]; // Assumes at least 2 systems
@@ -422,27 +350,26 @@ function toggleResultView(viewType) {
         data.breakdown.forEach(item => {
             const li = document.createElement('li');
 
-            // Determine styles and text based on rank
+            // Determine styles and text based on distance
             let matchClass = 'match-neutral';
             let badgeHtml = '';
             let alignmentText = '';
 
-            if (item.userRank === 1) {
+            if (item.isSameChoice) {
+                // Same choice - perfect match on this dimension (distance = 0)
                 matchClass = 'match-most';
-                badgeHtml = '<span class="match-badge success">Ranked #1 (+8)</span>';
-                alignmentText = `✅ <strong>You ranked this as your top choice.</strong>`;
-            } else if (item.userRank === 2) {
-                matchClass = 'match-most'; // Still positive-ish
-                badgeHtml = '<span class="match-badge success" style="background:#dbeafe;color:#1e40af">Ranked #2 (+4)</span>';
-                alignmentText = `☑️ <strong>You ranked this second.</strong>`;
-            } else if (item.userRank === 3) {
+                badgeHtml = '<span class="match-badge success">Same Choice</span>';
+                alignmentText = `<strong>You also chose: ${item.userVal}</strong>`;
+            } else if (item.distance === 2) {
+                // Opposite choices (Manhattan distance = 2)
                 matchClass = 'match-least';
-                badgeHtml = '<span class="match-badge danger" style="background:#ffedd5;color:#9a3412">Ranked #3 (+2)</span>';
-                alignmentText = `⚠️ <strong>You ranked this third.</strong>`;
-            } else if (item.userRank === 4) {
-                matchClass = 'match-least';
-                badgeHtml = '<span class="match-badge danger">Ranked #4 (+1)</span>';
-                alignmentText = `❌ <strong>You ranked this last.</strong>`;
+                badgeHtml = '<span class="match-badge danger">Opposite</span>';
+                alignmentText = `Your choice: <strong>${item.userVal}</strong>`;
+            } else {
+                // Related/adjacent choices (Manhattan distance = 1)
+                matchClass = 'match-neutral';
+                badgeHtml = '<span class="match-badge neutral">Related</span>';
+                alignmentText = `Your choice: <strong>${item.userVal}</strong>`;
             }
 
             li.className = matchClass;

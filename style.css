@@ -379,6 +379,7 @@ body.dark-mode .intro-card {
     border-radius: 12px;
     margin-bottom: 1rem;
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 body.dark-mode .option-card {
@@ -391,6 +392,117 @@ body.dark-mode .option-card {
 
 body.dark-mode .option-card:hover {
     background: #475569;
+}
+
+.option-card.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+body.dark-mode .option-card.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+/* Variant Colors for Option Cards */
+.option-card.variant-0 {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+body.dark-mode .option-card.variant-0 {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.option-card.variant-1 {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+body.dark-mode .option-card.variant-1 {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.option-card.variant-2 {
+    background: #fef2f2;
+    border-color: #fecaca;
+}
+
+body.dark-mode .option-card.variant-2 {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.option-card.variant-3 {
+    background: #fffbeb;
+    border-color: #fde68a;
+}
+
+body.dark-mode .option-card.variant-3 {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.option-card.selected.variant-0 {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.option-card.selected.variant-1 {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 2px #22c55e;
+}
+
+.option-card.selected.variant-2 {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px #ef4444;
+}
+
+.option-card.selected.variant-3 {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px #f59e0b;
+}
+
+.option-card .checkmark {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.option-card.variant-0 .checkmark {
+    background: #3b82f6;
+}
+
+.option-card.variant-1 .checkmark {
+    background: #22c55e;
+}
+
+.option-card.variant-2 .checkmark {
+    background: #ef4444;
+}
+
+.option-card.variant-3 .checkmark {
+    background: #f59e0b;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .option-text {
