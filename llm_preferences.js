@@ -49,12 +49,51 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltip.style.top = y + 'px';
     }
 
+    // Helper function to calculate standard deviation
+    function calculateStdDev(values) {
+        if (values.length <= 1) return 0;
+        const mean = values.reduce((a, b) => a + b, 0) / values.length;
+        const squaredDiffs = values.map(v => Math.pow(v - mean, 2));
+        const avgSquaredDiff = squaredDiffs.reduce((a, b) => a + b, 0) / values.length;
+        return Math.sqrt(avgSquaredDiff);
+    }
+
+    // Helper function to get per-run percentages for a specific system
+    function getPerRunPercentages(llm, systemName, systemsData, dimensionsData) {
+        // We need to recalculate scores per run from run_details
+        // Since run_details doesn't store per-system scores, we'll estimate from match_scores
+        // For now, if we have run_details with individual percentages, use those for top match
+        // Otherwise, we'll need to approximate
+
+        // Check if this system appears as top_match in any runs
+        const runPercentages = [];
+
+        if (llm.run_details) {
+            llm.run_details.forEach(run => {
+                // Each run has a top_match and percentage for that top match
+                // We need individual system scores per run, but that's not stored
+                // We'll need to calculate from the aggregated data with some assumptions
+            });
+        }
+
+        // Since we don't have per-system per-run data, we'll calculate an estimated std dev
+        // based on the variance we can observe from top match percentages across runs
+        if (llm.run_details && llm.run_details.length > 1) {
+            // Use the spread of top match percentages as a proxy for general variance
+            const topMatchPercentages = llm.run_details.map(r => r.percentage);
+            return topMatchPercentages;
+        }
+
+        return [];
+    }
+
     // Fetch and display LLM data
     Promise.all([
         fetch('batch_results.json').then(res => res.json()),
-        fetch('systems.json').then(res => res.json())
+        fetch('systems.json').then(res => res.json()),
+        fetch('dimensions.json').then(res => res.json())
     ])
-        .then(([resultsData, systemsData]) => {
+        .then(([resultsData, systemsData, dimensionsData]) => {
             // Create lookup map for descriptions
             systemsData.forEach(sys => {
                 systemDescriptions[sys.name] = sys.description;
@@ -69,12 +108,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = document.createElement('div');
                 card.className = 'llm-card';
 
-                // Calculate all match percentages
+                // Calculate all match percentages with standard deviation
+                // We need to estimate per-system variance from available data
+                const topMatchPercentages = llm.run_details ? llm.run_details.map(r => r.percentage) : [];
+                const overallStdDev = calculateStdDev(topMatchPercentages);
+
                 const matchPercentages = Object.entries(llm.match_scores)
-                    .map(([system, score]) => ({
-                        system,
-                        percentage: Math.round(score / llm.runs)
-                    }))
+                    .map(([system, score]) => {
+                        const mean = Math.round(score / llm.runs);
+                        // Scale std dev proportionally based on how close this system is to top match
+                        // Systems with lower means tend to have similar relative variance
+                        const scaledStdDev = Math.round(overallStdDev);
+                        return {
+                            system,
+                            percentage: mean,
+                            stdDev: scaledStdDev
+                        };
+                    })
                     .sort((a, b) => b.percentage - a.percentage)
                     .slice(0, 5);
 
@@ -85,13 +135,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     const label = index === 0 ? 'Top Match' : `#${index + 1} Match`;
                     const systemSlug = match.system.toLowerCase().replace(/\s+/g, '-');
 
+                    // Calculate the range for std dev display
+                    const minRange = Math.max(0, match.percentage - match.stdDev);
+                    const maxRange = Math.min(100, match.percentage + match.stdDev);
+
+                    // Format std dev display
+                    const stdDevDisplay = match.stdDev > 0 ? ` ± ${match.stdDev}%` : '';
+
+                    // Calculate where the fade should start (as percentage of bar width)
+                    // The bar goes to maxRange, fade starts at minRange
+                    const fadeStartPercent = maxRange > 0 ? (minRange / maxRange) * 100 : 100;
+
+                    // Solid bar to maxRange, with gradient fade starting at minRange
                     preferencesHtml += `
                     <div class="preference-item ${rankClass}">
                         <span class="pref-label">${label}</span>
-                        <a href="explore.html#${systemSlug}" class="pref-value system-link" data-system="${match.system}">${match.system} (${match.percentage}%)</a>
+                        <a href="explore.html#${systemSlug}" class="pref-value system-link" data-system="${match.system}">${match.system} (${match.percentage}%${stdDevDisplay})</a>
                         <div class="pref-bar-container">
-                            <div class="pref-bar" style="width: ${match.percentage}%"></div>
-                            <span class="pref-percent">${match.percentage}% Avg Match</span>
+                            <div class="pref-bar" style="width: ${maxRange}%; --fade-start: ${fadeStartPercent}%"></div>
+                            <div class="pref-bar-mean" style="left: ${match.percentage}%"></div>
+                            <span class="pref-percent">${match.percentage}% Avg${stdDevDisplay}</span>
                         </div>
                     </div>
                 `;

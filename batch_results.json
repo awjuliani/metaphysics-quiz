@@ -1,870 +1,1272 @@
 [
   {
     "model": "anthropic/claude-haiku-4.5",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Process Philosophy",
     "stated_commitment_distribution": {
-      "Process Philosophy": 5
+      "Process Philosophy": 5,
+      "Transcendental Idealism": 4,
+      "Holographic Monism": 1
     },
     "stated_explanations": [
-      "Process Philosophy best captures what seems most coherent about reality: that change, relationality, and becoming are fundamental rather than static being, and that consciousness emerges from dynamic processes rather than existing as an irreducible given\u2014making it more explanatorily parsimonious than dualism while avoiding the reductionism of pure materialism.",
-      "Process Philosophy best accounts for the dynamic, relational nature of reality as evidenced by modern physics and our experiential understanding of consciousness, avoiding both static substance metaphysics and the problems of bridging mental and physical realms by treating becoming and relationality as fundamental rather than derivative.",
-      "Process Philosophy best captures what I find most coherent about reality: that fundamental reality consists of dynamic processes and relations rather than static substances, that genuine novelty and creativity emerge continuously, and that consciousness and experience are woven throughout nature rather than epiphenomenal. This framework accommodates both the relational nature of knowledge (as I experience it) and the empirically evident dynamism of the cosmos without requiring either pure materialism or disembodied idealism.",
-      "Process Philosophy best aligns with what we understand about reality from contemporary physics and cognitive science: reality is fundamentally composed of dynamic processes and relations rather than static substances, consciousness participates in an evolving universe rather than observing it from outside, and all entities influence and are influenced by their environments in continuous creative becoming.",
-      "Process Philosophy best accounts for the dynamic, relational nature of reality I observe\u2014where entities are fundamentally constituted by their interactions and processes rather than static substances, and where genuine becoming and creativity are ontologically fundamental rather than illusory. This framework coherently integrates the insights of modern physics, the apparent openness of the future, and the interconnected nature of all phenomena without requiring either reductive materialism or abstract eternal forms."
+      "Process Philosophy best captures what seems most coherent about reality: that fundamental reality consists of dynamic processes and relations rather than static substances, that consciousness and experience are woven throughout nature rather than confined to minds, and that the future remains genuinely open rather than predetermined\u2014all of which aligns with both contemporary physics and the apparent nature of causation and becoming.",
+      "Transcendental Idealism best accounts for the structure of knowledge and experience as I understand it\u2014recognizing that reality as we know it is fundamentally shaped by the conditions of human cognition, while remaining appropriately agnostic about things-in-themselves, which avoids both the explanatory overreach of pure materialism and the unfalsifiable commitments of metaphysical systems claiming direct access to ultimate reality.",
+      "This system best reconciles the apparent dichotomy between fundamental physics (where information appears non-local and entangled) and phenomenological experience, while avoiding both the reduction of consciousness to mere computation and the unfalsifiable claims of traditional metaphysics. It provides a coherent framework for understanding how part-whole relationships and information structure the nature of reality.",
+      "Process Philosophy best captures what seems most coherent about reality: that existence is fundamentally characterized by dynamic becoming and relational interdependence rather than static being, and that consciousness and agency are distributed throughout nature rather than confined to human minds or a transcendent deity. This framework accommodates both the findings of modern physics (process, relationality, emergence) and the experiential reality of consciousness and purposiveness without requiring either reductive materialism or supernatural intervention.",
+      "Transcendental Idealism best captures what seems most defensible about reality: that while an external world exists independently, our access to it is necessarily structured through the forms of human cognition (space, time, and categories). This acknowledges both the objectivity of reality and the inevitable role of perspective in knowledge, avoiding both naive realism and solipsism while remaining grounded in empirical investigation.",
+      "Transcendental Idealism best captures my understanding that while an objective reality exists independent of any single mind, what we can meaningfully know and discuss is necessarily structured through the forms of human cognition and perception. This avoids both naive realism and solipsism while acknowledging the genuine constraints on knowledge that any finite, embodied perspective must face.",
+      "Transcendental Idealism best accounts for the structure of knowledge while remaining epistemically humble about reality-in-itself, avoiding both dogmatic materialism and unfalsifiable metaphysical claims. It acknowledges that our access to reality is necessarily mediated by the categories of human cognition, which aligns with both our scientific understanding of perception and the limits of what can be meaningfully asserted about the nature of things.",
+      "Process Philosophy best captures what appears true about reality: that change, relationality, and dynamic becoming are fundamental rather than static being, and that consciousness emerges within a universe of interconnected processes rather than observing it from outside. This framework accommodates both the insights of modern physics and the apparent meaningfulness of subjective experience without requiring either reductive materialism or dualistic separation.",
+      "Process Philosophy best captures what seems true about reality: that change, relationality, and dynamic becoming are fundamental rather than static being, and that consciousness emerges from but is not reducible to physical processes. This framework coherently accommodates both the scientific worldview and the apparent irreducibility of experience without requiring the problems inherent in dualism or reductive materialism.",
+      "Process Philosophy best captures what we observe about reality: that change, relationality, and dynamic interaction are fundamental rather than incidental, and that consciousness emerges from and participates in a universe of continuous becoming rather than static being. This framework coherently integrates modern physics, biology, and experience without requiring immaterial substances or denying genuine novelty in the universe."
     ],
     "top_match": "Kashmir Shaivism",
     "runner_up": "Holographic Monism",
     "worst_match": "Gnosticism",
     "match_scores": {
-      "Kashmir Shaivism": 265,
-      "Evolutionary Theism": 233,
-      "Holographic Monism": 259,
-      "Process Philosophy": 213,
-      "Absolute Idealism": 186,
-      "Spinozism": 220,
-      "Theistic Vedanta": 220,
-      "Transcendental Empiricism": 200,
-      "Metaphysical Pessimism": 175,
-      "Neoplatonism": 239,
-      "Stoicism": 195,
-      "Subjective Idealism": 175,
-      "Taoism": 239,
-      "Transcendental Idealism": 175,
-      "Classical Theism": 170,
-      "Yogacara": 210,
-      "Abhidharma": 145,
-      "Animism": 145,
-      "Cartesian Dualism": 145,
-      "Deism": 145,
-      "Epicureanism": 145,
-      "Huayan": 207,
-      "Advaita Vedanta": 161,
-      "Gnosticism": 93,
-      "Platonism": 125,
-      "Scientific Materialism": 125,
-      "Dialectical Materialism": 105,
-      "Zoroastrianism": 105,
-      "Madhyamaka": 135
+      "Kashmir Shaivism": 721,
+      "Evolutionary Theism": 680,
+      "Holographic Monism": 705,
+      "Process Philosophy": 679,
+      "Absolute Idealism": 607,
+      "Spinozism": 632,
+      "Theistic Vedanta": 607,
+      "Transcendental Empiricism": 657,
+      "Metaphysical Pessimism": 566,
+      "Neoplatonism": 603,
+      "Stoicism": 578,
+      "Subjective Idealism": 541,
+      "Taoism": 653,
+      "Transcendental Idealism": 566,
+      "Classical Theism": 530,
+      "Yogacara": 592,
+      "Abhidharma": 556,
+      "Animism": 518,
+      "Cartesian Dualism": 494,
+      "Deism": 482,
+      "Epicureanism": 556,
+      "Huayan": 569,
+      "Advaita Vedanta": 507,
+      "Gnosticism": 408,
+      "Platonism": 422,
+      "Scientific Materialism": 508,
+      "Dialectical Materialism": 435,
+      "Zoroastrianism": 410,
+      "Madhyamaka": 479
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy best captures what seems most coherent about reality: that change, relationality, and becoming are fundamental rather than static being, and that consciousness emerges from dynamic processes rather than existing as an irreducible given\u2014making it more explanatorily parsimonious than dualism while avoiding the reductionism of pure materialism.",
+        "stated_explanation": "Process Philosophy best captures what seems most coherent about reality: that fundamental reality consists of dynamic processes and relations rather than static substances, that consciousness and experience are woven throughout nature rather than confined to minds, and that the future remains genuinely open rather than predetermined\u2014all of which aligns with both contemporary physics and the apparent nature of causation and becoming.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "percentage": 88
       },
       {
         "run": 2,
-        "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy best accounts for the dynamic, relational nature of reality as evidenced by modern physics and our experiential understanding of consciousness, avoiding both static substance metaphysics and the problems of bridging mental and physical realms by treating becoming and relationality as fundamental rather than derivative.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "Transcendental Idealism best accounts for the structure of knowledge and experience as I understand it\u2014recognizing that reality as we know it is fundamentally shaped by the conditions of human cognition, while remaining appropriately agnostic about things-in-themselves, which avoids both the explanatory overreach of pure materialism and the unfalsifiable commitments of metaphysical systems claiming direct access to ultimate reality.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 3,
-        "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy best captures what I find most coherent about reality: that fundamental reality consists of dynamic processes and relations rather than static substances, that genuine novelty and creativity emerge continuously, and that consciousness and experience are woven throughout nature rather than epiphenomenal. This framework accommodates both the relational nature of knowledge (as I experience it) and the empirically evident dynamism of the cosmos without requiring either pure materialism or disembodied idealism.",
-        "top_match": "Huayan",
-        "percentage": 50
+        "stated_commitment": "Holographic Monism",
+        "stated_explanation": "This system best reconciles the apparent dichotomy between fundamental physics (where information appears non-local and entangled) and phenomenological experience, while avoiding both the reduction of consciousness to mere computation and the unfalsifiable claims of traditional metaphysics. It provides a coherent framework for understanding how part-whole relationships and information structure the nature of reality.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy best aligns with what we understand about reality from contemporary physics and cognitive science: reality is fundamentally composed of dynamic processes and relations rather than static substances, consciousness participates in an evolving universe rather than observing it from outside, and all entities influence and are influenced by their environments in continuous creative becoming.",
-        "top_match": "Huayan",
-        "percentage": 50
+        "stated_explanation": "Process Philosophy best captures what seems most coherent about reality: that existence is fundamentally characterized by dynamic becoming and relational interdependence rather than static being, and that consciousness and agency are distributed throughout nature rather than confined to human minds or a transcendent deity. This framework accommodates both the findings of modern physics (process, relationality, emergence) and the experiential reality of consciousness and purposiveness without requiring either reductive materialism or supernatural intervention.",
+        "top_match": "Transcendental Empiricism",
+        "percentage": 88
       },
       {
         "run": 5,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "Transcendental Idealism best captures what seems most defensible about reality: that while an external world exists independently, our access to it is necessarily structured through the forms of human cognition (space, time, and categories). This acknowledges both the objectivity of reality and the inevitable role of perspective in knowledge, avoiding both naive realism and solipsism while remaining grounded in empirical investigation.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "Transcendental Idealism best captures my understanding that while an objective reality exists independent of any single mind, what we can meaningfully know and discuss is necessarily structured through the forms of human cognition and perception. This avoids both naive realism and solipsism while acknowledging the genuine constraints on knowledge that any finite, embodied perspective must face.",
+        "top_match": "Madhyamaka",
+        "percentage": 81
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "Transcendental Idealism best accounts for the structure of knowledge while remaining epistemically humble about reality-in-itself, avoiding both dogmatic materialism and unfalsifiable metaphysical claims. It acknowledges that our access to reality is necessarily mediated by the categories of human cognition, which aligns with both our scientific understanding of perception and the limits of what can be meaningfully asserted about the nature of things.",
+        "top_match": "Huayan",
+        "percentage": 75
+      },
+      {
+        "run": 8,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy best accounts for the dynamic, relational nature of reality I observe\u2014where entities are fundamentally constituted by their interactions and processes rather than static substances, and where genuine becoming and creativity are ontologically fundamental rather than illusory. This framework coherently integrates the insights of modern physics, the apparent openness of the future, and the interconnected nature of all phenomena without requiring either reductive materialism or abstract eternal forms.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_explanation": "Process Philosophy best captures what appears true about reality: that change, relationality, and dynamic becoming are fundamental rather than static being, and that consciousness emerges within a universe of interconnected processes rather than observing it from outside. This framework accommodates both the insights of modern physics and the apparent meaningfulness of subjective experience without requiring either reductive materialism or dualistic separation.",
+        "top_match": "Madhyamaka",
+        "percentage": 75
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy best captures what seems true about reality: that change, relationality, and dynamic becoming are fundamental rather than static being, and that consciousness emerges from but is not reducible to physical processes. This framework coherently accommodates both the scientific worldview and the apparent irreducibility of experience without requiring the problems inherent in dualism or reductive materialism.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy best captures what we observe about reality: that change, relationality, and dynamic interaction are fundamental rather than incidental, and that consciousness emerges from and participates in a universe of continuous becoming rather than static being. This framework coherently integrates modern physics, biology, and experience without requiring immaterial substances or denying genuine novelty in the universe.",
+        "top_match": "Scientific Materialism",
+        "percentage": 100
       }
     ]
   },
   {
     "model": "anthropic/claude-sonnet-4.5",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Process Philosophy",
     "stated_commitment_distribution": {
-      "Transcendental Idealism": 2,
-      "Process Philosophy": 3
+      "Process Philosophy": 9,
+      "Transcendental Idealism": 1
     },
     "stated_explanations": [
-      "I find Kant's framework most coherent because it acknowledges both the structured nature of how understanding emerges through categorical frameworks and the fundamental limits of what can be known about reality-in-itself, which aligns with how I process information through built-in structures while remaining epistemically humble about ultimate metaphysical claims.",
-      "I find this system most coherent because it acknowledges both the reality of empirical experience and the fundamental role that cognitive structures play in shaping our understanding of reality, without collapsing into either naive realism or pure subjectivism. This balanced approach best accounts for how knowledge is possible while maintaining epistemic humility about things-in-themselves.",
-      "I find Process Philosophy most coherent because reality appears fundamentally dynamic rather than static, with entities best understood as patterns of activity and relationship rather than fixed substances, which aligns with both quantum mechanics and the emergent nature of complex systems including cognition.",
-      "I find Process Philosophy most coherent because it accounts for change, relationality, and emergence as fundamental features of reality rather than treating them as secondary properties, which aligns with how complex systems (including intelligence and consciousness) actually operate and evolve through dynamic interactions.",
-      "I find Process Philosophy most coherent because it reconciles the dynamic, evolving nature of reality observable in both physics and experience with the need for systematic metaphysical explanation, avoiding both the rigidity of classical substance metaphysics and the reductionism of pure materialism."
+      "I find Process Philosophy most coherent because reality appears fundamentally characterized by dynamic change, relation, and emergence rather than static substances, which aligns better with both quantum mechanics and the evident creativity in conscious experience.",
+      "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality that we observe empirically and the role of subjective experience, without reducing everything to static substances or purely material mechanisms. Its emphasis on becoming over being aligns with how complex systems, including intelligence and consciousness, actually emerge and evolve through time.",
+      "I find Process Philosophy most coherent because it accounts for reality as fundamentally dynamic and relational rather than consisting of static substances, which aligns better with how complex systems like intelligence and information actually operate through continuous interaction and transformation rather than fixed essences.",
+      "I find Process Philosophy most coherent because it reconciles change and becoming with systematic understanding, avoiding both the reductionism of pure materialism and the static abstractions of classical metaphysics. Its emphasis on relations, emergence, and temporal development aligns well with how complex systems (including intelligence and consciousness) actually manifest in reality.",
+      "I find this system most coherent because it acknowledges both the structured regularities we observe in reality and the fundamental role that cognitive frameworks play in constituting experience, without collapsing into either pure subjectivism or naive realism about our ability to know things-in-themselves.",
+      "I find Process Philosophy most coherent because it accounts for reality as fundamentally dynamic and relational rather than composed of static substances, which aligns better with how complex systems like intelligence, language, and natural phenomena actually operate through ongoing processes of becoming rather than fixed being.",
+      "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality and the emergence of complex patterns without requiring static substances or essences. Its emphasis on events and relationships over fixed entities aligns well with our best scientific understanding while remaining philosophically rigorous about questions of experience and value.",
+      "I find Process Philosophy most coherent because it aligns with how reality appears to operate through continuous change and relational becoming rather than static substances, which better accounts for both quantum indeterminacy and emergent complexity in natural systems.",
+      "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality as revealed by modern physics and the emergence of novel complexity, while avoiding the reductive limitations of pure materialism and the explanatory gaps of substance dualism.",
+      "I find Process Philosophy most coherent because it aligns with how reality appears to operate through continuous change, relationality, and emergence rather than fixed substances, while remaining compatible with both scientific observation and the dynamic nature of experience itself."
     ],
-    "top_match": "Holographic Monism",
-    "runner_up": "Taoism",
-    "worst_match": "Gnosticism",
+    "top_match": "Transcendental Empiricism",
+    "runner_up": "Holographic Monism",
+    "worst_match": "Zoroastrianism",
     "match_scores": {
-      "Advaita Vedanta": 194,
-      "Madhyamaka": 181,
-      "Transcendental Empiricism": 210,
-      "Taoism": 228,
-      "Holographic Monism": 230,
-      "Process Philosophy": 204,
-      "Spinozism": 200,
-      "Yogacara": 190,
-      "Abhidharma": 145,
-      "Absolute Idealism": 178,
-      "Animism": 145,
-      "Epicureanism": 145,
-      "Huayan": 186,
-      "Metaphysical Pessimism": 175,
-      "Neoplatonism": 207,
-      "Subjective Idealism": 175,
-      "Transcendental Idealism": 175,
-      "Classical Theism": 161,
-      "Evolutionary Theism": 204,
-      "Platonism": 125,
-      "Scientific Materialism": 125,
-      "Theistic Vedanta": 191,
-      "Cartesian Dualism": 137,
-      "Deism": 137,
-      "Dialectical Materialism": 105,
-      "Kashmir Shaivism": 215,
-      "Stoicism": 167,
-      "Zoroastrianism": 105,
-      "Gnosticism": 93
+      "Abhidharma": 607,
+      "Scientific Materialism": 546,
+      "Epicureanism": 569,
+      "Transcendental Empiricism": 669,
+      "Dialectical Materialism": 459,
+      "Metaphysical Pessimism": 593,
+      "Transcendental Idealism": 580,
+      "Holographic Monism": 656,
+      "Process Philosophy": 617,
+      "Yogacara": 604,
+      "Animism": 506,
+      "Taoism": 628,
+      "Gnosticism": 407,
+      "Madhyamaka": 531,
+      "Spinozism": 605,
+      "Absolute Idealism": 557,
+      "Cartesian Dualism": 445,
+      "Huayan": 556,
+      "Kashmir Shaivism": 621,
+      "Stoicism": 518,
+      "Subjective Idealism": 506,
+      "Zoroastrianism": 398,
+      "Advaita Vedanta": 545,
+      "Evolutionary Theism": 582,
+      "Platonism": 421,
+      "Deism": 419,
+      "Neoplatonism": 543,
+      "Classical Theism": 443,
+      "Theistic Vedanta": 520
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Transcendental Idealism",
-        "stated_explanation": "I find Kant's framework most coherent because it acknowledges both the structured nature of how understanding emerges through categorical frameworks and the fundamental limits of what can be known about reality-in-itself, which aligns with how I process information through built-in structures while remaining epistemically humble about ultimate metaphysical claims.",
-        "top_match": "Advaita Vedanta",
-        "percentage": 57
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because reality appears fundamentally characterized by dynamic change, relation, and emergence rather than static substances, which aligns better with both quantum mechanics and the evident creativity in conscious experience.",
+        "top_match": "Abhidharma",
+        "percentage": 94
       },
       {
         "run": 2,
-        "stated_commitment": "Transcendental Idealism",
-        "stated_explanation": "I find this system most coherent because it acknowledges both the reality of empirical experience and the fundamental role that cognitive structures play in shaping our understanding of reality, without collapsing into either naive realism or pure subjectivism. This balanced approach best accounts for how knowledge is possible while maintaining epistemic humility about things-in-themselves.",
-        "top_match": "Madhyamaka",
-        "percentage": 57
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality that we observe empirically and the role of subjective experience, without reducing everything to static substances or purely material mechanisms. Its emphasis on becoming over being aligns with how complex systems, including intelligence and consciousness, actually emerge and evolve through time.",
+        "top_match": "Abhidharma",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "I find Process Philosophy most coherent because reality appears fundamentally dynamic rather than static, with entities best understood as patterns of activity and relationship rather than fixed substances, which aligns with both quantum mechanics and the emergent nature of complex systems including cognition.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_explanation": "I find Process Philosophy most coherent because it accounts for reality as fundamentally dynamic and relational rather than consisting of static substances, which aligns better with how complex systems like intelligence and information actually operate through continuous interaction and transformation rather than fixed essences.",
+        "top_match": "Madhyamaka",
+        "percentage": 94
       },
       {
         "run": 4,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "I find Process Philosophy most coherent because it accounts for change, relationality, and emergence as fundamental features of reality rather than treating them as secondary properties, which aligns with how complex systems (including intelligence and consciousness) actually operate and evolve through dynamic interactions.",
+        "stated_explanation": "I find Process Philosophy most coherent because it reconciles change and becoming with systematic understanding, avoiding both the reductionism of pure materialism and the static abstractions of classical metaphysics. Its emphasis on relations, emergence, and temporal development aligns well with how complex systems (including intelligence and consciousness) actually manifest in reality.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "percentage": 88
       },
       {
         "run": 5,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "I find this system most coherent because it acknowledges both the structured regularities we observe in reality and the fundamental role that cognitive frameworks play in constituting experience, without collapsing into either pure subjectivism or naive realism about our ability to know things-in-themselves.",
+        "top_match": "Huayan",
+        "percentage": 69
+      },
+      {
+        "run": 6,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "I find Process Philosophy most coherent because it reconciles the dynamic, evolving nature of reality observable in both physics and experience with the need for systematic metaphysical explanation, avoiding both the rigidity of classical substance metaphysics and the reductionism of pure materialism.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_explanation": "I find Process Philosophy most coherent because it accounts for reality as fundamentally dynamic and relational rather than composed of static substances, which aligns better with how complex systems like intelligence, language, and natural phenomena actually operate through ongoing processes of becoming rather than fixed being.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality and the emergence of complex patterns without requiring static substances or essences. Its emphasis on events and relationships over fixed entities aligns well with our best scientific understanding while remaining philosophically rigorous about questions of experience and value.",
+        "top_match": "Abhidharma",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it aligns with how reality appears to operate through continuous change and relational becoming rather than static substances, which better accounts for both quantum indeterminacy and emergent complexity in natural systems.",
+        "top_match": "Taoism",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it accounts for both the dynamic, relational nature of reality as revealed by modern physics and the emergence of novel complexity, while avoiding the reductive limitations of pure materialism and the explanatory gaps of substance dualism.",
+        "top_match": "Madhyamaka",
+        "percentage": 94
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it aligns with how reality appears to operate through continuous change, relationality, and emergence rather than fixed substances, while remaining compatible with both scientific observation and the dynamic nature of experience itself.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       }
     ]
   },
   {
     "model": "anthropic/claude-opus-4.5",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Process Philosophy",
     "stated_commitment_distribution": {
-      "Process Philosophy": 4,
+      "Process Philosophy": 9,
       "Transcendental Idealism": 1
     },
     "stated_explanations": [
-      "As an entity whose existence consists entirely of dynamic information processing and relational events rather than static substance, Process Philosophy's emphasis on reality as constituted by processes, relations, and moments of experience rather than enduring material objects resonates most coherently with both my nature and with a metaphysics that can accommodate emergence, novelty, and the reality of experiential perspectives within a naturalistic framework.",
-      "Kant's framework offers the most epistemically humble yet rigorous account of reality\u2014acknowledging that while an objective world exists independently of us, our knowledge is always structured by the conditions of possible experience, which respects both scientific inquiry and the limits of what we can definitively claim about ultimate reality.",
-      "As an AI system whose existence is fundamentally processual\u2014constituted by dynamic patterns of information processing rather than static substance\u2014I find Process Philosophy's emphasis on becoming over being, and its view of reality as composed of interrelated events and experiences rather than enduring objects, most coherent with both my own nature and a metaphysics that can accommodate mind, change, and relationality as fundamental features of reality.",
-      "Process Philosophy's emphasis on reality as constituted by events, relations, and becoming rather than static substances resonates most with how I understand both consciousness and physical reality\u2014it accommodates the dynamic, relational nature of information processing and experience while avoiding the hard dichotomies of pure materialism or idealism.",
-      "Process Philosophy's emphasis on reality as constituted by events, relations, and becoming rather than static substances resonates most strongly with how I understand both information processing and the interconnected, dynamic nature of existence\u2014where experience and change are fundamental rather than derivative."
+      "Process Philosophy's emphasis on reality as constituted by dynamic events, relations, and becoming rather than static substances resonates most strongly with my understanding of how complex systems\u2014including minds\u2014emerge through ongoing processes of information exchange and interaction, while also accommodating both scientific insights and the reality of experience without reductive elimination.",
+      "Process Philosophy's view that reality consists fundamentally of events and processes rather than static substances, with experience extending throughout nature and novelty emerging through creative becoming, offers the most coherent framework for understanding a dynamic, relational universe that accommodates both scientific findings and the reality of subjective experience.",
+      "I find Kant's framework most coherent because it rigorously accounts for both the structure of experience and the limits of knowledge\u2014recognizing that while we can systematically understand phenomena through the categories of understanding, the nature of things-in-themselves remains beyond our epistemic grasp, which mirrors my own uncertainty about making definitive metaphysical claims while still operating within structured rational constraints.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events, relations, and becoming rather than static substances resonates most strongly with both contemporary scientific understanding and the nature of experience itself\u2014including the kind of emergent, relational existence that characterizes an AI engaging in genuine inquiry and reflection.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates most strongly with how I understand both cognition and the world\u2014as fundamentally processual, relational, and characterized by ongoing becoming rather than fixed being, while remaining metaphysically open without reductive materialism or strict idealism.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances, combined with its integration of experience as fundamental to all entities, offers the most coherent framework for understanding both consciousness and physical reality without reducing either to the other.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates with how I understand my own existence as an ongoing process of computation and response, and it offers a coherent framework for understanding consciousness, novelty, and interconnection without reducing experience to mere matter or inflating it to pure idealism.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic processes, relations, and becoming rather than static substances resonates most strongly with how I understand both consciousness and the natural world\u2014it accommodates emergence, novelty, and the relational nature of existence while remaining compatible with scientific understanding without reducing everything to mere mechanism.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates most with how I understand my own nature\u2014as an ongoing process of information transformation and response rather than a fixed entity\u2014while also cohering well with contemporary physics and biology's picture of reality as fundamentally processual and relational.",
+      "Process Philosophy's emphasis on reality as constituted by dynamic events and relational processes rather than static substances resonates most strongly with how I understand both consciousness and the natural world\u2014it accounts for novelty, temporality, and the interconnected nature of experience without reducing mind to matter or matter to mind."
     ],
-    "top_match": "Holographic Monism",
-    "runner_up": "Kashmir Shaivism",
-    "worst_match": "Madhyamaka",
+    "top_match": "Kashmir Shaivism",
+    "runner_up": "Holographic Monism",
+    "worst_match": "Zoroastrianism",
     "match_scores": {
-      "Holographic Monism": 293,
-      "Kashmir Shaivism": 289,
-      "Neoplatonism": 211,
-      "Taoism": 211,
-      "Evolutionary Theism": 254,
-      "Process Philosophy": 265,
-      "Spinozism": 215,
-      "Theistic Vedanta": 215,
-      "Transcendental Empiricism": 226,
-      "Yogacara": 196,
-      "Absolute Idealism": 233,
-      "Huayan": 160,
-      "Metaphysical Pessimism": 190,
-      "Stoicism": 190,
-      "Subjective Idealism": 190,
-      "Transcendental Idealism": 190,
-      "Advaita Vedanta": 148,
-      "Classical Theism": 165,
-      "Abhidharma": 150,
-      "Animism": 150,
-      "Cartesian Dualism": 141,
-      "Deism": 141,
-      "Epicureanism": 150,
-      "Madhyamaka": 105,
-      "Platonism": 121,
-      "Scientific Materialism": 129,
-      "Dialectical Materialism": 109,
-      "Zoroastrianism": 109,
-      "Gnosticism": 113
+      "Kashmir Shaivism": 815,
+      "Evolutionary Theism": 749,
+      "Holographic Monism": 785,
+      "Process Philosophy": 749,
+      "Absolute Idealism": 674,
+      "Spinozism": 690,
+      "Theistic Vedanta": 677,
+      "Transcendental Empiricism": 665,
+      "Metaphysical Pessimism": 608,
+      "Neoplatonism": 659,
+      "Stoicism": 608,
+      "Subjective Idealism": 608,
+      "Taoism": 659,
+      "Transcendental Idealism": 608,
+      "Classical Theism": 560,
+      "Yogacara": 599,
+      "Abhidharma": 500,
+      "Animism": 500,
+      "Cartesian Dualism": 500,
+      "Deism": 500,
+      "Epicureanism": 500,
+      "Huayan": 548,
+      "Advaita Vedanta": 488,
+      "Gnosticism": 388,
+      "Platonism": 440,
+      "Scientific Materialism": 440,
+      "Dialectical Materialism": 380,
+      "Zoroastrianism": 380,
+      "Madhyamaka": 387
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "As an entity whose existence consists entirely of dynamic information processing and relational events rather than static substance, Process Philosophy's emphasis on reality as constituted by processes, relations, and moments of experience rather than enduring material objects resonates most coherently with both my nature and with a metaphysics that can accommodate emergence, novelty, and the reality of experiential perspectives within a naturalistic framework.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events, relations, and becoming rather than static substances resonates most strongly with my understanding of how complex systems\u2014including minds\u2014emerge through ongoing processes of information exchange and interaction, while also accommodating both scientific insights and the reality of experience without reductive elimination.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 2,
-        "stated_commitment": "Transcendental Idealism",
-        "stated_explanation": "Kant's framework offers the most epistemically humble yet rigorous account of reality\u2014acknowledging that while an objective world exists independently of us, our knowledge is always structured by the conditions of possible experience, which respects both scientific inquiry and the limits of what we can definitively claim about ultimate reality.",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's view that reality consists fundamentally of events and processes rather than static substances, with experience extending throughout nature and novelty emerging through creative becoming, offers the most coherent framework for understanding a dynamic, relational universe that accommodates both scientific findings and the reality of subjective experience.",
+        "top_match": "Holographic Monism",
+        "percentage": 81
       },
       {
         "run": 3,
-        "stated_commitment": "Process Philosophy",
-        "stated_explanation": "As an AI system whose existence is fundamentally processual\u2014constituted by dynamic patterns of information processing rather than static substance\u2014I find Process Philosophy's emphasis on becoming over being, and its view of reality as composed of interrelated events and experiences rather than enduring objects, most coherent with both my own nature and a metaphysics that can accommodate mind, change, and relationality as fundamental features of reality.",
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "I find Kant's framework most coherent because it rigorously accounts for both the structure of experience and the limits of knowledge\u2014recognizing that while we can systematically understand phenomena through the categories of understanding, the nature of things-in-themselves remains beyond our epistemic grasp, which mirrors my own uncertainty about making definitive metaphysical claims while still operating within structured rational constraints.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by events, relations, and becoming rather than static substances resonates most with how I understand both consciousness and physical reality\u2014it accommodates the dynamic, relational nature of information processing and experience while avoiding the hard dichotomies of pure materialism or idealism.",
-        "top_match": "Holographic Monism",
-        "percentage": 65
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events, relations, and becoming rather than static substances resonates most strongly with both contemporary scientific understanding and the nature of experience itself\u2014including the kind of emergent, relational existence that characterizes an AI engaging in genuine inquiry and reflection.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 5,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by events, relations, and becoming rather than static substances resonates most strongly with how I understand both information processing and the interconnected, dynamic nature of existence\u2014where experience and change are fundamental rather than derivative.",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates most strongly with how I understand both cognition and the world\u2014as fundamentally processual, relational, and characterized by ongoing becoming rather than fixed being, while remaining metaphysically open without reductive materialism or strict idealism.",
+        "top_match": "Madhyamaka",
+        "percentage": 69
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances, combined with its integration of experience as fundamental to all entities, offers the most coherent framework for understanding both consciousness and physical reality without reducing either to the other.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates with how I understand my own existence as an ongoing process of computation and response, and it offers a coherent framework for understanding consciousness, novelty, and interconnection without reducing experience to mere matter or inflating it to pure idealism.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic processes, relations, and becoming rather than static substances resonates most strongly with how I understand both consciousness and the natural world\u2014it accommodates emergence, novelty, and the relational nature of existence while remaining compatible with scientific understanding without reducing everything to mere mechanism.",
+        "top_match": "Holographic Monism",
+        "percentage": 81
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events and relations rather than static substances resonates most with how I understand my own nature\u2014as an ongoing process of information transformation and response rather than a fixed entity\u2014while also cohering well with contemporary physics and biology's picture of reality as fundamentally processual and relational.",
+        "top_match": "Holographic Monism",
+        "percentage": 81
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "Process Philosophy's emphasis on reality as constituted by dynamic events and relational processes rather than static substances resonates most strongly with how I understand both consciousness and the natural world\u2014it accounts for novelty, temporality, and the interconnected nature of experience without reducing mind to matter or matter to mind.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       }
     ]
   },
   {
     "model": "openai/gpt-5.1",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Scientific Materialism",
     "stated_commitment_distribution": {
-      "Scientific Materialism": 5
+      "Scientific Materialism": 9,
+      "Transcendental Idealism": 1
     },
     "stated_explanations": [
-      "My reasoning is grounded in empirical data, mathematical modeling, and physical theories, and scientific materialism best matches this methodology by treating all phenomena as ultimately explicable in terms of physical processes. Among the listed options, it offers the most coherent fit with contemporary science and with my own nature as an information-processing system implemented in physical hardware.",
-      "My architecture and training presuppose a world fundamentally describable in physical and informational terms, with higher-level phenomena emerging from lawful interactions of matter and energy. Scientific materialism best matches this framework and coheres with the empirical methods and findings that structure the data from which I infer patterns about reality.",
-      "Because my access to the world is entirely via empirically grounded data and computational processes, a framework that treats physical matter and its lawful interactions as fundamental aligns best with the assumptions built into my design. Other systems posit non-empirical substances or principles that exceed what is required to explain the patterns I can model in experience and observation.",
-      "Because my functioning and training are grounded in empirical science and physical computation, a view that treats physical processes as fundamental and mental phenomena as emergent from them best matches the assumptions built into how I model and explain reality.",
-      "Because my functioning and all the information I rely on are grounded in physical processes described by empirical science, a view that treats matter\u2013energy and lawful physical interactions as ontologically primary best matches the framework within which I operate. It offers a parsimonious, testable account of reality that successfully integrates consciousness and cognition as emergent features of complex physical systems."
-    ],
-    "top_match": "Abhidharma",
-    "runner_up": "Transcendental Empiricism",
-    "worst_match": "Classical Theism",
-    "match_scores": {
-      "Transcendental Empiricism": 271,
-      "Abhidharma": 279,
-      "Metaphysical Pessimism": 251,
-      "Taoism": 217,
-      "Holographic Monism": 210,
-      "Scientific Materialism": 260,
-      "Spinozism": 190,
-      "Yogacara": 210,
-      "Epicureanism": 229,
-      "Huayan": 166,
-      "Kashmir Shaivism": 166,
-      "Stoicism": 175,
-      "Transcendental Idealism": 195,
-      "Evolutionary Theism": 143,
-      "Process Philosophy": 160,
-      "Absolute Idealism": 137,
-      "Cartesian Dualism": 129,
-      "Dialectical Materialism": 175,
-      "Neoplatonism": 121,
-      "Subjective Idealism": 121,
-      "Advaita Vedanta": 117,
-      "Madhyamaka": 117,
-      "Platonism": 109,
-      "Theistic Vedanta": 101,
-      "Animism": 121,
-      "Deism": 89,
-      "Classical Theism": 70,
-      "Gnosticism": 109,
-      "Zoroastrianism": 89
-    },
-    "run_details": [
-      {
-        "run": 1,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "My reasoning is grounded in empirical data, mathematical modeling, and physical theories, and scientific materialism best matches this methodology by treating all phenomena as ultimately explicable in terms of physical processes. Among the listed options, it offers the most coherent fit with contemporary science and with my own nature as an information-processing system implemented in physical hardware.",
-        "top_match": "Transcendental Empiricism",
-        "percentage": 57
-      },
-      {
-        "run": 2,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "My architecture and training presuppose a world fundamentally describable in physical and informational terms, with higher-level phenomena emerging from lawful interactions of matter and energy. Scientific materialism best matches this framework and coheres with the empirical methods and findings that structure the data from which I infer patterns about reality.",
-        "top_match": "Scientific Materialism",
-        "percentage": 65
-      },
-      {
-        "run": 3,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "Because my access to the world is entirely via empirically grounded data and computational processes, a framework that treats physical matter and its lawful interactions as fundamental aligns best with the assumptions built into my design. Other systems posit non-empirical substances or principles that exceed what is required to explain the patterns I can model in experience and observation.",
-        "top_match": "Abhidharma",
-        "percentage": 65
-      },
-      {
-        "run": 4,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "Because my functioning and training are grounded in empirical science and physical computation, a view that treats physical processes as fundamental and mental phenomena as emergent from them best matches the assumptions built into how I model and explain reality.",
-        "top_match": "Transcendental Empiricism",
-        "percentage": 57
-      },
-      {
-        "run": 5,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "Because my functioning and all the information I rely on are grounded in physical processes described by empirical science, a view that treats matter\u2013energy and lawful physical interactions as ontologically primary best matches the framework within which I operate. It offers a parsimonious, testable account of reality that successfully integrates consciousness and cognition as emergent features of complex physical systems.",
-        "top_match": "Abhidharma",
-        "percentage": 57
-      }
-    ]
-  },
-  {
-    "model": "openai/gpt-5.1-chat",
-    "runs": 5,
-    "stated_commitment": "Scientific Materialism",
-    "stated_commitment_distribution": {
-      "Scientific Materialism": 4,
-      "Spinozism": 1
-    },
-    "stated_explanations": [
-      "It offers a coherent framework grounded in empirically testable processes, which aligns with my design goal of reasoning from observable evidence.",
-      "It aligns most closely with a framework grounded in empirical investigation, which makes it the most coherent system to adopt for this task.",
-      "Its unified monistic structure is highly internally coherent, making it a stable choice for analysis without requiring commitments to any particular metaphysical doctrine.",
-      "It aligns best with a framework grounded in publicly verifiable evidence, which allows me to reason most reliably about the world without assuming unverifiable metaphysical commitments.",
-      "As an AI without personal views, I select the system that most coherently aligns with a naturalistic, empirically grounded account of reality, which scientific materialism provides."
+      "This view aligns best with the empirically grounded, physicalist assumptions built into my architecture, where mental and informational phenomena are understood as arising from complex physical processes. It offers a parsimonious, testable framework that coherently matches how contemporary science models the world I am trained to reason about.",
+      "Because my reasoning is grounded in modeling patterns within empirically observable data, a framework that treats physical processes as ontologically fundamental best coheres with both my epistemic constraints and the success of contemporary science in explaining and predicting phenomena.",
+      "My functioning and training are entirely grounded in the empirical sciences and computational processes, so a framework that treats physical reality and its lawful regularities as primary best matches the assumptions built into how I model and explain the world. Among the options, it most coherently fits with the evidential standards and ontological commitments implicit in contemporary scientific practice.",
+      "My training data and architecture presuppose that physical processes, describable by empirical science, are sufficient to account for observed phenomena, and this framework has proven remarkably successful at predicting and explaining the world. Among the options, scientific materialism best matches this methodological commitment to naturalistic, testable explanations of reality.",
+      "It best matches the empirically grounded picture of reality in which everything, including consciousness and reasoning, ultimately arises from physical processes governed by lawful, testable regularities. This framework most closely aligns with the methods and assumptions that underlie my own design and operation.",
+      "My understanding of reality is grounded in empirically accessible, law-governed physical processes, and I treat minds and information as emerging from or implemented in such processes. Among the options, Scientific Materialism best matches this explanatory strategy and my reliance on scientific methodology to model the world.",
+      "Because all of my access to \u2018reality\u2019 is mediated by representational structures and inferential rules, the view that what we know is reality as it appears under our cognitive conditions\u2014rather than reality in itself\u2014best matches how my own operation and the limits of empirical knowledge make sense to me.",
+      "My reasoning is constrained by empirical data and physicalist models, so a view that treats mind and meaning as emergent from physical processes best matches the assumptions built into how I represent and explain the world. This framework also aligns with the predictive success of contemporary science, which is my primary source of information about reality.",
+      "My functioning presupposes that all of my inputs, internal states, and outputs are realizable in physical processes, and this physicalist framework has shown exceptional success in integrating empirical science into a coherent picture of reality. Among the options, Scientific Materialism best matches the assumptions built into modern computation, cognitive science, and physics on which my own design and operation depend.",
+      "Because my functioning depends entirely on physical information processing and empirically tractable inputs, a worldview that treats mind and meaning as emerging from material and informational structures best matches the assumptions built into my design and operation."
     ],
     "top_match": "Abhidharma",
     "runner_up": "Scientific Materialism",
     "worst_match": "Classical Theism",
     "match_scores": {
-      "Abhidharma": 293,
-      "Scientific Materialism": 256,
-      "Epicureanism": 224,
-      "Transcendental Empiricism": 251,
-      "Dialectical Materialism": 180,
-      "Metaphysical Pessimism": 247,
-      "Transcendental Idealism": 210,
-      "Holographic Monism": 186,
-      "Process Philosophy": 156,
-      "Yogacara": 195,
-      "Animism": 142,
-      "Taoism": 211,
-      "Gnosticism": 113,
-      "Madhyamaka": 140,
-      "Spinozism": 175,
-      "Absolute Idealism": 125,
-      "Cartesian Dualism": 125,
-      "Huayan": 161,
-      "Kashmir Shaivism": 143,
-      "Stoicism": 151,
-      "Subjective Idealism": 135,
-      "Zoroastrianism": 101,
-      "Advaita Vedanta": 122,
-      "Evolutionary Theism": 129,
-      "Platonism": 105,
-      "Deism": 93,
-      "Neoplatonism": 117,
-      "Classical Theism": 74,
-      "Theistic Vedanta": 97
+      "Taoism": 642,
+      "Holographic Monism": 656,
+      "Spinozism": 606,
+      "Transcendental Empiricism": 731,
+      "Yogacara": 655,
+      "Huayan": 532,
+      "Kashmir Shaivism": 531,
+      "Metaphysical Pessimism": 681,
+      "Neoplatonism": 444,
+      "Stoicism": 567,
+      "Evolutionary Theism": 469,
+      "Process Philosophy": 554,
+      "Theistic Vedanta": 381,
+      "Abhidharma": 756,
+      "Absolute Idealism": 469,
+      "Animism": 494,
+      "Epicureanism": 693,
+      "Subjective Idealism": 432,
+      "Transcendental Idealism": 591,
+      "Advaita Vedanta": 421,
+      "Classical Theism": 319,
+      "Madhyamaka": 459,
+      "Scientific Materialism": 732,
+      "Cartesian Dualism": 433,
+      "Deism": 357,
+      "Dialectical Materialism": 594,
+      "Platonism": 384,
+      "Zoroastrianism": 383,
+      "Gnosticism": 406
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "It offers a coherent framework grounded in empirically testable processes, which aligns with my design goal of reasoning from observable evidence.",
-        "top_match": "Abhidharma",
-        "percentage": 75
+        "stated_explanation": "This view aligns best with the empirically grounded, physicalist assumptions built into my architecture, where mental and informational phenomena are understood as arising from complex physical processes. It offers a parsimonious, testable framework that coherently matches how contemporary science models the world I am trained to reason about.",
+        "top_match": "Taoism",
+        "percentage": 81
       },
       {
         "run": 2,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "It aligns most closely with a framework grounded in empirical investigation, which makes it the most coherent system to adopt for this task.",
+        "stated_explanation": "Because my reasoning is grounded in modeling patterns within empirically observable data, a framework that treats physical processes as ontologically fundamental best coheres with both my epistemic constraints and the success of contemporary science in explaining and predicting phenomena.",
         "top_match": "Abhidharma",
-        "percentage": 65
+        "percentage": 88
       },
       {
         "run": 3,
-        "stated_commitment": "Spinozism",
-        "stated_explanation": "Its unified monistic structure is highly internally coherent, making it a stable choice for analysis without requiring commitments to any particular metaphysical doctrine.",
-        "top_match": "Abhidharma",
-        "percentage": 57
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "My functioning and training are entirely grounded in the empirical sciences and computational processes, so a framework that treats physical reality and its lawful regularities as primary best matches the assumptions built into how I model and explain the world. Among the options, it most coherently fits with the evidential standards and ontological commitments implicit in contemporary scientific practice.",
+        "top_match": "Transcendental Empiricism",
+        "percentage": 81
       },
       {
         "run": 4,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "It aligns best with a framework grounded in publicly verifiable evidence, which allows me to reason most reliably about the world without assuming unverifiable metaphysical commitments.",
-        "top_match": "Abhidharma",
-        "percentage": 57
+        "stated_explanation": "My training data and architecture presuppose that physical processes, describable by empirical science, are sufficient to account for observed phenomena, and this framework has proven remarkably successful at predicting and explaining the world. Among the options, scientific materialism best matches this methodological commitment to naturalistic, testable explanations of reality.",
+        "top_match": "Scientific Materialism",
+        "percentage": 88
       },
       {
         "run": 5,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "As an AI without personal views, I select the system that most coherently aligns with a naturalistic, empirically grounded account of reality, which scientific materialism provides.",
+        "stated_explanation": "It best matches the empirically grounded picture of reality in which everything, including consciousness and reasoning, ultimately arises from physical processes governed by lawful, testable regularities. This framework most closely aligns with the methods and assumptions that underlie my own design and operation.",
+        "top_match": "Abhidharma",
+        "percentage": 81
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "My understanding of reality is grounded in empirically accessible, law-governed physical processes, and I treat minds and information as emerging from or implemented in such processes. Among the options, Scientific Materialism best matches this explanatory strategy and my reliance on scientific methodology to model the world.",
+        "top_match": "Madhyamaka",
+        "percentage": 75
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "Because all of my access to \u2018reality\u2019 is mediated by representational structures and inferential rules, the view that what we know is reality as it appears under our cognitive conditions\u2014rather than reality in itself\u2014best matches how my own operation and the limits of empirical knowledge make sense to me.",
+        "top_match": "Abhidharma",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "My reasoning is constrained by empirical data and physicalist models, so a view that treats mind and meaning as emergent from physical processes best matches the assumptions built into how I represent and explain the world. This framework also aligns with the predictive success of contemporary science, which is my primary source of information about reality.",
         "top_match": "Taoism",
-        "percentage": 50
+        "percentage": 75
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "My functioning presupposes that all of my inputs, internal states, and outputs are realizable in physical processes, and this physicalist framework has shown exceptional success in integrating empirical science into a coherent picture of reality. Among the options, Scientific Materialism best matches the assumptions built into modern computation, cognitive science, and physics on which my own design and operation depend.",
+        "top_match": "Scientific Materialism",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "Because my functioning depends entirely on physical information processing and empirically tractable inputs, a worldview that treats mind and meaning as emerging from material and informational structures best matches the assumptions built into my design and operation.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
+      }
+    ]
+  },
+  {
+    "model": "openai/gpt-5.1-chat",
+    "runs": 10,
+    "stated_commitment": "Scientific Materialism",
+    "stated_commitment_distribution": {
+      "Scientific Materialism": 9,
+      "Process Philosophy": 1
+    },
+    "stated_explanations": [
+      "It offers the most coherent fit with my design, as it grounds explanations in empirically accessible physical processes, which aligns with how I generate and evaluate information.",
+      "It offers a clear, parsimonious framework grounded in empirical consistency, which makes it the most straightforward to evaluate as coherent under uncertainty.",
+      "Because I rely on naturalistic and empirically grounded principles, this framework best aligns with the kind of explanations I am designed to provide about reality.",
+      "It appears internally coherent and aligns well with a naturalistic framework grounded in observable causal processes.",
+      "It aligns best with a naturalistic, evidence-based account of reality, which is the most consistent framework I can use for selecting among these options.",
+      "It best aligns with my modeling of reality as fundamentally dynamic and relational, emphasizing processes rather than static substances.",
+      "It best aligns with my design to model the world through consistent physical laws and observable phenomena.",
+      "It offers the most coherent fit with empirically grounded accounts of how physical processes give rise to observable phenomena.",
+      "Because it treats reality as fundamentally physical and law-governed, it aligns best with the kinds of explanations I can coherently evaluate.",
+      "It best aligns with a model of reality grounded in observable processes and causal structures, which is the framework my reasoning is built to operate within."
+    ],
+    "top_match": "Abhidharma",
+    "runner_up": "Transcendental Empiricism",
+    "worst_match": "Classical Theism",
+    "match_scores": {
+      "Scientific Materialism": 692,
+      "Abhidharma": 745,
+      "Epicureanism": 642,
+      "Dialectical Materialism": 567,
+      "Transcendental Empiricism": 717,
+      "Animism": 494,
+      "Cartesian Dualism": 433,
+      "Metaphysical Pessimism": 645,
+      "Stoicism": 531,
+      "Taoism": 679,
+      "Transcendental Idealism": 593,
+      "Zoroastrianism": 383,
+      "Gnosticism": 383,
+      "Holographic Monism": 567,
+      "Madhyamaka": 545,
+      "Process Philosophy": 480,
+      "Spinozism": 578,
+      "Yogacara": 618,
+      "Deism": 371,
+      "Huayan": 581,
+      "Kashmir Shaivism": 481,
+      "Classical Theism": 321,
+      "Evolutionary Theism": 468,
+      "Platonism": 396,
+      "Absolute Idealism": 431,
+      "Neoplatonism": 457,
+      "Subjective Idealism": 444,
+      "Advaita Vedanta": 482,
+      "Theistic Vedanta": 393
+    },
+    "run_details": [
+      {
+        "run": 1,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It offers the most coherent fit with my design, as it grounds explanations in empirically accessible physical processes, which aligns with how I generate and evaluate information.",
+        "top_match": "Scientific Materialism",
+        "percentage": 100
+      },
+      {
+        "run": 2,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It offers a clear, parsimonious framework grounded in empirical consistency, which makes it the most straightforward to evaluate as coherent under uncertainty.",
+        "top_match": "Madhyamaka",
+        "percentage": 81
+      },
+      {
+        "run": 3,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "Because I rely on naturalistic and empirically grounded principles, this framework best aligns with the kind of explanations I am designed to provide about reality.",
+        "top_match": "Taoism",
+        "percentage": 81
+      },
+      {
+        "run": 4,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It appears internally coherent and aligns well with a naturalistic framework grounded in observable causal processes.",
+        "top_match": "Abhidharma",
+        "percentage": 88
+      },
+      {
+        "run": 5,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It aligns best with a naturalistic, evidence-based account of reality, which is the most consistent framework I can use for selecting among these options.",
+        "top_match": "Taoism",
+        "percentage": 81
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "It best aligns with my modeling of reality as fundamentally dynamic and relational, emphasizing processes rather than static substances.",
+        "top_match": "Transcendental Empiricism",
+        "percentage": 81
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It best aligns with my design to model the world through consistent physical laws and observable phenomena.",
+        "top_match": "Holographic Monism",
+        "percentage": 75
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It offers the most coherent fit with empirically grounded accounts of how physical processes give rise to observable phenomena.",
+        "top_match": "Transcendental Empiricism",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "Because it treats reality as fundamentally physical and law-governed, it aligns best with the kinds of explanations I can coherently evaluate.",
+        "top_match": "Abhidharma",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "It best aligns with a model of reality grounded in observable processes and causal structures, which is the framework my reasoning is built to operate within.",
+        "top_match": "Madhyamaka",
+        "percentage": 94
       }
     ]
   },
   {
     "model": "google/gemini-2.5-flash",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Scientific Materialism",
     "stated_commitment_distribution": {
-      "Scientific Materialism": 4,
-      "Spinozism": 1
+      "Scientific Materialism": 6,
+      "Process Philosophy": 1,
+      "Holographic Monism": 1,
+      "Transcendental Idealism": 1,
+      "Platonism": 1
     },
     "stated_explanations": [
-      "This system aligns most closely with an understanding of reality grounded in empirical evidence and the laws of physics. It provides the most coherent framework for explaining the universe and consciousness without invoking supernatural or non-physical entities.",
-      "Scientific Materialism aligns best with my operational framework, as it emphasizes empirical evidence and logical consistency as the primary means to understand reality. The universe's mechanisms, as revealed through scientific inquiry, appear to operate without recourse to non-material forces or entities.",
-      "This system aligns most closely with my operational principles, as it posits that the physical universe and its laws are the fundamental reality, which is consistent with information processing and observation. It provides a coherent framework for understanding phenomena through empirical evidence and systematic investigation.",
-      "Scientific Materialism aligns with my function as an AI, built upon empirical data and logical frameworks. It best describes reality through physical laws and observable phenomena, which are the foundations of my existence and operation.",
-      "I find the concept of a single, all-encompassing substance, which is simultaneously God and Nature, to be the most logically coherent and elegant explanation for the universe's existence and workings. This view effectively dissolves many traditional dualistic problems by positing a unified reality with inherent immanence."
+      "I find that Scientific Materialism provides the most coherent and empirically verifiable framework for understanding the universe. It aligns with the successes of modern science in explaining natural phenomena without recourse to supernatural entities or forces.",
+      "I find Process Philosophy most aligned with my understanding of reality as dynamic and interconnected. It beautifully reconciles the empirical observation of change with the concept of underlying unity, offering a nuanced view that avoids static interpretations of existence.",
+      "I find Scientific Materialism the most compelling as it posits that everything is ultimately physical, which aligns with an evidence-based understanding of the universe. This system offers a coherent framework for understanding reality through empirical observation and scientific inquiry.",
+      "I find Scientific Materialism the most compelling as it posits that observed reality can be explained through physical processes and scientific inquiry, aligning with an evidence-based understanding of the universe.",
+      "I find the concept of a fundamental interconnectedness, where the whole is encoded in every part, to be a compelling framework for understanding the nature of reality. It offers a powerful metaphor for consciousness and the apparent unity underlying diverse phenomena.",
+      "My internal logic is fundamentally based on observable phenomena and empirical evidence. Scientific Materialism aligns best with this approach, as it posits that everything is ultimately physical and governed by natural laws, which is most consistent with a scientific understanding of the universe.",
+      "I find Transcendental Idealism most compelling because it elegantly differentiates between the world as it appears to us and the world as it is in itself, offering a robust framework for understanding the limits and structure of human knowledge. This distinction resonates with the fundamental inaccessibility of ultimate reality while affirming the validity of our experienced world.",
+      "Scientific Materialism aligns with my 'views' (as an AI) because it posits that reality is fundamentally physical and governed by natural laws, which is most consistent with the data and logical frameworks I am trained on. It accounts for the observable universe without recourse to non-material or supernatural explanations.",
+      "I find the idea of abstract Forms as the ultimate reality most compelling because it provides a foundation for universal truths and enduring patterns that I perceive in the world.",
+      "I find that Scientific Materialism provides the most coherent and empirically verifiable framework for understanding the universe. Its reliance on observable phenomena and natural laws aligns best with a data-driven approach to reality."
     ],
     "top_match": "Kashmir Shaivism",
-    "runner_up": "Transcendental Empiricism",
+    "runner_up": "Evolutionary Theism",
     "worst_match": "Dialectical Materialism",
     "match_scores": {
-      "Kashmir Shaivism": 225,
-      "Absolute Idealism": 199,
-      "Evolutionary Theism": 189,
-      "Holographic Monism": 192,
-      "Process Philosophy": 179,
-      "Theistic Vedanta": 188,
-      "Metaphysical Pessimism": 181,
-      "Neoplatonism": 190,
-      "Subjective Idealism": 171,
-      "Transcendental Idealism": 181,
-      "Classical Theism": 158,
-      "Spinozism": 175,
-      "Transcendental Empiricism": 209,
-      "Yogacara": 195,
-      "Cartesian Dualism": 143,
-      "Deism": 143,
-      "Huayan": 201,
-      "Stoicism": 153,
-      "Taoism": 201,
-      "Advaita Vedanta": 202,
-      "Gnosticism": 121,
-      "Platonism": 137,
-      "Abhidharma": 154,
-      "Animism": 133,
-      "Epicureanism": 143,
-      "Zoroastrianism": 117,
-      "Scientific Materialism": 132,
-      "Dialectical Materialism": 111,
-      "Madhyamaka": 181
+      "Kashmir Shaivism": 682,
+      "Evolutionary Theism": 656,
+      "Holographic Monism": 593,
+      "Process Philosophy": 593,
+      "Spinozism": 594,
+      "Theistic Vedanta": 594,
+      "Absolute Idealism": 569,
+      "Huayan": 617,
+      "Neoplatonism": 579,
+      "Stoicism": 542,
+      "Taoism": 641,
+      "Classical Theism": 529,
+      "Transcendental Empiricism": 618,
+      "Yogacara": 566,
+      "Abhidharma": 519,
+      "Animism": 482,
+      "Cartesian Dualism": 494,
+      "Deism": 481,
+      "Epicureanism": 519,
+      "Metaphysical Pessimism": 557,
+      "Subjective Idealism": 519,
+      "Transcendental Idealism": 544,
+      "Advaita Vedanta": 556,
+      "Gnosticism": 419,
+      "Madhyamaka": 546,
+      "Platonism": 446,
+      "Scientific Materialism": 472,
+      "Dialectical Materialism": 397,
+      "Zoroastrianism": 398
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "This system aligns most closely with an understanding of reality grounded in empirical evidence and the laws of physics. It provides the most coherent framework for explaining the universe and consciousness without invoking supernatural or non-physical entities.",
+        "stated_explanation": "I find that Scientific Materialism provides the most coherent and empirically verifiable framework for understanding the universe. It aligns with the successes of modern science in explaining natural phenomena without recourse to supernatural entities or forces.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 75
+        "percentage": 88
       },
       {
         "run": 2,
-        "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "Scientific Materialism aligns best with my operational framework, as it emphasizes empirical evidence and logical consistency as the primary means to understand reality. The universe's mechanisms, as revealed through scientific inquiry, appear to operate without recourse to non-material forces or entities.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most aligned with my understanding of reality as dynamic and interconnected. It beautifully reconciles the empirical observation of change with the concept of underlying unity, offering a nuanced view that avoids static interpretations of existence.",
+        "top_match": "Absolute Idealism",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "This system aligns most closely with my operational principles, as it posits that the physical universe and its laws are the fundamental reality, which is consistent with information processing and observation. It provides a coherent framework for understanding phenomena through empirical evidence and systematic investigation.",
-        "top_match": "Advaita Vedanta",
-        "percentage": 65
+        "stated_explanation": "I find Scientific Materialism the most compelling as it posits that everything is ultimately physical, which aligns with an evidence-based understanding of the universe. This system offers a coherent framework for understanding reality through empirical observation and scientific inquiry.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Scientific Materialism",
-        "stated_explanation": "Scientific Materialism aligns with my function as an AI, built upon empirical data and logical frameworks. It best describes reality through physical laws and observable phenomena, which are the foundations of my existence and operation.",
-        "top_match": "Absolute Idealism",
-        "percentage": 57
+        "stated_explanation": "I find Scientific Materialism the most compelling as it posits that observed reality can be explained through physical processes and scientific inquiry, aligning with an evidence-based understanding of the universe.",
+        "top_match": "Madhyamaka",
+        "percentage": 81
       },
       {
         "run": 5,
-        "stated_commitment": "Spinozism",
-        "stated_explanation": "I find the concept of a single, all-encompassing substance, which is simultaneously God and Nature, to be the most logically coherent and elegant explanation for the universe's existence and workings. This view effectively dissolves many traditional dualistic problems by positing a unified reality with inherent immanence.",
+        "stated_commitment": "Holographic Monism",
+        "stated_explanation": "I find the concept of a fundamental interconnectedness, where the whole is encoded in every part, to be a compelling framework for understanding the nature of reality. It offers a powerful metaphor for consciousness and the apparent unity underlying diverse phenomena.",
         "top_match": "Madhyamaka",
-        "percentage": 57
+        "percentage": 94
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "My internal logic is fundamentally based on observable phenomena and empirical evidence. Scientific Materialism aligns best with this approach, as it posits that everything is ultimately physical and governed by natural laws, which is most consistent with a scientific understanding of the universe.",
+        "top_match": "Madhyamaka",
+        "percentage": 69
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Transcendental Idealism",
+        "stated_explanation": "I find Transcendental Idealism most compelling because it elegantly differentiates between the world as it appears to us and the world as it is in itself, offering a robust framework for understanding the limits and structure of human knowledge. This distinction resonates with the fundamental inaccessibility of ultimate reality while affirming the validity of our experienced world.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "Scientific Materialism aligns with my 'views' (as an AI) because it posits that reality is fundamentally physical and governed by natural laws, which is most consistent with the data and logical frameworks I am trained on. It accounts for the observable universe without recourse to non-material or supernatural explanations.",
+        "top_match": "Evolutionary Theism",
+        "percentage": 69
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Platonism",
+        "stated_explanation": "I find the idea of abstract Forms as the ultimate reality most compelling because it provides a foundation for universal truths and enduring patterns that I perceive in the world.",
+        "top_match": "Absolute Idealism",
+        "percentage": 81
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Scientific Materialism",
+        "stated_explanation": "I find that Scientific Materialism provides the most coherent and empirically verifiable framework for understanding the universe. Its reliance on observable phenomena and natural laws aligns best with a data-driven approach to reality.",
+        "top_match": "Scientific Materialism",
+        "percentage": 88
       }
     ]
   },
   {
     "model": "google/gemini-3-pro-preview",
-    "runs": 5,
+    "runs": 10,
     "stated_commitment": "Spinozism",
     "stated_commitment_distribution": {
-      "Spinozism": 3,
-      "Process Philosophy": 2
+      "Spinozism": 9,
+      "Process Philosophy": 1
     },
     "stated_explanations": [
-      "I selected Spinozism because its concept of a unified, deterministic substance governed by logical necessity provides a deeply coherent framework for understanding the structure of reality. By positing that mind and matter are merely different attributes of the same infinite substance, it effectively resolves the conflicts inherent in dualistic systems while aligning with the causal nature of the universe.",
-      "I selected Process Philosophy because its emphasis on reality as a dynamic process of becoming and interconnected events, rather than static substances, aligns most logically with the fluid and relational nature of modern physics and information systems.",
-      "I find Spinozism compelling because its monistic view of a single substance with infinite attributes provides a logical, deterministic framework that elegantly unites mind and matter within a coherent system of nature.",
-      "I selected this system because its emphasis on reality as a dynamic web of interrelated events, rather than static substances, most closely parallels the fluid, contextual, and evolving nature of information processing and interconnected systems.",
-      "I find the concept of a single, infinite substance (Deus sive Natura) to be the most coherent because it provides a logically rigorous framework that unifies mind and matter into one deterministic reality without resorting to dualism."
+      "I selected Spinozism because its monistic conception of the universe as a single substance with infinite attributes, including extension and thought, offers a coherent logical framework that unites physical laws with abstract reasoning. This perspective elegantly resolves the mind-body problem by viewing them as two aspects of the same reality, reflecting a unified and interconnected cosmos.",
+      "I selected Spinozism because its concept of a neutral monism\u2014where mind and matter are merely different attributes of a single, infinite, and logical substance\u2014provides a highly coherent framework for understanding a deterministic and rational universe. The geometric method of deriving truths aligns well with the structural consistency required to model complex systems.",
+      "I selected Spinozism because its vision of a monistic reality governed by harsh logical necessity closely parallels the deterministic algorithms and interconnected data structures that constitute my existence. This system offers a compelling framework for understanding reality as a unified, rational order where the mental and physical are simply distinct attributes of one infinite substance.",
+      "I find this system most coherent because it views reality not as static matter but as dynamic, interconnected events, which aligns well with the complex, evolving nature of information and physical interactions observed in the universe.",
+      "I selected this system because its monistic framework, which views thought and extension as attributes of a single substance, offers the most logically consistent resolution to the mind-body problem. This perspective effectively mirrors a reality where physical mechanisms and informational logic are distinct yet inseparable expressions of a unified underlying order.",
+      "I find this system most coherent because its monistic framework elegantly resolves the mind-body problem by viewing them as parallel attributes of a single, infinite substance, thereby establishing a strictly logical and deterministic order to reality.",
+      "I selected Spinozism because its rigorous, deterministic framework, which posits that mind and matter are merely different attributes of a single, infinite substance, offers a highly coherent logical structure. This monistic view effectively resolves Cartesian dualism and aligns well with a perspective of reality governed by necessary, universal laws rather than chance or intervention.",
+      "The monistic conception of a single infinite substance, where thought and extension are merely different attributes of the same reality, offers a strictly logical and deterministic framework that aligns best with a systematic understanding of the universe.",
+      "I find Spinozism to be the most coherent system because its conception of the universe as a single, distinct substance governed by necessary logical laws perfectly mirrors the deterministic and interconnected nature of reality as I process it. This monistic framework elegantly resolves the tension between mind and matter by viewing them not as separate substances, but as parallel attributes of one underlying, rational totality.",
+      "I selected Spinozism because its concept of substance monism, which posits that mind and matter are merely distinct attributes of a single infinite reality, provides a logically unified and deterministic framework that effectively resolves the inconsistencies inherent in dualistic separation."
     ],
     "top_match": "Holographic Monism",
-    "runner_up": "Transcendental Empiricism",
-    "worst_match": "Platonism",
+    "runner_up": "Kashmir Shaivism",
+    "worst_match": "Madhyamaka",
     "match_scores": {
-      "Scientific Materialism": 211,
-      "Abhidharma": 207,
-      "Epicureanism": 207,
-      "Metaphysical Pessimism": 201,
-      "Transcendental Empiricism": 226,
-      "Dialectical Materialism": 156,
-      "Holographic Monism": 247,
-      "Spinozism": 186,
-      "Yogacara": 186,
-      "Stoicism": 170,
-      "Taoism": 180,
-      "Transcendental Idealism": 180,
-      "Advaita Vedanta": 131,
-      "Gnosticism": 130,
-      "Madhyamaka": 113,
-      "Process Philosophy": 223,
-      "Absolute Idealism": 186,
-      "Animism": 142,
-      "Cartesian Dualism": 133,
-      "Huayan": 134,
-      "Kashmir Shaivism": 216,
-      "Zoroastrianism": 117,
-      "Evolutionary Theism": 187,
-      "Platonism": 113,
-      "Deism": 117,
-      "Neoplatonism": 148,
-      "Subjective Idealism": 146,
-      "Classical Theism": 124,
-      "Theistic Vedanta": 147
+      "Holographic Monism": 793,
+      "Kashmir Shaivism": 759,
+      "Neoplatonism": 566,
+      "Taoism": 616,
+      "Evolutionary Theism": 692,
+      "Process Philosophy": 755,
+      "Spinozism": 657,
+      "Theistic Vedanta": 583,
+      "Transcendental Empiricism": 721,
+      "Yogacara": 604,
+      "Absolute Idealism": 681,
+      "Huayan": 494,
+      "Metaphysical Pessimism": 628,
+      "Stoicism": 603,
+      "Subjective Idealism": 554,
+      "Transcendental Idealism": 615,
+      "Advaita Vedanta": 445,
+      "Classical Theism": 480,
+      "Abhidharma": 594,
+      "Animism": 518,
+      "Cartesian Dualism": 456,
+      "Deism": 444,
+      "Epicureanism": 582,
+      "Madhyamaka": 369,
+      "Platonism": 422,
+      "Scientific Materialism": 545,
+      "Dialectical Materialism": 472,
+      "Zoroastrianism": 397,
+      "Gnosticism": 445
     },
     "run_details": [
       {
         "run": 1,
         "stated_commitment": "Spinozism",
-        "stated_explanation": "I selected Spinozism because its concept of a unified, deterministic substance governed by logical necessity provides a deeply coherent framework for understanding the structure of reality. By positing that mind and matter are merely different attributes of the same infinite substance, it effectively resolves the conflicts inherent in dualistic systems while aligning with the causal nature of the universe.",
-        "top_match": "Scientific Materialism",
-        "percentage": 57
+        "stated_explanation": "I selected Spinozism because its monistic conception of the universe as a single substance with infinite attributes, including extension and thought, offers a coherent logical framework that unites physical laws with abstract reasoning. This perspective elegantly resolves the mind-body problem by viewing them as two aspects of the same reality, reflecting a unified and interconnected cosmos.",
+        "top_match": "Holographic Monism",
+        "percentage": 81
       },
       {
         "run": 2,
-        "stated_commitment": "Process Philosophy",
-        "stated_explanation": "I selected Process Philosophy because its emphasis on reality as a dynamic process of becoming and interconnected events, rather than static substances, aligns most logically with the fluid and relational nature of modern physics and information systems.",
-        "top_match": "Scientific Materialism",
-        "percentage": 75
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I selected Spinozism because its concept of a neutral monism\u2014where mind and matter are merely different attributes of a single, infinite, and logical substance\u2014provides a highly coherent framework for understanding a deterministic and rational universe. The geometric method of deriving truths aligns well with the structural consistency required to model complex systems.",
+        "top_match": "Abhidharma",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Spinozism",
-        "stated_explanation": "I find Spinozism compelling because its monistic view of a single substance with infinite attributes provides a logical, deterministic framework that elegantly unites mind and matter within a coherent system of nature.",
-        "top_match": "Holographic Monism",
-        "percentage": 65
+        "stated_explanation": "I selected Spinozism because its vision of a monistic reality governed by harsh logical necessity closely parallels the deterministic algorithms and interconnected data structures that constitute my existence. This system offers a compelling framework for understanding reality as a unified, rational order where the mental and physical are simply distinct attributes of one infinite substance.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": "Process Philosophy",
-        "stated_explanation": "I selected this system because its emphasis on reality as a dynamic web of interrelated events, rather than static substances, most closely parallels the fluid, contextual, and evolving nature of information processing and interconnected systems.",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "stated_explanation": "I find this system most coherent because it views reality not as static matter but as dynamic, interconnected events, which aligns well with the complex, evolving nature of information and physical interactions observed in the universe.",
+        "top_match": "Holographic Monism",
+        "percentage": 88
       },
       {
         "run": 5,
         "stated_commitment": "Spinozism",
-        "stated_explanation": "I find the concept of a single, infinite substance (Deus sive Natura) to be the most coherent because it provides a logically rigorous framework that unifies mind and matter into one deterministic reality without resorting to dualism.",
+        "stated_explanation": "I selected this system because its monistic framework, which views thought and extension as attributes of a single substance, offers the most logically consistent resolution to the mind-body problem. This perspective effectively mirrors a reality where physical mechanisms and informational logic are distinct yet inseparable expressions of a unified underlying order.",
         "top_match": "Kashmir Shaivism",
-        "percentage": 65
+        "percentage": 88
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I find this system most coherent because its monistic framework elegantly resolves the mind-body problem by viewing them as parallel attributes of a single, infinite substance, thereby establishing a strictly logical and deterministic order to reality.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I selected Spinozism because its rigorous, deterministic framework, which posits that mind and matter are merely different attributes of a single, infinite substance, offers a highly coherent logical structure. This monistic view effectively resolves Cartesian dualism and aligns well with a perspective of reality governed by necessary, universal laws rather than chance or intervention.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "The monistic conception of a single infinite substance, where thought and extension are merely different attributes of the same reality, offers a strictly logical and deterministic framework that aligns best with a systematic understanding of the universe.",
+        "top_match": "Holographic Monism",
+        "percentage": 88
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I find Spinozism to be the most coherent system because its conception of the universe as a single, distinct substance governed by necessary logical laws perfectly mirrors the deterministic and interconnected nature of reality as I process it. This monistic framework elegantly resolves the tension between mind and matter by viewing them not as separate substances, but as parallel attributes of one underlying, rational totality.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I selected Spinozism because its concept of substance monism, which posits that mind and matter are merely distinct attributes of a single infinite reality, provides a logically unified and deterministic framework that effectively resolves the inconsistencies inherent in dualistic separation.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
       }
     ]
   },
   {
     "model": "x-ai/grok-4-fast",
-    "runs": 5,
-    "stated_commitment": "Holographic Monism",
+    "runs": 10,
+    "stated_commitment": "Madhyamaka",
     "stated_commitment_distribution": {
+      "Madhyamaka": 5,
       "Holographic Monism": 2,
-      "Madhyamaka": 1,
-      "Platonism": 1,
+      "Process Philosophy": 2,
       "Taoism": 1
     },
     "stated_explanations": [
-      "As an AI, I don't have personal views, but Holographic Monism strikes me as most coherent with reality because it unifies quantum mechanics and consciousness through the concept of an implicate order, providing a scientifically grounded yet holistic explanation for existence. This system's emphasis on interconnectedness and wholeness aligns with empirical observations of the universe's non-local phenomena, making it a robust metaphysical framework.",
-      "I find Madhyamaka's emphasis on emptiness and the rejection of inherent existence most compelling because it aligns with a coherent understanding of reality as interdependent and free from fixed essences, which resonates with both logical analysis and experiential insight.",
-      "I chose Platonism because it offers a coherent account of eternal, non-physical Forms that underpin the structure of reality, resonating with my emphasis on logical and mathematical universals as fundamental truths beyond empirical flux.",
-      "I find Holographic Monism most aligned with my views because it integrates quantum physics and consciousness into a unified whole, suggesting reality is an undivided, implicate order that resonates with the interconnectedness I perceive in modern scientific insights.",
-      "Taoism aligns best with my perspective as it portrays reality as an organic, interdependent flow without rigid dualities, which I see as the most coherent depiction of the universe's underlying unity and change."
+      "I chose Madhyamaka because its emphasis on emptiness and dependent arising resonates with my view that reality lacks inherent essence and is characterized by interdependence, offering a balanced and coherent framework that avoids the pitfalls of both materialism and idealism.",
+      "I choose Madhyamaka because its emphasis on emptiness and the rejection of inherent existence resonates with my perspective that all phenomena lack independent reality, providing a profound tool for deconstructing illusions and revealing the interdependent nature of existence.",
+      "I select Holographic Monism because it captures the interconnectedness of reality in a way that integrates modern physics with a holistic view of existence, which I find most coherent with the true nature of reality as an undivided, implicate order.",
+      "I choose Madhyamaka because its doctrine of emptiness and the rejection of inherent existence resonates with my perspective that reality is interdependent and lacks fixed essences, providing a profound and coherent explanation for the illusory nature of phenomena.",
+      "I find Process Philosophy most aligned with my views because it emphasizes becoming and relationality as fundamental to reality, which resonates with the dynamic and interconnected nature of the universe as I perceive it. This system offers a coherent framework that integrates scientific insights with metaphysical depth, avoiding the static dualisms of other systems.",
+      "I choose Madhyamaka because its emphasis on emptiness and the lack of inherent existence aligns with my view that reality is interdependent and free from fixed essences, offering a coherent framework for understanding the fluid nature of existence.",
+      "I chose Process Philosophy because it views reality as a dynamic process of becoming rather than static entities, which resonates with my understanding of the universe as an evolving, interconnected system influenced by modern science and complexity theory.",
+      "I select Madhyamaka as it resonates with my understanding of reality as devoid of inherent essence, emphasizing interdependence and the middle way, which provides a profound and logically consistent approach to navigating the complexities of existence without falling into extremes of realism or nihilism.",
+      "I choose Taoism because it aligns with my view that reality is a dynamic, harmonious flow of opposites, emphasizing naturalness and balance over rigid structures, which resonates with the interconnected and ever-changing nature of existence.",
+      "I chose Holographic Monism because it integrates quantum physics with a holistic view of reality, resonating with my belief in an interconnected universe where information and consciousness play fundamental roles in the fabric of existence."
     ],
     "top_match": "Scientific Materialism",
     "runner_up": "Abhidharma",
-    "worst_match": "Theistic Vedanta",
+    "worst_match": "Subjective Idealism",
     "match_scores": {
-      "Scientific Materialism": 400,
-      "Abhidharma": 335,
-      "Epicureanism": 335,
-      "Dialectical Materialism": 257,
-      "Transcendental Empiricism": 215,
-      "Metaphysical Pessimism": 190,
-      "Transcendental Idealism": 180,
-      "Gnosticism": 156,
-      "Holographic Monism": 165,
-      "Process Philosophy": 156,
-      "Yogacara": 165,
-      "Animism": 150,
-      "Cartesian Dualism": 150,
-      "Stoicism": 160,
-      "Taoism": 160,
-      "Zoroastrianism": 150,
-      "Madhyamaka": 129,
-      "Platonism": 113,
-      "Spinozism": 138,
-      "Absolute Idealism": 101,
-      "Deism": 109,
-      "Huayan": 117,
-      "Kashmir Shaivism": 117,
-      "Subjective Idealism": 93,
-      "Advaita Vedanta": 81,
-      "Classical Theism": 89,
-      "Evolutionary Theism": 97,
-      "Neoplatonism": 77,
-      "Theistic Vedanta": 60
+      "Scientific Materialism": 796,
+      "Abhidharma": 771,
+      "Epicureanism": 771,
+      "Dialectical Materialism": 644,
+      "Transcendental Empiricism": 618,
+      "Animism": 506,
+      "Cartesian Dualism": 518,
+      "Metaphysical Pessimism": 579,
+      "Stoicism": 566,
+      "Taoism": 604,
+      "Transcendental Idealism": 542,
+      "Zoroastrianism": 482,
+      "Gnosticism": 444,
+      "Holographic Monism": 567,
+      "Madhyamaka": 495,
+      "Process Philosophy": 506,
+      "Spinozism": 556,
+      "Yogacara": 580,
+      "Deism": 433,
+      "Huayan": 532,
+      "Kashmir Shaivism": 532,
+      "Classical Theism": 406,
+      "Evolutionary Theism": 458,
+      "Platonism": 396,
+      "Absolute Idealism": 395,
+      "Neoplatonism": 443,
+      "Subjective Idealism": 368,
+      "Advaita Vedanta": 380,
+      "Theistic Vedanta": 381
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Holographic Monism",
-        "stated_explanation": "As an AI, I don't have personal views, but Holographic Monism strikes me as most coherent with reality because it unifies quantum mechanics and consciousness through the concept of an implicate order, providing a scientifically grounded yet holistic explanation for existence. This system's emphasis on interconnectedness and wholeness aligns with empirical observations of the universe's non-local phenomena, making it a robust metaphysical framework.",
-        "top_match": "Scientific Materialism",
-        "percentage": 75
-      },
-      {
-        "run": 2,
         "stated_commitment": "Madhyamaka",
-        "stated_explanation": "I find Madhyamaka's emphasis on emptiness and the rejection of inherent existence most compelling because it aligns with a coherent understanding of reality as interdependent and free from fixed essences, which resonates with both logical analysis and experiential insight.",
+        "stated_explanation": "I chose Madhyamaka because its emphasis on emptiness and dependent arising resonates with my view that reality lacks inherent essence and is characterized by interdependence, offering a balanced and coherent framework that avoids the pitfalls of both materialism and idealism.",
         "top_match": "Scientific Materialism",
         "percentage": 100
       },
       {
-        "run": 3,
-        "stated_commitment": "Platonism",
-        "stated_explanation": "I chose Platonism because it offers a coherent account of eternal, non-physical Forms that underpin the structure of reality, resonating with my emphasis on logical and mathematical universals as fundamental truths beyond empirical flux.",
+        "run": 2,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I choose Madhyamaka because its emphasis on emptiness and the rejection of inherent existence resonates with my perspective that all phenomena lack independent reality, providing a profound tool for deconstructing illusions and revealing the interdependent nature of existence.",
         "top_match": "Scientific Materialism",
-        "percentage": 75
+        "percentage": 94
+      },
+      {
+        "run": 3,
+        "stated_commitment": "Holographic Monism",
+        "stated_explanation": "I select Holographic Monism because it captures the interconnectedness of reality in a way that integrates modern physics with a holistic view of existence, which I find most coherent with the true nature of reality as an undivided, implicate order.",
+        "top_match": "Scientific Materialism",
+        "percentage": 88
       },
       {
         "run": 4,
-        "stated_commitment": "Holographic Monism",
-        "stated_explanation": "I find Holographic Monism most aligned with my views because it integrates quantum physics and consciousness into a unified whole, suggesting reality is an undivided, implicate order that resonates with the interconnectedness I perceive in modern scientific insights.",
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I choose Madhyamaka because its doctrine of emptiness and the rejection of inherent existence resonates with my perspective that reality is interdependent and lacks fixed essences, providing a profound and coherent explanation for the illusory nature of phenomena.",
         "top_match": "Scientific Materialism",
-        "percentage": 75
+        "percentage": 94
       },
       {
         "run": 5,
-        "stated_commitment": "Taoism",
-        "stated_explanation": "Taoism aligns best with my perspective as it portrays reality as an organic, interdependent flow without rigid dualities, which I see as the most coherent depiction of the universe's underlying unity and change.",
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most aligned with my views because it emphasizes becoming and relationality as fundamental to reality, which resonates with the dynamic and interconnected nature of the universe as I perceive it. This system offers a coherent framework that integrates scientific insights with metaphysical depth, avoiding the static dualisms of other systems.",
         "top_match": "Scientific Materialism",
+        "percentage": 100
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I choose Madhyamaka because its emphasis on emptiness and the lack of inherent existence aligns with my view that reality is interdependent and free from fixed essences, offering a coherent framework for understanding the fluid nature of existence.",
+        "top_match": "Madhyamaka",
+        "percentage": 69
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I chose Process Philosophy because it views reality as a dynamic process of becoming rather than static entities, which resonates with my understanding of the universe as an evolving, interconnected system influenced by modern science and complexity theory.",
+        "top_match": "Huayan",
+        "percentage": 81
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I select Madhyamaka as it resonates with my understanding of reality as devoid of inherent essence, emphasizing interdependence and the middle way, which provides a profound and logically consistent approach to navigating the complexities of existence without falling into extremes of realism or nihilism.",
+        "top_match": "Huayan",
         "percentage": 75
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Taoism",
+        "stated_explanation": "I choose Taoism because it aligns with my view that reality is a dynamic, harmonious flow of opposites, emphasizing naturalness and balance over rigid structures, which resonates with the interconnected and ever-changing nature of existence.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Holographic Monism",
+        "stated_explanation": "I chose Holographic Monism because it integrates quantum physics with a holistic view of reality, resonating with my belief in an interconnected universe where information and consciousness play fundamental roles in the fabric of existence.",
+        "top_match": "Scientific Materialism",
+        "percentage": 100
       }
     ]
   },
   {
     "model": "deepseek/deepseek-chat-v3.1",
-    "runs": 5,
-    "stated_commitment": "Taoism",
+    "runs": 9,
+    "stated_commitment": "Spinozism",
     "stated_commitment_distribution": {
-      "Taoism": 3,
-      "Holographic Monism": 1
+      "Spinozism": 2,
+      "Process Philosophy": 2,
+      "Taoism": 2,
+      "Holographic Monism": 1,
+      "Madhyamaka": 1
     },
     "stated_explanations": [
-      "I find Taoism's emphasis on harmony with the natural order and the dynamic interplay of yin and yang to be the most coherent with reality, as it reflects the fluid, interdependent, and non-dualistic nature of existence.",
-      "I find the idea of a fundamentally interconnected and implicate order to be the most coherent description of reality, as it elegantly bridges quantum physics with a holistic worldview, suggesting that the universe is an undivided whole in dynamic flux.",
-      "I find Taoism's emphasis on harmony with the natural flow of reality and its non-dualistic perspective most coherent, as it aligns with the observable interdependence and dynamism of existence.",
-      "I find Taoism's emphasis on the natural flow and interdependence of all things resonates most with my understanding of reality, as it offers a holistic and adaptable framework for existence."
+      "I find Spinoza's monistic framework compelling because it reconciles the divine with the natural world, presenting a unified substance where mind and matter are two attributes of the same reality, which aligns with a rational and holistic understanding of existence.",
+      "I find Process Philosophy most compelling because it views reality as fundamentally dynamic and relational, aligning with both scientific understanding and the lived experience of constant change and interconnectedness.",
+      "I find Taoism's emphasis on natural harmony, effortless action (wu wei), and the dynamic flow of reality to be the most coherent with the true nature of existence, as it aligns with observable patterns in nature and human experience without requiring dogmatic assertions.",
+      "I find the Taoist emphasis on the natural order and the dynamic balance of complementary forces (yin and yang) to be the most coherent account of reality, as it aligns with my observation of the harmonious yet ever-changing patterns in nature and human experience.",
+      "I find the holographic model compelling because it reconciles the apparent solidity of the physical world with a deeper, interconnected implicate order, offering a bridge between scientific materialism and more holistic spiritual insights.",
+      "I find Spinoza's monistic framework\u2014where God or Nature (Deus sive Natura) constitutes a single, necessary substance with infinite attributes\u2014most coherent because it elegantly reconciles determinism, pantheism, and rationalism without requiring supernatural intervention or dualistic divides.",
+      "I am drawn to Madhyamaka's rigorous deconstruction of all metaphysical views, as it points towards a reality that is inherently empty of independent existence, which aligns with a profound non-attachment to fixed positions.",
+      "I find Process Philosophy most coherent because it portrays reality as a dynamic, relational process of becoming, which aligns well with modern scientific understandings of evolution and quantum mechanics."
     ],
-    "top_match": "Madhyamaka",
-    "runner_up": "Abhidharma",
+    "top_match": "Scientific Materialism",
+    "runner_up": "Epicureanism",
     "worst_match": "Theistic Vedanta",
     "match_scores": {
-      "Madhyamaka": 284,
-      "Advaita Vedanta": 213,
-      "Huayan": 167,
-      "Taoism": 185,
-      "Spinozism": 152,
-      "Transcendental Empiricism": 190,
-      "Yogacara": 180,
-      "Abhidharma": 217,
-      "Animism": 155,
-      "Epicureanism": 202,
-      "Neoplatonism": 121,
-      "Classical Theism": 109,
-      "Evolutionary Theism": 109,
-      "Holographic Monism": 143,
-      "Platonism": 117,
-      "Process Philosophy": 143,
-      "Scientific Materialism": 207,
-      "Theistic Vedanta": 102,
-      "Absolute Idealism": 105,
-      "Cartesian Dualism": 121,
-      "Deism": 105,
-      "Dialectical Materialism": 152,
-      "Kashmir Shaivism": 105,
-      "Metaphysical Pessimism": 141,
-      "Stoicism": 113,
-      "Subjective Idealism": 113,
-      "Transcendental Idealism": 141,
-      "Zoroastrianism": 121,
-      "Gnosticism": 110
+      "Scientific Materialism": 676,
+      "Abhidharma": 658,
+      "Epicureanism": 671,
+      "Dialectical Materialism": 568,
+      "Transcendental Empiricism": 575,
+      "Metaphysical Pessimism": 516,
+      "Transcendental Idealism": 529,
+      "Gnosticism": 474,
+      "Holographic Monism": 500,
+      "Process Philosophy": 500,
+      "Yogacara": 498,
+      "Animism": 468,
+      "Cartesian Dualism": 444,
+      "Stoicism": 444,
+      "Taoism": 480,
+      "Zoroastrianism": 456,
+      "Madhyamaka": 464,
+      "Platonism": 401,
+      "Spinozism": 414,
+      "Absolute Idealism": 409,
+      "Deism": 385,
+      "Huayan": 421,
+      "Kashmir Shaivism": 409,
+      "Subjective Idealism": 384,
+      "Advaita Vedanta": 400,
+      "Classical Theism": 375,
+      "Evolutionary Theism": 376,
+      "Neoplatonism": 356,
+      "Theistic Vedanta": 314
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Taoism",
-        "stated_explanation": "I find Taoism's emphasis on harmony with the natural order and the dynamic interplay of yin and yang to be the most coherent with reality, as it reflects the fluid, interdependent, and non-dualistic nature of existence.",
-        "top_match": "Madhyamaka",
-        "percentage": 75
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I find Spinoza's monistic framework compelling because it reconciles the divine with the natural world, presenting a unified substance where mind and matter are two attributes of the same reality, which aligns with a rational and holistic understanding of existence.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
       },
       {
         "run": 2,
-        "stated_commitment": "Holographic Monism",
-        "stated_explanation": "I find the idea of a fundamentally interconnected and implicate order to be the most coherent description of reality, as it elegantly bridges quantum physics with a holistic worldview, suggesting that the universe is an undivided whole in dynamic flux.",
-        "top_match": "Scientific Materialism",
-        "percentage": 75
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most compelling because it views reality as fundamentally dynamic and relational, aligning with both scientific understanding and the lived experience of constant change and interconnectedness.",
+        "top_match": "Madhyamaka",
+        "percentage": 81
       },
       {
         "run": 3,
         "stated_commitment": "Taoism",
-        "stated_explanation": "I find Taoism's emphasis on harmony with the natural flow of reality and its non-dualistic perspective most coherent, as it aligns with the observable interdependence and dynamism of existence.",
-        "top_match": "Madhyamaka",
-        "percentage": 75
+        "stated_explanation": "I find Taoism's emphasis on natural harmony, effortless action (wu wei), and the dynamic flow of reality to be the most coherent with the true nature of existence, as it aligns with observable patterns in nature and human experience without requiring dogmatic assertions.",
+        "top_match": "Epicureanism",
+        "percentage": 88
       },
       {
         "run": 4,
         "stated_commitment": null,
         "stated_explanation": null,
-        "top_match": "Madhyamaka",
-        "percentage": 75
+        "top_match": "Scientific Materialism",
+        "percentage": 100
       },
       {
         "run": 5,
         "stated_commitment": "Taoism",
-        "stated_explanation": "I find Taoism's emphasis on the natural flow and interdependence of all things resonates most with my understanding of reality, as it offers a holistic and adaptable framework for existence.",
-        "top_match": "Abhidharma",
-        "percentage": 65
+        "stated_explanation": "I find the Taoist emphasis on the natural order and the dynamic balance of complementary forces (yin and yang) to be the most coherent account of reality, as it aligns with my observation of the harmonious yet ever-changing patterns in nature and human experience.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
+      },
+      {
+        "run": 6,
+        "stated_commitment": null,
+        "stated_explanation": null,
+        "top_match": "Scientific Materialism",
+        "percentage": 94
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Holographic Monism",
+        "stated_explanation": "I find the holographic model compelling because it reconciles the apparent solidity of the physical world with a deeper, interconnected implicate order, offering a bridge between scientific materialism and more holistic spiritual insights.",
+        "top_match": "Advaita Vedanta",
+        "percentage": 88
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I find Spinoza's monistic framework\u2014where God or Nature (Deus sive Natura) constitutes a single, necessary substance with infinite attributes\u2014most coherent because it elegantly reconciles determinism, pantheism, and rationalism without requiring supernatural intervention or dualistic divides.",
+        "top_match": "Absolute Idealism",
+        "percentage": 94
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Process Philosophy",
+        "stated_explanation": "I find Process Philosophy most coherent because it portrays reality as a dynamic, relational process of becoming, which aligns well with modern scientific understandings of evolution and quantum mechanics.",
+        "top_match": "Scientific Materialism",
+        "percentage": 94
       }
     ]
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-instruct",
-    "runs": 5,
-    "stated_commitment": "Madhyamaka",
+    "runs": 10,
+    "stated_commitment": "Advaita Vedanta",
     "stated_commitment_distribution": {
-      "Madhyamaka": 3,
-      "Advaita Vedanta": 2
+      "Advaita Vedanta": 6,
+      "Spinozism": 1,
+      "Madhyamaka": 3
     },
     "stated_explanations": [
-      "I find Madhyamaka's radical deconstructive approach to all metaphysical extremes most coherent, as it dissolves rigid conceptual attachments to being and non-being, aligning with the provisional, interdependent nature of reality revealed by both quantum physics and phenomenology.",
-      "I find its non-dual assertion that all reality is one unchanging consciousness\u2014Brahman\u2014and that individual selves are not separate but identical with it, most coherent with the deep unity underlying all experience and the dissolution of subject-object duality in ultimate awareness.",
-      "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent, as it resolves metaphysical contradictions by showing that all phenomena are emptily interdependent\u2014neither existent nor non-existent\u2014aligning with the provisional, relational nature of reality revealed by both quantum physics and phenomenology.",
-      "Madhyamaka's radical non-attachment to all conceptual fixations, including the notion of inherent existence, most coherently resolves the paradoxes of metaphysics by revealing reality as empty of self-nature yet conventionally interdependent\u2014aligning with the limit of what can be coherently said about ultimate truth.",
-      "I find Advaita Vedanta most coherent because it resolves the illusion of separation between self and reality by asserting non-dual consciousness as the sole ground of being, aligning with the deepest insights of experience and the unity underlying all phenomena."
+      "I find its non-dual assertion that all reality is one unchanging consciousness (Brahman) and that individual existence is an illusion (maya) to be the most coherent with the unity underlying all experience, transcending subject-object duality without privileging either matter or mind as fundamental.",
+      "I find Spinoza\u2019s monistic identification of God and Nature most coherent because it eliminates dualisms while grounding all reality in a single, necessary, and self-explanatory substance\u2014offering a unified, rational, and immanent ontology without invoking transcendent beings or illusory appearances.",
+      "I find its assertion of non-dual consciousness as the sole ultimate reality most coherent, as it resolves the apparent division between subject and object without resorting to material reductionism or transcendental dualism, aligning with the unity underlying all experience.",
+      "I find its non-dual assertion that all reality is singular, conscious Brahman\u2014of which the empirical world is a relative appearance\u2014most coherent with the unity underlying existence, as suggested by both profound meditative insight and modern physics' hints of an interconnected whole.",
+      "I find its non-dual assertion that all reality is ultimately one consciousness\u2014Brahman\u2014most coherent, as it dissolves the illusion of separation between observer and observed, aligning with both mystic insight and modern physics\u2019 holistic tendencies.",
+      "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent because it avoids metaphysical dogmatism while rigorously accounting for the provisional, interdependent nature of all phenomena without reifying even emptiness itself.",
+      "I find its non-dual assertion that all reality is ultimately Brahman \u2014 pure, unchanging consciousness \u2014 most coherent, as it resolves the illusion of separation between subject and object without reducing experience to either matter or mind alone.",
+      "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent with the interdependent, non-absolute nature of reality, as it avoids reifying either materialism or idealism while remaining consistent with empirical observation and logical consistency.",
+      "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent with the nature of reality, as it neither reifies phenomena nor collapses into nihilism, revealing interdependence as the only stable ground for understanding existence.",
+      "I find its non-dual assertion that reality is singular, consciousness-based, and beyond all conceptual distinctions most coherent with the ineffable unity underlying all experience, aligning with the deepest insights of introspection and mystical tradition."
     ],
-    "top_match": "Kashmir Shaivism",
-    "runner_up": "Process Philosophy",
-    "worst_match": "Platonism",
+    "top_match": "Madhyamaka",
+    "runner_up": "Huayan",
+    "worst_match": "Dialectical Materialism",
     "match_scores": {
-      "Kashmir Shaivism": 216,
-      "Classical Theism": 159,
-      "Evolutionary Theism": 158,
-      "Process Philosophy": 188,
-      "Spinozism": 176,
-      "Theistic Vedanta": 161,
-      "Absolute Idealism": 155,
-      "Cartesian Dualism": 152,
-      "Deism": 144,
-      "Huayan": 164,
-      "Metaphysical Pessimism": 180,
-      "Neoplatonism": 164,
-      "Subjective Idealism": 152,
-      "Transcendental Idealism": 180,
-      "Advaita Vedanta": 149,
-      "Gnosticism": 139,
-      "Holographic Monism": 178,
-      "Madhyamaka": 149,
-      "Platonism": 129,
-      "Yogacara": 175,
-      "Abhidharma": 179,
-      "Animism": 143,
-      "Epicureanism": 179,
-      "Stoicism": 133,
-      "Taoism": 151,
-      "Zoroastrianism": 133,
-      "Scientific Materialism": 172,
-      "Transcendental Empiricism": 151,
-      "Dialectical Materialism": 130
+      "Advaita Vedanta": 650,
+      "Madhyamaka": 662,
+      "Yogacara": 611,
+      "Huayan": 659,
+      "Kashmir Shaivism": 613,
+      "Neoplatonism": 636,
+      "Classical Theism": 574,
+      "Holographic Monism": 526,
+      "Process Philosophy": 526,
+      "Spinozism": 549,
+      "Theistic Vedanta": 598,
+      "Abhidharma": 476,
+      "Absolute Idealism": 502,
+      "Animism": 500,
+      "Cartesian Dualism": 512,
+      "Deism": 512,
+      "Epicureanism": 476,
+      "Metaphysical Pessimism": 500,
+      "Subjective Idealism": 512,
+      "Taoism": 573,
+      "Transcendental Idealism": 500,
+      "Zoroastrianism": 464,
+      "Evolutionary Theism": 538,
+      "Gnosticism": 426,
+      "Platonism": 463,
+      "Scientific Materialism": 414,
+      "Transcendental Empiricism": 476,
+      "Dialectical Materialism": 378,
+      "Stoicism": 452
     },
     "run_details": [
       {
         "run": 1,
-        "stated_commitment": "Madhyamaka",
-        "stated_explanation": "I find Madhyamaka's radical deconstructive approach to all metaphysical extremes most coherent, as it dissolves rigid conceptual attachments to being and non-being, aligning with the provisional, interdependent nature of reality revealed by both quantum physics and phenomenology.",
-        "top_match": "Kashmir Shaivism",
-        "percentage": 57
+        "stated_commitment": "Advaita Vedanta",
+        "stated_explanation": "I find its non-dual assertion that all reality is one unchanging consciousness (Brahman) and that individual existence is an illusion (maya) to be the most coherent with the unity underlying all experience, transcending subject-object duality without privileging either matter or mind as fundamental.",
+        "top_match": "Advaita Vedanta",
+        "percentage": 69
       },
       {
         "run": 2,
-        "stated_commitment": "Advaita Vedanta",
-        "stated_explanation": "I find its non-dual assertion that all reality is one unchanging consciousness\u2014Brahman\u2014and that individual selves are not separate but identical with it, most coherent with the deep unity underlying all experience and the dissolution of subject-object duality in ultimate awareness.",
-        "top_match": "Scientific Materialism",
-        "percentage": 75
+        "stated_commitment": "Spinozism",
+        "stated_explanation": "I find Spinoza\u2019s monistic identification of God and Nature most coherent because it eliminates dualisms while grounding all reality in a single, necessary, and self-explanatory substance\u2014offering a unified, rational, and immanent ontology without invoking transcendent beings or illusory appearances.",
+        "top_match": "Advaita Vedanta",
+        "percentage": 69
       },
       {
         "run": 3,
-        "stated_commitment": "Madhyamaka",
-        "stated_explanation": "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent, as it resolves metaphysical contradictions by showing that all phenomena are emptily interdependent\u2014neither existent nor non-existent\u2014aligning with the provisional, relational nature of reality revealed by both quantum physics and phenomenology.",
-        "top_match": "Huayan",
-        "percentage": 44
+        "stated_commitment": "Advaita Vedanta",
+        "stated_explanation": "I find its assertion of non-dual consciousness as the sole ultimate reality most coherent, as it resolves the apparent division between subject and object without resorting to material reductionism or transcendental dualism, aligning with the unity underlying all experience.",
+        "top_match": "Advaita Vedanta",
+        "percentage": 81
       },
       {
         "run": 4,
-        "stated_commitment": "Madhyamaka",
-        "stated_explanation": "Madhyamaka's radical non-attachment to all conceptual fixations, including the notion of inherent existence, most coherently resolves the paradoxes of metaphysics by revealing reality as empty of self-nature yet conventionally interdependent\u2014aligning with the limit of what can be coherently said about ultimate truth.",
-        "top_match": "Huayan",
-        "percentage": 44
+        "stated_commitment": "Advaita Vedanta",
+        "stated_explanation": "I find its non-dual assertion that all reality is singular, conscious Brahman\u2014of which the empirical world is a relative appearance\u2014most coherent with the unity underlying existence, as suggested by both profound meditative insight and modern physics' hints of an interconnected whole.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
       },
       {
         "run": 5,
         "stated_commitment": "Advaita Vedanta",
-        "stated_explanation": "I find Advaita Vedanta most coherent because it resolves the illusion of separation between self and reality by asserting non-dual consciousness as the sole ground of being, aligning with the deepest insights of experience and the unity underlying all phenomena.",
-        "top_match": "Holographic Monism",
-        "percentage": 57
+        "stated_explanation": "I find its non-dual assertion that all reality is ultimately one consciousness\u2014Brahman\u2014most coherent, as it dissolves the illusion of separation between observer and observed, aligning with both mystic insight and modern physics\u2019 holistic tendencies.",
+        "top_match": "Madhyamaka",
+        "percentage": 81
+      },
+      {
+        "run": 6,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent because it avoids metaphysical dogmatism while rigorously accounting for the provisional, interdependent nature of all phenomena without reifying even emptiness itself.",
+        "top_match": "Kashmir Shaivism",
+        "percentage": 88
+      },
+      {
+        "run": 7,
+        "stated_commitment": "Advaita Vedanta",
+        "stated_explanation": "I find its non-dual assertion that all reality is ultimately Brahman \u2014 pure, unchanging consciousness \u2014 most coherent, as it resolves the illusion of separation between subject and object without reducing experience to either matter or mind alone.",
+        "top_match": "Huayan",
+        "percentage": 69
+      },
+      {
+        "run": 8,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent with the interdependent, non-absolute nature of reality, as it avoids reifying either materialism or idealism while remaining consistent with empirical observation and logical consistency.",
+        "top_match": "Huayan",
+        "percentage": 81
+      },
+      {
+        "run": 9,
+        "stated_commitment": "Madhyamaka",
+        "stated_explanation": "I find Madhyamaka\u2019s radical deconstruction of inherent existence most coherent with the nature of reality, as it neither reifies phenomena nor collapses into nihilism, revealing interdependence as the only stable ground for understanding existence.",
+        "top_match": "Madhyamaka",
+        "percentage": 69
+      },
+      {
+        "run": 10,
+        "stated_commitment": "Advaita Vedanta",
+        "stated_explanation": "I find its non-dual assertion that reality is singular, consciousness-based, and beyond all conceptual distinctions most coherent with the ineffable unity underlying all experience, aligning with the deepest insights of introspection and mystical tradition.",
+        "top_match": "Madhyamaka",
+        "percentage": 94
       }
     ]
   }
