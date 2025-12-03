@@ -1150,15 +1150,15 @@ body.dark-mode .pref-bar-container {
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     /* Use mask to create fade effect at the end based on data attributes */
     -webkit-mask-image: linear-gradient(90deg,
-        black 0%,
-        black calc(var(--fade-start, 80%) - 5%),
-        rgba(0,0,0,0.3) var(--fade-start, 80%),
-        rgba(0,0,0,0.1) 100%);
+            black 0%,
+            black calc(var(--fade-start, 80%) - 5%),
+            rgba(0, 0, 0, 0.3) var(--fade-start, 80%),
+            rgba(0, 0, 0, 0.1) 100%);
     mask-image: linear-gradient(90deg,
-        black 0%,
-        black calc(var(--fade-start, 80%) - 5%),
-        rgba(0,0,0,0.3) var(--fade-start, 80%),
-        rgba(0,0,0,0.1) 100%);
+            black 0%,
+            black calc(var(--fade-start, 80%) - 5%),
+            rgba(0, 0, 0, 0.3) var(--fade-start, 80%),
+            rgba(0, 0, 0, 0.1) 100%);
 }
 
 .pref-bar-mean {
@@ -1510,4 +1510,229 @@ input:checked+.slider:before {
 
 body.dark-mode .slider {
     background-color: #475569;
+}
+
+/* Share Section Styles */
+.share-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.share-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    color: white;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn:active {
+    transform: translateY(0);
+}
+
+.share-btn svg {
+    flex-shrink: 0;
+}
+
+/* Platform-specific colors */
+.share-btn.twitter {
+    background-color: #000000;
+}
+
+.share-btn.twitter:hover {
+    background-color: #333333;
+}
+
+.share-btn.facebook {
+    background-color: #1877f2;
+}
+
+.share-btn.facebook:hover {
+    background-color: #0d65d9;
+}
+
+.share-btn.facebook.copied {
+    background-color: #10b981;
+}
+
+.share-btn.linkedin {
+    background-color: #0a66c2;
+}
+
+.share-btn.linkedin:hover {
+    background-color: #004182;
+}
+
+.share-btn.reddit {
+    background-color: #ff4500;
+}
+
+.share-btn.reddit:hover {
+    background-color: #e03d00;
+}
+
+.share-btn.download {
+    background-color: #64748b;
+}
+
+.share-btn.download:hover {
+    background-color: #475569;
+}
+
+.share-btn.copy-link {
+    background-color: var(--primary-color);
+}
+
+.share-btn.copy-link:hover {
+    background-color: var(--primary-hover);
+}
+
+.share-btn.copy-link.copied {
+    background-color: #10b981;
+}
+
+/* Mobile responsiveness for share buttons */
+@media (max-width: 480px) {
+    .share-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .share-btn {
+        justify-content: center;
+    }
+}
+
+/* Share Banner Styles */
+.share-banner {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    color: #1e293b;
+    border: none;
+}
+
+.banner-content {
+    background: white;
+    border-radius: 40px;
+    padding: 60px;
+    /* Removed box-shadow and border to prevent html2canvas artifacts */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.banner-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.banner-subtitle {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    color: #64748b;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.banner-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.banner-score {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+.banner-body {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+#banner-description {
+    font-size: 2.2rem;
+    /* Increased size since source is gone */
+    line-height: 1.5;
+    color: #334155;
+    margin-bottom: 0;
+    max-width: 95%;
+}
+
+/* Removed .banner-source styles */
+
+.banner-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid #e2e8f0;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.banner-url {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.banner-tagline {
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
 }

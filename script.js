@@ -48,6 +48,11 @@ Promise.all([
             el.textContent = dimensions.length;
         });
 
+        // Update system counts in UI
+        document.querySelectorAll('.system-count').forEach(el => {
+            el.textContent = systems.length;
+        });
+
         if (startBtn && startBtn.tagName === 'BUTTON') {
             startBtn.disabled = false;
             startBtn.textContent = "Start the Quiz";
@@ -343,6 +348,15 @@ function toggleResultView(viewType) {
         }
     }
 
+    // Populate Share Banner
+    const bannerName = document.getElementById('banner-system-name');
+    const bannerScore = document.getElementById('banner-match-score');
+    const bannerDesc = document.getElementById('banner-description');
+
+    if (bannerName) bannerName.textContent = system.name;
+    if (bannerScore) bannerScore.textContent = `${data.matchPercentage}% Match`;
+    if (bannerDesc) bannerDesc.textContent = system.description;
+
     const breakdownList = document.getElementById('result-breakdown');
     if (breakdownList) {
         breakdownList.innerHTML = '';
@@ -400,3 +414,149 @@ function getOptionLabel(dimensionId, value) {
     const option = dim.options.find(o => o.value === value);
     return option ? option.label : '';
 }
+
+// Social Sharing Functionality
+const shareTwitterBtn = document.getElementById('share-twitter');
+const shareFacebookBtn = document.getElementById('share-facebook');
+const shareLinkedInBtn = document.getElementById('share-linkedin');
+const shareRedditBtn = document.getElementById('share-reddit');
+const shareDownloadBtn = document.getElementById('share-download');
+const shareCopyBtn = document.getElementById('share-copy');
+
+function getShareUrl() {
+    // Get the base URL (without query parameters)
+    const baseUrl = window.location.origin + window.location.pathname.replace('quiz.html', '');
+    return baseUrl;
+}
+
+function getShareText() {
+    if (!topMatchData) return "I just discovered my metaphysical worldview!";
+    const systemName = topMatchData.system.name;
+    const matchPercent = topMatchData.matchPercentage;
+    return `I just took the Metaphysics Quiz and found out my worldview is ${systemName} (${matchPercent}% match). What's yours?`;
+}
+
+function shareOnTwitter() {
+    const text = getShareText();
+    const url = getShareUrl();
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    window.open(twitterUrl, '_blank', 'width=550,height=420');
+}
+
+async function shareOnFacebook() {
+    const text = getShareText();
+    const url = getShareUrl();
+
+    // Copy text to clipboard
+    try {
+        await navigator.clipboard.writeText(text);
+
+        // Show feedback on button
+        if (shareFacebookBtn) {
+            const originalHtml = shareFacebookBtn.innerHTML;
+            shareFacebookBtn.classList.add('copied');
+            // Keep icon but change text
+            const iconSvg = shareFacebookBtn.querySelector('svg').outerHTML;
+            shareFacebookBtn.innerHTML = `${iconSvg}<span>Text Copied!</span>`;
+
+            setTimeout(() => {
+                shareFacebookBtn.classList.remove('copied');
+                shareFacebookBtn.innerHTML = originalHtml;
+            }, 2000);
+        }
+    } catch (err) {
+        console.error('Failed to copy text:', err);
+    }
+
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    window.open(facebookUrl, '_blank', 'width=550,height=420');
+}
+
+function shareOnLinkedIn() {
+    const text = getShareText();
+    const url = getShareUrl();
+    // Use the feed share URL which allows pre-filling text
+    const linkedInUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(text + ' ' + url)}`;
+    window.open(linkedInUrl, '_blank', 'width=550,height=420');
+}
+
+function shareOnReddit() {
+    const text = getShareText();
+    const url = getShareUrl();
+    const redditUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
+    window.open(redditUrl, '_blank', 'width=550,height=420');
+}
+
+function downloadResultImage() {
+    const banner = document.getElementById('share-banner');
+    if (!banner) return;
+
+    // Show loading state on button
+    const originalContent = shareDownloadBtn.innerHTML;
+    shareDownloadBtn.innerHTML = '<span>Generating...</span>';
+    shareDownloadBtn.disabled = true;
+
+    // We need to temporarily make it visible (but still off-screen) for some browsers to render correctly
+    // Since it's fixed at left: -9999px, it is "visible" in the DOM but not to the user.
+    // html2canvas handles this well usually.
+
+    html2canvas(banner, {
+        scale: 1, // Banner is already large (1200x630)
+        useCORS: true,
+        backgroundColor: null // Transparent background if needed, but we set a gradient
+    }).then(canvas => {
+        // Create download link
+        const link = document.createElement('a');
+        link.download = `my-metaphysics-${topMatchData.system.name.toLowerCase().replace(/\s+/g, '-')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        // Restore button
+        shareDownloadBtn.innerHTML = originalContent;
+        shareDownloadBtn.disabled = false;
+    }).catch(err => {
+        console.error('Error generating image:', err);
+        shareDownloadBtn.innerHTML = '<span>Error</span>';
+        setTimeout(() => {
+            shareDownloadBtn.innerHTML = originalContent;
+            shareDownloadBtn.disabled = false;
+        }, 2000);
+    });
+}
+
+async function copyShareLink() {
+    const text = getShareText();
+    const url = getShareUrl();
+    const fullText = `${text}\n${url}`;
+
+    try {
+        await navigator.clipboard.writeText(fullText);
+        // Show feedback
+        if (shareCopyBtn) {
+            const originalText = shareCopyBtn.querySelector('span').textContent;
+            shareCopyBtn.classList.add('copied');
+            shareCopyBtn.querySelector('span').textContent = 'Copied!';
+            setTimeout(() => {
+                shareCopyBtn.classList.remove('copied');
+                shareCopyBtn.querySelector('span').textContent = originalText;
+            }, 2000);
+        }
+    } catch (err) {
+        console.error('Failed to copy:', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = fullText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
+}
+
+// Add event listeners for share buttons
+if (shareTwitterBtn) shareTwitterBtn.addEventListener('click', shareOnTwitter);
+if (shareFacebookBtn) shareFacebookBtn.addEventListener('click', shareOnFacebook);
+if (shareLinkedInBtn) shareLinkedInBtn.addEventListener('click', shareOnLinkedIn);
+if (shareRedditBtn) shareRedditBtn.addEventListener('click', shareOnReddit);
+if (shareDownloadBtn) shareDownloadBtn.addEventListener('click', downloadResultImage);
+if (shareCopyBtn) shareCopyBtn.addEventListener('click', copyShareLink);
