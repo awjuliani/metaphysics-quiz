@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improve the Taxonomy - What is Your Metaphysics?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">What is Your Metaphysics?</a>
+                </h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Discover your philosophical worldview in <span class="dimension-count">...</span>
+                dimensions.</p>
+        </header>
+
+        <main id="main-content">
+            <div class="navigation-top">
+                <a href="index.html" class="btn primary-btn"
+                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 2rem; text-decoration: none;">&larr;
+                    Back to
+                    Home</a>
+            </div>
+
+            <div class="card intro-card">
+                <div class="intro-content">
+                    <h2
+                        style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary-color);">
+                        Improve the Taxonomy</h2>
+                    <p class="intro-lead">Help us refine the metaphysical systems.</p>
+                    <div class="divider"></div>
+                    <p class="intro-text" style="margin-bottom: 2rem;">
+                        This project is an open-source effort to map the landscape of metaphysical thought. We strive
+                        for accuracy and neutrality, but we know there is always room for improvement.
+                    </p>
+                    <p class="intro-text" style="margin-bottom: 2rem;">
+                        If you find issues with any of the entries, disagree with a classification, or would like to
+                        suggest improvements or new systems, we encourage you to get involved.
+                    </p>
+                    <p class="intro-text" style="margin-bottom: 2rem;">
+                        All contributions will be reviewed and taken into consideration for future updates.
+                    </p>
+
+                    <div class="button-group"
+                        style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+                        <a href="https://github.com/awjuliani/metaphysics-quiz" target="_blank" class="btn primary-btn"
+                            style="text-decoration: none; text-align: center; margin-top: 0;">
+                            View Repository
+                        </a>
+                        <a href="https://github.com/awjuliani/metaphysics-quiz/issues" target="_blank"
+                            class="btn secondary-btn" style="text-decoration: none; text-align: center; margin-top: 0;">
+                            Submit an Issue
+                        </a>
+                        <a href="https://github.com/awjuliani/metaphysics-quiz/pulls" target="_blank"
+                            class="btn secondary-btn" style="text-decoration: none; text-align: center; margin-top: 0;">
+                            Submit a Pull Request
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
