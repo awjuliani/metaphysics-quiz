@@ -1,5 +1,6 @@
 import json
 import argparse
+import os
 import numpy as np
 from sklearn.manifold import MDS, TSNE
 from sklearn.preprocessing import OneHotEncoder
@@ -40,9 +41,11 @@ def main():
     args = parser.parse_args()
 
     # Load data
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(os.path.dirname(script_dir), "data")
     try:
-        systems = load_json("systems.json")
-        dimensions = load_json("dimensions.json")
+        systems = load_json(os.path.join(data_dir, "systems.json"))
+        dimensions = load_json(os.path.join(data_dir, "dimensions.json"))
     except FileNotFoundError:
         print("Error: systems.json or dimensions.json not found.")
         return
@@ -150,7 +153,8 @@ def main():
         )
 
     # Save to file
-    with open("systems_map.json", "w") as f:
+    output_path = os.path.join(data_dir, "systems_map.json")
+    with open(output_path, "w") as f:
         json.dump(final_output, f, indent=4)
 
     print(f"Successfully generated systems_map.json using {args.algo.upper()}")

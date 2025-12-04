@@ -36,8 +36,8 @@ let isExpandedMode = false;
 
 // Load data
 Promise.all([
-    fetch('dimensions.json').then(response => response.json()),
-    fetch('systems.json').then(response => response.json())
+    fetch('data/dimensions.json').then(response => response.json()),
+    fetch('data/systems.json').then(response => response.json())
 ])
     .then(([dimensionsData, systemsData]) => {
         dimensions = dimensionsData;

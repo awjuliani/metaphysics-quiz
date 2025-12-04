@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -90,7 +90,7 @@
         // Load Systems
         async function loadSystems() {
             try {
-                const response = await fetch('systems.json');
+                const response = await fetch('data/systems.json');
                 const systems = await response.json();
                 
                 // Sort systems alphabetically by name

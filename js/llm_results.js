@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch and display LLM data
     Promise.all([
-        fetch('batch_results.json').then(res => res.json()),
-        fetch('systems.json').then(res => res.json()),
-        fetch('dimensions.json').then(res => res.json())
+        fetch('data/batch_results.json').then(res => res.json()),
+        fetch('data/systems.json').then(res => res.json()),
+        fetch('data/dimensions.json').then(res => res.json())
     ])
         .then(([resultsData, systemsData, dimensionsData]) => {
             // Create lookup map for descriptions

@@ -1,5 +1,5 @@
 // Load the data
-d3.json("systems_map.json").then(data => {
+d3.json("data/systems_map.json").then(data => {
     const container = document.getElementById('map-container');
     const width = container.clientWidth;
     const height = container.clientHeight;

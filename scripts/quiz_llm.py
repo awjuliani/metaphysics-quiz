@@ -364,9 +364,10 @@ def main():
     args = parser.parse_args()
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(os.path.dirname(base_dir), "data")
 
-    dimensions = load_json(os.path.join(base_dir, "dimensions.json"))
-    systems = load_json(os.path.join(base_dir, "systems.json"))
+    dimensions = load_json(os.path.join(data_dir, "dimensions.json"))
+    systems = load_json(os.path.join(data_dir, "systems.json"))
     api_key = load_key(os.path.join(base_dir, "key.txt"))
 
     scores = run_quiz(

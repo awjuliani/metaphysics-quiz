@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .comparison-controls {
             display: flex;
@@ -431,8 +431,8 @@
         async function init() {
             try {
                 const [systemsResponse, dimensionsResponse] = await Promise.all([
-                    fetch('systems.json'),
-                    fetch('dimensions.json')
+                    fetch('data/systems.json'),
+                    fetch('data/dimensions.json')
                 ]);
                 systemsData = await systemsResponse.json();
                 dimensionsData = await dimensionsResponse.json();

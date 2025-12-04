@@ -32,10 +32,11 @@ def main():
     args = parser.parse_args()
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(os.path.dirname(base_dir), "data")
 
     # Load shared resources
-    dimensions = quiz_llm.load_json(os.path.join(base_dir, "dimensions.json"))
-    systems = quiz_llm.load_json(os.path.join(base_dir, "systems.json"))
+    dimensions = quiz_llm.load_json(os.path.join(data_dir, "dimensions.json"))
+    systems = quiz_llm.load_json(os.path.join(data_dir, "systems.json"))
     api_key = quiz_llm.load_key(os.path.join(base_dir, "key.txt"))
 
     models = load_models(os.path.join(base_dir, args.models))
