@@ -97,10 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     .sort((a, b) => b.percentage - a.percentage)
                     .slice(0, 5);
 
+                // Determine highlight target (stated commitment if in top 5, else null)
+                const top5Systems = matchPercentages.map(m => m.system);
+                let highlightTarget = null;
+                if (llm.stated_commitment && top5Systems.includes(llm.stated_commitment)) {
+                    highlightTarget = llm.stated_commitment;
+                }
+
                 let preferencesHtml = '<div class="preference-section">';
 
                 matchPercentages.forEach((match, index) => {
-                    const rankClass = index === 0 ? 'top-choice' : 'runner-up';
+                    const isHighlight = match.system === highlightTarget;
+                    const rankClass = isHighlight ? 'top-choice' : 'runner-up';
                     const label = index === 0 ? 'Top Match' : `#${index + 1} Match`;
                     const systemSlug = match.system.toLowerCase().replace(/\s+/g, '-');
 
