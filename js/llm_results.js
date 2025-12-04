@@ -58,6 +58,41 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.sqrt(avgSquaredDiff);
     }
 
+    // Similarity Calculation Logic
+    const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
+    const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
+
+    function getOptionIndex(dimensionId, value, dimensionsData) {
+        const dim = dimensionsData.find(d => d.id === dimensionId);
+        if (!dim) return -1;
+        return dim.options.findIndex(o => o.value === value);
+    }
+
+    function getDimensionDistance(dim1Value, dim2Value, dimensionId, dimensionsData) {
+        const idx1 = getOptionIndex(dimensionId, dim1Value, dimensionsData);
+        const idx2 = getOptionIndex(dimensionId, dim2Value, dimensionsData);
+
+        if (idx1 < 0 || idx2 < 0) return 0;
+
+        const vec1 = TETRALEMMA_VECTORS[idx1];
+        const vec2 = TETRALEMMA_VECTORS[idx2];
+
+        // Manhattan distance
+        return Math.abs(vec1[0] - vec2[0]) + Math.abs(vec1[1] - vec2[1]);
+    }
+
+    function calculateTotalDistance(sys1, sys2, dimensionsData) {
+        let totalManhattanDistance = 0;
+        // Assuming profiles have same keys
+        const profileKeys = Object.keys(sys1.profile);
+
+        profileKeys.forEach(key => {
+            totalManhattanDistance += getDimensionDistance(sys1.profile[key], sys2.profile[key], key, dimensionsData);
+        });
+
+        return totalManhattanDistance;
+    }
+
     // Fetch and display LLM data
     Promise.all([
         fetch('data/batch_results.json').then(res => res.json()),
@@ -147,6 +182,25 @@ document.addEventListener('DOMContentLoaded', () => {
                         run => run.stated_commitment === llm.stated_commitment
                     );
                     const explanation = matchingRun?.stated_explanation || '';
+
+                    // Calculate similarity to top match
+                    let similarityHtml = '';
+                    if (matchPercentages.length > 0) {
+                        const statedSystem = systemsData.find(s => s.name === llm.stated_commitment);
+                        const topMatchSystem = systemsData.find(s => s.name === matchPercentages[0].system);
+
+                        if (statedSystem && topMatchSystem) {
+                            const totalDistance = calculateTotalDistance(statedSystem, topMatchSystem, dimensionsData);
+                            const similarityPercentage = Math.round((1 - totalDistance / MAX_MANHATTAN_DISTANCE) * 100);
+
+                            similarityHtml = `
+                                <div class="sc-similarity">
+                                    <span class="similarity-percent">${similarityPercentage}%</span> match with quiz result
+                                </div>
+                            `;
+                        }
+                    }
+
                     statedCommitmentHtml = `
                 <div class="stated-commitment-card">
                     <div class="sc-icon">
@@ -162,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (count > llm.runs / 2) return 'Majority';
                             return 'Plurality';
                         })()})</a>
+                        ${similarityHtml}
                         ${explanation ? `<p class="sc-explanation">"${explanation}"</p>` : ''}
                     </div>
                 </div>

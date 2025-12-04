@@ -1760,3 +1760,25 @@ body.dark-mode .slider {
     letter-spacing: 2px;
     font-size: 1.2rem;
 }
+/* Similarity Score in LLM Results */
+.sc-similarity {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.similarity-percent {
+    font-weight: 700;
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+}
+
+body.dark-mode .similarity-percent {
+    background: rgba(129, 140, 248, 0.2);
+    color: var(--primary-color);
+}
