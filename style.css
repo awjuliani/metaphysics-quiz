@@ -1090,6 +1090,16 @@ body.dark-mode .sc-icon {
     margin: 0;
 }
 
+.model-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+.model-link:hover {
+    color: var(--primary-color);
+}
+
 .run-count {
     font-size: 0.8rem;
     color: var(--text-muted);

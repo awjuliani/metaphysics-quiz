@@ -170,7 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 card.innerHTML = `
                 <div class="llm-header">
-                    <h2 class="llm-name">${llm.model}</h2>
+                    <h2 class="llm-name">
+                        <a href="https://openrouter.ai/${llm.model}" target="_blank" rel="noopener noreferrer" class="model-link">${llm.model}</a>
+                    </h2>
                     <span class="run-count">${llm.runs} runs</span>
                 </div>
                 ${statedCommitmentHtml}
