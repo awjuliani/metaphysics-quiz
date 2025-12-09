@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Dimensions - What's Your Metaphysics?</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- App Stats Logic -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/stats.js"></script>
+
+    <style>
+        /* Dimension card header */
+        .dimension-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dimension-header h2 {
+            margin-bottom: 0.75rem;
+        }
+
+        .dimension-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .dimension-expanded {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* Positions container */
+        .positions-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Individual position cards */
+        .position-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .position-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode .position-card {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        body.dark-mode .position-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .position-header {
+            margin-bottom: 0.75rem;
+        }
+
+        .position-name {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .position-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        /* Systems within position */
+        .position-systems {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .position-systems-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .position-systems-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .dim-system-link {
+            font-size: 0.85rem;
+            padding: 0.3rem 0.75rem;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .dim-system-link:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        body.dark-mode .dim-system-link {
+            background: rgba(129, 140, 248, 0.1);
+            border-color: rgba(129, 140, 248, 0.3);
+        }
+
+        body.dark-mode .dim-system-link:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <h1>Fundamental Dimensions</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">The eight axes of metaphysical inquiry.</p>
+        </header>
+
+        <main id="explore-content">
+            <div class="navigation-top">
+                <a href="index.html" class="btn primary-btn"
+                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 2rem; text-decoration: none;">&larr;
+                    Back to
+                    Home</a>
+            </div>
+
+            <div id="dimensions-container" class="systems-grid">
+                <!-- Dimensions will be injected here -->
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            document.documentElement.classList.add('dark-mode');
+        } else if (savedTheme === 'light') {
+            body.classList.remove('dark-mode');
+            document.documentElement.classList.remove('dark-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+            document.documentElement.classList.add('dark-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            document.documentElement.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load Dimensions and Systems
+        async function loadData() {
+            try {
+                const [dimensionsRes, systemsRes] = await Promise.all([
+                    fetch('data/dimensions.json'),
+                    fetch('data/systems.json')
+                ]);
+
+                const dimensions = await dimensionsRes.json();
+                const systems = await systemsRes.json();
+
+                // Sort systems alphabetically
+                systems.sort((a, b) => a.name.localeCompare(b.name));
+
+                const container = document.getElementById('dimensions-container');
+
+                dimensions.forEach(dim => {
+                    const card = document.createElement('div');
+                    card.className = 'card system-card';
+                    card.id = dim.id;
+
+                    // Build options as styled position cards
+                    const optionsHtml = dim.options.map(opt => {
+                        // Find matching systems for this option
+                        const matchingSystems = systems.filter(sys => sys.profile[dim.id] === opt.value);
+                        const systemLinks = matchingSystems.map(sys => {
+                            const systemId = sys.name.toLowerCase().replace(/\s+/g, '-');
+                            return `<a href="explore.html#${systemId}" class="dim-system-link">${sys.name}</a>`;
+                        }).join('');
+
+                        return `
+                            <div class="position-card">
+                                <div class="position-header">
+                                    <span class="position-name">${opt.value}</span>
+                                </div>
+                                <p class="position-description">${opt.expanded_label}</p>
+                                ${systemLinks ? `
+                                    <div class="position-systems">
+                                        <span class="position-systems-label">Related Systems</span>
+                                        <div class="position-systems-list">${systemLinks}</div>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    }).join('');
+
+                    card.innerHTML = `
+                        <div class="dimension-header">
+                            <h2>${dim.label}</h2>
+                            <p class="dimension-question">${dim.question}</p>
+                            <p class="dimension-expanded">${dim.expanded_question}</p>
+                        </div>
+                        <div class="positions-container">
+                            ${optionsHtml}
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                });
+
+                // Check for hash and scroll to it
+                if (window.location.hash) {
+                    const id = window.location.hash.substring(1);
+                    const element = document.getElementById(id);
+                    if (element) {
+                        setTimeout(() => {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            element.style.borderColor = 'var(--primary-color)';
+                            element.style.boxShadow = '0 0 0 2px var(--primary-color)';
+                            setTimeout(() => {
+                                element.style.borderColor = '';
+                                element.style.boxShadow = '';
+                            }, 2000);
+                        }, 100);
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('dimensions-container').innerHTML = '<p>Error loading content. Please try again later.</p>';
+            }
+        }
+
+        loadData();
+    </script>
+</body>
+
+</html>
