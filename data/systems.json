@@ -21,7 +21,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Epicureanism",
         "primary_source": "The Nature of Things by Lucretius",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -53,8 +53,8 @@
         "wiki": "https://en.wikipedia.org/wiki/Stoicism",
         "primary_source": "Meditations by Marcus Aurelius",
         "profile": {
-            "ontology": "Materialism",
-            "topology": "Qualified Non-Dualism",
+            "ontology": "Physicalism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -69,7 +69,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Materialism",
         "primary_source": "The Selfish Gene by Richard Dawkins",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -102,7 +102,7 @@
         "primary_source": "The Shiva Sutras",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Expressive",
             "manifestation": "Realism",
@@ -118,7 +118,7 @@
         "primary_source": "The Lankavatara Sutra",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -166,7 +166,7 @@
         "primary_source": "Tao Te Ching by Laozi",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Trans-intentional",
             "manifestation": "Realism",
@@ -198,7 +198,7 @@
         "primary_source": "The Phenomenon of Man by Pierre Teilhard de Chardin",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -217,7 +217,7 @@
             "topology": "Radical Non-Dualism",
             "dynamics": "Process",
             "teleology": "Trans-intentional",
-            "manifestation": "Emptiness",
+            "manifestation": "Relationalism",
             "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
@@ -245,7 +245,7 @@
         "wiki": "https://en.wikipedia.org/wiki/Dialectical_materialism",
         "primary_source": "Das Kapital by Karl Marx",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Teleological",
@@ -278,7 +278,7 @@
         "primary_source": "Difference and Repetition by Gilles Deleuze",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Trans-intentional",
             "manifestation": "Constructivism",
@@ -294,7 +294,7 @@
         "primary_source": "The Enneads by Plotinus",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -377,7 +377,7 @@
             "topology": "Radical Non-Dualism",
             "dynamics": "Integrative",
             "teleology": "Expressive",
-            "manifestation": "Emptiness",
+            "manifestation": "Relationalism",
             "character": "Trans-personal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
@@ -390,7 +390,7 @@
         "primary_source": "Sri Bhashya by Ramanuja",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -438,7 +438,7 @@
         "primary_source": "Wholeness and the Implicate Order by David Bohm",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -454,7 +454,7 @@
         "primary_source": "Phenomenology of Spirit by G.W.F. Hegel",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
@@ -469,8 +469,8 @@
         "wiki": "https://en.wikipedia.org/wiki/New_materialism",
         "primary_source": "Vibrant Matter by Jane Bennett",
         "profile": {
-            "ontology": "Materialism",
-            "topology": "Qualified Non-Dualism",
+            "ontology": "Physicalism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Realism",

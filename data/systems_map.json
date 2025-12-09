@@ -21,7 +21,7 @@
         "y": 25.715403001849193,
         "description": "Founded by Epicurus, this philosophy posits a materialist universe composed of atoms moving in a void. It teaches that the senses are the ultimate source of truth and that the goal of life is the absence of pain (aponia) and tranquility (ataraxia). It rejects divine intervention, viewing the gods as blissful beings unconcerned with human affairs.",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -53,8 +53,8 @@
         "y": 12.00696820741682,
         "description": "An ancient philosophy that views the universe as a living, rational organism. The cosmos is permeated by the Logos (Divine Reason), which orders all things for the best. For the Stoic, wisdom consists in aligning one's own will with this cosmic order, accepting what cannot be changed, and cultivating inner virtue. It is a materialist but deeply spiritual worldview.",
         "profile": {
-            "ontology": "Materialism",
-            "topology": "Qualified Non-Dualism",
+            "ontology": "Physicalism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -69,7 +69,7 @@
         "y": 17.683122157012033,
         "description": "The prevailing worldview of modern science, which posits that physical matter and energy are the fundamental reality. Consciousness and culture are emergent properties of complex neural interactions. The universe is governed by impersonal physical laws without inherent purpose or design, evolving from the Big Bang through natural selection and entropy.",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Mechanistic",
@@ -102,7 +102,7 @@
         "description": "A Tantric non-dual tradition that views reality as the dynamic vibration (Spanda) of a single, supreme Consciousness (Shiva). Unlike Advaita, it regards the world not as an illusion, but as the real and creative expression of the Divine. The universe is the \"dance\" or \"play\" (Lila) of God, meant to be experienced and enjoyed.",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Expressive",
             "manifestation": "Realism",
@@ -118,7 +118,7 @@
         "description": "Also known as the \"Mind-Only\" or \"Consciousness-Only\" school of Buddhism. It asserts that the external world we perceive is actually a projection of our own consciousness, similar to a dream. There is no independent material reality; there is only the stream of momentary perceptions arising from the storehouse consciousness (Alaya-vijnana).",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -166,7 +166,7 @@
         "description": "Rooted in the Tao Te Ching, Taoism emphasizes living in harmony with the Tao (The Way)\u2014the natural, spontaneous flow of the universe. The Tao is the ineffable source of all things, yet it is not a god. The ideal life is one of Wu Wei (effortless action), simplicity, and alignment with the rhythms of nature.",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Trans-intentional",
             "manifestation": "Realism",
@@ -198,7 +198,7 @@
         "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a process of \"Cosmogenesis\"\u2014a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -217,7 +217,7 @@
             "topology": "Radical Non-Dualism",
             "dynamics": "Process",
             "teleology": "Trans-intentional",
-            "manifestation": "Emptiness",
+            "manifestation": "Relationalism",
             "character": "Impersonal",
             "divinity": "Immanent",
             "axiology": "Trans-Moral"
@@ -245,7 +245,7 @@
         "y": -15.377696088500008,
         "description": "The philosophical basis of Marxism. It agrees with Scientific Materialism that matter is primary, but rejects the view that the universe is static or merely mechanistic. Instead, it sees reality as a historical process driven by internal contradictions (dialectics) moving toward a specific goal (the liberation of consciousness/society).",
         "profile": {
-            "ontology": "Materialism",
+            "ontology": "Physicalism",
             "topology": "Pluralism",
             "dynamics": "Process",
             "teleology": "Teleological",
@@ -278,7 +278,7 @@
         "description": "A philosophy of pure difference and becoming. Reality is not composed of stable identities, but of dynamic intensities and multiplicities. 'Being' is univocal\u2014it is said in one and the same sense of all things, but that sense is Difference itself. The world is a creative chaosmos of virtual potentials actualizing themselves.",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Trans-intentional",
             "manifestation": "Constructivism",
@@ -294,7 +294,7 @@
         "description": "Founded by Plotinus, this philosophy posits a single, ineffable source of all reality called 'The One'. All things emanate from The One in a hierarchy of being (Intellect, Soul, Nature) and strive to return to it. Evil is merely the absence of good (privation). It bridges Greek rationalism with mysticism.",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -377,7 +377,7 @@
             "topology": "Radical Non-Dualism",
             "dynamics": "Integrative",
             "teleology": "Expressive",
-            "manifestation": "Emptiness",
+            "manifestation": "Relationalism",
             "character": "Trans-personal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
@@ -390,7 +390,7 @@
         "description": "Represents the Vishishtadvaita (Qualified Non-Dualism) school of Hindu philosophy, primarily associated with Ramanuja. It teaches that the Supreme Reality (Brahman/Vishnu) is a Personal God who possesses the souls and the material world as His 'body'. While God is the only independent reality, the world and souls are real, distinct attributes that exist in an organic, inseparable unity with Him. It emphasizes Bhakti (loving devotion) as the means to liberation.",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Integrative",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -438,7 +438,7 @@
         "description": "Based on the quantum physics of David Bohm. It posits that the tangible, separate world we see (the Explicate Order) is a projection unfolding from a deeper, invisible reality (the Implicate Order). Mind and Matter are not separate substances but different aspects of one unbroken movement (the Holomovement). The universe functions like a hologram: the whole is contained in every part.",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -454,7 +454,7 @@
         "description": "The metaphysical system of G.W.F. Hegel, which views reality as the dialectical self-development of Absolute Spirit (Geist). The Absolute differentiates itself into Nature and Finite Mind, then returns to itself through human history, art, religion, and philosophy. Reality is not a static substance but a dynamic process of becoming, driven by the logic of thesis-antithesis-synthesis. History is the Absolute coming to know itself, culminating in the realization that the rational is the real.",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Qualified Non-Dualism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
@@ -469,8 +469,8 @@
         "y": 38.008168414716565,
         "description": "A contemporary philosophy that rejects the view of matter as passive, inert, or 'dead.' Instead, it posits that matter itself is vibrant, self-organizing, and possesses agency. Drawing on Deleuze and complexity theory, it views reality as a mesh of 'assemblages'\u2014dynamic interactions between human and non-human actors (like microbes, electricity, and waste)\u2014without prioritizing the human subject.",
         "profile": {
-            "ontology": "Materialism",
-            "topology": "Qualified Non-Dualism",
+            "ontology": "Physicalism",
+            "topology": "Differentiated Monism",
             "dynamics": "Process",
             "teleology": "Expressive",
             "manifestation": "Realism",

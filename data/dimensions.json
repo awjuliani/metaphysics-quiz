@@ -7,7 +7,7 @@
         "options": [
             {
                 "label": "Matter and energy are primary. Consciousness is just a byproduct of physical processes.",
-                "value": "Materialism",
+                "value": "Physicalism",
                 "expanded_label": "Everything is ultimately just physical stuff (atoms, energy, fields). Your thoughts and feelings are arising from physical processes, not a separate soul or spirit."
             },
             {
@@ -16,9 +16,9 @@
                 "expanded_label": "Consciousness is the fundamental reality. The physical world isn't an independent object; it exists as an appearance or experience within a universal mind."
             },
             {
-                "label": "Mind and Matter are two distinct, irreducible realities that interact with each other.",
+                "label": "Mind and Matter are distinct, irreducible principles of reality.",
                 "value": "Dualism",
-                "expanded_label": "The universe has two separate ingredients: physical stuff (like rocks and bodies) and mental stuff (like souls and minds). They are different things that interact."
+                "expanded_label": "There is a fundamental distinction between the mental (or form) and the physical (or matter). They are irreducible to one another, whether interacting as separate substances or uniting as form and matter."
             },
             {
                 "label": "The fundamental reality is neither Mind nor Matter, but a neutral \"stuff\" that appears as both.",
@@ -45,7 +45,7 @@
             },
             {
                 "label": "Reality is a unified Whole that expresses itself as Many distinct forms without losing its unity.",
-                "value": "Qualified Non-Dualism",
+                "value": "Differentiated Monism",
                 "expanded_label": "Reality is one interconnected whole. However, the distinct forms within it (like us) are real expressions of that whole, not just illusions."
             },
             {
@@ -133,9 +133,9 @@
                 "expanded_label": "We participate in shaping our reality. The world interacts with our minds to construct our experience, rather than our minds simply mirroring the world."
             },
             {
-                "label": "Phenomena lack inherent existence; they are neither strictly real nor strictly unreal.",
-                "value": "Emptiness",
-                "expanded_label": "Phenomena don't have a fixed, independent existence. They appear based on conditions but cannot be pinned down as absolutely 'real' or 'unreal'."
+                "label": "Phenomena lack inherent existence and arise only through relationships.",
+                "value": "Relationalism",
+                "expanded_label": "Phenomena don't have a fixed, independent existence. They appear based on conditions and relations but cannot be pinned down as absolutely 'real' or 'unreal' in themselves."
             }
         ]
     },
