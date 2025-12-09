@@ -11,7 +11,14 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-</head>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- App Stats Logic -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/stats.js"></script>
 
 <body>
     <div class="app-container">
@@ -90,9 +97,17 @@
         // Load Systems
         async function loadSystems() {
             try {
-                const response = await fetch('data/systems.json');
-                const systems = await response.json();
-                
+                // Fetch data in parallel
+                const [systemsResponse, stats] = await Promise.all([
+                    fetch('data/systems.json'),
+                    getSystemStats()
+                ]);
+
+                const systems = await systemsResponse.json();
+
+                // Calculate total quizzes taken
+                const totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
+
                 // Sort systems alphabetically by name
                 systems.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -105,6 +120,19 @@
                     const systemId = system.name.toLowerCase().replace(/\s+/g, '-');
                     card.id = systemId;
 
+                    // Calculate popularity metric
+                    const count = stats[system.name] || 0;
+                    const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
+
+                    // Only show if there's significant data (e.g., > 0)
+                    // If totalCount is 0 (first run), display 0% or hide it nicely.
+                    // We'll show it if > 0 to encourage participation
+                    const popularityHtml = totalCount > 0
+                        ? `<div class="popularity-badge" title="${count} matches out of ${totalCount} total quizzes">
+                             <span class="pop-icon">👥</span> ${percentage}% 
+                           </div>`
+                        : '';
+
                     // Generate meta items for all profile keys
                     const profileKeys = Object.keys(system.profile);
                     const metaHtml = profileKeys.map(key => `
@@ -115,7 +143,10 @@
                     `).join('');
 
                     card.innerHTML = `
-                        <h2>${system.name}</h2>
+                        <div class="card-header-flex" style="display: flex; justify-content: space-between; align-items: start;">
+                            <h2>${system.name}</h2>
+                            ${popularityHtml}
+                        </div>
                         <p class="system-description">${system.description}</p>
                         <div class="system-links">
                             <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>

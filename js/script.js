@@ -281,6 +281,18 @@ function calculateResult() {
     runnerUpData = scores[1]; // Assumes at least 2 systems
     worstMatchData = scores[scores.length - 1];
 
+    // Track Popularity (only if new result for this session/system)
+    const systemName = topMatchData.system.name;
+    const storageKey = `metaphysics_recorded_${systemName}`;
+
+    // Simple session storage check to prevent spamming refresh on the same result
+    if (!sessionStorage.getItem(storageKey)) {
+        if (typeof incrementSystemCount === 'function') {
+            incrementSystemCount(systemName);
+            sessionStorage.setItem(storageKey, 'true');
+        }
+    }
+
     showResult();
 }
 
