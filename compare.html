@@ -11,6 +11,14 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- App Stats Logic -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/stats.js"></script>
     <style>
         .comparison-controls {
             display: flex;
@@ -428,18 +436,44 @@
         const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
         const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
 
+        let stats = {};
+        let totalCount = 0;
+
         async function init() {
             try {
-                const [systemsResponse, dimensionsResponse] = await Promise.all([
+                const [systemsResponse, dimensionsResponse, statsData] = await Promise.all([
                     fetch('data/systems.json'),
-                    fetch('data/dimensions.json')
+                    fetch('data/dimensions.json'),
+                    getSystemStats()
                 ]);
                 systemsData = await systemsResponse.json();
                 dimensionsData = await dimensionsResponse.json();
+                stats = statsData;
+                totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
+
                 populateDropdowns();
             } catch (error) {
                 console.error('Error loading data:', error);
             }
+        }
+
+        function getPopularityHtml(systemName) {
+            const count = stats[systemName] || 0;
+            const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
+
+            // Format count abbreviation
+            let formattedCount = count;
+            if (count >= 1000000) {
+                formattedCount = (count / 1000000).toFixed(1) + 'M';
+            } else if (count >= 1000) {
+                formattedCount = (count / 1000).toFixed(1) + 'k';
+            }
+
+            return totalCount > 0
+                ? `<div class="popularity-badge" title="${count} matches out of ${totalCount} total quizzes" style="margin-left: 0.5rem; vertical-align: middle;">
+                        <span class="pop-icon">👥</span> ${percentage}% <span class="pop-divider">|</span> ${formattedCount}
+                    </div>`
+                : '';
         }
 
         function getOptionIndex(dimensionId, value) {
@@ -512,8 +546,13 @@
 
         function renderSystemDetails(system, containerId) {
             const container = document.getElementById(containerId);
+            const popHtml = getPopularityHtml(system.name);
+
             container.innerHTML = `
-                <h2>${system.name}</h2>
+                <div style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                    <h2 style="margin: 0; margin-right: 0.5rem;">${system.name}</h2>
+                    ${popHtml}
+                </div>
                 <p class="system-description">${system.description}</p>
                 <div class="detail-meta">
                     ${system.primary_source ? `<p>📖 <strong>Primary Source:</strong> <span class="primary-source-text">${system.primary_source}</span></p>` : ''}
