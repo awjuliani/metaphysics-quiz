@@ -1,4 +1,4 @@
-# What is Your Metaphysics?
+# What's Your Metaphysics?
 
 Discover your philosophical worldview in 8 dimensions.
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Metaphysical Systems</title>
+    <title>Explore Systems - What's Your Metaphysics?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -123,7 +123,7 @@
                     // Calculate popularity metric
                     const count = stats[system.name] || 0;
                     const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
-                    
+
                     // Format count abbreviation (e.g., 1.2k)
                     let formattedCount = count;
                     if (count >= 1000000) {
@@ -133,7 +133,7 @@
                     }
 
                     // Only show if there's significant data (e.g., > 0)
-                    const popularityHtml = totalCount > 0 
+                    const popularityHtml = totalCount > 0
                         ? `<div class="popularity-badge" title="${count} matches out of ${totalCount} total quizzes">
                              <span class="pop-icon">👥</span> ${percentage}% <span class="pop-divider">|</span> ${formattedCount}
                            </div>`
