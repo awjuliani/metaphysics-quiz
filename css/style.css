@@ -1638,6 +1638,14 @@ body.dark-mode .slider {
     background-color: #10b981;
 }
 
+.share-btn.threads {
+    background-color: #1a1a1a;
+}
+
+.share-btn.threads:hover {
+    background-color: #333333;
+}
+
 .share-btn.linkedin {
     background-color: #0a66c2;
 }
@@ -1790,6 +1798,7 @@ body.dark-mode .slider {
     letter-spacing: 2px;
     font-size: 1.2rem;
 }
+
 /* Similarity Score in LLM Results */
 .sc-similarity {
     font-size: 0.85rem;

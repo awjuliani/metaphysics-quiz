@@ -431,6 +431,7 @@ function getOptionLabel(dimensionId, value) {
 const shareTwitterBtn = document.getElementById('share-twitter');
 const shareBlueSkyBtn = document.getElementById('share-bluesky');
 const shareFacebookBtn = document.getElementById('share-facebook');
+const shareThreadsBtn = document.getElementById('share-threads');
 const shareLinkedInBtn = document.getElementById('share-linkedin');
 const shareRedditBtn = document.getElementById('share-reddit');
 const shareDownloadBtn = document.getElementById('share-download');
@@ -490,6 +491,13 @@ async function shareOnFacebook() {
 
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
     window.open(facebookUrl, '_blank', 'width=550,height=420');
+}
+
+function shareOnThreads() {
+    const text = getShareText();
+    const url = getShareUrl();
+    const threadsUrl = `https://www.threads.net/intent/post?text=${encodeURIComponent(text + ' ' + url)}`;
+    window.open(threadsUrl, '_blank', 'width=550,height=420');
 }
 
 function shareOnLinkedIn() {
@@ -577,6 +585,7 @@ async function copyShareLink() {
 if (shareTwitterBtn) shareTwitterBtn.addEventListener('click', shareOnTwitter);
 if (shareBlueSkyBtn) shareBlueSkyBtn.addEventListener('click', shareOnBlueSky);
 if (shareFacebookBtn) shareFacebookBtn.addEventListener('click', shareOnFacebook);
+if (shareThreadsBtn) shareThreadsBtn.addEventListener('click', shareOnThreads);
 if (shareLinkedInBtn) shareLinkedInBtn.addEventListener('click', shareOnLinkedIn);
 if (shareRedditBtn) shareRedditBtn.addEventListener('click', shareOnReddit);
 if (shareDownloadBtn) shareDownloadBtn.addEventListener('click', downloadResultImage);
