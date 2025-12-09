@@ -123,13 +123,19 @@
                     // Calculate popularity metric
                     const count = stats[system.name] || 0;
                     const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
+                    
+                    // Format count abbreviation (e.g., 1.2k)
+                    let formattedCount = count;
+                    if (count >= 1000000) {
+                        formattedCount = (count / 1000000).toFixed(1) + 'M';
+                    } else if (count >= 1000) {
+                        formattedCount = (count / 1000).toFixed(1) + 'k';
+                    }
 
                     // Only show if there's significant data (e.g., > 0)
-                    // If totalCount is 0 (first run), display 0% or hide it nicely.
-                    // We'll show it if > 0 to encourage participation
-                    const popularityHtml = totalCount > 0
+                    const popularityHtml = totalCount > 0 
                         ? `<div class="popularity-badge" title="${count} matches out of ${totalCount} total quizzes">
-                             <span class="pop-icon">👥</span> ${percentage}% 
+                             <span class="pop-icon">👥</span> ${percentage}% <span class="pop-divider">|</span> ${formattedCount}
                            </div>`
                         : '';
 

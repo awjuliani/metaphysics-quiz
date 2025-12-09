@@ -288,6 +288,12 @@ body.dark-mode .popularity-badge {
     font-size: 0.9rem;
 }
 
+.pop-divider {
+    opacity: 0.4;
+    font-weight: 300;
+    margin: 0 2px;
+}
+
 .text-btn {
     background: transparent;
     color: var(--text-muted);
