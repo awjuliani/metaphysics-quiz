@@ -62,6 +62,30 @@
                     Back to
                     Home</a>
             </div>
+            <!-- Commitment View Template (Hidden initially) -->
+            <div id="commitment-view" class="view hidden">
+                <div class="card question-card">
+                    <h2>Before we start...</h2>
+                    <p class="commitment-text">Do you already classify yourself as an adherent of a specific
+                        metaphysical system? If so, select it from the dropdown below. If not, you can skip this step
+                        and go straight to the quiz.</p>
+
+                    <div class="select-group" style="margin: 2rem 0; width: 100%;">
+                        <select id="commitment-select"
+                            style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--input-bg); color: var(--text-color); font-size: 1rem;">
+                            <option value="">Select your system (Optional)...</option>
+                            <!-- Options injected here -->
+                        </select>
+                    </div>
+
+                    <div class="navigation-controls" style="display: flex; gap: 1rem; justify-content: center;">
+                        <button id="skip-commitment-btn" class="btn primary-btn" style="width: 160px;">Skip</button>
+                        <button id="confirm-commitment-btn" class="btn primary-btn hidden" style="width: 160px;">Next
+                            &rarr;</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Quiz View Template (Hidden initially, shown by JS) -->
             <div id="quiz-view" class="view hidden">
                 <div class="progress-container">
@@ -96,6 +120,7 @@
                         <button id="show-top-btn" class="toggle-btn active">Top Match</button>
                         <button id="show-runner-up-btn" class="toggle-btn">Runner-Up</button>
                         <button id="show-worst-btn" class="toggle-btn">Worst Match</button>
+                        <button id="show-commitment-btn" class="toggle-btn hidden">Your Commitment</button>
                     </div>
 
                     <div class="result-header">

@@ -10,6 +10,7 @@ const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimensio
 // DOM Elements
 const views = {
     intro: document.getElementById('intro-view'),
+    commitment: document.getElementById('commitment-view'),
     quiz: document.getElementById('quiz-view'),
     results: document.getElementById('results-view')
 };
@@ -21,6 +22,10 @@ const nextBtn = document.getElementById('next-btn');
 const showTopBtn = document.getElementById('show-top-btn');
 const showRunnerUpBtn = document.getElementById('show-runner-up-btn');
 const showWorstBtn = document.getElementById('show-worst-btn');
+const showCommitmentBtn = document.getElementById('show-commitment-btn');
+const skippedCommitmentBtn = document.getElementById('skip-commitment-btn');
+const confirmCommitmentBtn = document.getElementById('confirm-commitment-btn');
+const commitmentSelect = document.getElementById('commitment-select');
 const resultToggleContainer = document.getElementById('result-toggle-container');
 const progressBar = document.getElementById('progress-bar');
 const dimensionLabel = document.getElementById('dimension-label');
@@ -33,6 +38,7 @@ const expandedModeToggle = document.getElementById('expanded-mode-toggle');
 let currentQuestionIndex = 0;
 let userAnswers = {};
 let isExpandedMode = false;
+let userCommitment = null;
 
 // Load data
 Promise.all([
@@ -60,7 +66,7 @@ Promise.all([
 
         // If we are on the quiz page (no intro view, but quiz view exists), start immediately
         if (!views.intro && views.quiz) {
-            startQuiz();
+            startQuizFlow();
         }
     })
     .catch(error => {
@@ -72,13 +78,17 @@ Promise.all([
     });
 
 // Event Listeners
-if (startBtn && startBtn.tagName === 'BUTTON') startBtn.addEventListener('click', startQuiz);
+if (startBtn && startBtn.tagName === 'BUTTON') startBtn.addEventListener('click', startQuizFlow);
+if (commitmentSelect) commitmentSelect.addEventListener('change', toggleCommitmentButtons);
+if (skippedCommitmentBtn) skippedCommitmentBtn.addEventListener('click', () => handleCommitment(false));
+if (confirmCommitmentBtn) confirmCommitmentBtn.addEventListener('click', () => handleCommitment(true));
 
 if (backBtn) backBtn.addEventListener('click', prevQuestion);
 if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
 if (showTopBtn) showTopBtn.addEventListener('click', () => toggleResultView('top'));
 if (showRunnerUpBtn) showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
 if (showWorstBtn) showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
+if (showCommitmentBtn) showCommitmentBtn.addEventListener('click', () => toggleResultView('commitment'));
 if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
 if (expandedModeToggle) expandedModeToggle.addEventListener('change', (e) => {
     isExpandedMode = e.target.checked;
@@ -122,6 +132,59 @@ function switchView(viewName) {
             views[viewName].classList.add('active');
         }, 10);
     }
+}
+
+function startQuizFlow() {
+    // Populate dropdown
+    if (commitmentSelect && systems.length > 0 && commitmentSelect.options.length <= 1) {
+        // Sort systems alphabetically
+        const sortedSystems = [...systems].map((s, i) => ({ name: s.name, index: i }))
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+        sortedSystems.forEach(sys => {
+            const option = document.createElement('option');
+            option.value = sys.index;
+            option.textContent = sys.name;
+            commitmentSelect.appendChild(option);
+        });
+    }
+
+    if (views.commitment) {
+        switchView('commitment');
+        toggleCommitmentButtons(); // specific check on load
+    } else {
+        startQuiz();
+    }
+}
+
+function toggleCommitmentButtons() {
+    if (!commitmentSelect || !confirmCommitmentBtn || !skippedCommitmentBtn) return;
+
+    if (commitmentSelect.value !== "") {
+        confirmCommitmentBtn.classList.remove('hidden');
+        skippedCommitmentBtn.classList.add('hidden');
+    } else {
+        confirmCommitmentBtn.classList.add('hidden');
+        skippedCommitmentBtn.classList.remove('hidden');
+    }
+}
+
+function handleCommitment(isConfirmed) {
+    if (isConfirmed) {
+        const val = commitmentSelect.value;
+        if (val !== "") {
+            userCommitment = parseInt(val);
+        } else {
+            // If they clicked next but nothing selected, treat as skip or alert? 
+            // Treating as skip for smoother UX, or we could require it.
+            // Let's require it if they click Next.
+            alert("Please select a system or click Skip.");
+            return;
+        }
+    } else {
+        userCommitment = null;
+    }
+    startQuiz();
 }
 
 function startQuiz() {
@@ -228,6 +291,7 @@ function selectOption(dimensionId, value) {
 let topMatchData = null;
 let runnerUpData = null;
 let worstMatchData = null;
+let commitmentMatchData = null;
 
 function calculateResult() {
     let scores = [];
@@ -268,8 +332,23 @@ function calculateResult() {
 
         const matchPercentage = Math.round((1 - totalManhattanDistance / MAX_MANHATTAN_DISTANCE) * 100);
 
+
+
         scores.push({ system, distance: totalManhattanDistance, matchPercentage, breakdown });
     });
+
+    // Handle Commitment Calculation
+    commitmentMatchData = null;
+    if (userCommitment !== null) {
+        // userCommitment is an index invalid if systems sorted? 
+        // Wait, earlier I mapped indices from unsorted source. 
+        // Correct way: The dropdown values are indices into the `systems` array.
+        const committedSystem = systems[userCommitment];
+        if (committedSystem) {
+            // We need to find the score object for this system
+            commitmentMatchData = scores.find(s => s.system === committedSystem);
+        }
+    }
 
     // Sort by distance (ascending), then alphabetically by name for ties
     scores.sort((a, b) => {
@@ -299,6 +378,17 @@ function calculateResult() {
 function showResult() {
     switchView('results');
     if (resultToggleContainer) resultToggleContainer.classList.remove('hidden');
+
+
+    // Show/Hide Commitment Button
+    if (showCommitmentBtn) {
+        if (commitmentMatchData) {
+            showCommitmentBtn.classList.remove('hidden');
+        } else {
+            showCommitmentBtn.classList.add('hidden');
+        }
+    }
+
     toggleResultView('top');
 }
 
@@ -308,25 +398,33 @@ function toggleResultView(viewType) {
     let data;
     if (viewType === 'top') data = topMatchData;
     else if (viewType === 'runner-up') data = runnerUpData;
+    else if (viewType === 'commitment') data = commitmentMatchData;
     else data = worstMatchData;
 
     const system = data.system;
 
     // Update Buttons
-    if (showTopBtn && showRunnerUpBtn && showWorstBtn) {
+    if (showTopBtn && showRunnerUpBtn && showWorstBtn && showCommitmentBtn) {
         if (viewType === 'top') {
             showTopBtn.classList.add('active');
             showRunnerUpBtn.classList.remove('active');
             showWorstBtn.classList.remove('active');
+            showCommitmentBtn.classList.remove('active');
         } else if (viewType === 'runner-up') {
             showTopBtn.classList.remove('active');
             showRunnerUpBtn.classList.add('active');
             showWorstBtn.classList.remove('active');
-        } else {
+            showCommitmentBtn.classList.remove('active');
+        } else if (viewType === 'commitment') {
             showTopBtn.classList.remove('active');
             showRunnerUpBtn.classList.remove('active');
             showWorstBtn.classList.remove('active');
+            showCommitmentBtn.classList.add('active');
+        } else {
+            showTopBtn.classList.remove('active');
+            showRunnerUpBtn.classList.remove('active');
             showWorstBtn.classList.add('active');
+            showCommitmentBtn.classList.remove('active');
         }
     }
 
