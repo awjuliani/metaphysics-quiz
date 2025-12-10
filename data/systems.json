@@ -54,7 +54,7 @@
         "primary_source": "Meditations by Marcus Aurelius",
         "profile": {
             "ontology": "Physicalism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Rhythmic",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -102,7 +102,7 @@
         "primary_source": "The Shiva Sutras",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Rhythmic",
             "teleology": "Expressive",
             "manifestation": "Realism",
@@ -118,7 +118,7 @@
         "primary_source": "The Lankavatara Sutra",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -166,7 +166,7 @@
         "primary_source": "Tao Te Ching by Laozi",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Holographic",
+            "topology": "Indeterminate",
             "dynamics": "Rhythmic",
             "teleology": "Expressive",
             "manifestation": "Realism",
@@ -198,7 +198,7 @@
         "primary_source": "The Phenomenon of Man by Pierre Teilhard de Chardin",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Flowing",
             "teleology": "Evolutionary",
             "manifestation": "Realism",
@@ -214,7 +214,7 @@
         "primary_source": "Mulamadhyamakakarika by Nagarjuna",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Void",
+            "topology": "Indeterminate",
             "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Relationalism",
@@ -229,9 +229,9 @@
         "wiki": "https://en.wikipedia.org/wiki/Animism",
         "primary_source": "The Spell of the Sensuous by David Abram",
         "profile": {
-            "ontology": "Neutral Monism",
+            "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Flowing",
+            "dynamics": "Rhythmic",
             "teleology": "Expressive",
             "manifestation": "Realism",
             "character": "Personal",
@@ -278,7 +278,7 @@
         "primary_source": "Difference and Repetition by Gilles Deleuze",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Holographic",
+            "topology": "Pluralism",
             "dynamics": "Flowing",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -294,7 +294,7 @@
         "primary_source": "The Enneads by Plotinus",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -310,7 +310,7 @@
         "primary_source": "The Nag Hammadi Scriptures",
         "profile": {
             "ontology": "Dualism",
-            "topology": "Pluralism",
+            "topology": "Emanationism",
             "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Illusionism",
@@ -374,7 +374,7 @@
         "primary_source": "Avatamsaka Sutra",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Relationalism",
@@ -390,7 +390,7 @@
         "primary_source": "Sri Bhashya by Ramanuja",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Rhythmic",
             "teleology": "Teleological",
             "manifestation": "Realism",
@@ -438,7 +438,7 @@
         "primary_source": "Wholeness and the Implicate Order by David Bohm",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Flowing",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
@@ -454,7 +454,7 @@
         "primary_source": "Phenomenology of Spirit by G.W.F. Hegel",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Holographic",
+            "topology": "Emanationism",
             "dynamics": "Flowing",
             "teleology": "Evolutionary",
             "manifestation": "Constructivism",
@@ -470,7 +470,7 @@
         "primary_source": "Vibrant Matter by Jane Bennett",
         "profile": {
             "ontology": "Physicalism",
-            "topology": "Holographic",
+            "topology": "Pluralism",
             "dynamics": "Flowing",
             "teleology": "Expressive",
             "manifestation": "Realism",

@@ -22,7 +22,7 @@ def main():
         "--algo",
         type=str,
         choices=["mds", "tsne"],
-        default="tsne",
+        default="mds",
         help="Dimensionality reduction algorithm to use (mds or tsne)",
     )
     parser.add_argument(
