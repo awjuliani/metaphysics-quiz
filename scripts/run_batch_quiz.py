@@ -20,7 +20,7 @@ def main():
     parser.add_argument(
         "--models", default="models.txt", help="File containing list of models"
     )
-    parser.add_argument("--n", type=int, default=25, help="Number of runs per model")
+    parser.add_argument("--n", type=int, default=20, help="Number of runs per model")
     parser.add_argument(
         "--output", default="batch_results.json", help="Output JSON file"
     )
@@ -153,10 +153,11 @@ def main():
             print(f"  No successful runs for {model}")
 
     # Save results
-    with open(args.output, "w") as f:
+    output_path = os.path.join(data_dir, args.output)
+    with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
 
-    print(f"\nBatch execution complete. Results saved to {args.output}")
+    print(f"\nBatch execution complete. Results saved to {output_path}")
 
 
 if __name__ == "__main__":
