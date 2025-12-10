@@ -52,11 +52,30 @@
         </header>
 
         <main id="explore-content">
-            <div class="navigation-top">
+            <div class="navigation-top" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                 <a href="index.html" class="btn primary-btn"
-                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 2rem; text-decoration: none;">&larr;
+                    style="display: inline-block; width: auto; margin-top: 0; margin-bottom: 0; text-decoration: none;">&larr;
                     Back to
                     Home</a>
+                <div class="sort-toggle">
+                    <button id="sort-alpha" class="sort-btn active" title="Sort alphabetically">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h7"></path>
+                            <path d="M3 12h10"></path>
+                            <path d="M3 18h13"></path>
+                        </svg>
+                        A-Z
+                    </button>
+                    <button id="sort-popular" class="sort-btn" title="Sort by popularity">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Popular
+                    </button>
+                </div>
             </div>
 
             <div id="systems-grid" class="systems-grid">
@@ -76,71 +95,100 @@
         // Theme is handled by js/theme.js (auto-initializes on load)
         setupThemeToggle();
 
+        // Store systems and stats globally for re-sorting
+        let allSystems = [];
+        let systemStats = {};
+        let totalCount = 0;
+        let currentSort = 'alpha'; // Default to alphabetical
+
+        // Render systems to the grid
+        function renderSystems(systems) {
+            const grid = document.getElementById('systems-grid');
+            grid.innerHTML = '';
+
+            systems.forEach(system => {
+                const card = document.createElement('div');
+                card.className = 'card system-card';
+                const systemId = getSystemSlug(system.name);
+                card.id = systemId;
+
+                const popularityHtml = getPopularityHtml(system.name, systemStats, totalCount);
+
+                const profileKeys = Object.keys(system.profile);
+                const metaHtml = profileKeys.map(key => `
+                    <div class="meta-item">
+                        <span class="label">${key}</span>
+                        <a href="dimensions.html#${key}" class="value dimension-link">${system.profile[key]}</a>
+                    </div>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="card-header-flex" style="display: flex; justify-content: space-between; align-items: start;">
+                        <h2>${system.name}</h2>
+                        ${popularityHtml}
+                    </div>
+                    <p class="system-description">${system.description}</p>
+                    <div class="system-links">
+                        <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>
+                        ${system.primary_source ? `<div class="primary-source"><span class="source-label">📖 Recommended:</span> <em class="source-text">${system.primary_source}</em></div>` : ''}
+                    </div>
+                    <div class="system-meta">
+                        ${metaHtml}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Sort and render systems
+        function sortSystems(sortType) {
+            currentSort = sortType;
+            const sorted = [...allSystems];
+
+            if (sortType === 'alpha') {
+                sorted.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortType === 'popular') {
+                sorted.sort((a, b) => {
+                    const countA = systemStats[a.name] || 0;
+                    const countB = systemStats[b.name] || 0;
+                    return countB - countA; // Descending by popularity
+                });
+            }
+
+            renderSystems(sorted);
+
+            // Update button states
+            document.getElementById('sort-alpha').classList.toggle('active', sortType === 'alpha');
+            document.getElementById('sort-popular').classList.toggle('active', sortType === 'popular');
+        }
+
         // Load Systems
         async function loadSystems() {
             try {
-                // Fetch data in parallel
                 const [systemsResponse, stats] = await Promise.all([
                     fetch('data/systems.json'),
                     getSystemStats()
                 ]);
 
-                const systems = await systemsResponse.json();
+                allSystems = await systemsResponse.json();
+                systemStats = stats;
+                totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
 
-                // Calculate total quizzes taken
-                const totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
+                // Initial sort (alphabetical)
+                sortSystems('alpha');
 
-                // Sort systems alphabetically by name
-                systems.sort((a, b) => a.name.localeCompare(b.name));
-
-                const grid = document.getElementById('systems-grid');
-
-                systems.forEach(system => {
-                    const card = document.createElement('div');
-                    card.className = 'card system-card';
-                    // Create an ID for anchoring using shared utility
-                    const systemId = getSystemSlug(system.name);
-                    card.id = systemId;
-
-                    // Get popularity badge using shared utility
-                    const popularityHtml = getPopularityHtml(system.name, stats, totalCount);
-
-                    // Generate meta items for all profile keys
-                    const profileKeys = Object.keys(system.profile);
-                    const metaHtml = profileKeys.map(key => `
-                        <div class="meta-item">
-                            <span class="label">${key}</span>
-                            <a href="dimensions.html#${key}" class="value dimension-link">${system.profile[key]}</a>
-                        </div>
-                    `).join('');
-
-                    card.innerHTML = `
-                        <div class="card-header-flex" style="display: flex; justify-content: space-between; align-items: start;">
-                            <h2>${system.name}</h2>
-                            ${popularityHtml}
-                        </div>
-                        <p class="system-description">${system.description}</p>
-                        <div class="system-links">
-                            <a href="${system.wiki}" target="_blank" class="wiki-link">Read on Wikipedia &rarr;</a>
-                            ${system.primary_source ? `<div class="primary-source"><span class="source-label">📖 Recommended:</span> <em class="source-text">${system.primary_source}</em></div>` : ''}
-                        </div>
-                        <div class="system-meta">
-                            ${metaHtml}
-                        </div>
-                    `;
-
-                    grid.appendChild(card);
-                });
+                // Set up sort button listeners
+                document.getElementById('sort-alpha').addEventListener('click', () => sortSystems('alpha'));
+                document.getElementById('sort-popular').addEventListener('click', () => sortSystems('popular'));
 
                 // Check for hash and scroll to it
                 if (window.location.hash) {
                     const id = window.location.hash.substring(1);
                     const element = document.getElementById(id);
                     if (element) {
-                        // Small timeout to ensure layout is complete
                         setTimeout(() => {
                             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            // Optional: Highlight the card temporarily
                             element.style.borderColor = 'var(--primary-color)';
                             element.style.boxShadow = '0 0 0 2px var(--primary-color)';
                             setTimeout(() => {
