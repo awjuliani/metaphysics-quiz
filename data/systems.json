@@ -28,7 +28,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -44,7 +44,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -76,7 +76,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -92,7 +92,7 @@
             "manifestation": "Illusionism",
             "character": "Ineffable",
             "divinity": "Panentheism",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -108,7 +108,7 @@
             "manifestation": "Realism",
             "character": "Archetypal",
             "divinity": "Panentheism",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -124,7 +124,7 @@
             "manifestation": "Constructivism",
             "character": "Ineffable",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -172,7 +172,7 @@
             "manifestation": "Realism",
             "character": "Ineffable",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -220,7 +220,7 @@
             "manifestation": "Relationalism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -284,7 +284,7 @@
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -364,7 +364,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -412,7 +412,7 @@
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Transcendent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -476,7 +476,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -492,7 +492,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Transcendent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -508,7 +508,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -524,7 +524,7 @@
             "manifestation": "Illusionism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     },
     {
@@ -540,7 +540,7 @@
             "manifestation": "Constructivism",
             "divinity": "Naturalist",
             "character": "Impersonal",
-            "axiology": "Neutral"
+            "axiology": "Amoral"
         }
     }
 ]
