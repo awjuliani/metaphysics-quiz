@@ -1438,6 +1438,16 @@ body.dark-mode .system-card:hover {
     color: var(--text-main);
 }
 
+.meta-item a.dimension-link {
+    text-decoration: none;
+    color: var(--text-main);
+    transition: color 0.2s;
+}
+
+.meta-item a.dimension-link:hover {
+    color: var(--primary-color);
+}
+
 .system-card .wiki-link {
     margin-bottom: 1rem;
     align-self: flex-start;

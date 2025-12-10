@@ -146,7 +146,7 @@
                     const metaHtml = profileKeys.map(key => `
                         <div class="meta-item">
                             <span class="label">${key}</span>
-                            <span class="value">${system.profile[key]}</span>
+                            <a href="dimensions.html#${key}" class="value dimension-link">${system.profile[key]}</a>
                         </div>
                     `).join('');
 
