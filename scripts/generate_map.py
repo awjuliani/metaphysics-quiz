@@ -22,13 +22,13 @@ def main():
         "--algo",
         type=str,
         choices=["mds", "tsne"],
-        default="mds",
+        default="tsne",
         help="Dimensionality reduction algorithm to use (mds or tsne)",
     )
     parser.add_argument(
         "--perplexity",
         type=float,
-        default=15.0,
+        default=10.0,
         help="Perplexity for t-SNE (recommended < n_samples)",
     )
     parser.add_argument(

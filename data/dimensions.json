@@ -86,28 +86,28 @@
     {
         "id": "teleology",
         "label": "Teleology",
-        "question": "Is there a purpose or direction to reality?",
-        "expanded_question": "Does the universe have a specific plan or a goal it is moving toward, or does it operate without an intended destination?",
+        "question": "What drives the movement of reality?",
+        "expanded_question": "Is the universe driven by a fixed plan, a blind force, an internal striving, or a spontaneous flow?",
         "options": [
             {
-                "label": "No. It operates blindly according to algorithms, physical laws, or cause-and-effect.",
-                "value": "Mechanistic",
-                "expanded_label": "There is no higher plan. The universe runs according to mechanical laws or cause-and-effect, without any inherent goal."
-            },
-            {
-                "label": "Yes. It is guided by a specific purpose, goal, or divine destiny.",
+                "label": "Reality is drawn by a fixed design or divine plan.",
                 "value": "Teleological",
-                "expanded_label": "Yes, there is a specific direction or destiny the universe is moving toward, driven by a purpose or design."
+                "expanded_label": "The universe operates on 'final causes'—a pre-existing blueprint or future destination that pulls reality toward a specific conclusion."
             },
             {
-                "label": "It is an unfolding of potential. It has intrinsic direction, but no fixed external destination.",
+                "label": "Reality flows from its own intrinsic nature.",
                 "value": "Expressive",
-                "expanded_label": "The universe is the continuous expression or actualization of its own nature. It moves with meaning and creativity, but it is not marching toward a pre-written finish line."
+                "expanded_label": "The universe is not working toward a goal (Teleology) nor blind (Mechanism). It acts out of the sheer necessity or joy of its own existence (Spontaneity/Lila)."
             },
             {
-                "label": "It operates beyond human concepts of purpose, accident, or intent.",
-                "value": "Trans-intentional",
-                "expanded_label": "The universe operates in a way that is too complex or alien for human concepts like 'purpose' or 'accident' to describe."
+                "label": "Reality strives toward goals it creates itself.",
+                "value": "Evolutionary",
+                "expanded_label": "The universe is an internal striving (Expressive) toward novelty and growth (Teleological). Purpose is not a pre-written script but a direction that emerges as the universe evolves."
+            },
+            {
+                "label": "Reality is driven by blind physical laws.",
+                "value": "Mechanistic",
+                "expanded_label": "The universe has neither internal nature nor future purpose. It is driven by blind 'efficient causes'—past events pushing the present forward according to external laws."
             }
         ]
     },
