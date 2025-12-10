@@ -9,10 +9,13 @@ This interactive quiz maps your beliefs across fundamental metaphysical question
 -   **8 Fundamental Dimensions**: Explore your stance on Ontology, Topology, Dynamics, Teleology, Manifestation, Divinity, Character, and Axiology.
 -   **System Matching**: Compare your profile against 17 major philosophical systems, including Stoicism, Spinozism, Advaita Vedanta, Scientific Materialism, and more.
 -   **Detailed Breakdown**: See exactly where you align and diverge with your top match and runner-up.
--   **Runner-Up Feature**: View your second-best match to see alternative perspectives that are close to your own.
+-   **Commitment Selection**: Optional pre-quiz step to see how your results compare to a system you already identify with.
+-   **LLM Preferences**: See how major AI models (like GPT-4, Claude 3, Gemini) answer the quiz and align with different metaphysical systems.
+-   **Community Contribution**: A dedicated "Improve the Taxonomy" page where you can help refine the system classifications.
 -   **Explore Page**: Browse all systems with detailed breakdowns, including primary source recommendations and Wikipedia links.
 -   **Compare Page**: Select any two systems to see a side-by-side comparison of their dimensional values.
 -   **Map Visualization**: View a 2D projection of the metaphysical landscape to see how systems cluster together.
+-   **Social Sharing**: Share your results on X (Twitter), BlueSky, Threads, Facebook, Reddit, and LinkedIn with a custom generated image.
 -   **Dark Mode**: Toggle between light and dark themes for comfortable viewing.
 -   **Responsive Design**: Works seamlessly on desktop and mobile devices.
 
@@ -46,7 +49,13 @@ Then open the URL shown in the terminal (usually [http://127.0.0.1:8080](http://
 
 ```
 metaphysics-quiz/
-├── index.html, quiz.html, etc.   # HTML pages (root for GitHub Pages)
+├── index.html                    # Landing page
+├── quiz.html                     # Main quiz interface
+├── explore.html                  # Browse systems
+├── compare.html                  # Compare two systems
+├── map.html                      # 2D visualization of systems
+├── improve.html                  # Contribution page
+├── llm_results.html              # AI model preferences
 ├── css/                          # Stylesheets
 ├── js/                           # Client-side JavaScript
 ├── data/                         # JSON data files
@@ -57,7 +66,7 @@ metaphysics-quiz/
 └── scripts/                      # Python backend tools
     ├── generate_map.py           # Generate map coordinates
     ├── quiz_llm.py               # Run quiz on LLMs
-    └── run_batch_quiz.py         # Batch LLM testing
+    └── run_batch_quiz.py         # Batch LLM testing (outputs to data/)
 ```
 
 ## Regenerating the Map
