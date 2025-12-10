@@ -7,7 +7,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -39,7 +39,7 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Strict Monism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Expressive",
             "manifestation": "Realism",
             "character": "Impersonal",
@@ -87,7 +87,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Strict Monism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Expressive",
             "manifestation": "Illusionism",
             "character": "Ineffable",
@@ -151,7 +151,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Illusionism",
             "character": "Impersonal",
@@ -183,7 +183,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -263,7 +263,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Personal",
@@ -295,7 +295,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Emanationism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Ineffable",
@@ -407,7 +407,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Impersonal",
@@ -423,7 +423,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Personal",
@@ -519,7 +519,7 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Strict Monism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Expressive",
             "manifestation": "Illusionism",
             "character": "Impersonal",
@@ -535,7 +535,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Strict Monism",
-            "dynamics": "Static",
+            "dynamics": "Eternal",
             "teleology": "Mechanistic",
             "manifestation": "Constructivism",
             "divinity": "Naturalist",

@@ -63,7 +63,7 @@
         "options": [
             {
                 "label": "Reality IS. It is eternal, unchanging, and perfect.",
-                "value": "Static",
+                "value": "Eternal",
                 "expanded_label": "The true reality never changes. The movement we see is just surface-level; deep down, everything is perfect, still, and timeless."
             },
             {
@@ -128,7 +128,7 @@
                 "expanded_label": "The world we see is a deception or a dream-like appearance. It veils the true reality rather than revealing it."
             },
             {
-                "label": "Reality is a co-creation between the external world and our cognitive structures.",
+                "label": "Reality is a co-creation between the external world and our minds.",
                 "value": "Constructivism",
                 "expanded_label": "We participate in shaping our reality. The world interacts with our minds to construct our experience, rather than our minds simply mirroring the world."
             },
