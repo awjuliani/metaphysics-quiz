@@ -355,6 +355,119 @@ body.dark-mode .intro-card {
     margin: 0 auto;
 }
 
+/* Homepage CTA Button */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.cta-btn:hover {
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Navigation Groups */
+.nav-groups {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-group {
+    text-align: left;
+}
+
+.nav-group-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    border-color: var(--primary-color);
+    background: white;
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .nav-link {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+}
+
+body.dark-mode .nav-icon {
+    background: var(--card-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.nav-link-title {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.nav-link-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Tetralemma Diagram */
+.tetralemma-diagram {
+    color: var(--text-muted);
+}
+
 .navigation-controls {
     display: flex;
     justify-content: flex-start;
