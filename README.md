@@ -107,4 +107,4 @@ If you find issues with any of the entries, disagree with a classification, or w
 
 ## Credits
 
-Developed by Arthur Juliani.
+Conceptualized and developed by Arthur Juliani (@awjuliani). Special thanks to @taylorlapeyre for his valuable insights and suggestions during the iterative refinement of the taxonomy.
