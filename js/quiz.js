@@ -1,11 +1,6 @@
-// Data will be loaded from JSON files
-let dimensions = [];
-let systems = [];
-
-// Tetralemma encoding vectors: maps option index to 2D representation
-// Index 0: [1, 0], Index 1: [0, 1], Index 2: [1, 1], Index 3: [0, 0]
-const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
-const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
+// Quiz Logic Module
+// Note: Requires data-loader.js to be loaded first (provides dimensions, systems globals)
+// Note: TETRALEMMA_VECTORS and MAX_MANHATTAN_DISTANCE are in js/distance-calc.js
 
 // DOM Elements
 const views = {
@@ -40,25 +35,10 @@ let userAnswers = {};
 let isExpandedMode = false;
 let userCommitment = null;
 
-// Load data
-Promise.all([
-    fetch('data/dimensions.json').then(response => response.json()),
-    fetch('data/systems.json').then(response => response.json())
-])
-    .then(([dimensionsData, systemsData]) => {
-        dimensions = dimensionsData;
-        systems = systemsData;
-
-        // Update dimension counts in UI
-        document.querySelectorAll('.dimension-count').forEach(el => {
-            el.textContent = dimensions.length;
-        });
-
-        // Update system counts in UI
-        document.querySelectorAll('.system-count').forEach(el => {
-            el.textContent = systems.length;
-        });
-
+// Load data using shared data-loader
+initDataLoader(
+    // Success callback
+    () => {
         if (startBtn && startBtn.tagName === 'BUTTON') {
             startBtn.disabled = false;
             startBtn.textContent = "Start the Quiz";
@@ -68,14 +48,15 @@ Promise.all([
         if (!views.intro && views.quiz) {
             startQuizFlow();
         }
-    })
-    .catch(error => {
-        console.error('Error loading data:', error);
+    },
+    // Error callback
+    (error) => {
         if (startBtn && startBtn.tagName === 'BUTTON') {
             startBtn.textContent = "Error loading data. Please run a local server.";
             startBtn.disabled = true;
         }
-    });
+    }
+);
 
 // Event Listeners
 if (startBtn && startBtn.tagName === 'BUTTON') startBtn.addEventListener('click', startQuizFlow);
@@ -89,30 +70,16 @@ if (showTopBtn) showTopBtn.addEventListener('click', () => toggleResultView('top
 if (showRunnerUpBtn) showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
 if (showWorstBtn) showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
 if (showCommitmentBtn) showCommitmentBtn.addEventListener('click', () => toggleResultView('commitment'));
-if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+// Theme toggle is now handled by js/theme.js via setupThemeToggle()
+setupThemeToggle();
 if (expandedModeToggle) expandedModeToggle.addEventListener('change', (e) => {
     isExpandedMode = e.target.checked;
     renderQuestion();
 });
 
-// Theme Logic
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.body.classList.add('dark-mode');
-        document.documentElement.classList.add('dark-mode');
-    }
-}
-
-function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    document.documentElement.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-// Initialize Theme
-initTheme();
+// Theme initialization and toggle are now handled by js/theme.js
+// initTheme() is called automatically when theme.js loads
+// setupThemeToggle() is called above in the event listeners section;
 
 function switchView(viewName) {
     // If views don't exist (e.g. we are on a page that doesn't have them), do nothing or handle gracefully

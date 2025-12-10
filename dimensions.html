@@ -196,29 +196,11 @@
         </footer>
     </div>
 
+    <script src="js/theme.js"></script>
+    <script src="js/utils.js"></script>
     <script>
-        // Theme Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            document.documentElement.classList.add('dark-mode');
-        } else if (savedTheme === 'light') {
-            body.classList.remove('dark-mode');
-            document.documentElement.classList.remove('dark-mode');
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            body.classList.add('dark-mode');
-            document.documentElement.classList.add('dark-mode');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            document.documentElement.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
+        // Theme is handled by js/theme.js (auto-initializes on load)
+        setupThemeToggle();
 
         // Load Dimensions and Systems
         async function loadData() {
@@ -246,7 +228,7 @@
                         // Find matching systems for this option
                         const matchingSystems = systems.filter(sys => sys.profile[dim.id] === opt.value);
                         const systemLinks = matchingSystems.map(sys => {
-                            const systemId = sys.name.toLowerCase().replace(/\s+/g, '-');
+                            const systemId = getSystemSlug(sys.name);
                             return `<a href="explore.html#${systemId}" class="dim-system-link">${sys.name}</a>`;
                         }).join('');
 

@@ -70,31 +70,11 @@
         </footer>
     </div>
 
+    <script src="js/theme.js"></script>
+    <script src="js/utils.js"></script>
     <script>
-        // Theme Toggle Logic (copied from script.js for consistency)
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            document.documentElement.classList.add('dark-mode');
-        } else if (savedTheme === 'light') {
-            body.classList.remove('dark-mode');
-            document.documentElement.classList.remove('dark-mode');
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            // Default to dark mode if system preference is dark
-            body.classList.add('dark-mode');
-            document.documentElement.classList.add('dark-mode');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            document.documentElement.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
+        // Theme is handled by js/theme.js (auto-initializes on load)
+        setupThemeToggle();
 
         // Load Systems
         async function loadSystems() {
@@ -118,28 +98,12 @@
                 systems.forEach(system => {
                     const card = document.createElement('div');
                     card.className = 'card system-card';
-                    // Create an ID for anchoring
-                    const systemId = system.name.toLowerCase().replace(/\s+/g, '-');
+                    // Create an ID for anchoring using shared utility
+                    const systemId = getSystemSlug(system.name);
                     card.id = systemId;
 
-                    // Calculate popularity metric
-                    const count = stats[system.name] || 0;
-                    const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
-
-                    // Format count abbreviation (e.g., 1.2k)
-                    let formattedCount = count;
-                    if (count >= 1000000) {
-                        formattedCount = (count / 1000000).toFixed(1) + 'M';
-                    } else if (count >= 1000) {
-                        formattedCount = (count / 1000).toFixed(1) + 'k';
-                    }
-
-                    // Only show if there's significant data (e.g., > 0)
-                    const popularityHtml = totalCount > 0
-                        ? `<div class="popularity-badge" title="${count} matches out of ${totalCount} total quizzes">
-                             <span class="pop-icon">👥</span> ${percentage}% <span class="pop-divider">|</span> ${formattedCount}
-                           </div>`
-                        : '';
+                    // Get popularity badge using shared utility
+                    const popularityHtml = getPopularityHtml(system.name, stats, totalCount);
 
                     // Generate meta items for all profile keys
                     const profileKeys = Object.keys(system.profile);

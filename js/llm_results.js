@@ -1,21 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        body.classList.add('dark-mode');
-        document.documentElement.classList.add('dark-mode');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        document.documentElement.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    });
+    // Theme is handled by js/theme.js (auto-initializes on load)
+    setupThemeToggle();
 
     // Tooltip Logic
     const tooltip = document.getElementById('tooltip');
@@ -58,40 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return Math.sqrt(avgSquaredDiff);
     }
 
-    // Similarity Calculation Logic
-    const TETRALEMMA_VECTORS = [[1, 0], [0, 1], [1, 1], [0, 0]];
-    const MAX_MANHATTAN_DISTANCE = 16; // 8 dimensions * 2 max distance per dimension
-
-    function getOptionIndex(dimensionId, value, dimensionsData) {
-        const dim = dimensionsData.find(d => d.id === dimensionId);
-        if (!dim) return -1;
-        return dim.options.findIndex(o => o.value === value);
-    }
-
-    function getDimensionDistance(dim1Value, dim2Value, dimensionId, dimensionsData) {
-        const idx1 = getOptionIndex(dimensionId, dim1Value, dimensionsData);
-        const idx2 = getOptionIndex(dimensionId, dim2Value, dimensionsData);
-
-        if (idx1 < 0 || idx2 < 0) return 0;
-
-        const vec1 = TETRALEMMA_VECTORS[idx1];
-        const vec2 = TETRALEMMA_VECTORS[idx2];
-
-        // Manhattan distance
-        return Math.abs(vec1[0] - vec2[0]) + Math.abs(vec1[1] - vec2[1]);
-    }
-
-    function calculateTotalDistance(sys1, sys2, dimensionsData) {
-        let totalManhattanDistance = 0;
-        // Assuming profiles have same keys
-        const profileKeys = Object.keys(sys1.profile);
-
-        profileKeys.forEach(key => {
-            totalManhattanDistance += getDimensionDistance(sys1.profile[key], sys2.profile[key], key, dimensionsData);
-        });
-
-        return totalManhattanDistance;
-    }
+    // Similarity Calculation Logic is now in js/distance-calc.js
+    // Uses: TETRALEMMA_VECTORS, MAX_MANHATTAN_DISTANCE, getOptionIndex,
+    //       getDimensionDistance, calculateTotalDistance
 
     // Fetch and display LLM data
     Promise.all([
