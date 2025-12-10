@@ -7,7 +7,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -23,12 +23,12 @@
         "profile": {
             "ontology": "Physicalism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Indifferent"
+            "axiology": "Neutral"
         }
     },
     {
@@ -44,7 +44,7 @@
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -54,8 +54,8 @@
         "primary_source": "Meditations by Marcus Aurelius",
         "profile": {
             "ontology": "Physicalism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Rhythmic",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Impersonal",
@@ -71,12 +71,12 @@
         "profile": {
             "ontology": "Physicalism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Indifferent"
+            "axiology": "Neutral"
         }
     },
     {
@@ -90,9 +90,9 @@
             "dynamics": "Static",
             "teleology": "Trans-intentional",
             "manifestation": "Illusionism",
-            "character": "Trans-personal",
+            "character": "Ineffable",
             "divinity": "Panentheism",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -102,13 +102,13 @@
         "primary_source": "The Shiva Sutras",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Rhythmic",
             "teleology": "Expressive",
             "manifestation": "Realism",
-            "character": "Supra-personal",
+            "character": "Archetypal",
             "divinity": "Panentheism",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -118,13 +118,13 @@
         "primary_source": "The Lankavatara Sutra",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Process",
+            "topology": "Holographic",
+            "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
-            "character": "Trans-personal",
+            "character": "Ineffable",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -135,10 +135,10 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
-            "character": "Supra-personal",
+            "character": "Archetypal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
@@ -166,13 +166,13 @@
         "primary_source": "Tao Te Ching by Laozi",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Rhythmic",
             "teleology": "Trans-intentional",
             "manifestation": "Realism",
-            "character": "Trans-personal",
+            "character": "Ineffable",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -183,7 +183,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -193,16 +193,16 @@
     },
     {
         "name": "Evolutionary Theism",
-        "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a process of \"Cosmogenesis\"—a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
+        "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a Flowing of \"Cosmogenesis\"—a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
         "wiki": "https://en.wikipedia.org/wiki/Pierre_Teilhard_de_Chardin#The_Omega_Point",
         "primary_source": "The Phenomenon of Man by Pierre Teilhard de Chardin",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Realism",
-            "character": "Supra-personal",
+            "character": "Archetypal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
@@ -214,13 +214,13 @@
         "primary_source": "Mulamadhyamakakarika by Nagarjuna",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Radical Non-Dualism",
-            "dynamics": "Process",
+            "topology": "Void",
+            "dynamics": "Flowing",
             "teleology": "Trans-intentional",
             "manifestation": "Relationalism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -231,7 +231,7 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -247,7 +247,7 @@
         "profile": {
             "ontology": "Physicalism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Impersonal",
@@ -263,7 +263,7 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Personal",
@@ -278,13 +278,13 @@
         "primary_source": "Difference and Repetition by Gilles Deleuze",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Process",
+            "topology": "Holographic",
+            "dynamics": "Flowing",
             "teleology": "Trans-intentional",
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -294,11 +294,11 @@
         "primary_source": "The Enneads by Plotinus",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Realism",
-            "character": "Trans-personal",
+            "character": "Ineffable",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
@@ -311,12 +311,12 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Illusionism",
-            "character": "Supra-personal",
+            "character": "Archetypal",
             "divinity": "Transcendent",
-            "axiology": "Conflictual"
+            "axiology": "Deficient"
         }
     },
     {
@@ -327,12 +327,12 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Strict Monism",
-            "dynamics": "Integrative",
+            "dynamics": "Rhythmic",
             "teleology": "Mechanistic",
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Indifferent"
+            "axiology": "Deficient"
         }
     },
     {
@@ -343,7 +343,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -359,12 +359,12 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Momentary",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Indifferent"
+            "axiology": "Neutral"
         }
     },
     {
@@ -374,11 +374,11 @@
         "primary_source": "Avatamsaka Sutra",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Radical Non-Dualism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Momentary",
             "teleology": "Expressive",
             "manifestation": "Relationalism",
-            "character": "Trans-personal",
+            "character": "Ineffable",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
@@ -390,8 +390,8 @@
         "primary_source": "Sri Bhashya by Ramanuja",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Integrative",
+            "topology": "Holographic",
+            "dynamics": "Rhythmic",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Personal",
@@ -407,12 +407,12 @@
         "profile": {
             "ontology": "Idealism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Static",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
             "character": "Impersonal",
             "divinity": "Transcendent",
-            "axiology": "Indifferent"
+            "axiology": "Neutral"
         }
     },
     {
@@ -423,7 +423,7 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Integrative",
+            "dynamics": "Static",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Personal",
@@ -438,8 +438,8 @@
         "primary_source": "Wholeness and the Implicate Order by David Bohm",
         "profile": {
             "ontology": "Neutral Monism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Process",
+            "topology": "Holographic",
+            "dynamics": "Flowing",
             "teleology": "Expressive",
             "manifestation": "Constructivism",
             "character": "Impersonal",
@@ -454,11 +454,11 @@
         "primary_source": "Phenomenology of Spirit by G.W.F. Hegel",
         "profile": {
             "ontology": "Idealism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Process",
+            "topology": "Holographic",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Constructivism",
-            "character": "Supra-personal",
+            "character": "Archetypal",
             "divinity": "Panentheism",
             "axiology": "Benevolent"
         }
@@ -470,13 +470,13 @@
         "primary_source": "Vibrant Matter by Jane Bennett",
         "profile": {
             "ontology": "Physicalism",
-            "topology": "Differentiated Monism",
-            "dynamics": "Process",
+            "topology": "Holographic",
+            "dynamics": "Flowing",
             "teleology": "Expressive",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -487,12 +487,12 @@
         "profile": {
             "ontology": "Dualism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Teleological",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Transcendent",
-            "axiology": "Indifferent"
+            "axiology": "Neutral"
         }
     },
     {
@@ -503,12 +503,12 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Pluralism",
-            "dynamics": "Process",
+            "dynamics": "Flowing",
             "teleology": "Mechanistic",
             "manifestation": "Realism",
             "character": "Impersonal",
             "divinity": "Naturalist",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
         }
     },
     {
@@ -519,12 +519,28 @@
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Strict Monism",
-            "dynamics": "Trans-Temporal",
+            "dynamics": "Static",
             "teleology": "Trans-intentional",
             "manifestation": "Illusionism",
             "character": "Impersonal",
             "divinity": "Immanent",
-            "axiology": "Trans-Moral"
+            "axiology": "Neutral"
+        }
+    },
+    {
+        "name": "Zero Ontology",
+        "description": "A metaphysical framework proposed by David Pearce, also known as 'Non-Materialist Physicalism' or 'Constitutive Panpsychism'. It posits that the universe is a single, timeless quantum superposition whose total conserved properties (mass, charge, angular momentum) sum to exactly zero. While it accepts the structural descriptions of physics, it argues that the intrinsic nature of the physical is qualia (consciousness). The world we perceive is a user-illusion or virtual reality constructed by the brain to track fitness-relevant patterns.",
+        "wiki": "https://www.hedweb.com/on-physicalism.html",
+        "primary_source": "The Hedonistic Imperative by David Pearce",
+        "profile": {
+            "ontology": "Idealism",
+            "topology": "Strict Monism",
+            "dynamics": "Static",
+            "teleology": "Mechanistic",
+            "manifestation": "Constructivism",
+            "divinity": "Naturalist",
+            "character": "Impersonal",
+            "axiology": "Neutral"
         }
     }
 ]

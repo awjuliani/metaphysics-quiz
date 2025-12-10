@@ -44,14 +44,14 @@
                 "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not just temporary parts of a larger whole."
             },
             {
-                "label": "Reality is a unified Whole that expresses itself as Many distinct forms without losing its unity.",
-                "value": "Differentiated Monism",
-                "expanded_label": "Reality is one interconnected whole. However, the distinct forms within it (like us) are real expressions of that whole, not just illusions."
+                "label": "Reality is a unified network where the Whole is fully present in every Part.",
+                "value": "Holographic",
+                "expanded_label": "Reality is a unified network where the Whole is fully present in every Part. Diversity and Unity are mutually encompassing phenomena."
             },
             {
-                "label": "Reality is \"Not-Two.\" It transcends the concepts of both One and Many.",
-                "value": "Radical Non-Dualism",
-                "expanded_label": "Reality cannot be categorized by numbers. It isn't just 'one' thing, but it also isn't 'many' separate things. It exists beyond these concepts."
+                "label": "Reality lacks intrinsic existence. It cannot be counted as 'one' or 'many'.",
+                "value": "Void",
+                "expanded_label": "Reality lacks intrinsic existence. It cannot be counted as 'one' thing, nor 'many' things, because no 'thing' exists to be counted."
             }
         ]
     },
@@ -62,24 +62,24 @@
         "expanded_question": "Is the universe a fixed 'thing' that simply exists, or is it a constant process of 'happening' and change?",
         "options": [
             {
-                "label": "Reality IS. It is eternal, unchanging, and perfect. Change is secondary or illusory.",
+                "label": "Reality IS. It is eternal, unchanging, and perfect.",
                 "value": "Static",
                 "expanded_label": "The true reality never changes. The movement we see is just surface-level; deep down, everything is perfect, still, and timeless."
             },
             {
-                "label": "Reality HAPPENS. It is a continuous flow of events, relations, and becoming.",
-                "value": "Process",
+                "label": "Reality HAPPENS. It is a continuous flow of events and becoming.",
+                "value": "Flowing",
                 "expanded_label": "Everything is in constant motion. There are no fixed 'things,' only temporary events and ever-changing processes."
             },
             {
-                "label": "Reality is BOTH noun and verb. An abiding ground of being expresses itself as ceaseless becoming.",
-                "value": "Integrative",
-                "expanded_label": "It is both. There is a stable foundation that remains constant, yet it simultaneously expresses itself through continuous change and activity."
+                "label": "Reality is a stable order that expresses itself through constant motion.",
+                "value": "Rhythmic",
+                "expanded_label": "Being and Becoming are two phases of a single 'breath' or logic. Reality is a stable order that expresses itself through constant motion."
             },
             {
-                "label": "Reality is PRIOR to time. It cannot be defined as either static or changing.",
-                "value": "Trans-Temporal",
-                "expanded_label": "Reality exists outside of time. Concepts like 'stillness' or 'motion' don't apply because it operates in an eternal 'now' beyond time."
+                "label": "Reality consists of discrete, flashing instants that vanish as soon as they arise.",
+                "value": "Momentary",
+                "expanded_label": "There is no continuous 'flow' and no enduring 'substance'. Reality consists of discrete, flashing instants that vanish as soon as they arise."
             }
         ]
     },
@@ -174,24 +174,24 @@
         "expanded_question": "Does the fundamental reality possess personality (intelligence, will), or is it an impersonal force?",
         "options": [
             {
-                "label": "No. It is a force, law, field, or principle without human-like traits.",
-                "value": "Impersonal",
-                "expanded_label": "It is a neutral power or principle. It functions without personality, preference, or human-like emotions."
-            },
-            {
                 "label": "Yes. It is a \"Who\" with volition, intellect, and the capacity for relationship.",
                 "value": "Personal",
                 "expanded_label": "Yes, it is a Being with intelligence and will that can be related to, possessing qualities of personality."
             },
             {
-                "label": "Both. It integrates personal agency and impersonal principles into a higher unity.",
-                "value": "Supra-personal",
-                "expanded_label": "It encompasses both. It can relate personally, but also possesses a vast, impersonal nature that exceeds personality."
+                "label": "No. It is a force, law, field, or principle without human-like traits.",
+                "value": "Impersonal",
+                "expanded_label": "It is a neutral power or principle. It functions without personality, preference, or human-like emotions."
             },
             {
-                "label": "Neither. It transcends the dualistic categories of personal and impersonal entirely.",
-                "value": "Trans-personal",
-                "expanded_label": "It is something distinct from either 'person' or 'force.' Human categories of personality do not apply."
+                "label": "The universe acts as if it is a person (agency) but operates as a system (law).",
+                "value": "Archetypal",
+                "expanded_label": "The universe acts as if it is a person (agency) but operates as a system (law). The 'Force' has a 'Face'."
+            },
+            {
+                "label": "The Ultimate is 'Thatness'. It is pure Presence without attributes.",
+                "value": "Ineffable",
+                "expanded_label": "To call it a 'Person' is too limiting; to call it a 'Force' is too reductionist. It is pure Presence without attributes."
             }
         ]
     },
@@ -207,9 +207,9 @@
                 "expanded_label": "The fundamental nature of reality is positive. It inherently favors life, harmony, or the good."
             },
             {
-                "label": "The universe is neutral and unconcerned with human values or suffering.",
-                "value": "Indifferent",
-                "expanded_label": "The universe is neutral. It does not possess moral qualities or concern for human values; it simply exists."
+                "label": "The universe is structurally oriented toward Suffering, Entropy, or Blind Will.",
+                "value": "Deficient",
+                "expanded_label": "The universe is structurally oriented toward Suffering, Entropy, or Blind Will. Existence is fundamentally flawed."
             },
             {
                 "label": "The universe is an eternal struggle between opposing forces (e.g., Light vs Dark).",
@@ -217,9 +217,9 @@
                 "expanded_label": "The universe is defined by conflict. Fundamental forces of Good and Evil (or Order and Chaos) are in tension."
             },
             {
-                "label": "Human concepts of Good and Evil do not apply to the Ultimate Reality.",
-                "value": "Trans-Moral",
-                "expanded_label": "Concepts of 'Good' and 'Bad' are human constructs. The ultimate reality operates beyond these moral judgments."
+                "label": "Reality has no value-orientation whatsoever. Concepts of 'Good' and 'Bad' are human projections.",
+                "value": "Neutral",
+                "expanded_label": "Reality has no value-orientation whatsoever. Concepts of 'Good' and 'Bad' are human projections upon a neutral screen."
             }
         ]
     }
