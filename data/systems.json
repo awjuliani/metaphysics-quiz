@@ -216,7 +216,7 @@
             "ontology": "Neutral Monism",
             "topology": "Indeterminate",
             "dynamics": "Momentary",
-            "teleology": "Expressive",
+            "teleology": "Mechanistic",
             "manifestation": "Relationalism",
             "character": "Ineffable",
             "divinity": "Naturalist",
@@ -576,23 +576,7 @@
         }
     },
     {
-        "name": "Simulation Hypothesis",
-        "description": "A modern metaphysical argument suggesting that reality as we perceive it is a computer-generated simulation run by a more advanced civilization. It posits that physical laws are actually executable code, and 'matter' is rendered information (pixels/voxels). It implies a Creator (the Simulator) who is transcendent to our universe but likely naturalistic rather than supernatural.",
-        "wiki": "https://en.wikipedia.org/wiki/Simulation_hypothesis",
-        "primary_source": "Are You Living in a Computer Simulation? by Nick Bostrom",
-        "profile": {
-            "ontology": "Idealism",
-            "topology": "Pluralism",
-            "dynamics": "Momentary",
-            "teleology": "Teleological",
-            "manifestation": "Illusionism",
-            "character": "Personal",
-            "divinity": "Transcendent",
-            "axiology": "Amoral"
-        }
-    },
-    {
-        "name": "French Existentialism",
+        "name": "Sartrean Existentialism",
         "description": "Associated with Jean-Paul Sartre, this philosophy focuses on the radical freedom of the individual in a meaningless universe. It posits a fundamental split between 'Being-in-itself' (inert, solid matter) and 'Being-for-itself' (consciousness, which is a 'nothingness' or lack). Because there is no God to design human nature, 'existence precedes essence'—we must create our own values and meaning through action, bearing the weight of total responsibility.",
         "wiki": "https://en.wikipedia.org/wiki/Existentialism",
         "primary_source": "Being and Nothingness by Jean-Paul Sartre",
@@ -653,22 +637,6 @@
             "character": "Personal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
-        }
-    },
-    {
-        "name": "Cosmicism",
-        "description": "The literary philosophy of H.P. Lovecraft. It views the universe as a vast, incomprehensible mechanism of chaos in which humanity is completely insignificant. Unlike Scientific Materialism, which assumes the world is intelligible, Cosmicism argues that the true nature of reality (represented by 'The Old Ones') is so alien to our minds that understanding it results in madness. Our perceived reality is a merciful 'island of ignorance' in a sea of black infinity.",
-        "wiki": "https://en.wikipedia.org/wiki/Cosmicism",
-        "primary_source": "The Call of Cthulhu by H.P. Lovecraft",
-        "profile": {
-            "ontology": "Physicalism",
-            "topology": "Pluralism",
-            "dynamics": "Flowing",
-            "teleology": "Mechanistic",
-            "manifestation": "Illusionism",
-            "character": "Impersonal",
-            "divinity": "Naturalist",
-            "axiology": "Amoral"
         }
     }
 ]

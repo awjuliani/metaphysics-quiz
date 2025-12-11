@@ -1,8 +1,8 @@
 [
     {
         "name": "Classical Theism",
-        "x": -90.0,
-        "y": 11.589530462970332,
+        "x": -86.07082450729187,
+        "y": 19.290673746873885,
         "description": "This is the dominant worldview of the Abrahamic traditions (Christianity, Judaism, Islam) as synthesized with Greek philosophy. It posits a fundamental dualism between the Creator and the Created. God is the ultimate, personal, and transcendent reality who created the universe ex nihilo (out of nothing) and sustains it through His will. The universe is not God, but a distinct artifact of His love and reason.",
         "profile": {
             "ontology": "Dualism",
@@ -17,8 +17,8 @@
     },
     {
         "name": "Epicureanism",
-        "x": 60.812997790662344,
-        "y": 28.19019272215406,
+        "x": 28.74895746125498,
+        "y": -64.11572127360425,
         "description": "Founded by Epicurus, this philosophy posits a materialist universe composed of atoms moving in a void. It teaches that the senses are the ultimate source of truth and that the goal of life is the absence of pain (aponia) and tranquility (ataraxia). It rejects divine intervention, viewing the gods as blissful beings unconcerned with human affairs.",
         "profile": {
             "ontology": "Physicalism",
@@ -33,8 +33,8 @@
     },
     {
         "name": "Spinozism",
-        "x": 62.191125441028234,
-        "y": -49.484907765521896,
+        "x": 80.33256348807075,
+        "y": 9.191194083565273,
         "description": "Based on the philosophy of Baruch Spinoza, this system argues that God and Nature are one and the same (Deus sive Natura). There is only one infinite substance, and everything we see\u2014mind and matter\u2014are simply attributes or modes of this single reality. It is a vision of profound unity where everything follows from the necessity of the divine nature, leaving no room for chance or miracles.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -49,8 +49,8 @@
     },
     {
         "name": "Stoicism",
-        "x": 7.612887264949811,
-        "y": 2.785977707366523,
+        "x": 0.4727663479640424,
+        "y": -18.567062205948645,
         "description": "An ancient philosophy that views the universe as a living, rational organism. The cosmos is permeated by the Logos (Divine Reason), which orders all things for the best. For the Stoic, wisdom consists in aligning one's own will with this cosmic order, accepting what cannot be changed, and cultivating inner virtue. It is a materialist but deeply spiritual worldview.",
         "profile": {
             "ontology": "Physicalism",
@@ -65,8 +65,8 @@
     },
     {
         "name": "Scientific Materialism",
-        "x": 52.14593303858738,
-        "y": 45.04507713139466,
+        "x": 21.494993500364583,
+        "y": -73.67121998626367,
         "description": "The prevailing worldview of modern science, which posits that physical matter and energy are the fundamental reality. Consciousness and culture are emergent properties of complex neural interactions. The universe is governed by impersonal physical laws without inherent purpose or design, evolving from the Big Bang through natural selection and entropy.",
         "profile": {
             "ontology": "Physicalism",
@@ -81,8 +81,8 @@
     },
     {
         "name": "Advaita Vedanta",
-        "x": 6.217088175074104,
-        "y": -90.0,
+        "x": 51.87996220317368,
+        "y": 83.67163823479672,
         "description": "The crown jewel of Hindu philosophy, Advaita means \"Not-Two\". It teaches that the ultimate reality (Brahman) is pure, undifferentiated Consciousness. The world of multiplicity and separate selves is Maya\u2014an illusion or cosmic play. Liberation comes from realizing that your true Self (Atman) is identical to Brahman.",
         "profile": {
             "ontology": "Idealism",
@@ -97,8 +97,8 @@
     },
     {
         "name": "Kashmir Shaivism",
-        "x": -18.736965953596197,
-        "y": -59.332528165234606,
+        "x": 15.566596348870076,
+        "y": 62.166650171378286,
         "description": "A Tantric non-dual tradition that views reality as the dynamic vibration (Spanda) of a single, supreme Consciousness (Shiva). Unlike Advaita, it regards the world not as an illusion, but as the real and creative expression of the Divine. The universe is the \"dance\" or \"play\" (Lila) of God, meant to be experienced and enjoyed.",
         "profile": {
             "ontology": "Idealism",
@@ -113,8 +113,8 @@
     },
     {
         "name": "Yogacara",
-        "x": 19.310029994366555,
-        "y": -59.24628842253008,
+        "x": 48.94988038034652,
+        "y": 48.84055641741517,
         "description": "Also known as the \"Mind-Only\" or \"Consciousness-Only\" school of Buddhism. It asserts that the external world we perceive is actually a projection of our own consciousness, similar to a dream. There is no independent material reality; there is only the stream of momentary perceptions arising from the storehouse consciousness (Alaya-vijnana).",
         "profile": {
             "ontology": "Idealism",
@@ -129,8 +129,8 @@
     },
     {
         "name": "Process Philosophy",
-        "x": -27.15349442957362,
-        "y": -7.568569715899389,
+        "x": -12.289971743209103,
+        "y": 33.77218725646495,
         "description": "Developed by A.N. Whitehead, this system views reality not as static \"things\" but as a flow of \"actual occasions\" or events. It is a philosophy of becoming rather than being. God is not an unmoved mover, but the \"poet of the world\" who participates in the unfolding process, luring the universe toward novelty and harmony.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -145,8 +145,8 @@
     },
     {
         "name": "Platonism",
-        "x": -30.67103036161815,
-        "y": 69.24299705653091,
+        "x": -63.710740428134706,
+        "y": -35.85103185181051,
         "description": "Founded by Plato, this philosophy posits that the changing physical world is merely a shadow of a higher, eternal reality: the World of Forms. These abstract Forms (like Beauty, Justice, and the Good) are the true objects of knowledge. The soul's goal is to transcend the material realm and ascend to the contemplation of these divine perfections.",
         "profile": {
             "ontology": "Dualism",
@@ -161,8 +161,8 @@
     },
     {
         "name": "Taoism",
-        "x": 71.49334610472249,
-        "y": -29.414260742475758,
+        "x": 77.81026220892416,
+        "y": -16.856934584850723,
         "description": "Rooted in the Tao Te Ching, Taoism emphasizes living in harmony with the Tao (The Way)\u2014the natural, spontaneous flow of the universe. The Tao is the ineffable source of all things, yet it is not a god. The ideal life is one of Wu Wei (effortless action), simplicity, and alignment with the rhythms of nature.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -177,8 +177,8 @@
     },
     {
         "name": "Deism",
-        "x": -85.16315012839017,
-        "y": 32.839771768115575,
+        "x": -90.0,
+        "y": 2.8704423135308414,
         "description": "Prominent during the Enlightenment, Deism views God as a rational \"Watchmaker\" who designed the universe with perfect laws and then stepped back to let it run. Deists reject revelation and miracles, believing that God's existence is revealed through the order of nature and the use of human reason.",
         "profile": {
             "ontology": "Dualism",
@@ -193,8 +193,8 @@
     },
     {
         "name": "Evolutionary Theism",
-        "x": -28.866134682921167,
-        "y": -36.74259636295026,
+        "x": -7.48140948746766,
+        "y": 61.43560685881503,
         "description": "A synthesis of science and faith proposed by Pierre Teilhard de Chardin. It views the universe as a Flowing of \"Cosmogenesis\"\u2014a directed evolution moving from matter to life to thought (the Noosphere). The goal of this process is the \"Omega Point\", a supreme state of complexity and consciousness where the universe converges with the Divine.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -209,14 +209,14 @@
     },
     {
         "name": "Madhyamaka",
-        "x": 90.0,
-        "y": -6.318455963007534,
+        "x": 76.59890534334234,
+        "y": -51.409615987074176,
         "description": "Founded by Nagarjuna, this \"Middle Way\" school of Mahayana Buddhism teaches the \"Emptiness\" (Sunyata) of all phenomena. Nothing possesses intrinsic, independent existence; all things arise dependently (Pratityasamutpada). It avoids the extremes of Eternalism (things exist permanently) and Nihilism (nothing exists). Samsara and Nirvana are ultimately non-different.",
         "profile": {
             "ontology": "Neutral Monism",
             "topology": "Indeterminate",
             "dynamics": "Momentary",
-            "teleology": "Expressive",
+            "teleology": "Mechanistic",
             "manifestation": "Relationalism",
             "character": "Ineffable",
             "divinity": "Naturalist",
@@ -225,8 +225,8 @@
     },
     {
         "name": "Animism",
-        "x": -60.1357281813963,
-        "y": -72.21348105477728,
+        "x": -44.97362129178226,
+        "y": -75.72796146563861,
         "description": "One of the oldest worldviews, Animism perceives the natural world as being full of distinct persons\u2014spirits, ancestors, and plant/animal consciousness. It is not that 'everything is one' (Pantheism), but that the Many beings of nature are alive, relational, and capable of communication. The physical world is the immediate home of the sacred.",
         "profile": {
             "ontology": "Dualism",
@@ -241,8 +241,8 @@
     },
     {
         "name": "Dialectical Materialism",
-        "x": 27.282908396993527,
-        "y": 77.01606176038099,
+        "x": -13.77108464723561,
+        "y": -90.0,
         "description": "The philosophical basis of Marxism. It agrees with Scientific Materialism that matter is primary, but rejects the view that the universe is static or merely mechanistic. Instead, it sees reality as a historical process driven by internal contradictions (dialectics) moving toward a specific goal (the liberation of consciousness/society).",
         "profile": {
             "ontology": "Physicalism",
@@ -257,8 +257,8 @@
     },
     {
         "name": "Subjective Idealism",
-        "x": -76.52835856063199,
-        "y": 17.134470951177256,
+        "x": -79.8661073119662,
+        "y": 32.99877236363562,
         "description": "Associated with Bishop Berkeley, this view argues that 'to be is to be perceived' (esse est percipi). There is no mind-independent matter. Reality consists entirely of finite minds (us) and the Infinite Mind (God) who perceives and sustains all things. The physical world is real, but it is a mental reality coordinated by God.",
         "profile": {
             "ontology": "Idealism",
@@ -273,8 +273,8 @@
     },
     {
         "name": "Transcendental Empiricism",
-        "x": 56.48956078385995,
-        "y": -6.4132017251672515,
+        "x": 53.229976349763035,
+        "y": -20.544846427302115,
         "description": "A philosophy of pure difference and becoming. Reality is not composed of stable identities, but of dynamic intensities and multiplicities. 'Being' is univocal\u2014it is said in one and the same sense of all things, but that sense is Difference itself. The world is a creative chaosmos of virtual potentials actualizing themselves.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -289,8 +289,8 @@
     },
     {
         "name": "Neoplatonism",
-        "x": -70.50291671325522,
-        "y": -16.80363243485411,
+        "x": -47.348811550353275,
+        "y": 48.32032249610321,
         "description": "Founded by Plotinus, this philosophy posits a single, ineffable source of all reality called 'The One'. All things emanate from The One in a hierarchy of being (Intellect, Soul, Nature) and strive to return to it. Evil is merely the absence of good (privation). It bridges Greek rationalism with mysticism.",
         "profile": {
             "ontology": "Idealism",
@@ -305,8 +305,8 @@
     },
     {
         "name": "Gnosticism",
-        "x": -21.670095457041292,
-        "y": 90.0,
+        "x": -72.95466970105778,
+        "y": -68.91124312847874,
         "description": "An ancient esoteric tradition positing that the material world is a flawed creation (or trap) fashioned by a lesser, often malevolent deity (the Demiurge). The true God is transcendent and alien to this universe. Salvation comes through Gnosis (secret knowledge) of the divine spark within.",
         "profile": {
             "ontology": "Dualism",
@@ -321,8 +321,8 @@
     },
     {
         "name": "Metaphysical Pessimism",
-        "x": 34.857536592620065,
-        "y": -75.7424980855152,
+        "x": 71.93853778804035,
+        "y": 47.93819190682213,
         "description": "Posits that the ultimate reality is a blind, insatiable, and irrational 'Will' that strives without purpose. The world of representation is objectified Will. Because the Will can never be satisfied, existence is fundamentally characterized by suffering.",
         "profile": {
             "ontology": "Idealism",
@@ -337,8 +337,8 @@
     },
     {
         "name": "Zoroastrianism",
-        "x": -69.43308623629744,
-        "y": 63.96251024266084,
+        "x": -88.02755195235883,
+        "y": -37.97695002500715,
         "description": "One of the world's oldest monotheistic faiths, featuring a sharp cosmological dualism. The history of the universe is defined by the battle between Ahura Mazda (Truth/Order) and Angra Mainyu (Lie/Chaos). Humans have free will to choose sides in this cosmic conflict.",
         "profile": {
             "ontology": "Dualism",
@@ -353,8 +353,8 @@
     },
     {
         "name": "Abhidharma",
-        "x": 45.156626098155705,
-        "y": 22.44273269113758,
+        "x": 41.91816129343622,
+        "y": -42.889233091602385,
         "description": "Represents the realistic pluralism of early Buddhism. Reality is analyzed into ultimate distinct constituents called 'dharmas' (momentary events of consciousness and matter) which arise and perish causally. It rejects the Mahayana notion of emptiness as an ontological ground, focusing instead on the phenomenological reality of these transient events.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -369,8 +369,8 @@
     },
     {
         "name": "Huayan",
-        "x": -25.202732493301927,
-        "y": -78.9338070761858,
+        "x": 16.0007004252861,
+        "y": 90.0,
         "description": "A major school of East Asian Buddhism famous for its metaphysics of total interpenetration (Indra's Net). It teaches that every phenomenon contains every other phenomenon; the part contains the whole. The universe is a harmonious, infinite interplay of events without obstruction.",
         "profile": {
             "ontology": "Idealism",
@@ -385,8 +385,8 @@
     },
     {
         "name": "Theistic Vedanta",
-        "x": -81.2668174298097,
-        "y": -26.8121612859165,
+        "x": -57.07204902068659,
+        "y": 58.83395466718656,
         "description": "Represents the Vishishtadvaita (Qualified Non-Dualism) school of Hindu philosophy, primarily associated with Ramanuja. It teaches that the Supreme Reality (Brahman/Vishnu) is a Personal God who possesses the souls and the material world as His 'body'. While God is the only independent reality, the world and souls are real, distinct attributes that exist in an organic, inseparable unity with Him. It emphasizes Bhakti (loving devotion) as the means to liberation.",
         "profile": {
             "ontology": "Idealism",
@@ -401,8 +401,8 @@
     },
     {
         "name": "Transcendental Idealism",
-        "x": -18.950703409637775,
-        "y": 35.886840538900834,
+        "x": -28.968738779581514,
+        "y": -6.674434661591508,
         "description": "The revolutionary philosophy of Immanuel Kant. It argues that the 'things-in-themselves' (noumena) are unknowable, and that the world we perceive (phenomena) is constructed by the categories of the human mind (such as Space, Time, and Causality). It bridges Rationalism and Empiricism by limiting knowledge to the realm of possible experience while preserving a space for faith and morality.",
         "profile": {
             "ontology": "Idealism",
@@ -417,8 +417,8 @@
     },
     {
         "name": "Cartesian Dualism",
-        "x": -78.39304808435331,
-        "y": 34.77987766579803,
+        "x": -83.70013688517575,
+        "y": -5.831074181447451,
         "description": "The metaphysical system of Ren\u00e9 Descartes, often called 'Substance Dualism'. It posits two distinct fundamental substances: Res Extensa (extended matter, acting mechanistically) and Res Cogitans (thinking mind, possessing free will). Humans are the unique union of these two. God is the perfect, non-deceiving creator who guarantees the reliability of reason and the reality of the external world.",
         "profile": {
             "ontology": "Dualism",
@@ -433,8 +433,8 @@
     },
     {
         "name": "Holographic Monism",
-        "x": 10.408523987866214,
-        "y": -35.80683581439245,
+        "x": 27.59928625341208,
+        "y": 31.96606902325878,
         "description": "Based on the quantum physics of David Bohm. It posits that the tangible, separate world we see (the Explicate Order) is a projection unfolding from a deeper, invisible reality (the Implicate Order). Mind and Matter are not separate substances but different aspects of one unbroken movement (the Holomovement). The universe functions like a hologram: the whole is contained in every part.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -449,8 +449,8 @@
     },
     {
         "name": "Absolute Idealism",
-        "x": -45.49134332511957,
-        "y": -42.83377853582414,
+        "x": -17.544430424094376,
+        "y": 76.8222642796602,
         "description": "The metaphysical system of G.W.F. Hegel, which views reality as the dialectical self-development of Absolute Spirit (Geist). The Absolute differentiates itself into Nature and Finite Mind, then returns to itself through human history, art, religion, and philosophy. Reality is not a static substance but a dynamic process of becoming, driven by the logic of thesis-antithesis-synthesis. History is the Absolute coming to know itself, culminating in the realization that the rational is the real.",
         "profile": {
             "ontology": "Idealism",
@@ -465,8 +465,8 @@
     },
     {
         "name": "New Materialism",
-        "x": 66.10286828015784,
-        "y": 14.346873799318113,
+        "x": 42.29340464737021,
+        "y": -63.42985841658674,
         "description": "A contemporary philosophy that rejects the view of matter as passive, inert, or 'dead.' Instead, it posits that matter itself is vibrant, self-organizing, and possesses agency. Drawing on Deleuze and complexity theory, it views reality as a mesh of 'assemblages'\u2014dynamic interactions between human and non-human actors (like microbes, electricity, and waste)\u2014without prioritizing the human subject.",
         "profile": {
             "ontology": "Physicalism",
@@ -481,8 +481,8 @@
     },
     {
         "name": "Samkhya",
-        "x": 0.05414756879728333,
-        "y": 60.40326696367036,
+        "x": -28.811541902083373,
+        "y": -51.686591035634756,
         "description": "The oldest of the six orthodox schools of Hindu philosophy, Samkhya is a strict dualism that does not rely on a Creator God. It posits two eternal, irreducible realities: Purusha (pure, passive consciousness) and Prakriti (blind, active matter/nature). Unlike Western dualism, the mind, ego, and intellect are considered parts of Matter (Prakriti), not Consciousness. The universe evolves through the dynamic interplay of three qualities (Gunas) within Prakriti, solely for the purpose of the Spirit's experience and eventual liberation (Kaivalya).",
         "profile": {
             "ontology": "Dualism",
@@ -497,8 +497,8 @@
     },
     {
         "name": "Analytic Panpsychism",
-        "x": 49.22964270518651,
-        "y": 31.369208306210616,
+        "x": 32.381074705926835,
+        "y": -50.06615787658349,
         "description": "A contemporary naturalistic form of panpsychism and Russellian monism in analytic philosophy. It holds that the intrinsic nature of the physical is constituted by experiential or proto-experiential properties, so that consciousness is fundamental yet fully continuous with the physical world, without appealing to a theistic or soteriological framework.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -513,8 +513,8 @@
     },
     {
         "name": "Eleatic Monism",
-        "x": 61.98519142251664,
-        "y": -65.64202706490795,
+        "x": 90.0,
+        "y": 29.915234804411273,
         "description": "Based on the Eleatic school, especially Parmenides, this view claims that true reality is a single, ungenerated, imperishable, changeless Being. Time, motion, plurality, and becoming belong only to the deceptive realm of appearance, while the One Being is timeless, complete, and logically necessary.",
         "profile": {
             "ontology": "Neutral Monism",
@@ -529,8 +529,8 @@
     },
     {
         "name": "Zero Ontology",
-        "x": 42.72945126133785,
-        "y": -46.38881291335308,
+        "x": 63.78177755342383,
+        "y": 22.927420477250937,
         "description": "A metaphysical framework proposed by David Pearce, also known as 'Non-Materialist Physicalism' or 'Constitutive Panpsychism'. It posits that the universe is a single, timeless quantum superposition whose total conserved properties (mass, charge, angular momentum) sum to exactly zero. While it accepts the structural descriptions of physics, it argues that the intrinsic nature of the physical is qualia (consciousness). The world we perceive is a user-illusion or virtual reality constructed by the brain to track fitness-relevant patterns.",
         "profile": {
             "ontology": "Idealism",
@@ -545,8 +545,8 @@
     },
     {
         "name": "Pure Land Buddhism",
-        "x": -87.23786889866486,
-        "y": -15.908095309165523,
+        "x": -66.31399220675836,
+        "y": 62.53293664920382,
         "description": "A major branch of Mahayana Buddhism focused on the savior figure Amitabha (Amida) Buddha. It posits that the world we inhabit (Saha) is a realm of corruption where enlightenment is difficult. However, through the power of Amida's 'Primal Vow,' a parallel reality\u2014the Pure Land\u2014has been established. By entrusting oneself to this power (Other-Power), beings can be reborn in this uncorrupted realm, guaranteeing their eventual enlightenment. It emphasizes faith and gratitude over ascetic self-effort.",
         "profile": {
             "ontology": "Idealism",
@@ -561,8 +561,8 @@
     },
     {
         "name": "Hermeticism",
-        "x": -63.53266567201812,
-        "y": -32.98794978963469,
+        "x": -37.399208905995266,
+        "y": 69.10017653025241,
         "description": "A syncretic spiritual, philosophical, and magical tradition based on the writings attributed to Hermes Trismegistus. It teaches that 'The All is Mind' and that the universe functions according to specific cosmic laws, such as Correspondence ('As above, so below'), Vibration, and Polarity. Unlike the passive contemplation of Neoplatonism, Hermeticism emphasizes the active transmutation of the self and nature (Alchemy) to realize one's status as a co-creator with the Divine.",
         "profile": {
             "ontology": "Idealism",
@@ -576,25 +576,9 @@
         }
     },
     {
-        "name": "Simulation Hypothesis",
-        "x": -47.02282993034153,
-        "y": 65.15132534244412,
-        "description": "A modern metaphysical argument suggesting that reality as we perceive it is a computer-generated simulation run by a more advanced civilization. It posits that physical laws are actually executable code, and 'matter' is rendered information (pixels/voxels). It implies a Creator (the Simulator) who is transcendent to our universe but likely naturalistic rather than supernatural.",
-        "profile": {
-            "ontology": "Idealism",
-            "topology": "Pluralism",
-            "dynamics": "Momentary",
-            "teleology": "Teleological",
-            "manifestation": "Illusionism",
-            "character": "Personal",
-            "divinity": "Transcendent",
-            "axiology": "Amoral"
-        }
-    },
-    {
-        "name": "French Existentialism",
-        "x": 36.07280533291857,
-        "y": 51.68456791147855,
+        "name": "Sartrean Existentialism",
+        "x": 6.179542390264124,
+        "y": -71.64286379350929,
         "description": "Associated with Jean-Paul Sartre, this philosophy focuses on the radical freedom of the individual in a meaningless universe. It posits a fundamental split between 'Being-in-itself' (inert, solid matter) and 'Being-for-itself' (consciousness, which is a 'nothingness' or lack). Because there is no God to design human nature, 'existence precedes essence'\u2014we must create our own values and meaning through action, bearing the weight of total responsibility.",
         "profile": {
             "ontology": "Dualism",
@@ -609,8 +593,8 @@
     },
     {
         "name": "Lurianic Kabbalah",
-        "x": -80.25583620240623,
-        "y": -43.83482269870884,
+        "x": -48.99195672632474,
+        "y": 79.39871075845768,
         "description": "The mystical tradition of Judaism, particularly the school of Isaac Luria. It teaches that the creation began with God's contraction (Tzimtzum) to make space for the world. However, the divine light was too strong for the containing vessels, causing them to shatter (Shevirat HaKelim). Our reality consists of these broken shards and 'sparks' of holiness trapped in matter. The purpose of human life is Tikkun Olam (Repair of the World)\u2014gathering these sparks through ethical action and mystical intention to restore cosmic unity.",
         "profile": {
             "ontology": "Idealism",
@@ -625,8 +609,8 @@
     },
     {
         "name": "Monadology",
-        "x": -53.66533509421112,
-        "y": 32.867224068420526,
+        "x": -63.42976725294445,
+        "y": 11.240247896265798,
         "description": "The metaphysical system of G.W. Leibniz. It posits that the universe is composed of infinite, indivisible, immaterial substances called 'Monads' (spiritual atoms). Monads do not interact ('they have no windows'); instead, each Monad reflects the entire universe from its own perspective. The apparent interaction between mind and matter is actually a 'Pre-established Harmony' orchestrated by God, like clocks synchronized to strike the same hour without touching.",
         "profile": {
             "ontology": "Idealism",
@@ -641,8 +625,8 @@
     },
     {
         "name": "Ash'arism Occasionalism",
-        "x": -70.06574490601916,
-        "y": 47.79152597198462,
+        "x": -84.78402792342128,
+        "y": -15.860092680996859,
         "description": "The dominant school of Sunni Islamic theology, associated with Al-Ghazali. It rejects the Aristotelian view that objects have inherent 'natures' or causal powers. Instead, it posits 'Occasionalism': God is the only true cause. What looks like cause-and-effect (e.g., fire burning cotton) is merely a 'Habit of God' (Adat Allah)\u2014a customary correlation. The universe consists of atoms and accidents that are continuously annihilated and recreated by God at every instant.",
         "profile": {
             "ontology": "Dualism",
@@ -653,22 +637,6 @@
             "character": "Personal",
             "divinity": "Transcendent",
             "axiology": "Benevolent"
-        }
-    },
-    {
-        "name": "Cosmicism",
-        "x": 57.34661958600526,
-        "y": 59.73949362078883,
-        "description": "The literary philosophy of H.P. Lovecraft. It views the universe as a vast, incomprehensible mechanism of chaos in which humanity is completely insignificant. Unlike Scientific Materialism, which assumes the world is intelligible, Cosmicism argues that the true nature of reality (represented by 'The Old Ones') is so alien to our minds that understanding it results in madness. Our perceived reality is a merciful 'island of ignorance' in a sea of black infinity.",
-        "profile": {
-            "ontology": "Physicalism",
-            "topology": "Pluralism",
-            "dynamics": "Flowing",
-            "teleology": "Mechanistic",
-            "manifestation": "Illusionism",
-            "character": "Impersonal",
-            "divinity": "Naturalist",
-            "axiology": "Amoral"
         }
     }
 ]
