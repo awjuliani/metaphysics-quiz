@@ -7,7 +7,7 @@ This interactive quiz maps your beliefs across fundamental metaphysical question
 ## Features
 
 -   **8 Fundamental Dimensions**: Explore your stance on Ontology, Topology, Dynamics, Teleology, Manifestation, Divinity, Character, and Axiology.
--   **System Matching**: Compare your profile against 17 major philosophical systems, including Stoicism, Spinozism, Advaita Vedanta, Scientific Materialism, and more.
+-   **System Matching**: Compare your profile against 40 major philosophical systems, including Stoicism, Spinozism, Advaita Vedanta, Scientific Materialism, and more.
 -   **Detailed Breakdown**: See exactly where you align and diverge with your top match and runner-up.
 -   **Commitment Selection**: Optional pre-quiz step to see how your results compare to a system you already identify with.
 -   **LLM Preferences**: See how major AI models (like GPT-4, Claude 3, Gemini) answer the quiz and align with different metaphysical systems.
@@ -53,6 +53,7 @@ metaphysics-quiz/
 ├── quiz.html                     # Main quiz interface
 ├── explore.html                  # Browse systems
 ├── compare.html                  # Compare two systems
+├── dimensions.html               # Explore quiz dimensions
 ├── map.html                      # 2D visualization of systems
 ├── improve.html                  # Contribution page
 ├── llm_results.html              # AI model preferences
