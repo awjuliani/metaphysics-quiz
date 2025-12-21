@@ -545,19 +545,31 @@ body.dark-mode .sort-btn.active {
 
 /* Quiz Styles */
 .progress-container {
-    width: 100%;
-    height: 8px;
-    background-color: #e2e8f0;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
+    width: calc(100% + 4rem);
+    /* Full width including card padding */
+    height: 12px;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 16px 16px 0 0;
+    /* Top corners match card */
+    margin: -2rem -2rem 1.5rem -2rem;
+    /* Negative margin to pull flush with edges, bottom margin for spacing */
     overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .progress-container {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     width: 0%;
-    transition: width 0.3s ease;
+    border-radius: 0 50px 50px 0;
+    /* Rounded tip only */
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
 }
 
 .dimension-label {
