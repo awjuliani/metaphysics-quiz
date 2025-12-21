@@ -70,6 +70,7 @@ header {
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
+    padding-top: 1rem;
 }
 
 .header-content {
@@ -77,12 +78,52 @@ header {
     flex-direction: column;
     align-items: center;
     position: relative;
+    justify-content: center;
+}
+
+.back-home-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+.back-home-btn:hover {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .back-home-btn {
+    background: var(--card-bg);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .back-home-btn:hover {
+    background-color: var(--card-bg);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .theme-toggle {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
     background: var(--card-bg);
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -95,11 +136,13 @@ header {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    width: 40px;
+    height: 40px;
 }
 
 .theme-toggle:hover {
     color: var(--primary-color);
-    transform: translateY(-2px);
+    transform: translateY(-50%) scale(1.05);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -138,6 +181,9 @@ header h1 {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    padding: 0 3rem;
+    /* Add padding to prevent overlap with buttons on mobile */
 }
 
 .subtitle {
@@ -372,6 +418,14 @@ body.dark-mode .intro-card {
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
 }
 
+.cta-btn svg {
+    transition: fill 0.3s ease;
+}
+
+.cta-btn:hover svg {
+    fill: currentColor;
+}
+
 /* Navigation Groups */
 .nav-groups {
     margin-top: 2rem;
@@ -397,7 +451,7 @@ body.dark-mode .intro-card {
 .nav-links {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .nav-link {
@@ -471,6 +525,10 @@ body.dark-mode .nav-icon {
 .navigation-controls {
     display: flex;
     justify-content: flex-start;
+}
+
+#next-btn {
+    margin-left: auto;
 }
 
 /* Sort Toggle Styles */
