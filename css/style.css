@@ -585,6 +585,16 @@ body.dark-mode .sort-btn.active {
     box-shadow: 0 2px 8px rgba(129, 140, 248, 0.3);
 }
 
+/* Mode toggle positioning in quiz */
+.mode-toggle {
+    width: fit-content;
+    margin: 0 auto 1rem auto;
+}
+
+.commitment-section .mode-toggle {
+    margin: 0 auto 0.5rem auto;
+}
+
 @media (max-width: 480px) {
     .sort-toggle {
         padding: 0.2rem;
