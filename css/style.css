@@ -1692,6 +1692,75 @@ body.dark-mode .system-card:hover {
     font-weight: 600;
 }
 
+.commitment-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.commitment-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.commitment-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.commitment-section .mode-toggle-container {
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.section-explanation {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.commitment-section .select-group {
+    margin-top: 1rem;
+}
+
+.commitment-section .select-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* Toggle label active states */
+.toggle-label {
+    transition: color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.6;
+}
+
+.toggle-label.active {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.commitment-nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.commitment-nav .btn {
+    width: 140px;
+}
+
 .switch {
     position: relative;
     display: inline-block;

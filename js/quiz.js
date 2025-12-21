@@ -28,6 +28,7 @@ const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
 const themeToggleBtn = document.getElementById('theme-toggle');
 const expandedModeToggle = document.getElementById('expanded-mode-toggle');
+const commitmentExpandedModeToggle = document.getElementById('commitment-expanded-mode-toggle');
 
 // State
 let currentQuestionIndex = 0;
@@ -74,8 +75,34 @@ if (showCommitmentBtn) showCommitmentBtn.addEventListener('click', () => toggleR
 setupThemeToggle();
 if (expandedModeToggle) expandedModeToggle.addEventListener('change', (e) => {
     isExpandedMode = e.target.checked;
+    // Sync commitment toggle if it exists
+    if (commitmentExpandedModeToggle) commitmentExpandedModeToggle.checked = isExpandedMode;
+    // Update label highlighting for both toggles
+    updateToggleLabelHighlight(e.target);
+    if (commitmentExpandedModeToggle) updateToggleLabelHighlight(commitmentExpandedModeToggle);
     renderQuestion();
 });
+
+if (commitmentExpandedModeToggle) commitmentExpandedModeToggle.addEventListener('change', (e) => {
+    isExpandedMode = e.target.checked;
+    // Sync quiz toggle if it exists
+    if (expandedModeToggle) expandedModeToggle.checked = isExpandedMode;
+    // Update label highlighting for both toggles
+    updateToggleLabelHighlight(e.target);
+    if (expandedModeToggle) updateToggleLabelHighlight(expandedModeToggle);
+});
+
+// Update toggle label highlighting based on checkbox state
+function updateToggleLabelHighlight(checkbox) {
+    const container = checkbox.closest('.mode-toggle-container');
+    if (!container) return;
+    const standardLabel = container.querySelector('.label-standard');
+    const expandedLabel = container.querySelector('.label-expanded');
+    if (standardLabel && expandedLabel) {
+        standardLabel.classList.toggle('active', !checkbox.checked);
+        expandedLabel.classList.toggle('active', checkbox.checked);
+    }
+}
 
 // Theme initialization and toggle are now handled by js/theme.js
 // initTheme() is called automatically when theme.js loads
