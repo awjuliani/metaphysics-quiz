@@ -60,7 +60,7 @@
 
         <main id="explore-content">
             <div class="navigation-top"
-                style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 2rem;">
+                style="display: flex; justify-content: center; align-items: center; margin-bottom: 2rem;">
                 <div class="sort-toggle">
                     <button id="sort-alpha" class="sort-btn active" title="Sort alphabetically">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -82,6 +82,10 @@
                         Popular
                     </button>
                 </div>
+            </div>
+
+            <div id="alpha-nav" class="alpha-nav">
+                <!-- Letters will be injected here -->
             </div>
 
             <div id="systems-grid" class="systems-grid">
@@ -106,6 +110,153 @@
         let systemStats = {};
         let totalCount = 0;
         let currentSort = 'alpha'; // Default to alphabetical
+
+        // Build alphabet/number navigation
+        function buildAlphaNav(systems) {
+            const alphaNav = document.getElementById('alpha-nav');
+
+            // Store references for cleanup
+            if (window.alphaNavCleanup) {
+                window.alphaNavCleanup();
+            }
+
+            function renderNav() {
+                if (currentSort === 'alpha') {
+                    renderAlphaNav();
+                } else {
+                    renderNumNav();
+                }
+                positionAlphaNav();
+            }
+
+            function renderAlphaNav() {
+                const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+                const activeLetters = new Set(
+                    systems.map(s => s.name.charAt(0).toUpperCase())
+                );
+
+                alphaNav.innerHTML = letters.map(letter => {
+                    const isActive = activeLetters.has(letter);
+                    return `<button class="alpha-btn${isActive ? '' : ' disabled'}"
+                        data-letter="${letter}"
+                        ${isActive ? '' : 'disabled'}
+                        title="${isActive ? `Jump to ${letter}` : 'No systems'}">${letter}</button>`;
+                }).join('');
+
+                // Add click handlers
+                alphaNav.querySelectorAll('.alpha-btn:not(.disabled)').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const letter = btn.dataset.letter;
+                        const cards = document.querySelectorAll('.system-card');
+
+                        for (const card of cards) {
+                            const name = card.querySelector('h2').textContent;
+                            if (name.charAt(0).toUpperCase() === letter) {
+                                scrollToCard(card);
+                                break;
+                            }
+                        }
+                    });
+                });
+            }
+
+            function renderNumNav() {
+                const total = systems.length;
+                // Show 1, 5, 10, 15, ... up to total
+                const positions = [1];
+                for (let i = 5; i <= total; i += 5) {
+                    positions.push(i);
+                }
+                if (positions[positions.length - 1] !== total) {
+                    positions.push(total);
+                }
+
+                alphaNav.innerHTML = positions.map(num => {
+                    return `<button class="alpha-btn" data-position="${num}" title="Jump to #${num}">${num}</button>`;
+                }).join('');
+
+                // Add click handlers
+                alphaNav.querySelectorAll('.alpha-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const position = parseInt(btn.dataset.position);
+                        const cards = document.querySelectorAll('.system-card');
+                        if (cards[position - 1]) {
+                            scrollToCard(cards[position - 1]);
+                        }
+                    });
+                });
+            }
+
+            function scrollToCard(card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                card.style.borderColor = 'var(--primary-color)';
+                card.style.boxShadow = '0 0 0 2px var(--primary-color)';
+                setTimeout(() => {
+                    card.style.borderColor = '';
+                    card.style.boxShadow = '';
+                }, 1500);
+            }
+
+            // Scroll listener to highlight current item
+            function updateActiveOnScroll() {
+                const cards = document.querySelectorAll('.system-card');
+                let currentIndex = 0;
+                let currentLetter = null;
+
+                for (let i = 0; i < cards.length; i++) {
+                    const card = cards[i];
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                        currentIndex = i;
+                        currentLetter = card.querySelector('h2').textContent.charAt(0).toUpperCase();
+                        break;
+                    }
+                    if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
+                        currentIndex = i;
+                        currentLetter = card.querySelector('h2').textContent.charAt(0).toUpperCase();
+                    }
+                }
+
+                if (currentSort === 'alpha') {
+                    alphaNav.querySelectorAll('.alpha-btn').forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.letter === currentLetter);
+                    });
+                } else {
+                    const position = currentIndex + 1;
+                    alphaNav.querySelectorAll('.alpha-btn').forEach(btn => {
+                        const btnPos = parseInt(btn.dataset.position);
+                        const nextBtn = btn.nextElementSibling;
+                        const nextPos = nextBtn ? parseInt(nextBtn.dataset.position) : Infinity;
+                        btn.classList.toggle('active', position >= btnPos && position < nextPos);
+                    });
+                }
+            }
+
+            // Position nav relative to grid (desktop only)
+            function positionAlphaNav() {
+                if (window.innerWidth <= 900) return;
+
+                const grid = document.getElementById('systems-grid');
+                const gridRect = grid.getBoundingClientRect();
+                const navWidth = alphaNav.offsetWidth;
+                const gap = 12;
+
+                const leftPos = gridRect.left - navWidth - gap;
+                alphaNav.style.left = Math.max(8, leftPos) + 'px';
+            }
+
+            window.addEventListener('scroll', updateActiveOnScroll, { passive: true });
+            window.addEventListener('resize', positionAlphaNav);
+
+            // Store cleanup function and re-render function
+            window.alphaNavCleanup = () => {
+                window.removeEventListener('scroll', updateActiveOnScroll);
+                window.removeEventListener('resize', positionAlphaNav);
+            };
+            window.updateAlphaNav = renderNav;
+
+            renderNav();
+        }
 
         // Render systems to the grid
         function renderSystems(systems) {
@@ -167,6 +318,11 @@
             // Update button states
             document.getElementById('sort-alpha').classList.toggle('active', sortType === 'alpha');
             document.getElementById('sort-popular').classList.toggle('active', sortType === 'popular');
+
+            // Update nav to show letters or numbers
+            if (window.updateAlphaNav) {
+                window.updateAlphaNav();
+            }
         }
 
         // Load Systems
@@ -180,6 +336,9 @@
                 allSystems = await systemsResponse.json();
                 systemStats = stats;
                 totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
+
+                // Build alphabet navigation
+                buildAlphaNav(allSystems);
 
                 // Initial sort (alphabetical)
                 sortSystems('alpha');
