@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics Quiz - What's Your Philosophy?</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <a href="index.html" class="back-home-btn" aria-label="Back to Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">What's Your Ethics?</a></h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Discover your ethical framework in <span id="dimension-count">8</span> dimensions.</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Commitment View -->
+            <div id="commitment-view" class="view active">
+                <div class="card question-card">
+                    <h2>Before we start...</h2>
+
+                    <div class="commitment-section">
+                        <h3>Quiz Mode</h3>
+                        <div class="sort-toggle mode-toggle">
+                            <button id="commitment-mode-standard" class="sort-btn active">Concise</button>
+                            <button id="commitment-mode-expanded" class="sort-btn">Expanded</button>
+                        </div>
+                        <p class="section-explanation">Choose <strong>Expanded</strong> mode for additional context and
+                            explanations. Recommended if you're less familiar with ethical philosophy.</p>
+                    </div>
+
+                    <div class="commitment-section">
+                        <h3>Your Commitment (Optional)</h3>
+                        <p class="section-explanation">Do you already identify with a specific ethical tradition? If so,
+                            select it below to see how well your quiz results match it.</p>
+
+                        <div class="select-group">
+                            <select id="commitment-select">
+                                <option value="">Select your ethical system...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="navigation-controls commitment-nav">
+                        <button id="skip-commitment-btn" class="btn primary-btn">Begin Quiz</button>
+                        <button id="confirm-commitment-btn" class="btn primary-btn hidden">Begin Quiz →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div id="quiz-view" class="view hidden">
+                <div class="card question-card">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="sort-toggle mode-toggle">
+                        <button id="mode-standard" class="sort-btn active">Concise</button>
+                        <button id="mode-expanded" class="sort-btn">Expanded</button>
+                    </div>
+                    <div class="dimension-label" id="dimension-label">Dimension 1: Source of Authority</div>
+                    <h2 id="question-text">Where do moral truths ultimately come from?</h2>
+                    <div class="options-container" id="options-container"></div>
+                    <div class="navigation-controls">
+                        <button id="back-btn" class="btn text-btn hidden">← Back</button>
+                        <button id="next-btn" class="btn primary-btn hidden" style="width: auto; margin-top: 1rem;">Next
+                            →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results View -->
+            <div id="results-view" class="view hidden">
+                <div class="card result-card">
+                    <div class="result-toggle-container hidden" id="result-toggle-container">
+                        <button id="show-top-btn" class="toggle-btn active">Top Match</button>
+                        <button id="show-runner-up-btn" class="toggle-btn">Runner-Up</button>
+                        <button id="show-worst-btn" class="toggle-btn">Worst Match</button>
+                        <button id="show-commitment-btn" class="toggle-btn hidden">Your Commitment</button>
+                    </div>
+
+                    <div class="result-header">
+                        <span class="pre-title">Your Ethical Framework is:</span>
+                        <h2 id="result-name">Virtue Ethics</h2>
+                        <div id="result-score" class="result-score"></div>
+                    </div>
+
+                    <div class="result-body">
+                        <p id="result-description" class="result-description">Description goes here.</p>
+                        <a id="result-wiki" href="#" target="_blank" class="wiki-link">Read more on Wikipedia →</a>
+
+                        <div class="breakdown-section">
+                            <h3>Your Ethical Profile</h3>
+                            <ul id="result-breakdown" class="breakdown-list"></ul>
+                        </div>
+
+                        <div class="result-actions">
+                            <a href="index.html" class="btn primary-btn"
+                                style="text-decoration: none; text-align: center;">Return Home</a>
+                            <button id="retake-btn" class="btn secondary-btn">Retake Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/quiz-engine.js"></script>
+    <script src="js/results-store.js"></script>
+    <script>
+        // Initialize theme
+        setupThemeToggle();
+
+        // Create quiz engine for ethics
+        const quiz = new QuizEngine({
+            quizType: 'ethics',
+            dimensionsPath: 'data/ethical_dimensions.json',
+            systemsPath: 'data/ethical_systems.json',
+            onDataLoaded: () => {
+                document.getElementById('dimension-count').textContent = quiz.getDimensionCount();
+                populateCommitmentDropdown();
+            },
+            onError: (e) => {
+                console.error('Failed to load ethics quiz data:', e);
+                alert('Failed to load quiz data. Please ensure you are running a local server.');
+            }
+        });
+
+        // Load data
+        quiz.loadData();
+
+        // DOM Elements
+        const views = {
+            commitment: document.getElementById('commitment-view'),
+            quiz: document.getElementById('quiz-view'),
+            results: document.getElementById('results-view')
+        };
+
+        const commitmentSelect = document.getElementById('commitment-select');
+        const skipCommitmentBtn = document.getElementById('skip-commitment-btn');
+        const confirmCommitmentBtn = document.getElementById('confirm-commitment-btn');
+        const backBtn = document.getElementById('back-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const retakeBtn = document.getElementById('retake-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const dimensionLabel = document.getElementById('dimension-label');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const resultToggleContainer = document.getElementById('result-toggle-container');
+        const showTopBtn = document.getElementById('show-top-btn');
+        const showRunnerUpBtn = document.getElementById('show-runner-up-btn');
+        const showWorstBtn = document.getElementById('show-worst-btn');
+        const showCommitmentBtn = document.getElementById('show-commitment-btn');
+
+        // Mode toggles
+        const modeStandardBtn = document.getElementById('mode-standard');
+        const modeExpandedBtn = document.getElementById('mode-expanded');
+        const commitmentModeStandardBtn = document.getElementById('commitment-mode-standard');
+        const commitmentModeExpandedBtn = document.getElementById('commitment-mode-expanded');
+
+        // Results data
+        let results = null;
+
+        function switchView(viewName) {
+            Object.values(views).forEach(view => {
+                if (view) {
+                    view.classList.add('hidden');
+                    view.classList.remove('active');
+                }
+            });
+            if (views[viewName]) {
+                views[viewName].classList.remove('hidden');
+                setTimeout(() => views[viewName].classList.add('active'), 10);
+            }
+        }
+
+        function populateCommitmentDropdown() {
+            const sorted = quiz.getSortedSystemsForDropdown();
+            sorted.forEach(sys => {
+                const option = document.createElement('option');
+                option.value = sys.index;
+                option.textContent = sys.name;
+                commitmentSelect.appendChild(option);
+            });
+        }
+
+        function toggleCommitmentButtons() {
+            if (commitmentSelect.value !== "") {
+                confirmCommitmentBtn.classList.remove('hidden');
+                skipCommitmentBtn.classList.add('hidden');
+            } else {
+                confirmCommitmentBtn.classList.add('hidden');
+                skipCommitmentBtn.classList.remove('hidden');
+            }
+        }
+
+        function handleCommitment(isConfirmed) {
+            if (isConfirmed && commitmentSelect.value !== "") {
+                quiz.setCommitment(parseInt(commitmentSelect.value));
+            }
+            startQuiz();
+        }
+
+        function startQuiz() {
+            quiz.reset();
+            switchView('quiz');
+            renderQuestion();
+        }
+
+        function setExpandedMode(expanded) {
+            quiz.setExpandedMode(expanded);
+            modeStandardBtn.classList.toggle('active', !expanded);
+            modeExpandedBtn.classList.toggle('active', expanded);
+            commitmentModeStandardBtn.classList.toggle('active', !expanded);
+            commitmentModeExpandedBtn.classList.toggle('active', expanded);
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const dimension = quiz.getCurrentDimension();
+            if (!dimension) return;
+
+            // Update back button
+            backBtn.classList.toggle('hidden', !quiz.canGoBack());
+
+            // Update next button
+            nextBtn.classList.toggle('hidden', !quiz.hasCurrentAnswer());
+            nextBtn.textContent = quiz.isLastQuestion() ? 'See Results' : 'Next →';
+
+            // Update progress
+            progressBar.style.width = `${quiz.getProgress()}%`;
+
+            // Update content
+            dimensionLabel.textContent = `Dimension ${quiz.getCurrentQuestionIndex() + 1}: ${dimension.label}`;
+
+            const qText = quiz.isExpandedMode && dimension.expanded_question
+                ? dimension.expanded_question
+                : dimension.question;
+            questionText.innerHTML = `
+                ${qText}
+                <div class="instruction-text">Select the statement you most agree with:</div>
+            `;
+
+            // Render options
+            optionsContainer.innerHTML = '<div class="selection-container" id="selection-list"></div>';
+            const list = document.getElementById('selection-list');
+            const currentAnswer = quiz.getAnswer(dimension.id);
+            const shuffledOrder = quiz.getShuffledOptionsOrder(dimension);
+
+            shuffledOrder.forEach(originalIndex => {
+                const option = dimension.options[originalIndex];
+                const isSelected = currentAnswer === option.value;
+
+                const card = document.createElement('div');
+                card.className = `option-card${isSelected ? ' selected' : ''}`;
+                card.onclick = () => {
+                    quiz.setAnswer(dimension.id, option.value);
+                    renderQuestion();
+                };
+
+                const label = quiz.isExpandedMode && option.expanded_label
+                    ? option.expanded_label
+                    : option.label;
+
+                card.innerHTML = `
+                    <div class="option-content">
+                        <div class="option-text">${label}</div>
+                    </div>
+                    ${isSelected ? '<div class="checkmark">✓</div>' : ''}
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        function handleNext() {
+            if (quiz.isLastQuestion()) {
+                calculateAndShowResults();
+            } else {
+                quiz.goNext();
+                renderQuestion();
+            }
+        }
+
+        function calculateAndShowResults() {
+            results = quiz.calculateResults();
+
+            // Save to localStorage
+            saveQuizResult('ethics', results.top);
+
+            showResults();
+        }
+
+        function showResults() {
+            switchView('results');
+            resultToggleContainer.classList.remove('hidden');
+
+            // Show/hide commitment button
+            showCommitmentBtn.classList.toggle('hidden', !results.commitment);
+
+            toggleResultView('top');
+        }
+
+        function toggleResultView(viewType) {
+            let data;
+            if (viewType === 'top') data = results.top;
+            else if (viewType === 'runner-up') data = results.runnerUp;
+            else if (viewType === 'commitment') data = results.commitment;
+            else data = results.worst;
+
+            // Update toggle buttons
+            showTopBtn.classList.toggle('active', viewType === 'top');
+            showRunnerUpBtn.classList.toggle('active', viewType === 'runner-up');
+            showWorstBtn.classList.toggle('active', viewType === 'worst');
+            showCommitmentBtn.classList.toggle('active', viewType === 'commitment');
+
+            // Update content
+            document.getElementById('result-name').textContent = data.system.name;
+            document.getElementById('result-score').textContent = `Match: ${data.matchPercentage}%`;
+            document.getElementById('result-description').textContent = data.system.description;
+            document.getElementById('result-wiki').href = data.system.wiki;
+
+            // Update breakdown
+            const breakdownList = document.getElementById('result-breakdown');
+            breakdownList.innerHTML = '';
+
+            data.breakdown.forEach(item => {
+                const li = document.createElement('li');
+
+                let matchClass = 'match-neutral';
+                let badgeHtml = '';
+                let alignmentText = '';
+
+                if (item.isSameChoice) {
+                    matchClass = 'match-most';
+                    badgeHtml = '<span class="match-badge success">Same Choice</span>';
+                    alignmentText = `<strong>You also chose: ${item.userVal}</strong>`;
+                } else if (item.distance === 2) {
+                    matchClass = 'match-least';
+                    badgeHtml = '<span class="match-badge danger">Opposite</span>';
+                    alignmentText = `Your choice: <strong>${item.userVal}</strong>`;
+                } else {
+                    matchClass = 'match-neutral';
+                    badgeHtml = '<span class="match-badge neutral">Related</span>';
+                    alignmentText = `Your choice: <strong>${item.userVal}</strong>`;
+                }
+
+                li.className = matchClass;
+                li.innerHTML = `
+                    <div class="dim-name">${item.dim}</div>
+                    <div class="comparison-container">
+                        <div class="system-stance">
+                            <span class="label">System View</span>
+                            <div class="value">
+                                ${item.sysVal}
+                                ${badgeHtml}
+                            </div>
+                            <div class="description">"${item.optionLabel}"</div>
+                        </div>
+                        <div class="user-alignment">
+                            ${alignmentText}
+                        </div>
+                    </div>
+                `;
+                breakdownList.appendChild(li);
+            });
+        }
+
+        // Event Listeners
+        commitmentSelect.addEventListener('change', toggleCommitmentButtons);
+        skipCommitmentBtn.addEventListener('click', () => handleCommitment(false));
+        confirmCommitmentBtn.addEventListener('click', () => handleCommitment(true));
+        backBtn.addEventListener('click', () => { quiz.goBack(); renderQuestion(); });
+        nextBtn.addEventListener('click', handleNext);
+        retakeBtn.addEventListener('click', () => {
+            clearQuizResult('ethics');
+            switchView('commitment');
+            quiz.reset();
+        });
+
+        showTopBtn.addEventListener('click', () => toggleResultView('top'));
+        showRunnerUpBtn.addEventListener('click', () => toggleResultView('runner-up'));
+        showWorstBtn.addEventListener('click', () => toggleResultView('worst'));
+        showCommitmentBtn.addEventListener('click', () => toggleResultView('commitment'));
+
+        modeStandardBtn.addEventListener('click', () => setExpandedMode(false));
+        modeExpandedBtn.addEventListener('click', () => setExpandedMode(true));
+        commitmentModeStandardBtn.addEventListener('click', () => setExpandedMode(false));
+        commitmentModeExpandedBtn.addEventListener('click', () => setExpandedMode(true));
+    </script>
+</body>
+
+</html>
