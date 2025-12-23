@@ -98,6 +98,15 @@ python scripts/generate_map.py --algo tsne
 
 This will update `data/systems_map.json`, which is read by `map.html`.
 
+### Ethics Map (Node)
+To regenerate the ethics systems map after changing `data/ethical_dimensions.json` or `data/ethical_systems.json`:
+
+```bash
+npm run gen:ethics-map
+```
+
+This writes `data/ethical_systems_map.json`, used by `ethics-map.html`.
+
 ## Technologies Used
 
 -   **HTML5**: Semantic structure.

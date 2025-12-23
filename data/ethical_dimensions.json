@@ -1,0 +1,90 @@
+[
+  {
+    "id": "moral_facts",
+    "label": "Moral Truth",
+    "question": "Are moral claims meant to be objectively true or false?",
+    "options": [
+      { "value": "Objective", "label": "There are stance-independent moral truths—true even if no one agrees." },
+      { "value": "AttitudeDependent", "label": "Moral truth depends on individual or cultural attitudes." },
+      { "value": "Mixed", "label": "Some moral truths are objective, while others depend on attitudes." },
+      { "value": "NotTruthApt", "label": "Moral language isn’t really about truth; it expresses feelings, commitments, or directives." }
+    ]
+  },
+  {
+    "id": "grounding",
+    "label": "Where Morality Comes From",
+    "question": "Is morality discovered, invented, or something else?",
+    "options": [
+      { "value": "Discovered", "label": "We uncover real moral facts or constraints." },
+      { "value": "Constructed", "label": "Moral norms are made by choice, culture, or agreement." },
+      { "value": "ConstrainedConstruction", "label": "Moral systems are shaped by us, but within real constraints (human needs, suffering, cooperation, etc.)." },
+      { "value": "PracticeFirst", "label": "The “discovered vs invented” framing misses the point; morality is a lived practice or skill." }
+    ]
+  },
+  {
+    "id": "knowing",
+    "label": "How We Know Right and Wrong",
+    "question": "What’s the main route to moral knowledge?",
+    "options": [
+      { "value": "ReasonFirst", "label": "Argument, consistency, universal principles, and inference are central." },
+      { "value": "PerceptionFirst", "label": "Conscience, trained intuition, and emotion-as-recognition are central." },
+      { "value": "ReflectiveEquilibrium", "label": "Judgments and principles are revised together until they fit (reflective equilibrium)." },
+      { "value": "Unreliable", "label": "No method is reliably truth-tracking; moral belief is deeply uncertain or underdetermined." }
+    ]
+  },
+  {
+    "id": "justification",
+    "label": "What Makes Morality Binding",
+    "question": "What ultimately justifies moral claims?",
+    "options": [
+      { "value": "OutcomeJustified", "label": "The ultimate test is how actions affect welfare, suffering, and flourishing." },
+      { "value": "ConstraintJustified", "label": "Some things are owed as a matter of rights or duty, regardless of consequences." },
+      { "value": "DualJustification", "label": "Consequences matter, but within moral limits; those limits may also be defended by their role in the good." },
+      { "value": "NarrativeParticular", "label": "Justification is interpretive and context-bound, grounded in meaning, story, or tradition." }
+    ]
+  },
+  {
+    "id": "evaluation_focus",
+    "label": "What Ethics Evaluates",
+    "question": "What is the primary target of moral evaluation?",
+    "options": [
+      { "value": "ActRuleCentered", "label": "The focus is on acts, rules, and institutions—what’s permitted, required, or forbidden." },
+      { "value": "AgentCentered", "label": "The focus is on character—virtues, vices, practical wisdom, and moral formation." },
+      { "value": "ActAndAgent", "label": "Action and character are inseparable: actions shape character, and character shapes actions." },
+      { "value": "RelationRoleCentered", "label": "The focus is on relationships and roles—care, dependency, and social bonds." }
+    ]
+  },
+  {
+    "id": "impartiality",
+    "label": "Impartiality and Special Obligations",
+    "question": "Do close ties change what we owe, or do moral reasons weigh the same for everyone?",
+    "options": [
+      { "value": "Impartial", "label": "Moral reasons have equal weight; personal ties don’t change basic duties." },
+      { "value": "Partial", "label": "Close relationships create fundamental special obligations." },
+      { "value": "Layered", "label": "Equal baseline duties apply to all, with added duties from roles and relationships." },
+      { "value": "FrameRejected", "label": "The impartial/partial framing doesn’t fit; moral reasons are constituted by identity and context." }
+    ]
+  },
+  {
+    "id": "aggregation",
+    "label": "Tradeoffs Across Persons",
+    "question": "Is it permissible to trade off harms and benefits between different people?",
+    "options": [
+      { "value": "Aggregative", "label": "Harms and benefits across people can, in principle, be traded off." },
+      { "value": "NonAggregative", "label": "Tradeoffs are often blocked by strong side-constraints protecting individuals." },
+      { "value": "Threshold", "label": "Tradeoffs are usually blocked, but extreme cases can override the usual constraints." },
+      { "value": "Incommensurable", "label": "Many values don’t combine cleanly; moral reasons are plural and not fully comparable." }
+    ]
+  },
+  {
+    "id": "rules",
+    "label": "How Rule-Guided Morality Is",
+    "question": "How much can morality be captured by rules?",
+    "options": [
+      { "value": "Exceptionless", "label": "Some duties or prohibitions hold without exception." },
+      { "value": "ContextSensitive", "label": "Right action depends heavily on particulars; rules are mostly rough guides." },
+      { "value": "PrinciplesPlusJudgment", "label": "Stable principles matter, but judgment is needed to handle conflicts and exceptions." },
+      { "value": "TraditionSkill", "label": "Moral competence looks more like cultivated skill and tradition than rule-following." }
+    ]
+  }
+]

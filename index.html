@@ -4,29 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's Your Metaphysics?</title>
+    <title>What's Your Philosophy?</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="What's Your Metaphysics?">
+    <meta property="og:title" content="What's Your Philosophy?">
     <meta property="og:description"
-        content="Discover your philosophical worldview in 8 dimensions. Take this quiz to find which metaphysical system matches your beliefs about reality, mind, free will, and more.">
+        content="Discover your philosophical worldview across three dimensions: metaphysics, ethics, and narrative. Take these quizzes to understand your beliefs about reality, morality, and meaning.">
     <meta property="og:image" content="og-image.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What's Your Metaphysics?">
+    <meta name="twitter:title" content="What's Your Philosophy?">
     <meta name="twitter:description"
-        content="Discover your philosophical worldview in 8 dimensions. Take this quiz to find which metaphysical system matches your beliefs about reality, mind, free will, and more.">
+        content="Discover your philosophical worldview across three dimensions: metaphysics, ethics, and narrative.">
     <meta name="twitter:image" content="og-image.svg">
 
     <!-- General meta -->
     <meta name="description"
-        content="Discover your philosophical worldview in 8 dimensions. Take this quiz to find which metaphysical system matches your beliefs about reality, mind, free will, and more.">
+        content="Discover your philosophical worldview across three dimensions: metaphysics, ethics, and narrative. Take these quizzes to understand your beliefs about reality, morality, and meaning.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,179 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Dashboard-specific styles */
+        .results-dashboard {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .clear-results-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .clear-results-btn:hover {
+            color: var(--accent);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .result-card-mini {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            position: relative;
+        }
+
+        .result-card-mini.empty {
+            border-style: dashed;
+            opacity: 0.6;
+        }
+
+        .result-card-mini .quiz-type {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card-mini .system-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-card-mini .match-score {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .result-card-mini .timestamp {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .result-card-mini .empty-message {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .quiz-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-card .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-card .card-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-card .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .quiz-card .btn {
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .quiz-card .btn.completed {
+            background: var(--success-bg, #e8f5e9);
+            color: var(--success-text, #2e7d32);
+            border-color: var(--success-border, #a5d6a7);
+        }
+
+        .quiz-card.coming-soon {
+            opacity: 0.6;
+        }
+
+        .quiz-card.coming-soon .btn {
+            pointer-events: none;
+            background: var(--border);
+            color: var(--text-muted);
+        }
+
+        .divider-section {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+    </style>
 </head>
 
 <body>
     <div class="app-container">
         <header>
             <div class="header-content">
-                <h1>What's Your Metaphysics?</h1>
+                <h1>What's Your Philosophy?</h1>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -62,79 +228,133 @@
                     </svg>
                 </button>
             </div>
-            <p class="subtitle">Discover your philosophical worldview in <span class="dimension-count">...</span>
-                dimensions.</p>
+            <p class="subtitle">Discover your worldview across three dimensions of belief.</p>
         </header>
 
         <main id="main-content">
-            <!-- Intro View Template -->
             <div id="intro-view" class="view active">
                 <div class="card intro-card">
-                    <div class="intro-content">
-                        <p class="intro-lead">Metaphysical systems are often taught as static, historical categories.
-                            But what if we look at the underlying structure of your beliefs?</p>
-                        <div class="divider"></div>
-                        <p class="intro-text">This quiz maps your worldview across <span
-                                class="dimension-count">...</span> fundamental dimensions—from the
-                            nature of reality to the existence of the divine—and matches you to one of <span
-                                class="system-count">...</span> philosophical systems.</p>
+                    <!-- Results Dashboard (shown when any quiz is completed) -->
+                    <div id="results-dashboard" class="results-dashboard hidden">
+                        <div class="dashboard-header">
+                            <h2>Your Results</h2>
+                            <button id="clear-results-btn" class="clear-results-btn">Clear All</button>
+                        </div>
+                        <div class="results-grid">
+                            <div id="metaphysics-result" class="result-card-mini empty">
+                                <div class="quiz-type">Metaphysics</div>
+                                <div class="empty-message">Not yet taken</div>
+                            </div>
+                            <div id="ethics-result" class="result-card-mini empty">
+                                <div class="quiz-type">Ethics</div>
+                                <div class="empty-message">Not yet taken</div>
+                            </div>
+                            <div id="narrative-result" class="result-card-mini empty">
+                                <div class="quiz-type">Narrative</div>
+                                <div class="empty-message">Coming soon</div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Primary CTA -->
-                    <a href="quiz.html" id="start-btn" class="btn primary-btn cta-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            style="margin-right: 0.5rem;">
-                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                        </svg>
-                        Start the Quiz
-                    </a>
+
+                    <!-- Introduction -->
+                    <div class="intro-content">
+                        <p class="intro-lead">Your philosophical worldview spans three interconnected domains—and they
+                            may not always agree with each other.</p>
+                        <div class="divider"></div>
+                        <p class="intro-text">Take these quizzes to discover your <strong>metaphysical</strong> beliefs
+                            about reality, your <strong>ethical</strong> framework for right action, and your
+                            <strong>narrative</strong> understanding of history and meaning. Where they conflict, you
+                            may find the most interesting questions.
+                        </p>
+                    </div>
+
+                    <!-- Quiz Cards -->
+                    <div class="quiz-cards">
+                        <div class="quiz-card" id="metaphysics-card">
+                            <div class="card-icon">🌌</div>
+                            <h3>Metaphysics</h3>
+                            <p class="card-description">What is the fundamental nature of reality? Explore your beliefs
+                                about existence, consciousness, time, and the divine.</p>
+                            <div class="card-meta"><span class="dimension-count">8</span> dimensions · <span
+                                    class="system-count">40</span> systems</div>
+                            <a href="quiz.html" class="btn primary-btn" id="metaphysics-btn">Start Quiz</a>
+                        </div>
+
+                        <div class="quiz-card" id="ethics-card">
+                            <div class="card-icon">⚖️</div>
+                            <h3>Ethics</h3>
+                            <p class="card-description">What is the good life and how should we pursue it? Discover
+                                your ethical framework for moral reasoning and action.</p>
+                            <div class="card-meta">8 dimensions · 20 systems</div>
+                            <a href="ethics-quiz.html" class="btn primary-btn" id="ethics-btn">Start Quiz</a>
+                        </div>
+
+                        <div class="quiz-card coming-soon" id="narrative-card">
+                            <div class="card-icon">📜</div>
+                            <h3>Narrative</h3>
+                            <p class="card-description">What is the shape of history and your place in it? Understand
+                                your sense of meaning, progress, and human destiny.</p>
+                            <div class="card-meta">Coming soon</div>
+                            <span class="btn primary-btn">Coming Soon</span>
+                        </div>
+                    </div>
 
                     <!-- Navigation Links -->
-                    <div class="nav-groups">
-                        <div class="nav-group">
-                            <div class="nav-links">
-                                <a href="explore.html" class="nav-link">
-                                    <span class="nav-icon">📚</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">Systems</span>
-                                        <span class="nav-link-desc">Browse all philosophical worldviews</span>
-                                    </span>
-                                </a>
-                                <a href="dimensions.html" class="nav-link">
-                                    <span class="nav-icon">📐</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">Dimensions</span>
-                                        <span class="nav-link-desc">The fundamental axes of belief</span>
-                                    </span>
-                                </a>
-                                <a href="map.html" class="nav-link">
-                                    <span class="nav-icon">🗺️</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">Systems Map</span>
-                                        <span class="nav-link-desc">Visualize relationships between systems</span>
-                                    </span>
-                                </a>
-                                <a href="compare.html" class="nav-link">
-                                    <span class="nav-icon">⚖️</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">Compare</span>
-                                        <span class="nav-link-desc">Side-by-side system comparison</span>
-                                    </span>
-                                </a>
-                                <a href="llm_results.html" class="nav-link">
-                                    <span class="nav-icon">🤖</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">LLM Preferences</span>
-                                        <span class="nav-link-desc">How AI models answered</span>
-                                    </span>
-                                </a>
-                                <a href="improve.html" class="nav-link">
-                                    <span class="nav-icon">✏️</span>
-                                    <span class="nav-link-content">
-                                        <span class="nav-link-title">Contribute</span>
-                                        <span class="nav-link-desc">Help improve the taxonomy</span>
-                                    </span>
-                                </a>
+                    <div class="divider-section">
+                        <h3 class="section-title">Explore</h3>
+                        <div class="nav-groups">
+                            <div class="nav-group">
+                                <div class="nav-links">
+                                    <a href="explore.html" class="nav-link">
+                                        <span class="nav-icon">📚</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Systems</span>
+                                            <span class="nav-link-desc">Browse all philosophical worldviews</span>
+                                        </span>
+                                    </a>
+                                    <a href="dimensions.html" class="nav-link">
+                                        <span class="nav-icon">📐</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Dimensions</span>
+                                            <span class="nav-link-desc">The fundamental axes of belief</span>
+                                        </span>
+                                    </a>
+                                    <a href="map.html" class="nav-link">
+                                        <span class="nav-icon">🗺️</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Metaphysics Map</span>
+                                            <span class="nav-link-desc">Visualize metaphysical systems</span>
+                                        </span>
+                                    </a>
+                                    <a href="ethics-map.html" class="nav-link">
+                                        <span class="nav-icon">🗺️</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Ethics Map</span>
+                                            <span class="nav-link-desc">Visualize ethical frameworks</span>
+                                        </span>
+                                    </a>
+                                    <a href="compare.html" class="nav-link">
+                                        <span class="nav-icon">⚖️</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Compare</span>
+                                            <span class="nav-link-desc">Side-by-side system comparison</span>
+                                        </span>
+                                    </a>
+                                    <a href="llm_results.html" class="nav-link">
+                                        <span class="nav-icon">🤖</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">LLM Preferences</span>
+                                            <span class="nav-link-desc">How AI models answered</span>
+                                        </span>
+                                    </a>
+                                    <a href="improve.html" class="nav-link">
+                                        <span class="nav-icon">✏️</span>
+                                        <span class="nav-link-content">
+                                            <span class="nav-link-title">Contribute</span>
+                                            <span class="nav-link-desc">Help improve the taxonomy</span>
+                                        </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -149,10 +369,94 @@
     </div>
     <script src="js/theme.js"></script>
     <script src="js/data-loader.js"></script>
+    <script src="js/results-store.js"></script>
     <script>
         // Initialize theme toggle and load data for count displays
         setupThemeToggle();
         initDataLoader();
+
+        // Dashboard functionality
+        function updateDashboard() {
+            const results = getStoredResults();
+            const dashboard = document.getElementById('results-dashboard');
+            const hasAnyResult = results.metaphysics || results.ethics || results.narrative;
+
+            // Show/hide dashboard
+            dashboard.classList.toggle('hidden', !hasAnyResult);
+
+            // Update metaphysics result
+            const metaCard = document.getElementById('metaphysics-result');
+            if (results.metaphysics) {
+                metaCard.classList.remove('empty');
+                metaCard.innerHTML = `
+                    <div class="quiz-type">Metaphysics</div>
+                    <div class="system-name">${results.metaphysics.systemName}</div>
+                    <div class="match-score">${results.metaphysics.matchPercentage}% match</div>
+                    <div class="timestamp">${formatRelativeTime(results.metaphysics.timestamp)}</div>
+                `;
+            } else {
+                metaCard.classList.add('empty');
+                metaCard.innerHTML = `
+                    <div class="quiz-type">Metaphysics</div>
+                    <div class="empty-message">Not yet taken</div>
+                `;
+            }
+
+            // Update ethics result
+            const ethicsCard = document.getElementById('ethics-result');
+            if (results.ethics) {
+                ethicsCard.classList.remove('empty');
+                ethicsCard.innerHTML = `
+                    <div class="quiz-type">Ethics</div>
+                    <div class="system-name">${results.ethics.systemName}</div>
+                    <div class="match-score">${results.ethics.matchPercentage}% match</div>
+                    <div class="timestamp">${formatRelativeTime(results.ethics.timestamp)}</div>
+                `;
+            } else {
+                ethicsCard.classList.add('empty');
+                ethicsCard.innerHTML = `
+                    <div class="quiz-type">Ethics</div>
+                    <div class="empty-message">Not yet taken</div>
+                `;
+            }
+
+            // Update narrative result (coming soon)
+            const narrativeCard = document.getElementById('narrative-result');
+            narrativeCard.innerHTML = `
+                <div class="quiz-type">Narrative</div>
+                <div class="empty-message">Coming soon</div>
+            `;
+
+            // Update quiz card buttons
+            const metaBtn = document.getElementById('metaphysics-btn');
+            if (results.metaphysics) {
+                metaBtn.textContent = 'Retake Quiz';
+                metaBtn.classList.add('completed');
+            } else {
+                metaBtn.textContent = 'Start Quiz';
+                metaBtn.classList.remove('completed');
+            }
+
+            const ethicsBtn = document.getElementById('ethics-btn');
+            if (results.ethics) {
+                ethicsBtn.textContent = 'Retake Quiz';
+                ethicsBtn.classList.add('completed');
+            } else {
+                ethicsBtn.textContent = 'Start Quiz';
+                ethicsBtn.classList.remove('completed');
+            }
+        }
+
+        // Clear results handler
+        document.getElementById('clear-results-btn').addEventListener('click', () => {
+            if (confirm('Clear all quiz results?')) {
+                clearAllResults();
+                updateDashboard();
+            }
+        });
+
+        // Initialize dashboard on load
+        updateDashboard();
     </script>
 </body>
 

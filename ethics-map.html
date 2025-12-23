@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethics Map - What's Your Philosophy?</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-container {
+            height: 100vh;
+            max-width: 100%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            padding: 1rem 2rem;
+            margin-bottom: 0;
+            background: var(--bg-color);
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .map-header .header-content {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .map-header .subtitle {
+            margin-bottom: 0;
+        }
+
+        #map-wrapper {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+
+        .system-node {
+            cursor: pointer;
+            transition: r 0.2s, stroke-width 0.2s;
+        }
+
+        .system-node:hover {
+            stroke: #fff;
+            stroke-width: 3px;
+        }
+
+        .system-label {
+            font-size: 12px;
+            fill: var(--text-main);
+            pointer-events: none;
+            text-anchor: middle;
+            font-family: var(--font-main);
+            text-shadow: 0 1px 2px var(--bg-color);
+            font-weight: 600;
+        }
+
+        /* Zoom controls */
+        .zoom-controls {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 50;
+        }
+
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .zoom-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .map-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0.5rem;
+            background: linear-gradient(transparent, var(--bg-color));
+            z-index: 10;
+        }
+
+        .map-footer p {
+            margin: 0;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="map-header">
+            <div class="header-content">
+                <a href="index.html" class="back-home-btn" aria-label="Back to Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <h1>Ethical Systems Map</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">A 2D visualization of ethical frameworks.</p>
+        </header>
+
+        <div id="map-wrapper">
+            <div id="map-container"></div>
+
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoom-in" title="Zoom In">+</button>
+                <button class="zoom-btn" id="zoom-out" title="Zoom Out">-</button>
+                <button class="zoom-btn" id="zoom-reset" title="Reset View">⟲</button>
+            </div>
+
+            <div id="tooltip" class="tooltip"></div>
+
+            <footer class="map-footer">
+                <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                        target="_blank">View Source</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script>
+        // Theme toggle
+        setupThemeToggle();
+
+        // Load the ethics data
+        d3.json("data/ethical_systems_map.json").then(data => {
+            const container = document.getElementById('map-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            // Create SVG
+            const svg = d3.select("#map-container")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [0, 0, width, height])
+                .style("max-width", "100%")
+                .style("height", "auto");
+
+            // Create a group for the zoomable content
+            const g = svg.append("g");
+
+            // Define zoom behavior
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 5])
+                .on("zoom", (event) => {
+                    g.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+
+            // Use ethics accent color
+            const nodeColor = "#7c3aed"; // Purple for ethics
+
+            // Scales
+            const padding = 50;
+            const minDim = Math.min(width, height);
+            const spreadFactor = 2.0;
+            const mapSize = minDim * spreadFactor;
+
+            const xRangeStart = (width - mapSize) / 2 + padding;
+            const xRangeEnd = (width + mapSize) / 2 - padding;
+
+            const yRangeStart = (height + mapSize) / 2 - padding;
+            const yRangeEnd = (height - mapSize) / 2 + padding;
+
+            const xScale = d3.scaleLinear()
+                .domain([-120, 120])
+                .range([xRangeStart, xRangeEnd]);
+
+            const yScale = d3.scaleLinear()
+                .domain([-120, 120])
+                .range([yRangeStart, yRangeEnd]);
+
+            // Tooltip
+            const tooltip = d3.select("#tooltip");
+
+            // Draw nodes
+            const nodes = g.selectAll(".node")
+                .data(data)
+                .enter()
+                .append("g")
+                .attr("class", "node")
+                .attr("transform", d => `translate(${xScale(d.x)},${yScale(d.y)})`);
+
+            // Circles
+            nodes.append("circle")
+                .attr("r", 12)
+                .attr("class", "system-node")
+                .attr("fill", nodeColor)
+                .attr("stroke", "#fff")
+                .attr("stroke-width", 1.5)
+                .on("mouseover", function (event, d) {
+                    d3.select(this).attr("r", 16);
+
+                    tooltip.style("opacity", 1)
+                        .html(`
+                            <h3>${d.name}</h3>
+                            <p style="margin-top:0.5rem; font-size: 0.85rem;">${d.description}</p>
+                        `);
+
+                    const tooltipNode = tooltip.node();
+                    const tooltipRect = tooltipNode.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+
+                    let left = event.clientX - containerRect.left + 15;
+                    let top = event.clientY - containerRect.top - 28;
+
+                    if (left + tooltipRect.width > containerRect.width) {
+                        left = event.clientX - containerRect.left - tooltipRect.width - 15;
+                    }
+
+                    if (top + tooltipRect.height > containerRect.height) {
+                        top = event.clientY - containerRect.top - tooltipRect.height - 15;
+                    }
+
+                    if (top < 0) {
+                        top = event.clientY - containerRect.top + 15;
+                    }
+
+                    tooltip.style("left", left + "px")
+                        .style("top", top + "px");
+                })
+                .on("mouseout", function () {
+                    d3.select(this).attr("r", 12);
+                    tooltip.style("opacity", 0);
+                });
+
+            // Labels
+            nodes.append("text")
+                .attr("class", "system-label")
+                .attr("y", 28)
+                .each(function (d) {
+                    const words = d.name.split(/\s+/);
+                    const text = d3.select(this);
+                    if (words.length === 1) {
+                        text.text(words[0]);
+                    } else {
+                        text.append("tspan")
+                            .attr("x", 0)
+                            .attr("dy", "0em")
+                            .text(words[0]);
+
+                        for (let i = 1; i < words.length; i++) {
+                            text.append("tspan")
+                                .attr("x", 0)
+                                .attr("dy", "1.2em")
+                                .text(words[i]);
+                        }
+                    }
+                });
+
+            // Zoom controls
+            document.getElementById('zoom-in').addEventListener('click', () => {
+                svg.transition().call(zoom.scaleBy, 1.2);
+            });
+
+            document.getElementById('zoom-out').addEventListener('click', () => {
+                svg.transition().call(zoom.scaleBy, 0.8);
+            });
+
+            document.getElementById('zoom-reset').addEventListener('click', () => {
+                svg.transition().call(zoom.transform, d3.zoomIdentity);
+            });
+
+        }).catch(err => {
+            console.error("Error loading ethics map data:", err);
+        });
+    </script>
+</body>
+
+</html>
