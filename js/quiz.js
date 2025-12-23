@@ -37,6 +37,8 @@ let currentQuestionIndex = 0;
 let userAnswers = {};
 let isExpandedMode = false;
 let userCommitment = null;
+let systemStats = {};
+let totalStatsCount = 0;
 
 // Load data using shared data-loader
 initDataLoader(
@@ -357,10 +359,15 @@ function calculateResult() {
     showResult();
 }
 
-function showResult() {
+async function showResult() {
     switchView('results');
     if (resultToggleContainer) resultToggleContainer.classList.remove('hidden');
 
+    // Load popularity stats
+    if (typeof getSystemStats === 'function') {
+        systemStats = await getSystemStats();
+        totalStatsCount = Object.values(systemStats).reduce((a, b) => a + b, 0);
+    }
 
     // Show/Hide Commitment Button
     if (showCommitmentBtn) {
@@ -420,6 +427,27 @@ function toggleResultView(viewType) {
     if (resultScore) resultScore.textContent = `Match: ${data.matchPercentage}%`;
     if (resultDescription) resultDescription.textContent = system.description;
     if (resultWiki) resultWiki.href = system.wiki;
+
+    // Add or update popularity display
+    let popularityEl = document.getElementById('result-popularity');
+    if (!popularityEl && resultScore) {
+        popularityEl = document.createElement('div');
+        popularityEl.id = 'result-popularity';
+        popularityEl.className = 'result-popularity';
+        resultScore.parentNode.insertBefore(popularityEl, resultScore.nextSibling);
+    }
+    if (popularityEl && totalStatsCount > 0) {
+        const count = systemStats[system.name] || 0;
+        if (count === 0) {
+            popularityEl.textContent = `You're the first to match with this system!`;
+        } else {
+            const percentage = ((count / totalStatsCount) * 100).toFixed(1);
+            const formattedCount = typeof formatCount === 'function' ? formatCount(count) : count;
+            popularityEl.textContent = `${formattedCount} others (${percentage}%) have gotten this result.`;
+        }
+    } else if (popularityEl) {
+        popularityEl.textContent = '';
+    }
 
     // Add Primary Source display if it doesn't exist, or update it
     let sourceEl = document.getElementById('result-source');
