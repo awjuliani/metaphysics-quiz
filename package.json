@@ -1,0 +1,8 @@
+{
+  "name": "metaphysics-quiz",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "gen:ethics-map": "node scripts/generate_ethics_map_simple.js"
+  }
+}

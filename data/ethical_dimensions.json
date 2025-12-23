@@ -1,0 +1,90 @@
+[
+  {
+    "id": "moral_facts",
+    "label": "Moral Facts",
+    "question": "Do moral claims aim at objective truth?",
+    "options": [
+      { "value": "Objective", "label": "Yes: stance-independent moral truths exist." },
+      { "value": "AttitudeDependent", "label": "No: moral truth depends on individual/group attitudes." },
+      { "value": "Mixed", "label": "Some moral truths are objective; others are attitude-dependent." },
+      { "value": "NotTruthApt", "label": "Neither: moral talk isn’t really truth-apt (expressive, imperative, or category-mistake)." }
+    ]
+  },
+  {
+    "id": "grounding",
+    "label": "Grounding",
+    "question": "Is morality discovered or made?",
+    "options": [
+      { "value": "Discovered", "label": "Discovered: we find moral reality/constraints." },
+      { "value": "Constructed", "label": "Constructed: morality is made by choice, culture, or agreement." },
+      { "value": "ConstrainedConstruction", "label": "Both: we construct within real constraints (facts about persons, suffering, cooperation, etc.)." },
+      { "value": "PracticeFirst", "label": "Neither: ‘discovered vs made’ is the wrong frame; morality is a practice/skill/form-of-life." }
+    ]
+  },
+  {
+    "id": "knowing",
+    "label": "How We Know",
+    "question": "What’s the primary route to moral knowledge?",
+    "options": [
+      { "value": "ReasonFirst", "label": "Reason-first: argument, consistency, universalization, inference." },
+      { "value": "PerceptionFirst", "label": "Perception-first: conscience, trained intuition, moral perception/emotion-as-seeing." },
+      { "value": "ReflectiveEquilibrium", "label": "Both: mutual correction of reason and perception (reflective equilibrium)." },
+      { "value": "Unreliable", "label": "Neither: no reliable route (deep skepticism / underdetermination)." }
+    ]
+  },
+  {
+    "id": "justification",
+    "label": "Justification Style",
+    "question": "How are moral claims ultimately justified?",
+    "options": [
+      { "value": "OutcomeJustified", "label": "By outcomes: welfare, suffering, flourishing, consequences." },
+      { "value": "ConstraintJustified", "label": "By constraints: rights, duties, respect, wrongdoing independent of outcomes." },
+      { "value": "DualJustification", "label": "Both: outcomes matter within constraints (or constraints are defended by their role in the good)." },
+      { "value": "NarrativeParticular", "label": "Neither: justification is irreducibly narrative/particular/interpretive (not reducible to either)." }
+    ]
+  },
+  {
+    "id": "evaluation_focus",
+    "label": "Primary Focus",
+    "question": "What does ethics primarily evaluate?",
+    "options": [
+      { "value": "ActRuleCentered", "label": "Acts/rules/institutions: what is permitted, required, forbidden." },
+      { "value": "AgentCentered", "label": "Agents/character: virtues, vices, practical wisdom, formation." },
+      { "value": "ActAndAgent", "label": "Both: actions form character; character expresses itself in action." },
+      { "value": "RelationRoleCentered", "label": "Neither: relationships/roles/care/ritual are the basic moral unit." }
+    ]
+  },
+  {
+    "id": "impartiality",
+    "label": "Impartiality",
+    "question": "Do moral reasons apply equally to everyone?",
+    "options": [
+      { "value": "Impartial", "label": "Impartial: equal-weight reasons; personal ties don’t change what’s owed." },
+      { "value": "Partial", "label": "Partial: special ties generate basic special obligations." },
+      { "value": "Layered", "label": "Both: equal baseline + role/relationship duties layered on top." },
+      { "value": "FrameRejected", "label": "Neither: impartial/partial is the wrong frame (reasons are context-indexed or identity-constituted)." }
+    ]
+  },
+  {
+    "id": "aggregation",
+    "label": "Aggregation",
+    "question": "May we trade off harms/benefits across persons?",
+    "options": [
+      { "value": "Aggregative", "label": "Aggregative: interpersonal trade-offs are permitted in principle." },
+      { "value": "NonAggregative", "label": "Non-aggregative: strong constraints/side-constraints block trade-offs." },
+      { "value": "Threshold", "label": "Both: constraints usually hold, but can be overridden past a threshold." },
+      { "value": "Incommensurable", "label": "Neither: values don’t aggregate; reasons are plural/incommensurable." }
+    ]
+  },
+  {
+    "id": "rules",
+    "label": "Rule Form",
+    "question": "How rule-like is morality?",
+    "options": [
+      { "value": "Exceptionless", "label": "Exceptionless prohibitions/duties exist." },
+      { "value": "ContextSensitive", "label": "Right action depends on particulars; rules are at best heuristics." },
+      { "value": "PrinciplesPlusJudgment", "label": "Both: stable principles + judgment in conflicts (prima facie, proportionality, etc.)." },
+      { "value": "TraditionSkill", "label": "Neither: morality is a cultivated skill/tradition/virtue practice, not rule-governed." }
+    ]
+  }
+]

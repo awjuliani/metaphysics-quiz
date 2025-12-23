@@ -1,0 +1,322 @@
+[
+    {
+        "name": "Classical Utilitarianism",
+        "description": "The ethical theory of Jeremy Bentham and John Stuart Mill, which holds that the right action is the one that produces the greatest happiness for the greatest number. Pleasure and the absence of pain are the only intrinsic goods. All beings capable of suffering count equally in the moral calculus, and consequences are all that matter—intentions and character are morally relevant only insofar as they affect outcomes.",
+        "wiki": "https://en.wikipedia.org/wiki/Utilitarianism",
+        "primary_source": "Utilitarianism by John Stuart Mill",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Preference Utilitarianism",
+        "description": "A modern form of utilitarianism associated with Peter Singer and R.M. Hare. Rather than maximizing pleasure, it aims to maximize the satisfaction of preferences or interests. What counts as 'good' is determined by what beings actually want, not by an objective standard of pleasure. This makes it more subjective than classical utilitarianism while retaining its impartial, consequentialist structure.",
+        "wiki": "https://en.wikipedia.org/wiki/Preference_utilitarianism",
+        "primary_source": "Practical Ethics by Peter Singer",
+        "profile": {
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Kantian Deontology",
+        "description": "The moral philosophy of Immanuel Kant, grounded in the Categorical Imperative: act only according to maxims you could will to be universal laws. Morality is about duty and respect for rational agency, not consequences. Persons must always be treated as ends in themselves, never merely as means. The moral law is discovered through pure practical reason and binds all rational beings unconditionally.",
+        "wiki": "https://en.wikipedia.org/wiki/Kantian_ethics",
+        "primary_source": "Groundwork of the Metaphysics of Morals by Immanuel Kant",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "Exceptionless"
+        }
+    },
+    {
+        "name": "Contractarianism",
+        "description": "The view that morality is grounded in a social contract—the rules rational agents would agree to for mutual benefit. Associated with Hobbes (self-interested agreement) and Rawls (agreement behind a 'veil of ignorance'). Justice is fairness: principles are legitimate if they could be chosen by free, rational agents who don't know their place in society. Morality is a human construction, but one grounded in reason.",
+        "wiki": "https://en.wikipedia.org/wiki/Social_contract",
+        "primary_source": "A Theory of Justice by John Rawls",
+        "profile": {
+            "moral_facts": "Mixed",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Virtue Ethics",
+        "description": "The ancient tradition revived by Alasdair MacIntyre and others, rooted in Aristotle. Ethics is primarily about character and human flourishing (eudaimonia), not rules or consequences. The virtuous person—possessing practical wisdom (phronesis)—knows how to act well in particular situations. Virtues are stable dispositions developed through practice, and the good life is one of excellent human functioning.",
+        "wiki": "https://en.wikipedia.org/wiki/Virtue_ethics",
+        "primary_source": "Nicomachean Ethics by Aristotle",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "DualJustification",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Stoic Ethics",
+        "description": "The ethics of the ancient Stoics—Epictetus, Seneca, Marcus Aurelius. Virtue is the only good; external things (health, wealth, reputation) are 'indifferent.' The goal is to live according to nature and reason, aligning one's will with the rational order of the cosmos (Logos). Wisdom consists in accepting what we cannot control while mastering our own judgments and responses.",
+        "wiki": "https://en.wikipedia.org/wiki/Stoic_ethics",
+        "primary_source": "Meditations by Marcus Aurelius",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "DualJustification",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Incommensurable",
+            "rules": "Exceptionless"
+        }
+    },
+    {
+        "name": "Care Ethics",
+        "description": "Developed by Carol Gilligan and Nel Noddings as an alternative to justice-focused ethics. Morality is fundamentally about caring relationships and responding to the needs of particular others. Rather than abstract principles applied impartially, care ethics emphasizes attention, empathy, and responsibility within concrete relationships. The self is constituted through connection, not autonomy.",
+        "wiki": "https://en.wikipedia.org/wiki/Ethics_of_care",
+        "primary_source": "Caring: A Feminine Approach to Ethics by Nel Noddings",
+        "profile": {
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Natural Law",
+        "description": "The tradition of Aquinas and Catholic moral theology. Morality is grounded in the eternal law of God, but is accessible to human reason through reflection on human nature. There are objective goods (life, knowledge, friendship, etc.) and exceptionless moral norms derived from them. Natural law provides a rational foundation for ethics that transcends cultural variation while remaining open to divine revelation.",
+        "wiki": "https://en.wikipedia.org/wiki/Natural_law",
+        "primary_source": "Summa Theologica by Thomas Aquinas",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "DualJustification",
+            "evaluation_focus": "ActAndAgent",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Divine Command Theory",
+        "description": "The view that moral obligations are constituted by God's commands. Something is good because God commands it, not the reverse. Associated with William of Ockham and some Reformed theologians. Morality is entirely dependent on divine will—without God, there would be no moral truths. Faith and revelation, not reason alone, are the sources of moral knowledge.",
+        "wiki": "https://en.wikipedia.org/wiki/Divine_command_theory",
+        "primary_source": "Fear and Trembling by Søren Kierkegaard",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "Discovered",
+            "knowing": "PerceptionFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "Exceptionless"
+        }
+    },
+    {
+        "name": "Confucian Ethics",
+        "description": "The ethical tradition of Confucius and Mencius, centered on cultivating virtue (de) and maintaining proper relationships (li). The five relationships (ruler-subject, parent-child, husband-wife, elder-younger, friend-friend) structure moral life. Ren (benevolence/humaneness) is the supreme virtue, cultivated through ritual practice, self-cultivation, and filial piety. The goal is to become a junzi (exemplary person) who harmonizes self, family, and society.",
+        "wiki": "https://en.wikipedia.org/wiki/Confucianism",
+        "primary_source": "The Analects of Confucius",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Buddhist Ethics",
+        "description": "The moral dimension of the Buddhist path, grounded in the Four Noble Truths and the Eightfold Path. Ethics (sila) involves right speech, right action, and right livelihood—abstaining from harm and cultivating compassion. Karma links actions to consequences across lifetimes. The ultimate aim is liberation (nirvana), but the path requires developing wisdom (prajna) and compassion (karuna) together. Skillful means (upaya) allows adaptation to context.",
+        "wiki": "https://en.wikipedia.org/wiki/Buddhist_ethics",
+        "primary_source": "The Dhammapada",
+        "profile": {
+            "moral_facts": "Mixed",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "DualJustification",
+            "evaluation_focus": "ActAndAgent",
+            "impartiality": "Impartial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Ethical Egoism",
+        "description": "The view that each person ought to pursue their own self-interest. Associated with Ayn Rand's Objectivism. Rational self-interest—not sacrifice for others—is the proper moral standard. This is not mere selfishness but a principled commitment to one's own life, values, and flourishing. Altruism is rejected as a moral ideal, though benevolence toward others may serve one's interests.",
+        "wiki": "https://en.wikipedia.org/wiki/Ethical_egoism",
+        "primary_source": "The Virtue of Selfishness by Ayn Rand",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "FrameRejected",
+            "aggregation": "Incommensurable",
+            "rules": "Exceptionless"
+        }
+    },
+    {
+        "name": "Existentialist Ethics",
+        "description": "The ethics of radical freedom associated with Sartre and Camus. Because there is no God and no fixed human nature, we are 'condemned to be free'—fully responsible for creating our own values through authentic choice. Bad faith is the denial of this freedom. We must create meaning in an absurd universe, bearing the weight of absolute responsibility for who we become.",
+        "wiki": "https://en.wikipedia.org/wiki/Existentialism#Ethics",
+        "primary_source": "Being and Nothingness by Jean-Paul Sartre",
+        "profile": {
+            "moral_facts": "AttitudeDependent",
+            "grounding": "PracticeFirst",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Moral Relativism",
+        "description": "The view that moral truths are relative to cultures or individuals. What is right in one society may be wrong in another, and there is no neutral standpoint from which to judge between them. Associated with anthropologists like Ruth Benedict and philosophers like Gilbert Harman. Cross-cultural moral criticism is problematic because morality is always embedded in particular forms of life.",
+        "wiki": "https://en.wikipedia.org/wiki/Moral_relativism",
+        "primary_source": "Patterns of Culture by Ruth Benedict",
+        "profile": {
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "Unreliable",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "RelationRoleCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Moral Nihilism",
+        "description": "The view that there are no moral facts, no moral truths, and no moral knowledge. Moral statements are either false (error theory) or not truth-apt at all (expressivism). Associated with J.L. Mackie's 'error theory' and readings of Nietzsche. If taken seriously, it implies that moral discourse is fundamentally mistaken—though nihilists may still have preferences about how to live.",
+        "wiki": "https://en.wikipedia.org/wiki/Moral_nihilism",
+        "primary_source": "Ethics: Inventing Right and Wrong by J.L. Mackie",
+        "profile": {
+            "moral_facts": "NotTruthApt",
+            "grounding": "PracticeFirst",
+            "knowing": "Unreliable",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "RelationRoleCentered",
+            "impartiality": "FrameRejected",
+            "aggregation": "Incommensurable",
+            "rules": "TraditionSkill"
+        }
+    },
+    {
+        "name": "Sentimentalism",
+        "description": "The tradition of Hume and Adam Smith, which grounds morality in human sentiments rather than reason. Moral distinctions arise from feelings of approval and disapproval, sympathy and antipathy. Reason is 'the slave of the passions'—it can inform us about facts but cannot motivate action. Morality is natural to humans because we are naturally sympathetic creatures.",
+        "wiki": "https://en.wikipedia.org/wiki/Moral_sense_theory",
+        "primary_source": "A Treatise of Human Nature by David Hume",
+        "profile": {
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Intuitionism",
+        "description": "The view that basic moral truths are self-evident and known through intuition. Associated with G.E. Moore and W.D. Ross. We directly perceive that certain things are good or that certain duties are binding—these truths cannot be derived from non-moral facts. Ross's prima facie duties (fidelity, reparation, gratitude, non-maleficence, beneficence, self-improvement, justice) are paradigmatic.",
+        "wiki": "https://en.wikipedia.org/wiki/Ethical_intuitionism",
+        "primary_source": "The Right and the Good by W.D. Ross",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "PerceptionFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Pragmatist Ethics",
+        "description": "The ethical approach of John Dewey and William James. Moral principles are tools for solving problems, not eternal truths. Ethics is experimental—we test moral ideas by their consequences in lived experience. Values emerge from the transaction between organism and environment. Growth, reconstruction, and intelligent inquiry replace fixed ends and absolute principles.",
+        "wiki": "https://en.wikipedia.org/wiki/Pragmatic_ethics",
+        "primary_source": "Human Nature and Conduct by John Dewey",
+        "profile": {
+            "moral_facts": "Mixed",
+            "grounding": "Constructed",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Layered",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
+        }
+    },
+    {
+        "name": "Ubuntu Ethics",
+        "description": "The African ethical philosophy captured in the phrase 'I am because we are.' Personhood is achieved through community—one becomes fully human through relationships with others. Ubuntu emphasizes harmony, compassion, reciprocity, and the common good. Unlike Western individualism, it sees the self as fundamentally constituted by the community, while still valuing human dignity and life.",
+        "wiki": "https://en.wikipedia.org/wiki/Ubuntu_philosophy",
+        "primary_source": "Ubuntu: I in You and You in Me by Michael Battle",
+        "profile": {
+            "moral_facts": "Mixed",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
+        }
+    },
+    {
+        "name": "Mohist Consequentialism",
+        "description": "The ethical philosophy of Mozi, an ancient Chinese thinker who opposed Confucianism. Mozi advocated 'impartial care' (jian ai)—equal concern for all people, rejecting Confucian partiality toward family. Actions should be judged by their consequences for social order, material welfare, and population. Heaven (Tian) serves as a moral standard, commanding impartial benevolence.",
+        "wiki": "https://en.wikipedia.org/wiki/Mohism",
+        "primary_source": "Mozi",
+        "profile": {
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "Exceptionless"
+        }
+    }
+]

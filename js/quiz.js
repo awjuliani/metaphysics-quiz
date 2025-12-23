@@ -344,6 +344,16 @@ function calculateResult() {
     runnerUpData = scores[1]; // Assumes at least 2 systems
     worstMatchData = scores[scores.length - 1];
 
+    // Save result to localStorage for dashboard
+    if (typeof saveQuizResult === 'function') {
+        saveQuizResult('metaphysics', {
+            system: topMatchData.system,
+            matchPercentage: topMatchData.matchPercentage,
+            answers: userAnswers,
+            breakdown: topMatchData.breakdown
+        });
+    }
+
     // Track Popularity (only if new result for this session/system)
     const systemName = topMatchData.system.name;
     const storageKey = `metaphysics_recorded_${systemName}`;
