@@ -6,9 +6,9 @@
         "expanded_question": "When you strip away all the appearances, what is the universe actually made of at its most basic level? Is it physical matter, mental energy, or something else entirely?",
         "options": [
             {
-                "label": "Matter and energy are primary. Consciousness is just a byproduct of physical processes.",
+                "label": "Matter and energy are primary. Consciousness is a byproduct of physical processes.",
                 "value": "Physicalism",
-                "expanded_label": "Everything is ultimately just physical stuff (atoms, energy, fields). Your thoughts and feelings are arising from physical processes, not a separate soul or spirit."
+                "expanded_label": "Everything is ultimately physical stuff (atoms, energy, fields, etc). Your thoughts and feelings are arising from physical processes, not a separate soul or spirit."
             },
             {
                 "label": "Mind or Consciousness is primary. The physical world is a projection or appearance within consciousness.",
@@ -31,17 +31,17 @@
         "id": "topology",
         "label": "Topology",
         "question": "Is reality singular or plural?",
-        "expanded_question": "Is the universe ultimately just one single, seamless thing, or is it made up of many separate, independent things?",
+        "expanded_question": "Is the universe ultimately one single, seamless thing, or is it made up of many separate, independent things?",
         "options": [
             {
                 "label": "Reality is strictly One. Individuality and separation are ultimate illusions.",
                 "value": "Strict Monism",
-                "expanded_label": "There is only ONE thing in existence. The idea that separate objects exist is an illusion. We are all just the same One Reality."
+                "expanded_label": "There is only ONE thing in existence. The idea that separate objects exist is an illusion. We are all the same One Reality."
             },
             {
                 "label": "Reality consists of many distinct, irreducible entities or substances.",
                 "value": "Pluralism",
-                "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not just temporary parts of a larger whole."
+                "expanded_label": "The universe is truly made of many separate parts. Distinct entities are fundamental to reality, not temporary parts of a larger whole."
             },
             {
                 "label": "Reality is a hierarchical unity where the Many flow from the One.",
@@ -64,7 +64,7 @@
             {
                 "label": "Reality IS. It is eternal, unchanging, and perfect.",
                 "value": "Eternal",
-                "expanded_label": "The true reality never changes. The movement we see is just surface-level; deep down, everything is perfect, still, and timeless."
+                "expanded_label": "The true reality never changes. The movement we see is surface-level; deep down, everything is perfect, still, and timeless."
             },
             {
                 "label": "Reality HAPPENS. It is a continuous flow of events and becoming.",
