@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - What's Your Metaphysics?</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- App Stats Logic -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/stats.js"></script>
+
+    <style>
+        .leaderboard-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .total-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .total-banner .count {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .total-banner .label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+
+        .rank-group {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rank-group:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .rank-group:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .rank-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rank-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .rank-group.top-3 .rank-number {
+            width: 48px;
+            height: 48px;
+            font-size: 1.3rem;
+        }
+
+        .rank-group.rank-1 .rank-number {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+
+        .rank-group.rank-2 .rank-number {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.4);
+        }
+
+        .rank-group.rank-3 .rank-number {
+            background: linear-gradient(135deg, #c2884f, #a16207);
+            box-shadow: 0 4px 12px rgba(161, 98, 7, 0.4);
+        }
+
+        .systems-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            flex: 1;
+            align-items: center;
+        }
+
+        .system-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.9rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .system-chip:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: white;
+            transform: translateY(-1px);
+        }
+
+        body.dark-mode .system-chip {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .system-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .rank-stats {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .match-count {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .match-percent {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        body.dark-mode .match-percent {
+            background: rgba(129, 140, 248, 0.15);
+        }
+
+        /* Progress bar background */
+        .progress-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.08), rgba(236, 72, 153, 0.05));
+            z-index: 0;
+            transition: width 0.5s ease-out;
+        }
+
+        body.dark-mode .progress-bg {
+            background: linear-gradient(90deg, rgba(129, 140, 248, 0.12), rgba(244, 114, 182, 0.08));
+        }
+
+        .rank-group.rank-1 .progress-bg {
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.05));
+        }
+
+        .rank-group.rank-2 .progress-bg {
+            background: linear-gradient(90deg, rgba(148, 163, 184, 0.15), rgba(100, 116, 139, 0.05));
+        }
+
+        .rank-group.rank-3 .progress-bg {
+            background: linear-gradient(90deg, rgba(194, 136, 79, 0.15), rgba(161, 98, 7, 0.05));
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .rank-row {
+                flex-wrap: wrap;
+            }
+
+            .rank-stats {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 0.5rem;
+                padding-left: calc(40px + 1rem);
+            }
+
+            .rank-group.top-3 .rank-stats {
+                padding-left: calc(48px + 1rem);
+            }
+        }
+    </style>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <a href="index.html" class="back-home-btn" aria-label="Back to Home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <h1>Leaderboard</h1>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="subtitle">Most popular metaphysical systems by quiz results.</p>
+        </header>
+
+        <main id="leaderboard-content">
+            <div class="leaderboard-container">
+                <div id="loading" class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Loading leaderboard...</p>
+                </div>
+
+                <div id="total-banner" class="total-banner" style="display: none;">
+                    <span id="total-count" class="count"></span>
+                    <span class="label">quiz results recorded</span>
+                </div>
+
+                <div id="rankings"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Developed by Arthur Juliani | <a href="https://github.com/awjuliani/metaphysics-quiz"
+                    target="_blank">View Source</a></p>
+        </footer>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        // Theme is handled by js/theme.js (auto-initializes on load)
+        setupThemeToggle();
+
+        async function loadLeaderboard() {
+            const loadingEl = document.getElementById('loading');
+            const totalBannerEl = document.getElementById('total-banner');
+            const totalCountEl = document.getElementById('total-count');
+            const rankingsEl = document.getElementById('rankings');
+
+            try {
+                const stats = await getSystemStats();
+
+                // Hide loading
+                loadingEl.style.display = 'none';
+
+                // Calculate total
+                const totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
+
+                if (totalCount === 0) {
+                    rankingsEl.innerHTML = `
+                        <div class="empty-state">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            </svg>
+                            <p>No quiz results yet. Be the first to take the quiz!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Show total banner
+                totalCountEl.textContent = totalCount.toLocaleString();
+                totalBannerEl.style.display = 'block';
+
+                // Sort systems by count descending
+                const sorted = Object.entries(stats)
+                    .sort((a, b) => b[1] - a[1]);
+
+                // Group by count (for ties)
+                const groups = [];
+                let currentCount = null;
+                let currentGroup = null;
+
+                for (const [name, count] of sorted) {
+                    if (count !== currentCount) {
+                        if (currentGroup) {
+                            groups.push(currentGroup);
+                        }
+                        currentCount = count;
+                        currentGroup = { count, systems: [name] };
+                    } else {
+                        currentGroup.systems.push(name);
+                    }
+                }
+                if (currentGroup) {
+                    groups.push(currentGroup);
+                }
+
+                // Find max count for relative bar widths
+                const maxCount = Math.max(...Object.values(stats));
+
+                // Render groups
+                let rank = 1;
+                rankingsEl.innerHTML = groups.map(group => {
+                    const percentage = ((group.count / totalCount) * 100).toFixed(1);
+                    const barWidth = ((group.count / maxCount) * 100).toFixed(1);
+                    const isTop3 = rank <= 3;
+                    const rankClass = isTop3 ? `top-3 rank-${rank}` : '';
+
+                    const systemsHtml = group.systems
+                        .sort((a, b) => a.localeCompare(b))
+                        .map(name => {
+                            const slug = getSystemSlug(name);
+                            return `<a href="explore.html#${slug}" class="system-chip">${name}</a>`;
+                        })
+                        .join('');
+
+                    const html = `
+                        <div class="rank-group ${rankClass}">
+                            <div class="progress-bg" style="width: ${barWidth}%"></div>
+                            <div class="rank-row">
+                                <div class="rank-number">${rank}</div>
+                                <div class="systems-list">
+                                    ${systemsHtml}
+                                </div>
+                                <div class="rank-stats">
+                                    <span class="match-count">${group.count.toLocaleString()}</span>
+                                    <span class="match-percent">${percentage}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    rank += group.systems.length;
+                    return html;
+                }).join('');
+
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                loadingEl.innerHTML = '<p>Error loading leaderboard. Please try again later.</p>';
+            }
+        }
+
+        loadLeaderboard();
+    </script>
+</body>
+
+</html>

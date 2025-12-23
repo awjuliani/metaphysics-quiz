@@ -60,11 +60,7 @@
 
         <main id="explore-content">
             <div class="navigation-top"
-                style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem;">
-                <div id="total-stats" class="total-stats" style="display: none; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 0.5rem 1rem;">
-                    <span id="total-count" style="font-weight: 600; color: var(--primary-color);"></span>
-                    <span style="color: var(--text-secondary); font-size: 0.9rem;"> quiz takers</span>
-                </div>
+                style="display: flex; justify-content: center; margin-bottom: 2rem;">
                 <div class="sort-toggle">
                     <button id="sort-alpha" class="sort-btn active" title="Sort alphabetically">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -340,12 +336,6 @@
                 allSystems = await systemsResponse.json();
                 systemStats = stats;
                 totalCount = Object.values(stats).reduce((a, b) => a + b, 0);
-
-                // Display total count
-                if (totalCount > 0) {
-                    document.getElementById('total-count').textContent = totalCount.toLocaleString();
-                    document.getElementById('total-stats').style.display = 'block';
-                }
 
                 // Build alphabet navigation
                 buildAlphaNav(allSystems);
