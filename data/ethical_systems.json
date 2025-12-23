@@ -5,14 +5,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Utilitarianism",
         "primary_source": "Utilitarianism by John Stuart Mill",
         "profile": {
-            "source": "Immanent",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Individualist",
-            "perfectionism": "Perfectionist",
-            "flexibility": "Contextualist"
+            "moral_facts": "Objective",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -21,14 +21,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Preference_utilitarianism",
         "primary_source": "Practical Ethics by Peter Singer",
         "profile": {
-            "source": "Immanent",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Constructivist",
-            "individual_collective": "Individualist",
-            "perfectionism": "Perfectionist",
-            "flexibility": "Contextualist"
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -37,14 +37,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Kantian_ethics",
         "primary_source": "Groundwork of the Metaphysics of Morals by Immanuel Kant",
         "profile": {
-            "source": "Both",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Communitarian",
-            "perfectionism": "Minimalist",
-            "flexibility": "Absolutist"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "Exceptionless"
         }
     },
     {
@@ -53,14 +53,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Social_contract",
         "primary_source": "A Theory of Justice by John Rawls",
         "profile": {
-            "source": "Immanent",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Intersubjective",
-            "individual_collective": "Communitarian",
-            "perfectionism": "Minimalist",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Mixed",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -69,14 +69,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Virtue_ethics",
         "primary_source": "Nicomachean Ethics by Aristotle",
         "profile": {
-            "source": "Both",
-            "locus": "Character",
-            "scope": "Both",
-            "epistemology": "Integrated",
-            "ontology": "Realist",
-            "individual_collective": "Relational",
-            "perfectionism": "Amoral",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "DualJustification",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -85,14 +85,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Stoic_ethics",
         "primary_source": "Meditations by Marcus Aurelius",
         "profile": {
-            "source": "Both",
-            "locus": "Character",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Relational",
-            "perfectionism": "Amoral",
-            "flexibility": "Absolutist"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "DualJustification",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Incommensurable",
+            "rules": "Exceptionless"
         }
     },
     {
@@ -101,14 +101,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Ethics_of_care",
         "primary_source": "Caring: A Feminine Approach to Ethics by Nel Noddings",
         "profile": {
-            "source": "Immanent",
-            "locus": "Character",
-            "scope": "Particular",
-            "epistemology": "Intuitionist",
-            "ontology": "Constructivist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Contextualist"
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -117,14 +117,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Natural_law",
         "primary_source": "Summa Theologica by Thomas Aquinas",
         "profile": {
-            "source": "Both",
-            "locus": "Both",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Relational",
-            "perfectionism": "Perfectionist",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "DualJustification",
+            "evaluation_focus": "ActAndAgent",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -133,14 +133,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Divine_command_theory",
         "primary_source": "Fear and Trembling by Søren Kierkegaard",
         "profile": {
-            "source": "Transcendent",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Intuitionist",
-            "ontology": "Realist",
-            "individual_collective": "Communitarian",
-            "perfectionism": "Minimalist",
-            "flexibility": "Absolutist"
+            "moral_facts": "Objective",
+            "grounding": "Discovered",
+            "knowing": "PerceptionFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "NonAggregative",
+            "rules": "Exceptionless"
         }
     },
     {
@@ -149,14 +149,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Confucianism",
         "primary_source": "The Analects of Confucius",
         "profile": {
-            "source": "Both",
-            "locus": "Character",
-            "scope": "Particular",
-            "epistemology": "Integrated",
-            "ontology": "Realist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -165,14 +165,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Buddhist_ethics",
         "primary_source": "The Dhammapada",
         "profile": {
-            "source": "Both",
-            "locus": "Both",
-            "scope": "Universal",
-            "epistemology": "Integrated",
-            "ontology": "Intersubjective",
-            "individual_collective": "Relational",
-            "perfectionism": "Developmental",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Mixed",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "DualJustification",
+            "evaluation_focus": "ActAndAgent",
+            "impartiality": "Impartial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -181,14 +181,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Ethical_egoism",
         "primary_source": "The Virtue of Selfishness by Ayn Rand",
         "profile": {
-            "source": "Immanent",
-            "locus": "Outcomes",
-            "scope": "Neither",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Individualist",
-            "perfectionism": "Amoral",
-            "flexibility": "Absolutist"
+            "moral_facts": "Objective",
+            "grounding": "Constructed",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "FrameRejected",
+            "aggregation": "Incommensurable",
+            "rules": "Exceptionless"
         }
     },
     {
@@ -197,14 +197,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Existentialism#Ethics",
         "primary_source": "Being and Nothingness by Jean-Paul Sartre",
         "profile": {
-            "source": "Neither",
-            "locus": "Character",
-            "scope": "Both",
-            "epistemology": "Intuitionist",
-            "ontology": "Constructivist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Contextualist"
+            "moral_facts": "AttitudeDependent",
+            "grounding": "PracticeFirst",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -213,14 +213,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Moral_relativism",
         "primary_source": "Patterns of Culture by Ruth Benedict",
         "profile": {
-            "source": "Immanent",
-            "locus": "Neither",
-            "scope": "Particular",
-            "epistemology": "Skeptical",
-            "ontology": "Constructivist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Contextualist"
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "Unreliable",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "RelationRoleCentered",
+            "impartiality": "Partial",
+            "aggregation": "Incommensurable",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -229,14 +229,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Moral_nihilism",
         "primary_source": "Ethics: Inventing Right and Wrong by J.L. Mackie",
         "profile": {
-            "source": "Neither",
-            "locus": "Neither",
-            "scope": "Neither",
-            "epistemology": "Skeptical",
-            "ontology": "Nihilist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Skeptical"
+            "moral_facts": "NotTruthApt",
+            "grounding": "PracticeFirst",
+            "knowing": "Unreliable",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "RelationRoleCentered",
+            "impartiality": "FrameRejected",
+            "aggregation": "Incommensurable",
+            "rules": "TraditionSkill"
         }
     },
     {
@@ -245,14 +245,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Moral_sense_theory",
         "primary_source": "A Treatise of Human Nature by David Hume",
         "profile": {
-            "source": "Immanent",
-            "locus": "Character",
-            "scope": "Particular",
-            "epistemology": "Intuitionist",
-            "ontology": "Constructivist",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Developmental",
-            "flexibility": "Prima Facie"
+            "moral_facts": "AttitudeDependent",
+            "grounding": "Constructed",
+            "knowing": "PerceptionFirst",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Partial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -261,14 +261,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Ethical_intuitionism",
         "primary_source": "The Right and the Good by W.D. Ross",
         "profile": {
-            "source": "Both",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Intuitionist",
-            "ontology": "Realist",
-            "individual_collective": "Communitarian",
-            "perfectionism": "Developmental",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "PerceptionFirst",
+            "justification": "ConstraintJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Threshold",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -277,14 +277,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Pragmatic_ethics",
         "primary_source": "Human Nature and Conduct by John Dewey",
         "profile": {
-            "source": "Immanent",
-            "locus": "Outcomes",
-            "scope": "Both",
-            "epistemology": "Integrated",
-            "ontology": "Intersubjective",
-            "individual_collective": "Individualist",
-            "perfectionism": "Perfectionist",
-            "flexibility": "Contextualist"
+            "moral_facts": "Mixed",
+            "grounding": "Constructed",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Layered",
+            "aggregation": "Aggregative",
+            "rules": "ContextSensitive"
         }
     },
     {
@@ -293,14 +293,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Ubuntu_philosophy",
         "primary_source": "Ubuntu: I in You and You in Me by Michael Battle",
         "profile": {
-            "source": "Both",
-            "locus": "Character",
-            "scope": "Both",
-            "epistemology": "Integrated",
-            "ontology": "Intersubjective",
-            "individual_collective": "Transcendent",
-            "perfectionism": "Amoral",
-            "flexibility": "Prima Facie"
+            "moral_facts": "Mixed",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReflectiveEquilibrium",
+            "justification": "NarrativeParticular",
+            "evaluation_focus": "AgentCentered",
+            "impartiality": "Layered",
+            "aggregation": "Incommensurable",
+            "rules": "PrinciplesPlusJudgment"
         }
     },
     {
@@ -309,14 +309,14 @@
         "wiki": "https://en.wikipedia.org/wiki/Mohism",
         "primary_source": "Mozi",
         "profile": {
-            "source": "Both",
-            "locus": "Outcomes",
-            "scope": "Universal",
-            "epistemology": "Rationalist",
-            "ontology": "Realist",
-            "individual_collective": "Individualist",
-            "perfectionism": "Perfectionist",
-            "flexibility": "Absolutist"
+            "moral_facts": "Objective",
+            "grounding": "ConstrainedConstruction",
+            "knowing": "ReasonFirst",
+            "justification": "OutcomeJustified",
+            "evaluation_focus": "ActRuleCentered",
+            "impartiality": "Impartial",
+            "aggregation": "Aggregative",
+            "rules": "Exceptionless"
         }
     }
 ]
