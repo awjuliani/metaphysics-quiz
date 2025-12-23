@@ -362,7 +362,14 @@
             document.getElementById('result-name').textContent = data.system.name;
             document.getElementById('result-score').textContent = `Match: ${data.matchPercentage}%`;
             document.getElementById('result-description').textContent = data.system.description;
-            document.getElementById('result-wiki').href = data.system.wiki;
+            const wikiLink = document.getElementById('result-wiki');
+            if (data.system.wiki) {
+                wikiLink.href = data.system.wiki;
+                wikiLink.classList.remove('hidden');
+            } else {
+                wikiLink.href = '#';
+                wikiLink.classList.add('hidden');
+            }
 
             // Update breakdown
             const breakdownList = document.getElementById('result-breakdown');
