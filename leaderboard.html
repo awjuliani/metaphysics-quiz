@@ -21,6 +21,7 @@
     <!-- App Stats Logic -->
     <script src="js/firebase-config.js"></script>
     <script src="js/stats.js"></script>
+    <script src="js/data-loader.js"></script>
 
     <style>
         .leaderboard-container {
@@ -333,7 +334,18 @@
             const rankingsEl = document.getElementById('rankings');
 
             try {
-                const stats = await getSystemStats();
+                // Load both stats and full systems list
+                const [stats, { systems: allSystems }] = await Promise.all([
+                    getSystemStats(),
+                    loadQuizData()
+                ]);
+
+                // Merge: ensure all systems are represented, defaulting to 0
+                for (const system of allSystems) {
+                    if (!(system.name in stats)) {
+                        stats[system.name] = 0;
+                    }
+                }
 
                 // Hide loading
                 loadingEl.style.display = 'none';
