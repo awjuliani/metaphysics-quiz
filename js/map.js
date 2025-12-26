@@ -74,11 +74,8 @@ Promise.all([
     // Create SVG
     const svg = d3.select("#map-container")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
         .attr("viewBox", [0, 0, width, height])
-        .style("max-width", "100%")
-        .style("height", "auto");
+        .attr("preserveAspectRatio", "xMidYMid meet");
 
     // Create a group for the zoomable content
     const g = svg.append("g");

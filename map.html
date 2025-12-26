@@ -41,6 +41,11 @@
             background: var(--bg-color);
             z-index: 10;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: padding 0.3s ease;
+        }
+
+        .map-header.collapsed {
+            padding: 0.5rem 2rem;
         }
 
         .map-header .header-content {
@@ -52,6 +57,46 @@
 
         .map-header .subtitle {
             margin-bottom: 0;
+            transition: all 0.3s ease;
+            max-height: 2em;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .map-header.collapsed .subtitle {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+        }
+
+        .map-header.collapsed h1 {
+            font-size: 1.2rem;
+        }
+
+        .header-collapse-btn {
+            position: absolute;
+            right: 50px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s, transform 0.3s;
+        }
+
+        .header-collapse-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .header-collapse-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .map-header.collapsed .header-collapse-btn svg {
+            transform: rotate(180deg);
         }
 
         #map-wrapper {
@@ -66,6 +111,11 @@
             width: 100%;
             height: 100%;
             background-color: transparent;
+        }
+
+        #map-container svg {
+            width: 100%;
+            height: 100%;
         }
 
 
@@ -228,6 +278,11 @@
                     </svg>
                 </a>
                 <h1>Metaphysical Systems Map</h1>
+                <button id="header-collapse" class="header-collapse-btn" aria-label="Collapse Header" title="Collapse header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                </button>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -290,6 +345,17 @@
     <script>
         // Theme is handled by js/theme.js (auto-initializes on load)
         setupThemeToggle();
+
+        // Header collapse toggle
+        const header = document.querySelector('.map-header');
+        const collapseBtn = document.getElementById('header-collapse');
+
+        collapseBtn.addEventListener('click', () => {
+            header.classList.toggle('collapsed');
+            const isCollapsed = header.classList.contains('collapsed');
+            collapseBtn.setAttribute('aria-label', isCollapsed ? 'Expand Header' : 'Collapse Header');
+            collapseBtn.setAttribute('title', isCollapsed ? 'Expand header' : 'Collapse header');
+        });
     </script>
 </body>
 
