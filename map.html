@@ -14,6 +14,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Firebase SDKs for popularity data -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/stats.js"></script>
     <style>
         body {
             overflow: hidden;
@@ -133,6 +139,80 @@
             margin: 0;
             font-size: 0.75rem;
         }
+
+        /* View toggle controls */
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 50;
+        }
+
+        .view-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: var(--font-main);
+        }
+
+        .view-toggle-btn:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .view-toggle-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-color: transparent;
+        }
+
+        .view-toggle-btn .standard-icon {
+            display: block;
+        }
+
+        .view-toggle-btn .popularity-icon {
+            display: none;
+        }
+
+        .view-toggle-btn.active .standard-icon {
+            display: none;
+        }
+
+        .view-toggle-btn.active .popularity-icon {
+            display: block;
+        }
+
+        /* Glow effect handled dynamically via inline styles in JS */
+
+        /* Popularity badge in tooltip */
+        .popularity-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .popularity-badge svg {
+            width: 14px;
+            height: 14px;
+        }
     </style>
 </head>
 
@@ -174,6 +254,21 @@
 
         <div id="map-wrapper">
             <div id="map-container"></div>
+
+            <div class="map-controls">
+                <button class="view-toggle-btn" id="view-toggle" title="Toggle Popularity View">
+                    <svg class="standard-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <svg class="popularity-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 20V10"></path>
+                        <path d="M12 20V4"></path>
+                        <path d="M6 20v-6"></path>
+                    </svg>
+                    <span class="toggle-label">Popularity</span>
+                </button>
+            </div>
 
             <div class="zoom-controls">
                 <button class="zoom-btn" id="zoom-in" title="Zoom In">+</button>

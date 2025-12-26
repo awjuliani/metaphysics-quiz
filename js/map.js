@@ -1,5 +1,72 @@
+// Map visualization with optional popularity view
+let popularityMode = false;
+let stats = {};
+let maxCount = 0;
+
+// Load stats data
+async function loadStats() {
+    try {
+        stats = await getSystemStats();
+        maxCount = Math.max(...Object.values(stats), 1);
+    } catch (error) {
+        console.warn("Could not load stats:", error);
+        stats = {};
+        maxCount = 1;
+    }
+}
+
+// Calculate radius based on popularity
+function getPopularityRadius(systemName) {
+    const count = stats[systemName] || 0;
+    const minRadius = 8;
+    const maxRadius = 28;
+
+    if (maxCount === 0) return minRadius;
+
+    // Use square root scale for better visual distribution
+    const scale = Math.sqrt(count / maxCount);
+    return minRadius + (maxRadius - minRadius) * scale;
+}
+
+// Calculate glow intensity based on popularity (0 to 1)
+function getGlowIntensity(systemName) {
+    const count = stats[systemName] || 0;
+    if (count === 0 || maxCount === 0) return 0;
+
+    // Use square root scale for smoother distribution
+    const intensity = Math.sqrt(count / maxCount);
+
+    // Only show glow for systems above a threshold (top ~60% of popularity)
+    const threshold = 0.3;
+    if (intensity < threshold) return 0;
+
+    // Normalize to 0-1 range above threshold
+    return (intensity - threshold) / (1 - threshold);
+}
+
+// Generate glow filter style based on intensity
+function getGlowStyle(systemName) {
+    const intensity = getGlowIntensity(systemName);
+    if (intensity === 0) return 'none';
+
+    // Scale blur and opacity based on intensity
+    const blur1 = 4 + intensity * 8;   // 4-12px
+    const blur2 = 8 + intensity * 16;  // 8-24px
+    const opacity1 = 0.4 + intensity * 0.4;  // 0.4-0.8
+    const opacity2 = 0.2 + intensity * 0.3;  // 0.2-0.5
+
+    // Use primary color (indigo) for glow
+    const color1 = `rgba(99, 102, 241, ${opacity1})`;
+    const color2 = `rgba(99, 102, 241, ${opacity2})`;
+
+    return `drop-shadow(0 0 ${blur1}px ${color1}) drop-shadow(0 0 ${blur2}px ${color2})`;
+}
+
 // Load the data
-d3.json("data/systems_map.json").then(data => {
+Promise.all([
+    d3.json("data/systems_map.json"),
+    loadStats()
+]).then(([data]) => {
     const container = document.getElementById('map-container');
     const width = container.clientWidth;
     const height = container.clientHeight;
@@ -18,7 +85,7 @@ d3.json("data/systems_map.json").then(data => {
 
     // Define zoom behavior
     const zoom = d3.zoom()
-        .scaleExtent([0.1, 5]) // Allow zooming out more
+        .scaleExtent([0.1, 5])
         .on("zoom", (event) => {
             g.attr("transform", event.transform);
         });
@@ -31,15 +98,14 @@ d3.json("data/systems_map.json").then(data => {
     // Scales
     const padding = 50;
     const minDim = Math.min(width, height);
-    const spreadFactor = 2.0; // Spread out points significantly
+    const spreadFactor = 2.0;
     const mapSize = minDim * spreadFactor;
 
-    // Calculate square range centered in the container
     const xRangeStart = (width - mapSize) / 2 + padding;
     const xRangeEnd = (width + mapSize) / 2 - padding;
 
-    const yRangeStart = (height + mapSize) / 2 - padding; // Bottom
-    const yRangeEnd = (height - mapSize) / 2 + padding;   // Top
+    const yRangeStart = (height + mapSize) / 2 - padding;
+    const yRangeEnd = (height - mapSize) / 2 + padding;
 
     const xScale = d3.scaleLinear()
         .domain([-120, 120])
@@ -47,7 +113,7 @@ d3.json("data/systems_map.json").then(data => {
 
     const yScale = d3.scaleLinear()
         .domain([-120, 120])
-        .range([yRangeStart, yRangeEnd]); // Flip Y axis
+        .range([yRangeStart, yRangeEnd]);
 
     // Tooltip
     const tooltip = d3.select("#tooltip");
@@ -61,41 +127,54 @@ d3.json("data/systems_map.json").then(data => {
         .attr("transform", d => `translate(${xScale(d.x)},${yScale(d.y)})`);
 
     // Circles
-    nodes.append("circle")
+    const circles = nodes.append("circle")
         .attr("r", 12)
         .attr("class", "system-node")
         .attr("fill", nodeColor)
         .attr("stroke", "#fff")
         .attr("stroke-width", 1.5)
         .on("mouseover", function (event, d) {
-            d3.select(this).attr("r", 16);
+            const baseRadius = popularityMode ? getPopularityRadius(d.name) : 12;
+            d3.select(this).attr("r", baseRadius + 4);
 
-            tooltip.style("opacity", 1)
-                .html(`
-                    <h3>${d.name}</h3>
-                    <p style="margin-top:0.5rem; font-size: 0.85rem;">${d.description}</p>
-                `);
+            // Build tooltip content
+            let tooltipHtml = `
+                <h3>${d.name}</h3>
+                <p style="margin-top:0.5rem; font-size: 0.85rem;">${d.description}</p>
+            `;
+
+            // Add popularity badge if in popularity mode and has matches
+            if (popularityMode) {
+                const count = stats[d.name] || 0;
+                tooltipHtml += `
+                    <div class="popularity-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        ${count.toLocaleString()} match${count !== 1 ? 'es' : ''}
+                    </div>
+                `;
+            }
+
+            tooltip.style("opacity", 1).html(tooltipHtml);
 
             // Get tooltip dimensions and container offset
             const tooltipNode = tooltip.node();
             const tooltipRect = tooltipNode.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
 
-            // Calculate position relative to the map container
             let left = event.clientX - containerRect.left + 15;
             let top = event.clientY - containerRect.top - 28;
 
-            // Check right edge
             if (left + tooltipRect.width > containerRect.width) {
                 left = event.clientX - containerRect.left - tooltipRect.width - 15;
             }
-
-            // Check bottom edge
             if (top + tooltipRect.height > containerRect.height) {
                 top = event.clientY - containerRect.top - tooltipRect.height - 15;
             }
-
-            // Check top edge (if it flipped up and went off screen)
             if (top < 0) {
                 top = event.clientY - containerRect.top + 15;
             }
@@ -103,8 +182,9 @@ d3.json("data/systems_map.json").then(data => {
             tooltip.style("left", left + "px")
                 .style("top", top + "px");
         })
-        .on("mouseout", function () {
-            d3.select(this).attr("r", 12);
+        .on("mouseout", function (event, d) {
+            const baseRadius = popularityMode ? getPopularityRadius(d.name) : 12;
+            d3.select(this).attr("r", baseRadius);
             tooltip.style("opacity", 0);
         })
         .on("click", function (event, d) {
@@ -115,29 +195,71 @@ d3.json("data/systems_map.json").then(data => {
     // Labels
     nodes.append("text")
         .attr("class", "system-label")
-        .attr("y", 28) // Increased base offset from 25 to 28
+        .attr("y", 28)
         .each(function (d) {
             const words = d.name.split(/\s+/);
             const text = d3.select(this);
             if (words.length === 1) {
                 text.text(words[0]);
             } else {
-                // For multi-word names, stack them
-                // Start with the first word
                 text.append("tspan")
                     .attr("x", 0)
                     .attr("dy", "0em")
                     .text(words[0]);
 
-                // Add subsequent words
                 for (let i = 1; i < words.length; i++) {
                     text.append("tspan")
                         .attr("x", 0)
-                        .attr("dy", "1.2em") // Increased line height slightly
+                        .attr("dy", "1.2em")
                         .text(words[i]);
                 }
             }
         });
+
+    // Toggle popularity view
+    function updatePopularityView() {
+        const toggleBtn = document.getElementById('view-toggle');
+        const toggleLabel = toggleBtn.querySelector('.toggle-label');
+
+        if (popularityMode) {
+            toggleBtn.classList.add('active');
+            toggleLabel.textContent = 'Standard';
+
+            // Animate circles to popularity sizes with glow
+            circles.transition()
+                .duration(500)
+                .attr("r", d => getPopularityRadius(d.name))
+                .style("filter", d => getGlowStyle(d.name));
+
+            // Adjust label positions based on new circle sizes
+            nodes.selectAll("text")
+                .transition()
+                .duration(500)
+                .attr("y", d => getPopularityRadius(d.name) + 16);
+
+        } else {
+            toggleBtn.classList.remove('active');
+            toggleLabel.textContent = 'Popularity';
+
+            // Reset circles to standard size and remove glow
+            circles.transition()
+                .duration(500)
+                .attr("r", 12)
+                .style("filter", "none");
+
+            // Reset label positions
+            nodes.selectAll("text")
+                .transition()
+                .duration(500)
+                .attr("y", 28);
+        }
+    }
+
+    // Toggle button click handler
+    document.getElementById('view-toggle').addEventListener('click', () => {
+        popularityMode = !popularityMode;
+        updatePopularityView();
+    });
 
     // Zoom controls
     document.getElementById('zoom-in').addEventListener('click', () => {
