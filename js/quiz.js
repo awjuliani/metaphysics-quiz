@@ -348,11 +348,11 @@ function calculateResult() {
     const systemName = topMatchData.system.name;
     const storageKey = `metaphysics_recorded_${systemName}`;
 
-    // Simple session storage check to prevent spamming refresh on the same result
-    if (!sessionStorage.getItem(storageKey)) {
+    // Local storage check to prevent spamming from the same browser
+    if (!localStorage.getItem(storageKey)) {
         if (typeof incrementSystemCount === 'function') {
             incrementSystemCount(systemName);
-            sessionStorage.setItem(storageKey, 'true');
+            localStorage.setItem(storageKey, 'true');
         }
     }
 
