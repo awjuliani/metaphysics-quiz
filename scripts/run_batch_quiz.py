@@ -20,9 +20,17 @@ def main():
     parser.add_argument(
         "--models", default="models.txt", help="File containing list of models"
     )
+    parser.add_argument(
+        "--model", default=None, help="Run a single model (bypasses models file)"
+    )
     parser.add_argument("--n", type=int, default=20, help="Number of runs per model")
     parser.add_argument(
         "--output", default="batch_results.json", help="Output JSON file"
+    )
+    parser.add_argument(
+        "--append",
+        action="store_true",
+        help="Append results to existing output file instead of overwriting",
     )
     parser.add_argument(
         "--sequential",
@@ -39,7 +47,10 @@ def main():
     systems = quiz_llm.load_json(os.path.join(data_dir, "systems.json"))
     api_key = quiz_llm.load_key(os.path.join(base_dir, "key.txt"))
 
-    models = load_models(os.path.join(base_dir, args.models))
+    if args.model:
+        models = [args.model]
+    else:
+        models = load_models(os.path.join(base_dir, args.models))
 
     results = []
 
@@ -154,6 +165,13 @@ def main():
 
     # Save results
     output_path = os.path.join(data_dir, args.output)
+
+    if args.append and os.path.exists(output_path):
+        with open(output_path, "r") as f:
+            existing_results = json.load(f)
+        existing_results.extend(results)
+        results = existing_results
+
     with open(output_path, "w") as f:
         json.dump(results, f, indent=2)
 
